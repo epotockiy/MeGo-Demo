@@ -112,7 +112,7 @@ header {
   }
 }
 
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: 1200px) {
   .navbar {
     max-width: 1200px;
     width: 100%;
@@ -186,14 +186,84 @@ header {
   }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+  .navbar {
+    max-width: 640px;
+    width: 100%;
+    padding-top: 13px;
+  }
+
+  .navbar-brand {
+    font-size: 25px;
+  }
+
+  .navbar-nav {
+    padding-top: 5px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+  }
+
+  .nav-link img {
+    height: 16px;
+    width: 16px;
+  }
+
+  .nav-item {
+    padding-right: 40px;
+  }
+
+  .header-title {
+    max-width: 686px;
+    width: 100%;
+  }
+
+  .header-title p {
+    font-size: 61px;
+    margin-top: 139px;
+    margin-bottom: 30px;
+  }
+
+  .header-title h2 {
+    font-size: 128px;
+  }
+
+  .header-title hr {
+    padding-top: 44px;
+  }
+
+  .btn-wrapper {
+    margin-top: 52px;
+  }
+
+  .btn {
+    font-size: 11px;
+    padding: 6px 23px;
+  }
+
+  .section-menu {
+    margin-top: 162px;
+  }
+
+  .section-menu li {
+    margin-left: 17px;
+    padding-right: 157px;
+  }
+
+  .menu-link {
+    font-size: 15px;
+  }
+
+  .menu-link span {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
 
 }
 
-@media screen and (max-width: 767px){
-
-}
-
-@media screen and (max-width: 320px){
+@media screen and (max-width: 320px) {
 
 }
