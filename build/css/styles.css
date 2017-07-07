@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
 @import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700");
 body {
   font-size: 100%;
   font-family: 'Montserrat', sans-serif; }
@@ -526,16 +526,17 @@ footer h4 {
   color: #999;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
-  padding-top: 30px;
+  padding-top: 28px;
   padding-left: 4px; }
 
 .info .followers {
   color: #333;
   font-size: 14px;
   margin: 0;
-  padding-top: 50px; }
+  padding-top: 44px;
+  padding-left: 4px; }
 
 .info .followers span {
   font-size: 18px;
@@ -547,15 +548,17 @@ footer h4 {
   margin: 0; }
 
 .separator {
-  padding-top: 18px; }
+  padding-top: 14px; }
 
 .socials {
   font-style: italic;
   color: #ababab;
-  padding-top: 18px;
+  padding-top: 14px;
   padding-bottom: 40px; }
 
 .socials span {
+  font-size: 15px;
+  font-weight: 200;
   padding-right: 15px; }
 
 .social-link {
@@ -566,12 +569,13 @@ footer h4 {
 
 .blogs {
   max-width: 336px;
-  padding-right: 80px;
+  padding-right: 82px;
   padding-top: 13px;
   width: 100%; }
 
 .blog {
-  display: inline-block; }
+  display: inline-block;
+  padding-bottom: 26px; }
 
 .blog img {
   float: left;
@@ -588,7 +592,7 @@ footer h4 {
   font-weight: 500;
   line-height: 1.5;
   margin: 0;
-  padding-bottom: 8px;
+  padding-bottom: 2px;
   padding-top: 18px;
   text-transform: uppercase; }
 
@@ -600,7 +604,19 @@ footer h4 {
 
 .instagram {
   max-width: 268px;
+  padding-top: 13px;
   width: 100%; }
+
+.instagram-link {
+  display: inline-block;
+  padding-top: 15px; }
+
+.instagram-link a {
+  color: #646464;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: 12px;
+  text-decoration: none; }
 
 .gallery-image {
   padding: 1px;
@@ -624,8 +640,9 @@ footer h4 {
   border: 1px solid #e7e7e7;
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-style: italic;
-  padding: 11px 13px; }
+  padding: 10px 12px; }
 
 .subscription input::-webkit-input-placeholder {
   color: #d2d2d2; }
@@ -639,19 +656,40 @@ footer h4 {
 .subscription input:-moz-placeholder {
   color: #d2d2d2; }
 
+.form-wrapper {
+  font-size: 0; }
+
 .subscribe-btn {
   background-color: #95e1d3;
   border: none;
   color: #fff;
-  font-size: 14px;
-  padding: 12px 35px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  padding: 13px 40px;
   text-transform: uppercase; }
 
 .subscribe-btn:hover {
   cursor: pointer; }
 
+.copyright {
+  margin-top: 40px;
+  display: inline-block;
+  border-top: 1px solid #e5e5e5;
+  padding: 7px 5px;
+  width: 100%; }
+
+.copyright p {
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center; }
+
+.copyright p span {
+  color: #f38181; }
+
 header {
-  background: url("../../images/header/eagle-background.png") center center no-repeat;
+  background: url("../images/header/eagle-background.png") center center no-repeat;
   background-size: cover; }
 
 .navbar {
