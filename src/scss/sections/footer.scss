@@ -1,0 +1,199 @@
+footer {
+	/*background-color: #f8f8f8;*/
+	padding-top: 65px;
+}
+
+footer h4 {
+	color: #333;
+	font-size: 14px;
+	font-weight: 500;
+	margin: 0;
+	padding-bottom: 36px;
+	padding-left: 1px;
+	text-transform: uppercase;
+}
+
+.info-column {
+	max-width: 465px;
+	padding-right: 49px;
+	width: 100%;
+}
+
+.info-column .separator {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.info {
+
+}
+
+.info .description {
+	color: #999;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	margin: 0;
+	padding-top: 30px;
+	padding-left: 4px;
+}
+
+.info .followers {
+	color: #333;
+	font-size: 14px;
+	margin: 0;
+	padding-top: 50px;
+}
+
+.info .followers span {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.info h3 {
+	color: #ccc;
+	font-size: 46px;
+	margin: 0;
+}
+
+.separator {
+	padding-top: 18px;
+}
+
+.socials {
+	font-style: italic;
+	color: #ababab;
+	padding-top: 18px;
+	padding-bottom: 40px;
+}
+
+.socials span {
+	padding-right: 15px;
+}
+
+.social-link {
+	text-decoration: none;
+}
+
+.social-link img {
+	padding: 0 5px;
+}
+
+.blogs {
+	max-width: 336px;
+	padding-right: 80px;
+	padding-top: 13px;
+	width: 100%;
+}
+
+.blog {
+	display: inline-block;
+}
+
+.blog img {
+	float: left;
+	width: 35.8%;
+}
+
+.blog-info {
+	float: left;
+	width: 58.2%;
+	padding-left: 20px;
+}
+
+.blog-info p {
+	color: #333;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.5;
+	margin: 0;
+	padding-bottom: 8px;
+	padding-top: 18px;
+	text-transform: uppercase;
+}
+
+.blog-info span {
+	color: #b1b1b1;
+	font-family: 'Roboto', sans-serif;
+	font-size: 13px;
+	font-style: italic;
+}
+
+.instagram {
+	max-width: 268px;
+	width: 100%;
+}
+
+.gallery {
+}
+
+.gallery-image {
+	padding: 1px;
+	float: left;
+	/*width: 32.8358%;*/
+	width: 88px;
+}
+
+.instagram .gallery-image:nth-child(3n + 1) {
+	padding-right: 0;
+}
+
+.gallery-image:nth-child(2) {
+	padding-left: 0;
+}
+
+.gallery-image:nth-child(5) {
+	padding-left: 0;
+}
+
+.gallery-image:nth-child(8) {
+	padding-left: 0;
+}
+
+.subscription input {
+	border: 1px solid #e7e7e7;
+	font-size: 15px;
+	font-family: 'Roboto', sans-serif;
+	font-style: italic;
+	padding: 11px 13px;
+}
+
+.subscription input::-webkit-input-placeholder {
+  color: #d2d2d2;
+}
+
+.subscription input::-moz-placeholder {
+  color: #d2d2d2;
+}
+
+.subscription input:-ms-input-placeholder {
+  color: #d2d2d2;
+}
+
+.subscription input:-moz-placeholder {
+  color: #d2d2d2;
+}
+
+.subscribe-btn {
+	background-color: #95e1d3;
+	border: none;
+	color: #fff;
+	font-size: 14px;
+	padding: 12px 35px;
+	text-transform: uppercase;
+}
+
+.subscribe-btn:hover {
+	cursor: pointer;
+}
+
+@media screen and (max-widht: 1200px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 320px) {
+
+}

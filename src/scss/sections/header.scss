@@ -1,16 +1,19 @@
 header {
   background: url('../../images/header/eagle-background.png') center center no-repeat;
   background-size: cover;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .navbar {
   margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  padding-top: 16px;
 }
 
 .navbar-brand {
   color: #fff;
   font-weight: 700;
+  font-size: 30px;  
   text-decoration: none;
 }
 
@@ -18,10 +21,15 @@ header {
   float: right;
   list-style-type: none;
   margin: 0;
+  padding-top: 7px;
 }
 
 .navbar-nav li {
   display: inline;
+}
+
+.nav-item {
+  padding-right: 48px;
 }
 
 .nav-item:nth-child(7) {
@@ -33,12 +41,18 @@ header {
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
+  font-size: 14px;
 }
 
 .nav-link:hover {
   color: #fce38a;
   border-bottom: 3px solid #fce38a;
   padding-bottom: 6px;
+}
+
+.nav-link img {
+  height: 19px;
+  width: 19px;
 }
 
 .active {
@@ -50,26 +64,41 @@ header {
 .header-title {
   color: #fff;
   margin: 0 auto;
+  max-width: 805px;
+  width: 100%;
+}
+
+.header-title p {
+  font-size: 72px;
+  margin-top: 164px;
+  margin-bottom: 36px;
+}
+
+.header-title h2 {
+  font-size: 150px;
 }
 
 .header-title hr {
   border-bottom: 3px solid #fff;
+  padding-top: 53px;
 }
 
-.btn-wrapper {
+.header-btn-wrapper {
   text-align: center;
+  margin-top: 61px;
 }
 
-.btn {
+.header-btn {
   border: 3px solid #fff;
   color: #fff;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
+  font-size: 14px;
+  padding: 8px 28px;
 }
 
-.btn:hover {
+.header-btn:hover {
   color: #fce38a;
   border: 3px solid #fce38a;
 }
@@ -79,26 +108,30 @@ header {
   margin: 0;
   text-align: center;
   padding-bottom: 20px;
+  margin-top: 190px;
 }
 
 .section-menu li {
   border-top: 3px solid #f8ebc5;
   display: inline;
   padding-top: 27px;
+  margin-left: 30px;
+  padding-right: 185px;
 }
 
 .menu-link {
   color: #faf3dc;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
   padding-top: 25px;
+  font-size: 18px;
 }
 
 .menu-link span {
   color: #faf3dc;
   font-weight: 700;
+  font-size: 24px;
   padding-right: 5px;
 }
 
@@ -112,83 +145,16 @@ header {
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .navbar {
-    max-width: 1200px;
-    width: 100%;
-    padding-top: 16px;
-  }
-
+/*.navbar-toggler:active {
   .navbar-brand {
-    font-size: 30px;
+    font-size: 40px;
+    color: blue; 
   }
+}*/
 
-  .navbar-nav {
-    padding-top: 7px;
-  }
-
-  .nav-link {
-    font-size: 14px;
-  }
-
-  .nav-link img {
-    height: 19px;
-    width: 19px;
-  }
-
-  .nav-item {
-    padding-right: 48px;
-  }
-
-  .header-title {
-    max-width: 805px;
-    width: 100%;
-  }
-
-  .header-title p {
-    font-size: 72px;
-    margin-top: 164px;
-    margin-bottom: 36px;
-  }
-
-  .header-title h2 {
-    font-size: 150px;
-  }
-
-  .header-title hr {
-    padding-top: 53px;
-  }
-
-  .btn-wrapper {
-    margin-top: 61px;
-  }
-
-  .btn {
-    font-size: 14px;
-    padding: 8px 28px;
-  }
-
-  .section-menu {
-    margin-top: 190px;
-  }
-
-  .section-menu li {
-    margin-left: 30px;
-    padding-right: 185px;
-  }
-
-  .menu-link {
-    font-size: 18px;
-  }
-
-  .menu-link span {
-    font-size: 24px;
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1199px) {
+@media screen and  (max-width: 1200px) {
   .navbar {
-    max-width: 640px;
+    max-width: 1024px;
     width: 100%;
     padding-top: 13px;
   }
@@ -198,11 +164,11 @@ header {
   }
 
   .navbar-nav {
-    padding-top: 5px;
+    padding-top: 6px;
   }
 
   .nav-link {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .nav-link img {
@@ -211,17 +177,17 @@ header {
   }
 
   .nav-item {
-    padding-right: 40px;
+    padding-right: 41px;
   }
 
   .header-title {
-    max-width: 686px;
+    max-width: 687px;
     width: 100%;
   }
 
   .header-title p {
     font-size: 61px;
-    margin-top: 139px;
+    margin-top: 140px;
     margin-bottom: 30px;
   }
 
@@ -230,16 +196,16 @@ header {
   }
 
   .header-title hr {
-    padding-top: 44px;
+    padding-top: 45px;
   }
 
-  .btn-wrapper {
+  .header-btn-wrapper {
     margin-top: 52px;
   }
 
-  .btn {
-    font-size: 11px;
-    padding: 6px 23px;
+  .header-btn {
+    font-size: 12px;
+    padding: 7px 24px;
   }
 
   .section-menu {
@@ -247,7 +213,7 @@ header {
   }
 
   .section-menu li {
-    margin-left: 17px;
+    margin-left: 25px;
     padding-right: 157px;
   }
 
@@ -260,8 +226,10 @@ header {
   }
 }
 
-@media screen and (max-width: 767px) {
-
+@media screen and (max-width: 1024px) {
+  .navbar-nav { 
+    display: none;
+  }
 }
 
 @media screen and (max-width: 320px) {
