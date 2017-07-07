@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700');
 
@@ -114,16 +114,13 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
-  /*.flow-row {
-	width: 100%;
-  }
-
   .flow-row-column {
   	width: 100%;
-  	margin: 0 auto;
-  }*/
+  }
 }
 
 @media screen and (max-width: 320px) {
-
+  .flow-row-column {
+  	width: 100%;
+  }
 }
