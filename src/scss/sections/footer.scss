@@ -21,7 +21,14 @@ footer h4 {
 	display: none;
 }
 
+.footer-row {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+}
+
 .info-column {
+	float: left;
 	max-width: 465px;
 	padding-right: 48px;
 	width: 100%;
@@ -35,6 +42,7 @@ footer h4 {
 	color: #999;
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
+	font-stretch: extra-condensed;
 	line-height: 1.6;
 	margin: 0;
 	padding-top: 28px;
@@ -68,13 +76,14 @@ footer h4 {
 	font-style: italic;
 	color: #ababab;
 	padding-top: 14px;
-	padding-bottom: 43px;
+	padding-bottom: 38px;
 }
 
 .socials span {
 	font-size: 14px;
 	font-weight: 300;
 	padding-right: 8px;
+	padding-left: 3px;
 }
 
 .social-link {
@@ -86,8 +95,9 @@ footer h4 {
 }
 
 .blogs {
-	max-width: 336px;
-	padding-right: 80px;
+	float: left;
+	max-width: 338px;
+	padding-right: 81px;
 	padding-top: 13px;
 	width: 100%;
 }
@@ -104,7 +114,7 @@ footer h4 {
 
 .blog-info {
 	float: left;
-	width: 196px;
+	width: 198px;
 	padding-left: 20px;
 }
 
@@ -127,6 +137,7 @@ footer h4 {
 }
 
 .instagram {
+	float: left;
 	max-width: 268px;
 	padding-top: 13px;
 	width: 100%;
@@ -177,7 +188,7 @@ footer h4 {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-style: italic;
-	padding: 10px 12px;
+	padding: 10.5px 12px;
 }
 
 .subscription input::-webkit-input-placeholder {
@@ -205,10 +216,10 @@ footer h4 {
 	border: none;
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
-	font-size: 13px;
-	line-height: 1.2;
-	padding: 12px 40px;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 1.19;
+	padding: 12px 38px;
 	text-transform: uppercase;
 }
 
@@ -227,6 +238,7 @@ footer h4 {
 	color: #333;
 	font-size: 14px;
 	font-weight: 500;
+	margin-left: 8px;
 	padding: 10px;
 	text-align: center;
 }
