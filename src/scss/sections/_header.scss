@@ -5,10 +5,8 @@ header {
 
 .header-wrapper {
   margin: 0 auto;
-  max-width: 1230px;
+  max-width: 1200px;
   padding-top: 25px;
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 .navbar-brand {
@@ -22,24 +20,43 @@ header {
   float: right;
   list-style-type: none;
   margin: 0;
-  padding: 10px 3px 0 0;
+  max-width: 620px;
+  width: 100%;
+  padding-top: 13px;
 }
 
 .nav-item {
   display: inline-block;
   vertical-align: middle;
-  padding-left: 58px;
+  float: right;
+}
+
+.nav-item:nth-child(1) {
+  padding-left: 6.01%;
+  transform: translate(3px, 0);
+}
+
+.nav-item:nth-child(2) {
+  padding-left: 8.8%;
+}
+
+.nav-item:nth-child(3) {
+  padding-left: 9.6%;
+}
+
+.nav-item:nth-child(4) {
+  padding-left: 9.6%;
+}
+
+.nav-item:nth-child(5) {
+  padding-left: 9.7%;
 }
 
 .nav-item:nth-child(6) {
-  padding-left: 52px;
+  padding-left: 9.23%;
 }
 
 .nav-item:nth-child(7) {
-  padding-left: 37px;
-}
-
-.nav-item:firts-child {
   padding-left: 0;
 }
 
@@ -65,32 +82,32 @@ header {
 .active {
   color: #fce38a;
   border-bottom: 3px solid #fce38a;
-  padding-bottom: 8px;
+  padding-bottom: 9px;
 }
 
 .header-title {
   color: #fff;
   margin: 0 auto;
-  max-width: 805px;
+  max-width: 802px;
   width: 100%;
 }
 
 .header-title p {
   font-size: 72px;
-  margin-top: 164px;
-  margin-bottom: 38px;
+  margin-top: 165px;
+  margin-bottom: 18px;
 }
 
 .header-title h2 {
   font-size: 150px;
-  line-height: 0.94;
-  font-stretch: extra-condensed;
+  line-height: 0.93;
+  padding-right: 23px;  
 }
 
 .header-title div {
   border-bottom: 3px solid #fff;
   background: transparent;
-  padding-top: 50px;
+  padding-top: 19px;
 }
 
 .header-btn-wrapper {
@@ -119,17 +136,17 @@ header {
   text-align: center;
   padding-bottom: 73px;
   padding-left: 0;
-  margin-top: 170px;
+  margin-top: 168px;
 }
 
 .section-menu li {
   border-top: 3px solid #f8ebc5;
   display: inline-block;
   float: left;
-  margin-left: 2%;
+  margin-left: 2.8%;
   padding-top: 20px;
   text-align: left;
-  width: 23.1%;
+  width: 22.9%;
 }
 
 .section-menu li:first-child {
