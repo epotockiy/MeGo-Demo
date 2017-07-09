@@ -10,19 +10,23 @@ body {
 
 .title p {
 	font-family: 'Kaushan Script', cursive;
+	font-size: 24px;
+	margin: 0;
+	padding-bottom: 19px;
 }
 
 .title h2 {
 	font-weight: 700;
+	font-size: 30px;
 	line-height: 0.95;
 	margin: 0;
 	text-transform: uppercase;
 }
 
-.title hr {
-	border-bottom: 3px solid #f38181;
-  	border-style: none;
-  	margin: 0 auto;
+.title div {
+  	background: #f38181;
+  	height: 3px;
+  	margin: 36px auto 0;
   	width: 60px;
 }
 /*

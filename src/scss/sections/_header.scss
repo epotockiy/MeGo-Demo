@@ -86,9 +86,10 @@ header {
   font-stretch: extra-condensed;
 }
 
-.header-title hr {
+.header-title div {
   border-bottom: 3px solid #fff;
-  padding-top: 53px;
+  background: transparent;
+  padding-top: 50px;
 }
 
 .header-btn-wrapper {
