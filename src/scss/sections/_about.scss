@@ -13,7 +13,7 @@
 	font-size: 15px;
 	font-stretch: condensed;
 	line-height: 1.59;
-	max-width: 954px;
+	max-width: 79.5%;
 	margin: 0 auto;
 	padding-top: 43px;
 	width: 100%;
@@ -82,13 +82,36 @@
 }
 
 @media screen and(max-width: 1200px) {
+	.pics .image-wrapper {
+		padding: 15px !important;
+	}
 
+	.image-wrapper .overlay {
+  		top: 15px;
+  		left: 15px;
+	}
 }
 
-@media screen and(max-width: 1024px) {
-	
-}
+@media screen and(max-width: 380px) {
+	.pics .image-wrapper img {
+		width: 250px; 
+		height: 164px;
+	}
 
-@media screen and(max-width: 320px) {
-	
+	.image-wrapper .overlay {
+		width: 250px; 
+		height: 164px;
+	}
+
+	.pics .overlay-text img {
+		width: 79px;
+		height: 31px;
+	}
+
+	.pics .overlay-text {
+		position: absolute;
+		opacity: 0;
+		top: 76px;
+		left: 95px;
+	}
 }
