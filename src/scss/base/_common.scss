@@ -1,0 +1,122 @@
+body {
+  	font-size: 100%;
+  	font-family: 'Montserrat', sans-serif;
+}
+
+.title {
+	color: #333;
+	text-align: center;
+}
+
+.title p {
+	font-family: 'Kaushan Script', cursive;
+}
+
+.title h2 {
+	font-weight: 700;
+	line-height: 0.95;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.title hr {
+	border-bottom: 3px solid #f38181;
+  	border-style: none;
+  	margin: 0 auto;
+  	width: 60px;
+}
+/*
+@media screen and (min-width: 1366px) {
+	.title p {
+		font-size: 1366px * $title-p-max-font-size / $background-max-width;
+	}
+
+	.title h2 {
+		font-size: 1366px * $title-h2-max-font-size / $background-max-width
+	}
+
+	.title hr {
+		width: 1366px * $title-hr-max-width / $background-max-width;
+	}
+}
+
+@media screen and(max-width: 1024px) {
+	.title p {
+		font-size: 1024px * $title-p-max-font-size / $background-max-width;
+	}
+
+	.title h2 {
+		font-size: 1024px * $title-h2-max-font-size / $background-max-width
+	}
+
+	.title hr {
+		width: 1024px * $title-hr-max-width / $background-max-width;
+	}
+}
+
+@media screen and(max-width: 767px) {
+	.title p {
+		font-size: 768px * $title-p-max-font-size / $background-max-width;
+	}
+
+	.title h2 {
+		font-size: 768px * $title-h2-max-font-size / $background-max-width
+	}
+
+	.title hr {
+		width: 768px * $title-hr-max-width / $background-max-width;
+	}
+}
+
+@media screen and(max-width: 320px) {
+	.title p {
+		font-size: 320px * $title-p-max-font-size / $background-max-width;
+	}
+
+	.title h2 {
+		font-size: 320px * $title-h2-max-font-size / $background-max-width
+	}
+
+	.title hr {
+		width: 320px * $title-hr-max-width / $background-max-width;
+	}
+}
+*/
+
+.float-row {
+	margin: 0 auto;
+}
+
+.float-row {
+	max-width: 1200px;
+	width: 100%;
+}
+
+.float-row-column {
+	float: left;
+	width: 33.33%;
+}
+
+@media screen and  (max-width: 1200px) {
+  .float-row {
+  	max-width: 1024px;
+  	width: 100%;
+  }
+
+  .float-row-column {
+  	float: left;
+  	width: 33.33%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .flow-row-column {
+  	width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .flow-row-column {
+  	width: 100%;
+  }
+}
