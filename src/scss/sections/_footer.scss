@@ -305,13 +305,17 @@ footer h4 {
 	}
 }
 
-@media screen and (max-width: 1024px) {
-	.desktop {
+@media screen and (max-width: 1036px) {
+	/*.desktop {
 		display: none;
 	}
 
 	.mobile {
 		display: block;
+	}*/
+
+	footer {
+		float: right;
 	}
 
 	footer h4 {
@@ -334,41 +338,32 @@ footer h4 {
 	}
 
 	.instagram {
-		max-width: 40%;
-		padding: 30px 30%;
+		max-width: 50%;
+		padding: 30px 25%;
 	}
 
 	.gallery-image {
-		padding-top: 10px;
-		width: 160px;
-	}
-
-	.gallery-image:nth-child(2n) {
-		float: left;
-		padding-left: 20px;
-	}
-
-	.gallery-image:nth-child(2n + 1) {
-		float: right;
-		padding-right: 20px !important;
+		padding: 10px 5% 0 5% !important;
+		width: 35%;
 	}
 
 	.instagram-link {
-		padding: 80px 0 0 35px;
+		/*padding: 60px 0 0 15px;*/
+		padding: 20% 0 0 10%;
 	}
 
 	.instagram-link a {
-		font-size: 18px;
+		font-size: 14px;
 		border-bottom: 1px solid #4c4c4c;
 	}
 }
 
 @media screen and (max-width: 320px) {
-	.desktop {
+	/*.desktop {
 		display: none;
 	}
 
 	.mobile {
 		display: block;
-	}	
+	}*/	
 }

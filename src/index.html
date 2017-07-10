@@ -13,68 +13,38 @@
         <nav>
           <a href="#" class="navbar-brand">MoGo</a>
 
-          <a href="javascript:void(0)" class="navbar-toggler" onclick="openNav()">
+          <a href="javascript:void(0)" class="navbar-toggler" onclick="onNavClick()">
             <img src="images/header/bars-icon.png" alt="menu">
           </a>
 
           <ul class="navbar-nav" id="navbar-nav">
+            <a href="javascript:void(0)" class="close-btn" onclick="onNavClick()">&times;</a>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="#">
                 <img src="images/header/search-icon.png" alt="Search">
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="#">
                 <img src="images/header/chart-icon.png" alt="Chart">
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">contact</a>
+              <a href="#">contact</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">blog</a>
+              <a href="#">blog</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">work</a>
+              <a href="#">work</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">service</a>
+              <a href="#">service</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link active">about</a>
+              <a href="#" class="active">about</a>
             </li>
           </ul>
-
-          <div class="side-nav" id="side-nav">
-            <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
-            <ul class="side-nav-menu">
-              <li class="side-nav-item">
-                <a href="#" class="side-nav-link nav-link active">about</a>
-              </li>
-              <li class="side-nav-item">
-                <a href="#" class="side-nav-link nav-link">service</a>
-              </li>
-              <li class="side-nav-item">
-                <a href="#" class="side-nav-link nav-link">work</a>
-              </li>
-              <li class="side-nav-item">
-                <a href="#" class="side-nav-link nav-link">blog</a>
-              </li>
-              <li class="side-nav-item">
-                <a href="#" class="side-nav-link nav-link">contact</a>
-              </li>
-              <li class="side-nav-item">
-                <a href="#" class="side-nav-link nav-link">
-                  <img src="images/header/chart-icon.png" alt="Chart">
-                </a>
-              </li>
-              <li class="side-nav-item">
-                <a href="#" class="side-nav-link nav-link">
-                  <img src="images/header/search-icon.png" alt="Search">
-                </a>
-              </li>
-            </ul>
-          </div>
         </nav>
 
         <div class="title header-title">
@@ -325,15 +295,17 @@
       </div>
     </footer>
     
-    <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script> -->
+    <!-- <script src="libs/jquery.min.js"></script> -->
 
     <script>
-      function openNav() {
-          document.getElementById("side-nav").style.width = "250px";
-      }
+      let navbarNav = document.getElementById("navbar-nav");
 
-      function closeNav() {
-          document.getElementById("side-nav").style.width = "0";
+      function onNavClick() {
+          if (navbarNav.className === "navbar-nav") {
+              navbarNav.className += " responsive";
+          } else {
+              navbarNav.className = "navbar-nav";
+          }
       }
     </script>
 
