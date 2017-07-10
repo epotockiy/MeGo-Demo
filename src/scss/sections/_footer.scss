@@ -76,22 +76,75 @@ footer h4 {
 	font-style: italic;
 	color: #ababab;
 	padding-top: 14px;
-	padding-bottom: 38px;
+	padding-bottom: 37px;
 }
 
 .socials span {
 	font-size: 14px;
 	font-weight: 300;
 	padding-right: 8px;
-	padding-left: 3px;
+	padding-left: 2px;
 }
 
-.social-link {
+.socials a {
 	text-decoration: none;
+	display: inline-block;
 }
 
-.social-link img {
-	padding: 0 5px;
+.socials .facebook-icon {
+	background: url('../../images/footer/socials/socials-sprite.png') 0 0;
+	height: 16px;
+	margin-left: 9px;
+	width: 16px;
+}
+
+.socials .twitter-icon {
+	background: url('../../images/footer/socials/socials-sprite.png') 193px 0;
+	height: 16px;
+	width: 16px;
+	margin-left: 5px;
+}
+
+.socials .instagram-icon {
+	background: url('../../images/footer/socials/socials-sprite.png') 163px 0;
+	height: 16px;
+	width: 16px;
+	margin-left: 10px;
+}
+
+.socials .pinterest-icon {
+	background: url('../../images/footer/socials/socials-sprite.png') 134px 0;
+	height: 16px;
+	margin-left: 8px;
+	width: 16px;
+}
+
+.socials .google-icon {
+	background: url('../../images/footer/socials/socials-sprite.png') 103px 0;
+	height: 16px;
+	margin-left: 10px;
+	width: 16px;
+}
+
+.socials .youtube-icon {
+	background: url('../../images/footer/socials/socials-sprite.png') 73px 0;
+	height: 16px;
+	margin-left: 10px;
+	width: 16px;
+}
+
+.socials .dribble-icon {
+	background: url('../../images/footer/socials/socials-sprite.png') 43px 0;
+	height: 16px;
+	margin-left: 11px;
+	width: 16px;
+}
+
+.socials .tumblr-icon {
+	background: url('../../images/footer/socials/socials-sprite.png') 16px 0;
+	height: 16px;
+	margin-left: 6px;
+	width: 16px;
 }
 
 .blogs {
@@ -188,7 +241,7 @@ footer h4 {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-style: italic;
-	padding: 10.5px 12px;
+	padding: 10.5px 12px 10.5px 11px;
 }
 
 .subscription input::-webkit-input-placeholder {
@@ -228,7 +281,7 @@ footer h4 {
 }
 
 .copyright {
-	margin-top: 40px;
+	margin-top: 41px;
 	display: inline-block;
 	border-top: 1px solid #e5e5e5;
 	width: 100%;
@@ -248,13 +301,13 @@ footer h4 {
 }
 
 @media screen and (max-width: 1200px) {
-	.desktop {
+	/*.desktop {
 		display: block;
 	}
 
 	.mobile {
 		display: none;
-	}
+	}*/
 
 	.info-column {
 		max-width: 396px;
@@ -314,7 +367,7 @@ footer h4 {
 		display: block;
 	}*/
 
-	footer {
+	.footer-row {
 		float: right;
 	}
 
@@ -348,7 +401,6 @@ footer h4 {
 	}
 
 	.instagram-link {
-		/*padding: 60px 0 0 15px;*/
 		padding: 20% 0 0 10%;
 	}
 
