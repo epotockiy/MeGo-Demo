@@ -46,7 +46,18 @@ a{
 	text-decoration: none;
 }
 
-.navigation-container::after, .navigation-icons::after {
+input, textarea{
+	outline: none;
+	border: 0;
+}
+
+button{
+	background: none;
+	cursor: pointer;
+	outline: none;
+}
+
+.navigation-container::after, .navigation-icons::after , .blog-list li::after{
     content: "";
     display: table;
     clear: both;

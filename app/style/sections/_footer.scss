@@ -1,0 +1,286 @@
+footer {
+	background: #f8f8f8;
+}
+
+.footer-top {
+
+	.content{
+		padding: 65px 0;
+		font-size: 0;
+	}
+}
+
+/******************************* SOCIAL COLUMN *******************/
+.social-column {
+	width: 42.5%;
+	padding-right: 45px;
+
+	h3 {
+		margin-bottom: 35px;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 2.875em;
+		font-weight: 700;
+		color: #ccc;	
+	}
+
+	.description {
+		margin-bottom: 40px;
+		font-size: .938em;
+		color: #999;
+		line-height: 1.600em;
+	}
+
+	.followers {
+		margin-bottom: 17px;
+		font-family: 'Montserrat', sans-serif;
+		font-size: .875em;
+		font-weight: 400;
+		color: #333;
+
+		span {
+			font-size: 1.125em;
+			font-weight: 700;
+		}
+
+		&::after {
+			margin-top: 17px;
+			content: '';
+			display: block;
+			height: 2px;
+			background: #e5e5e5;
+		}
+	}
+
+	.social {
+		margin-bottom: 37px;
+		font-size: 0;
+
+		span {
+			display: inline-block;
+			margin-right: 19px; 
+			font-size: 15px;
+			font-weight: 300;
+			font-style: italic;
+			color: #999;
+		}
+
+		.social-list {
+			display: inline-block;
+
+			li {
+				display: inline-block;
+				margin-right: 15px;
+				vertical-align: middle;
+			}
+
+			a {
+				display: inline-block;
+			}
+			
+			.facebook {
+				@include sprite($facebook);
+			}
+
+			.twitter {
+				@include sprite($twitter);
+			}
+
+			.instagram {
+				@include sprite($instagram);
+			}
+			
+			.pinterest {
+				@include sprite($pinterest);
+			}
+			
+			.google-plus {
+				@include sprite($google-plus);
+			}
+			
+			.youtube {
+				@include sprite($youtube);
+			}
+			
+			.dribble {
+				@include sprite($dribble);
+			}
+
+			.tumbl {
+				@include sprite($tumbl);
+			}
+
+		}
+
+		span, .social-list {
+			vertical-align: middle;
+		}
+	}
+
+	.subscription {
+
+		input[type="email"] {
+			margin-right: -4px;
+			padding: 12px 0 12px 12px;
+			font-size: 0.938em;
+			font-weight: 300;
+			font-style: italic;
+			color: #333;
+			background: #fff;
+			border-top: 1px solid #e7e7e7;
+			border-bottom: 1px solid #e7e7e7;
+			border-left: 1px solid #e7e7e7;
+			line-height: 1;
+		}
+
+		@include placeholder(#ccc);
+
+		input[type="submit"] {
+			padding: 15px 33px;
+			font-family: 'Montserrat', sans-serif;
+			font-size: .875em;
+			font-weight: 700;
+			background: $primary-color;
+			color: #fff;
+			text-transform: uppercase;
+			line-height: 1;
+			cursor: pointer;
+		}
+	}
+}
+/******************************* SOCIAL COLUMN END ***************/
+
+/******************************* BLOG COLUMN *******************/
+.blog-column {
+	width: 35%;
+	padding-top: 11px;
+	padding-right: 75px;
+
+	h3 {
+		margin-bottom: 36px;
+		font-family: 'Montserrat', sans-serif;
+		font-size: .875em;
+		font-weight: 400;
+		color: #333;
+		text-transform: uppercase;
+	}
+
+	.blog-list {
+
+		li {
+			display: inline-block;
+			margin-bottom: 30px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		li>a {
+			float: left;
+			width: 120px;
+			margin-right: 20px;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+		.blog-info {
+			float: left;
+			width: 200px;
+			padding-top: 18px;
+
+			a {
+				display: block;
+				margin-bottom: 2px;
+				font-size: .750em;
+				font-weight: 400;
+				color: #333;
+				line-height: 1.5em;
+				text-transform: uppercase;
+			}
+
+			span {
+				font-size: .813em;
+				font-weight: 300;
+				font-style: italic;
+				color: #999;
+			}
+		}
+	}
+}
+
+/******************************* BLOG COLUMN END ***************/
+
+/******************************* INSTAGRAM COLUMN *******************/
+.instagram-column {
+	width: 22.5%;
+	padding-top: 11px;
+
+	h3 {
+		margin-bottom: 36px;
+		font-family: 'Montserrat', sans-serif;
+		font-size: .875em;
+		font-weight: 400;
+		color: #333;
+		text-transform: uppercase;
+	}
+
+	.instagram-gallery{
+		font-size: 0;
+		text-align: center;
+	}
+
+	.instagram-gallery li {
+		display: inline-block;
+		width: 33.3%;
+		font-size: 16px;
+		padding: 0 1px 1px 1px;
+		vertical-align: middle;
+	}
+
+	.instagram-gallery a {
+		display: inline-block;
+		width: 100%;
+	}
+
+	.instagram-gallery img{
+		display: block;
+		width: 100%;
+	}
+
+	.instagram-viewmore {
+		display: inline-block;
+		margin-top: 16px;
+		font-size: .813em;
+		font-weight: 300;
+		font-style: italic;
+		color: #333;
+	}
+}
+/******************************* INSTAGRAM COLUMN END ***************/
+
+.social-column, .blog-column, .instagram-column {
+	display: inline-block;
+	font-size: 16px;
+	vertical-align: top;
+}
+/******************************* COPYTIGHT *******************/
+.footer-copyright {
+	padding: 25px 0;
+	border-top: 1px solid #e5e5e5;
+}
+
+.copyright {
+	font-family: 'Montserrat', sans-serif;
+	font-size: .875em;
+	font-weight: 400;
+	color: #333;
+	text-align: center;
+
+	span {
+		color: #f38181;
+	}
+}
+/******************************* COPYTIGHT END ***************/

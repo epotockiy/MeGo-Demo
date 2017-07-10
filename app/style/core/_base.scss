@@ -3,7 +3,7 @@ html {
 }
 
 body {
-	font-family: "Roboto", sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 *{
@@ -13,11 +13,10 @@ body {
 }
 
 .content {
-	max-width: 1200px;;
-	padding: 0 30px;
+	max-width: 1200px;
 }
 
-$primary-content-color: #95e1d3;
+$primary-color: #95e1d3;
 $black: #333;
 $gray: #999;
 $logo-size: 30px;
@@ -33,12 +32,55 @@ $nav-size: 14px;
 
 .styled-font{
 	font-family: 'KaushanScript', sans-serif;
-	text-align: center;
 }
 
 .normal-font{
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 700;
-	text-align: center;
 	text-transform: uppercase;
 }
+
+@mixin placeholder($color) {
+	input[type="email"]::-webkit-input-placeholder { color: $color; }
+	input[type="email"]:-ms-input-placeholder { color: $color; }
+	input[type="email"]::-ms-input-placeholder { color: $color; }
+	input[type="email"]::placeholder { color: $color; }
+}
+
+.section-title {
+	text-align: center;
+
+	p {
+		@extend .styled-font;
+		font-size: 24px;
+		color: #333;
+		margin-bottom: 19px;
+	}
+
+	h2 {
+		@extend .normal-font;
+		font-size: 30px;
+		color: #333;
+	}
+
+	&::after {
+		content: '';
+		display: inline-block;
+		margin-top: 40px;
+		width: 60px;
+		height: 3px;
+		background: #f38181;
+		}
+}
+
+.section-description {
+	max-width: 80%;
+	margin-top: 43px;
+	font-size: 15px;
+	font-weight: 400;
+	color: #999;
+	line-height: 24px;
+	text-align: center;
+}
+
+ 

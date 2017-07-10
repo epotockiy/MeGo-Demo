@@ -1,0 +1,21 @@
+.about {
+	background: #fff;
+	padding: 90px 0 110px;
+    text-align: center;
+}
+
+.about-gallery {
+	margin-top: 100px;
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+		margin: 0;
+    	position: relative;
+    }
+
+    a {
+    	display: block;
+    }
+}

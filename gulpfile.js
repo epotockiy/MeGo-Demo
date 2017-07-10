@@ -11,6 +11,7 @@ var imagemin = require('gulp-imagemin');
 var rimraf = require('rimraf');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var spritesmith = require('gulp.spritesmith');
 // var cssnano = require('gulp-cssnano');
 // var postcss = require('gulp-postcss');
 // var autoprefixer = require('autoprefixer');
@@ -21,13 +22,16 @@ var path = {
     js: 'dist/js/',
     css: 'dist/css/',
     img: 'dist/img/',
+    sprite: 'dist/img/sprite/',
     fonts: 'dist/fonts/'
   },
   app: {
     html: 'app/*.html',
     js: 'app/js/main.js',
     style: 'app/style/common.scss',
-    img: 'app/img/**/*.*',
+    img: 'app/img/*.*',
+    sprite: 'app/img/icons/*.*',
+    spriteStyle: 'app/style/core/',
     fonts: 'app/fonts/**/*.*'
   },
   watch: {
@@ -35,6 +39,7 @@ var path = {
     js: 'app/js/**/*.js',
     style: 'app/style/**/*.scss',
     img: 'app/img/**/*.*',
+    sprite: 'app/img/icons/*.*',
     fonts: 'app/fonts/**/*.*'
   },
   clean: './dist'
@@ -96,6 +101,22 @@ gulp.task('style:dist', function() {
     }));
 });
 
+gulp.task('sprite:dist', function () {
+  var spriteData = gulp.src(path.app.sprite).pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: '_sprite.scss',
+    cssFormat: 'scss',
+    algorithm: 'binary-tree',
+    imgPath: '../img/sprite/sprite.png',
+    padding: 2    
+  }));
+  spriteData.img.pipe(gulp.dest(path.dist.sprite)); // путь, куда сохраняем картинку
+  spriteData.css.pipe(gulp.dest(path.app.spriteStyle));
+  spriteData.pipe(reload({
+      stream: true
+    }));
+});
+
 gulp.task('img:dist', function() {
   gulp.src(path.app.img)
     .pipe(imagemin())
@@ -115,6 +136,7 @@ gulp.task('dist', [
   'js:dist',
   'style:dist',
   'fonts:dist',
+  'sprite:dist',
   'img:dist'
 ]);
 
@@ -127,6 +149,9 @@ gulp.task('watch', function() {
   });
   watch([path.watch.js], function(event, cb) {
     gulp.start('js:dist');
+  });
+  watch([path.watch.sprite], function(event, cb) {
+    gulp.start('sprite:dist');
   });
   watch([path.watch.img], function(event, cb) {
     gulp.start('img:dist');

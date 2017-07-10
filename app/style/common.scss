@@ -1,8 +1,11 @@
 // Core
-// @import 'core/core';
 @import 'core/reset';
 @import 'core/fonts';
 @import 'core/base';
+@import 'core/sprite';
+
 
 // Sections
 @import 'sections/header';
+@import 'sections/footer';
+@import 'sections/about';
