@@ -29,63 +29,6 @@ body {
   	margin: 36px auto 0;
   	width: 60px;
 }
-/*
-@media screen and (min-width: 1366px) {
-	.title p {
-		font-size: 1366px * $title-p-max-font-size / $background-max-width;
-	}
-
-	.title h2 {
-		font-size: 1366px * $title-h2-max-font-size / $background-max-width
-	}
-
-	.title hr {
-		width: 1366px * $title-hr-max-width / $background-max-width;
-	}
-}
-
-@media screen and(max-width: 1024px) {
-	.title p {
-		font-size: 1024px * $title-p-max-font-size / $background-max-width;
-	}
-
-	.title h2 {
-		font-size: 1024px * $title-h2-max-font-size / $background-max-width
-	}
-
-	.title hr {
-		width: 1024px * $title-hr-max-width / $background-max-width;
-	}
-}
-
-@media screen and(max-width: 767px) {
-	.title p {
-		font-size: 768px * $title-p-max-font-size / $background-max-width;
-	}
-
-	.title h2 {
-		font-size: 768px * $title-h2-max-font-size / $background-max-width
-	}
-
-	.title hr {
-		width: 768px * $title-hr-max-width / $background-max-width;
-	}
-}
-
-@media screen and(max-width: 320px) {
-	.title p {
-		font-size: 320px * $title-p-max-font-size / $background-max-width;
-	}
-
-	.title h2 {
-		font-size: 320px * $title-h2-max-font-size / $background-max-width
-	}
-
-	.title hr {
-		width: 320px * $title-hr-max-width / $background-max-width;
-	}
-}
-*/
 
 .float-row {
 	margin: 0 auto;
@@ -99,6 +42,18 @@ body {
 .float-row-column {
 	float: left;
 	width: 33.33%;
+}
+
+.table {
+	display: table;
+}
+
+.table-row {
+	display: table-row;
+}
+
+.table-cell {
+	display: table-cell;
 }
 
 @media screen and  (max-width: 1200px) {
