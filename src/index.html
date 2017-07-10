@@ -13,12 +13,12 @@
         <nav>
           <a href="#" class="navbar-brand">MoGo</a>
 
-          <a href="javascript:void(0)" class="navbar-toggler" onclick="onNavClick()">
+          <a href="javascript:void(0)" class="navbar-toggler" id="navbar-open">
             <img src="images/header/bars-icon.png" alt="menu">
           </a>
 
           <ul class="navbar-nav" id="navbar-nav">
-            <a href="javascript:void(0)" class="close-btn" onclick="onNavClick()">&times;</a>
+            <a href="javascript:void(0)" class="close-btn" id="navbar-close">&times;</a>
             <li class="nav-item">
               <a href="#">
                 <img src="images/header/search-icon.png" alt="Search">
@@ -143,6 +143,65 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="services">
+      <div class="title">
+        <p>We work with</p>
+        <h2>amazing services</h2>
+        <div></div>
+      </div>
+
+      <div class="services-row-wrapper">
+        <div class="services-row">
+          <div class="services-cell">
+            <img src="images/services/alarm.png" alt="alarm">
+            <div class="service-info">
+              <p>photography</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </div>
+          </div>
+          <div class="services-cell">
+            <img src="images/services/graph.png" alt="web">
+            <div class="service-info">
+              <p>web design</p>
+              <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </div>
+          </div>
+          <div class="services-cell">
+            <img src="images/services/computer.png" alt="creativity">
+            <div class="service-info">
+              <p>creativity</p>
+              <p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="services-row">
+          <div class="services-cell">
+            <img src="images/services/book.png" alt="seo">
+            <div class="service-info">
+              <p>seo</p>
+              <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+            </div>
+          </div>
+          <div class="services-cell">
+            <img src="images/services/home.png" alt="html">
+            <div class="service-info">
+              <p>css/html</p>
+              <p>Lorem dolor sit amet, consectetur adipiscing elit, sed do tempor.</p>
+            </div>
+          </div>
+          <div class="services-cell">
+            <img src="images/services/frame.png" alt="digital">
+            <div class="service-info">
+              <p>digital</p>
+              <p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <footer>
@@ -291,14 +350,19 @@
 
     <script>
       let navbarNav = document.getElementById("navbar-nav");
+      let navbarOpen = document.getElementById("navbar-open");
+      let navbarClose = document.getElementById("navbar-close");
+      navbarOpen.onclick = onNavbarTogglerClick;
+      navbarClose.onclick = onNavbarTogglerClick;
 
-      function onNavClick() {
-          if (navbarNav.className === "navbar-nav") {
+
+      function onNavbarTogglerClick() {
+        if (navbarNav.className === "navbar-nav") {
               navbarNav.className += " responsive";
           } else {
               navbarNav.className = "navbar-nav";
           }
-      }
+      };
     </script>
 
   </body>

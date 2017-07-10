@@ -26,20 +26,17 @@ body {
 .title div {
   	background: #f38181;
   	height: 3px;
-  	margin: 36px auto 0;
+  	margin: 38px auto 0;
   	width: 60px;
-}
-
-.float-row {
-	margin: 0 auto;
 }
 
 .float-row {
 	max-width: 1200px;
 	width: 100%;
+	margin: 0 auto;
 }
 
-.float-row-column {
+.float-cell {
 	float: left;
 	width: 33.33%;
 }

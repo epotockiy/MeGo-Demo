@@ -195,6 +195,13 @@ header {
   width: 50px;
 }
 
+@media screen and(max-width: 1200px) {
+  .header-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .nav-item {
     display: none;
