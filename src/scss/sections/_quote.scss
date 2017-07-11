@@ -10,13 +10,16 @@
 	height: 150px;
 }
 
+.slider {
+	display: inline-block;
+	margin: 0 7%;
+}
+
 .slide {
 	display: inline-block;
-	/*margin: 0 28px 0 69px;*/
-	max-width: 85%;
-	width: 100%;
+	/*max-width: 85%;
+	width: 100%;*/
 	float: left;
-	/*padding-bottom: 63px;*/
 	background: #f8f8f8;
 }
 
@@ -40,6 +43,14 @@
 	font-weight: 300; 
 	margin: 0;
 	padding-top: 1px;
+}
+
+.slider .slick-prev:before {
+	content: url("../../images/quote/arrow-left.png");
+}
+
+.slider .slick-next:before {
+	content: url("../../images/quote/arrow-right.png");
 }
 
 .prev-slide-btn-wrapper {
