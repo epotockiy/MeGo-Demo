@@ -12,7 +12,7 @@
 
 .slide {
 	display: inline-block;
-	margin: 0 28px 0 69px;
+	/*margin: 0 28px 0 69px;*/
 	max-width: 85%;
 	width: 100%;
 	float: left;
@@ -45,12 +45,14 @@
 .prev-slide-btn-wrapper {
 	display: inline-block;
 	float: left;
+	width: 7.5%;
 	padding-top: 5.5%;
 }
 
 .next-slide-btn-wrapper {
 	display: inline-block;
 	float: right;
+	width: 7.5%;
 	padding-top: 5.5%;
 }
 
@@ -58,7 +60,8 @@
 	/*position: absolute;*/
 	/*right: 38px;*/
 	/*top: 59.5%;*/
-	/*float: right;*/
+	float: right;
+	padding-right: 40px;
 	/*padding-top: 5%;*/
 }
 

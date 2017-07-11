@@ -97,7 +97,7 @@ header {
   width: 100%;
 }
 
-.header-title p {
+.header-title h3 {
   font-size: 72px;
   margin-top: 165px;
   margin-bottom: 18px;
@@ -105,19 +105,18 @@ header {
 
 .header-title h2 {
   font-size: 150px;
-  line-height: 0.93;
-  padding-right: 23px;  
+  line-height: 0.93;  
 }
 
-.header-title div {
+.header-title:after {
   border-bottom: 3px solid #fff;
   background: transparent;
-  padding-top: 19px;
+  padding-top: 54px;
 }
 
 .header-btn-wrapper {
   text-align: center;
-  margin-top: 61px;
+  margin-top: 24px;
 }
 
 .header-btn {
@@ -178,8 +177,8 @@ header {
   padding-right: 5px;
 }
 
-.active-menu {
-  border-top: 3px solid #fff !important;
+.section-menu .active-menu {
+  border-top: 3px solid #fff;
 
   .menu-link {
     border-top: 3px solid #f38181;
@@ -242,7 +241,7 @@ header {
   }
 
   .nav-item a {
-    font-size: 18px !important;
+    font-size: 18px;
   }
 
   .navbar-toggler {
@@ -307,9 +306,9 @@ header {
     padding-bottom: 270px;
   }
 
-  .section-menu li {
+  .header-wrapper .section-menu li {
     width: 80%;
-    margin: 10px 10% !important;
+    margin: 10px 10%;
   }
 
   .menu-link {

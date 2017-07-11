@@ -15,7 +15,7 @@
 	line-height: 1.59;
 	max-width: 79.5%;
 	margin: 0 auto;
-	padding-top: 43px;
+	padding-top: 6px;
 	width: 100%;
 }
 
@@ -82,8 +82,8 @@
 }
 
 @media screen and(max-width: 1200px) {
-	.pics .image-wrapper {
-		padding: 15px !important;
+	.about .pics .image-wrapper {
+		padding: 15px;
 	}
 
 	.image-wrapper .overlay {

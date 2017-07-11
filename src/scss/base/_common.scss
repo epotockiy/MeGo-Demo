@@ -6,13 +6,15 @@ body {
 .title {
 	color: #333;
 	text-align: center;
+	padding-bottom: 38px;
 }
 
-.title p {
+.title h3 {
 	font-family: 'Kaushan Script', cursive;
 	font-size: 24px;
+	font-weight: normal;
 	margin: 0;
-	padding-bottom: 19px;
+	padding-bottom: 20px;
 }
 
 .title h2 {
@@ -23,11 +25,14 @@ body {
 	text-transform: uppercase;
 }
 
-.title div {
-  	background: #f38181;
-  	height: 3px;
-  	margin: 38px auto 0;
-  	width: 60px;
+.title:after {
+	margin: 0 auto;
+	padding-top: 33px;
+    height: 3px;
+    display: block;
+    width: 60px;
+    border-bottom: 3px solid #f38181;
+    content: '';
 }
 
 .float-row {
