@@ -1,11 +1,13 @@
 // Core
 @import 'core/reset';
 @import 'core/fonts';
-@import 'core/base';
 @import 'core/sprite';
+@import 'core/base';
 
 
 // Sections
 @import 'sections/header';
 @import 'sections/footer';
 @import 'sections/about';
+@import 'sections/counter';
+@import 'sections/services';

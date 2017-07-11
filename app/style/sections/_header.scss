@@ -143,6 +143,12 @@
 		padding: 12px 30px;
 		color: #fff;
 		border: 3px solid #fff;
+
+		&:hover {
+			color: #f38181;
+			background: #fff;
+			transition: all 0.2s ease;
+		}
 	}
 }
 

@@ -4,18 +4,16 @@
     text-align: center;
 }
 
-.about-gallery {
+
+
+.about-gallery{
 	margin-top: 100px;
 	display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 
-    li {
-		margin: 0;
-    	position: relative;
-    }
-
-    a {
-    	display: block;
-    }
+	img {
+		width: 380px;
+    	height: 250px;
+	}
 }
