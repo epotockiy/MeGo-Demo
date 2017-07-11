@@ -120,27 +120,25 @@
 
     <section class="facts-wrapper">
       <div class="facts table">
-        <div class="table-row">
-          <div class="table-cell">
-            <p>42</p>
-            <p>web design projects</p>
-          </div>
-          <div class="table-cell">
-            <p>123</p>
-            <p>happy client</p>
-          </div>
-          <div class="table-cell">
-            <p>15</p>
-            <p>award winner</p>
-          </div>
-          <div class="table-cell">
-            <p>99</p>
-            <p>cup of coffee</p>
-          </div>
-          <div class="table-cell">
-            <p>24</p>
-            <p>members</p>
-          </div>
+        <div class="table-cell">
+          <p>42</p>
+          <p>web design projects</p>
+        </div>
+        <div class="table-cell">
+          <p>123</p>
+          <p>happy client</p>
+        </div>
+        <div class="table-cell">
+          <p>15</p>
+          <p>award winner</p>
+        </div>
+        <div class="table-cell">
+          <p>99</p>
+          <p>cup of coffee</p>
+        </div>
+        <div class="table-cell">
+          <p>24</p>
+          <p>members</p>
         </div>
       </div>
     </section>
@@ -218,6 +216,53 @@
         <div class="phone">
           <!-- <img src="" alt="phone"> -->
         </div>
+    </section>
+
+    <section class="services-2">
+      <div class="title">
+        <p>Service</p>
+        <h2>what we do</h2>
+        <div></div>
+      </div>
+
+      <p class="description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      </p>
+
+      <div class="table">
+        <div class="table-cell">
+          <img class="services-image" src="images/services-2/services-2.png" alt="Services">
+        </div>
+        <div class="table-cell accordion">
+          <button class="accordion-btn">
+            <img src="images/services-2/icon-111.png" alt="icon">
+            <span>
+              photography
+            </span>
+          </button>
+          <div class="panel">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+
+          <button class="accordion-btn">
+            <img src="images/services-2/icon-222.png" alt="icon">
+            creativity
+          </button>
+          <div class="panel">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+
+          <button class="accordion-btn">
+            <img src="images/services-2/icon-3.png" alt="icon">
+            web design
+          </button>
+          <div class="panel">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -363,23 +408,6 @@
     </footer>
     
     <!-- <script src="libs/jquery.min.js"></script> -->
-
-    <script>
-      let navbarNav = document.getElementById("navbar-nav");
-      let navbarOpen = document.getElementById("navbar-open");
-      let navbarClose = document.getElementById("navbar-close");
-      navbarOpen.onclick = onNavbarTogglerClick;
-      navbarClose.onclick = onNavbarTogglerClick;
-
-
-      function onNavbarTogglerClick() {
-        if (navbarNav.className === "navbar-nav") {
-              navbarNav.className += " responsive";
-          } else {
-              navbarNav.className = "navbar-nav";
-          }
-      };
-    </script>
-
+    <script src="scripts/scripts.js"></script>
   </body>
 </html>

@@ -45,10 +45,6 @@ body {
 	display: table;
 }
 
-.table-row {
-	display: table-row;
-}
-
 .table-cell {
 	display: table-cell;
 }
@@ -74,5 +70,10 @@ body {
 @media screen and (max-width: 320px) {
   .flow-row-column {
   	width: 100%;
+  }
+
+  .table-cell {
+  	display: block;
+  	width: 100% !important;
   }
 }

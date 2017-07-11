@@ -8,6 +8,11 @@ gulp.task('clean', function() {
 		.pipe(clean());
 });
 
+gulp.task('libs', function() {
+  return gulp.src('node_modules/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest('build/libs'));
+});
+
 gulp.task('html', function() {
   return gulp.src('src/*.html')
     .pipe(gulp.dest('build'));
@@ -25,11 +30,18 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('build/css'));
 });
 
-gulp.task('watch', ['html', 'images', 'sass'], function() {
+gulp.task('scripts', function() {
+  return gulp.src('src/scripts/**/*.js')
+    .pipe(concat('scripts.js'))
+    .pipe(gulp.dest('build/scripts'));
+})
+
+gulp.task('watch', ['html', 'images', 'sass', 'scripts'], function() {
   gulp.watch('src/*.html', ['html']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
+  gulp.watch('src/scripts/**/*.js', ['scripts']);
 });
 
-gulp.task('build', ['html', 'images', 'sass']);
+gulp.task('build', ['libs','html', 'images', 'sass', 'scripts']);
 
 gulp.task('default', ['build', 'watch']);
