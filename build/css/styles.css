@@ -473,7 +473,7 @@ header {
   float: right;
   list-style-type: none;
   margin: 0;
-  max-width: 620px !important;
+  max-width: 620px;
   width: 100%;
   padding-top: 13px; }
 
@@ -1079,6 +1079,126 @@ header {
     margin-top: 3px;
     margin-right: 3px; } }
 
+.quote-wrapper {
+  background-color: #f8f8f8; }
+
+.quote {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  padding-top: 70px;
+  height: 150px; }
+
+.slide {
+  display: inline-block;
+  margin: 0 28px 0 69px;
+  max-width: 85%;
+  width: 100%;
+  float: left;
+  /*padding-bottom: 63px;*/
+  background: #f8f8f8; }
+
+.slide img {
+  float: left; }
+
+.slide .quote-content {
+  float: left;
+  max-width: 77%;
+  line-height: 1.6;
+  padding-left: 59px;
+  width: 100%; }
+
+.slide .quote-content p {
+  color: #999;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: 23px;
+  font-weight: 300;
+  margin: 0;
+  padding-top: 1px; }
+
+.prev-slide-btn-wrapper {
+  display: inline-block;
+  float: left;
+  padding-top: 5.5%; }
+
+.next-slide-btn-wrapper {
+  display: inline-block;
+  float: right;
+  padding-top: 5.5%; }
+
+.next-slide-btn {
+  /*position: absolute;*/
+  /*right: 38px;*/
+  /*top: 59.5%;*/
+  /*float: right;*/
+  /*padding-top: 5%;*/ }
+
+.next-slide-btn img {
+  transform: rotate(90deg); }
+
+.prev-slide-btn {
+  /*display: inline-block;*/
+  /*position: absolute;*/
+  /*left: 0;*/
+  /*top: 59.5%;*/
+  /*float: left;*/
+  /*padding-top: 5%;*/ }
+
+.prev-slide-btn img {
+  transform: rotate(-90deg); }
+
+.signature {
+  padding-top: 10px;
+  padding-left: 2px; }
+
+.signature .sep-line {
+  background: #f38181;
+  display: inline-block;
+  height: 3px;
+  margin: 0;
+  width: 60px;
+  vertical-align: middle; }
+
+.signature span {
+  color: #333;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 24px;
+  margin: 0;
+  padding-left: 5px; }
+
+@media screen and (max-width: 1110px) {
+  .slide {
+    max-width: 70%;
+    margin: 0 auto; }
+  .slide img {
+    width: 90px;
+    height: 90px; }
+  .signature span {
+    font-size: 18px; }
+  .slide .quote-content {
+    padding-left: 5%; }
+  .slide .quote-content p {
+    font-size: 18px; } }
+
+@media screen and (max-width: 700px) {
+  .slide {
+    text-align: center; }
+  .slide img {
+    float: none;
+    padding-bottom: 20px; }
+  .slide .quote-content {
+    float: none;
+    margin: 0 auto;
+    padding-left: 0; } }
+
+@media screen and (max-width: 455px) {
+  .slide .quote-content p {
+    font-size: 14px;
+    max-width: 100%; }
+  .signature span {
+    font-size: 14px; } }
+
 footer {
   background-color: #f8f8f8;
   padding-top: 65px; }
@@ -1116,7 +1236,6 @@ footer h4 {
   color: #999;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
-  font-stretch: extra-condensed;
   line-height: 1.6;
   margin: 0;
   padding-top: 28px;
@@ -1363,7 +1482,7 @@ footer h4 {
     padding-top: 11px;
     width: 100%; }
   .gallery-image {
-    padding: 1px;
+    /*padding: 1px;*/
     width: 74px; }
   .blog-info p {
     font-size: 11px;
