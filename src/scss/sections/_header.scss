@@ -1,4 +1,4 @@
-header {
+  header {
   background: url('../images/header/eagle-background.png') center center no-repeat;
   background-size: cover;
 }
@@ -71,12 +71,13 @@ header {
   font-size: 13.4px;
   text-decoration: none;
   text-transform: uppercase;
+  transition: .3s;
 }
 
 .nav-item a:hover {
   color: #fce38a;
   border-bottom: 3px solid #fce38a;
-  padding-bottom: 8px;
+  padding-bottom: 9px;
 }
 
 .nav-item a img {
@@ -123,9 +124,10 @@ header {
   border: 3px solid #fff;
   color: #fff;
   font-weight: 700;
+  font-size: 14px;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 14px;
+  transition: .4s;
   padding: 8px 28px;
 }
 
@@ -144,13 +146,88 @@ header {
 }
 
 .section-menu li {
-  border-top: 3px solid #f8ebc5;
   display: inline-block;
   float: left;
   margin-left: 2.8%;
-  padding-top: 20px;
   text-align: left;
+  position: relative;
   width: 22.9%;
+}
+
+.section-menu li::before {
+  border-top: 3px solid #f8ebc5;
+  content: '';
+  display: block;
+}
+
+.section-menu li.active-menu::before {
+    border-top: 3px solid #f38181;
+    width: 25%;
+    top: -3px;
+    position: absolute;
+}
+
+.section-menu li:hover .menu-link, 
+.section-menu li:hover .menu-link span {
+  color: #fff;
+}
+
+.section-menu li:first-child:hover {
+  border-top: 3px solid #fff;
+  content: '';
+  display: block;
+
+  &::before {
+    border-top: 3px solid #f38181;
+    width: 25%;
+    top: -3px;
+    position: absolute;
+  }
+}
+
+.section-menu li:nth-child(2):hover {
+  border-top: 3px solid #fff;
+  content: '';
+  display: block;
+
+  &::before {
+    border-top: 3px solid #f38181;
+    width: 50%;
+    top: -3px;
+    position: absolute;
+  }
+}
+
+.section-menu li:nth-child(3):hover {
+  border-top: 3px solid #fff;
+  content: '';
+  display: block;
+
+  &::before {
+    border-top: 3px solid #f38181;
+    width: 75%;
+    top: -3px;
+    position: absolute;
+  }
+}
+
+.section-menu li:nth-child(4):hover {
+  border-top: 3px solid #fff;
+  content: '';
+  display: block;
+
+  &::before {
+    border-top: 3px solid #f38181;
+    width: 100%;
+    top: -3px;
+    position: absolute;
+  }
+}
+
+.section-menu li.active-menu {
+    border-top: 3px solid #fff;
+    content: '';
+    display: block;
 }
 
 .section-menu li:first-child {
@@ -163,10 +240,11 @@ header {
 
 .menu-link {
   color: #faf3dc;
+  display: inline-block;
   font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
-  padding-top: 25px;
+  padding-top: 20px;
   font-size: 18px;
 }
 
@@ -175,14 +253,6 @@ header {
   font-weight: 700;
   font-size: 24px;
   padding-right: 5px;
-}
-
-.section-menu .active-menu {
-  border-top: 3px solid #fff;
-
-  .menu-link {
-    border-top: 3px solid #f38181;
-  }
 }
 
 .navbar-toggler {

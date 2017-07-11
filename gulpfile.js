@@ -1,11 +1,12 @@
-var gulp   = require('gulp');
-var sass   = require('gulp-sass');
-var concat = require('gulp-concat');
-var clean  = require('gulp-clean');
+var gulp        = require('gulp');
+var sass        = require('gulp-sass');
+var concat      = require('gulp-concat');
+var clean       = require('gulp-clean');
+var runSequence = require('run-sequence');
 
 gulp.task('clean', function() {
-	return gulp.src('build/', { read: false })
-		.pipe(clean());
+  // return gulp.src(['build/css', 'build/scripts', 'build/images'], { read: false })
+    // .pipe(clean());
 });
 
 gulp.task('libs', function() {
@@ -36,12 +37,14 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('build/scripts'));
 })
 
-gulp.task('watch', ['html', 'images', 'sass', 'scripts'], function() {
+gulp.task('watch', ['html', 'sass', 'scripts', 'images'], function() {
   gulp.watch('src/*.html', ['html']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/scripts/**/*.js', ['scripts']);
 });
 
-gulp.task('build', ['libs','html', 'images', 'sass', 'scripts']);
+gulp.task('build', ['clean'], function() {
+  runSequence('libs','html', 'sass', 'scripts', 'images');
+});
 
 gulp.task('default', ['build', 'watch']);

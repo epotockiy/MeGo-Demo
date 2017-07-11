@@ -4,23 +4,14 @@
 
 .quote {
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: 980px;
 	width: 100%;
-	padding-top: 70px;
-	height: 150px;
-}
-
-.slider {
-	display: inline-block;
-	margin: 0 7%;
 }
 
 .slide {
 	display: inline-block;
-	/*max-width: 85%;
-	width: 100%;*/
-	float: left;
-	background: #f8f8f8;
+	padding-bottom: 63px;
+	padding-top: 70px;
 }
 
 .slide img {
@@ -45,53 +36,21 @@
 	padding-top: 1px;
 }
 
-.slider .slick-prev:before {
+.quote .slick-prev {
+	left: -9.2%	;
+}
+
+.quote .slick-prev:before {
 	content: url("../../images/quote/arrow-left.png");
 }
 
-.slider .slick-next:before {
+.quote .slick-next {
+	right: -9.1%;
+}
+
+.quote .slick-next:before {
 	content: url("../../images/quote/arrow-right.png");
-}
-
-.prev-slide-btn-wrapper {
-	display: inline-block;
-	float: left;
-	width: 7.5%;
-	padding-top: 5.5%;
-}
-
-.next-slide-btn-wrapper {
-	display: inline-block;
-	float: right;
-	width: 7.5%;
-	padding-top: 5.5%;
-}
-
-.next-slide-btn {
-	/*position: absolute;*/
-	/*right: 38px;*/
-	/*top: 59.5%;*/
-	float: right;
-	padding-right: 40px;
-	/*padding-top: 5%;*/
-}
-
-.next-slide-btn img {
-	transform: rotate(90deg);
-}
-
-.prev-slide-btn {
-	/*display: inline-block;*/
-	/*position: absolute;*/
-	/*left: 0;*/
-	/*top: 59.5%;*/
-	/*float: left;*/
-	/*padding-top: 5%;*/
-}
-
-.prev-slide-btn img {
-	transform: rotate(-90deg);
-}
+}	
 
 .signature {
 	padding-top: 10px;
@@ -117,8 +76,6 @@
 
 @media screen and(max-width: 1110px) {
 	.slide {
-		max-width: 70%;
-		margin: 0 auto;
 	}
 
 	.slide img {

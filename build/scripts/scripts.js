@@ -30,10 +30,10 @@ if (navbarNav.className === "navbar-nav") {
   }
 };
 
-$('.slider').slick({
+$('.quote').slick({
   dots: false,
   infinite: false,
-  speed: 300,
+  speed: 400,
   slidesToShow: 1,
   slidesToScroll: 1
 });
