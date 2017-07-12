@@ -6,18 +6,11 @@
 .logos .logo-wrapper {
 	display: inline-block;
 	padding-left: 7.14%;
-	max-width: 10%;
-	width: 100%;
+	width: 10%;
 }
 
 .logos .logo-wrapper:first-child {
-	margin-left: 0;
 	padding-left: 0;
-}
-
-.logos .logo-wrapper:last-child {
-	margin-right: 0;
-	padding-right: 0;
 }
 
 .logo-wrapper a {
@@ -58,4 +51,40 @@
 	background: url("../images/logos/logos-sprite.png") 129px 4px;
 	width: 130px;
 	height: 125px;	
+}
+
+@media screen and(max-width: 1200px) {
+	.logos .logo-wrapper {
+		padding-left: 5%;
+		width: 10%;
+	}
+
+	.logos .logo-wrapper:first-child {
+		padding-left: 5%;
+	}
+}
+
+@media screen and(max-width: 870px) {
+	.logos .logo-wrapper {
+		width: auto;
+		padding: 0;
+	}
+
+	.logo-wrapper a {
+		-ms-transform: scale(0.6, 0.6);
+	    -webkit-transform: scale(0.6, 0.6);
+	    transform: scale(0.6, 0.6);
+	}
+
+	.logos .logo-wrapper:first-child {
+		padding-left: 0;
+	}
+
+	.logos {
+		padding: 20px 0;
+	}
+
+	.logos .container {
+		text-align: center;
+	}
 }
