@@ -1,0 +1,57 @@
+.team {
+	padding: 100px 0 110px;
+}
+
+.team-gallery {
+	margin-top: 90px;
+
+	li {
+		float: left;
+		width: 380px;
+		margin-right: 30px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	.buttons {
+		position: absolute;
+		width: 100%;
+	 	top: 50%;
+	 	left: 50%;
+	 	font-size: 0;
+	 	text-align: center;
+	 	@include transform (-50%);
+	
+		a {
+			display: inline-block;
+			width: 56px;
+			height: 56px;
+			font-size: 16px;
+			text-align: center;
+			background-color: #fce38a;
+			border-right: 1px solid #f38181;
+
+			&:last-child {
+				border-right: 0;
+			}
+
+			&:hover {
+				background-color: #f38181;
+			}
+		}
+
+		span {
+			display: inline-block;
+			line-height: 56px;
+			vertical-align: middle;
+		}
+
+		.facebook-red-icon {
+			@include sprite-image($facebook-red-icon);
+			@include sprite-position($facebook-red-icon);
+		}
+	}
+	
+}

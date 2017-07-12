@@ -1,0 +1,23 @@
+.unique-design {
+	position: relative;
+	padding-top: 110px;
+	background: #fff url(../img/unique-design-bg.jpg) no-repeat;
+	background-size: cover;
+}
+
+.tablet {
+	margin-top: 45px;
+	margin-right: 50px;
+	height: 582px;
+	background: url(../img/unique-design-tablet.png) center bottom no-repeat;
+}
+
+.phone {
+	position: absolute;
+	left: 58.5%;
+	top: 55%;
+	width: 205px;
+	height: 437px;
+	background: url(../img/unique-design-phone.png) center no-repeat;
+	background-size: contain;
+}

@@ -94,12 +94,8 @@ $nav-size: 14px;
 
 .gradient-gallery {
 
-    li {
-		margin: 0;
+    li>a, .gradient-gallery-item {
     	position: relative;
-    }
-
-    a {
     	display: block;
     	background: $primary-color;
 
@@ -108,14 +104,16 @@ $nav-size: 14px;
 			transition: all 0.2s ease;
     	}
 
-    	&:hover > .gallery-content {
+    	&:hover .gallery-content {
 			opacity: 1;
-			transition: all 0.2s ease;
-    	}
+		}
     }
 
     img {
+    	position: relative;
     	display: block;
+    	width: 100%;
+    	z-index: 1;
     }
 
     .gallery-content {
@@ -125,20 +123,9 @@ $nav-size: 14px;
 	 	width: 100%;
 	 	height: 100%;
 		text-align: center;
-		z-index: 10;
+		z-index: 100;
     	opacity: 0;
- 		
- 		span {
- 			position: absolute;
-		 	top: 50%;
-		 	left: 50%;	
-			font-family: 'Montserrat', sans-serif;
-			font-size: 18px;
-			font-weight: 700;
-			color: #fff;
-			text-transform: uppercase;
-			@include transform (-50%);
-		}
+ 		@extend .gradient;
 	}
 
     .users-icon::before {
@@ -148,11 +135,4 @@ $nav-size: 14px;
     	@include sprite($users-icon);
     }
 
-
-	.item-gradient {
-		width: 100%;
-		height: 100%;
-		z-index: 10;
-		@extend .gradient;
-	}
 }

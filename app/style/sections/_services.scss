@@ -3,18 +3,84 @@
 }
 
 .services-list {
-	margin-top: 100px;
+	margin-top: 65px;
 	display: table;
 	width: 100%;
+	border-collapse: collapse
 }
 
 .services-row {
 	display: table-row;
 	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+
+	&:first-child .services-cell{
+		padding-bottom: 50px;
+	}
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+	&:last-child .services-cell{
+		padding-top: 50px;
+	}
 }
 
 .services-cell {
 	display: table-cell;
 	width: 33.3%;
-	color: #000;
+	vertical-align: top;
+	padding-left: 30px;
 }
+
+.icon {
+	float: left;
+	margin-right: 30px;
+}
+
+.services-info {
+	float: left;
+	max-width: 77%;
+
+	h3 {
+		margin-bottom: 10px;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+		color: #333;
+		text-transform: uppercase;
+	}
+
+	p {
+		font-size: 15px;
+		font-weight: 400;
+		color: #999;
+		line-height: 24px;
+	}
+}
+
+.photography-icon {
+	@include sprite($photography-icon);
+}
+
+.web-design-icon {
+	@include sprite($web-design-icon);
+}
+
+.creativity-icon {
+	@include sprite($creativity-icon);
+}
+
+.seo-icon {
+	@include sprite($seo-icon);
+}
+
+.css-html-icon {
+	@include sprite($css-html-icon);
+}
+
+.digital-icon {
+	@include sprite($digital-icon);
+}
+
