@@ -107,16 +107,16 @@
 		height: 144px;
 	}
 
-	.pics .overlay-text img {
-		width: 79px;
-		height: 31px;
+	.pics .overlay img {
+		width: 35px;
+		height: 22px;
+		top: 52px;
+		left: 96px;
 	}
 
-	.pics .overlay-text {
-		position: absolute;
-		opacity: 0;
-		top: 76px;
-		left: 95px;
+	.pics .overlay h6 {
+		font-size: 14px;
+		padding-top: 80px;
 	}
 }
 
