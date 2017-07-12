@@ -24,10 +24,9 @@
 
 .slide .quote-content {
 	float: left;
-	max-width: 77%;
+	width: 77%;
 	line-height: 1.6;	
 	padding-left: 59px;
-	width: 100%;
 }
 
 .slide .quote-content p {
@@ -78,29 +77,33 @@
 	padding-left: 5px;
 }
 
-@media screen and(max-width: 1110px) {
+@media screen and(max-width: 1200px) {
 	.slide {
+		padding: 40px 0;
 	}
 
 	.slide img {
-		width: 90px;
-		height: 90px;
-	}
-
-	.signature span {
-		font-size: 18px;
+		width: 10%;
 	}
 
 	.slide .quote-content {
-		padding-left: 5%;
+		padding-left: 40px;
 	}
 
 	.slide .quote-content p {
 		font-size: 18px;
 	}
+
+	.quote .slick-prev {
+		left: -40px;
+	}
+
+	.quote .slick-next {
+		right: 40px;
+	}
 }
 
-@media screen and(max-width: 700px) {
+/*@media screen and(max-width: 700px) {
 	.slide {
 		text-align: center;
 	}
@@ -115,9 +118,9 @@
 		margin: 0 auto;
 		padding-left: 0;
 	}
-}
+}*/
 
-@media screen and(max-width: 455px) {
+/*@media screen and(max-width: 455px) {
 	.slide .quote-content p {
 		font-size: 14px;
 		max-width: 100%;
@@ -126,4 +129,4 @@
 	.signature span {
 		font-size: 14px;
 	}
-}
+}*/

@@ -1189,10 +1189,9 @@ header {
 
 .slide .quote-content {
   float: left;
-  max-width: 77%;
+  width: 77%;
   line-height: 1.6;
-  padding-left: 59px;
-  width: 100%; }
+  padding-left: 59px; }
 
 .slide .quote-content p {
   color: #999;
@@ -1234,35 +1233,46 @@ header {
   margin: 0;
   padding-left: 5px; }
 
-@media screen and (max-width: 1110px) {
-  .slide img {
-    width: 90px;
-    height: 90px; }
-  .signature span {
-    font-size: 18px; }
-  .slide .quote-content {
-    padding-left: 5%; }
-  .slide .quote-content p {
-    font-size: 18px; } }
-
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1200px) {
   .slide {
-    text-align: center; }
+    padding: 40px 0; }
   .slide img {
-    float: none;
-    padding-bottom: 20px; }
+    width: 10%; }
   .slide .quote-content {
-    float: none;
-    margin: 0 auto;
-    padding-left: 0; } }
-
-@media screen and (max-width: 455px) {
+    padding-left: 40px; }
   .slide .quote-content p {
-    font-size: 14px;
-    max-width: 100%; }
-  .signature span {
-    font-size: 14px; } }
+    font-size: 18px; }
+  .quote .slick-prev {
+    left: -40px; }
+  .quote .slick-next {
+    right: 40px; } }
 
+/*@media screen and(max-width: 700px) {
+	.slide {
+		text-align: center;
+	}
+
+	.slide img {
+		float: none;
+		padding-bottom: 20px;
+	}
+
+	.slide .quote-content {
+		float: none;
+		margin: 0 auto;
+		padding-left: 0;
+	}
+}*/
+/*@media screen and(max-width: 455px) {
+	.slide .quote-content p {
+		font-size: 14px;
+		max-width: 100%;
+	}
+
+	.signature span {
+		font-size: 14px;
+	}
+}*/
 .team {
   padding-top: 100px;
   padding-bottom: 110px; }
@@ -1443,6 +1453,51 @@ header {
     padding: 20px 0; }
   .logos .container {
     text-align: center; } }
+
+.map {
+  background: url("../images/map/map-back.png") center center no-repeat;
+  background-size: cover;
+  text-align: center;
+  font-size: 0;
+  padding: 57px 0; }
+
+.map-marker {
+  background: url("../images/map/map-marker.png") center center no-repeat;
+  background-size: cover;
+  height: 26px;
+  width: 20px;
+  margin: 0 auto;
+  transition: .4s; }
+
+.map a {
+  text-decoration: none; }
+
+.map a:hover h6 {
+  color: #333; }
+
+.map a:hover h6::after {
+  border-bottom: 3px solid #333; }
+
+.map a:hover .map-marker {
+  background: url("../images/map/map-marker-gray.png"); }
+
+.map h6 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #f38181;
+  padding-top: 13px;
+  transition: .4s; }
+
+.map h6::after {
+  content: '';
+  width: 60px;
+  display: block;
+  margin: 0 auto;
+  border-bottom: 3px solid #f38181;
+  padding-top: 17px;
+  transition: .4s; }
 
 footer {
   background-color: #f8f8f8;
