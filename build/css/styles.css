@@ -396,6 +396,14 @@ body {
   font-size: 100%;
   font-family: 'Montserrat', sans-serif; }
 
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
 .description {
   color: #999;
   font-family: 'Roboto', sans-serif;
@@ -1374,6 +1382,62 @@ header {
 .overlay-buttons a i {
   color: #f38181;
   font-size: 26px; }
+
+.logos-wrapper {
+  background: #f8f8f8; }
+
+.logos {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 0; }
+
+.logos .logo-wrapper {
+  display: inline-block;
+  padding-left: 7.14%;
+  max-width: 10%;
+  width: 100%; }
+
+.logos .logo-wrapper:first-child {
+  margin-left: 0;
+  padding-left: 0; }
+
+.logos .logo-wrapper:last-child {
+  margin-right: 0;
+  padding-right: 0; }
+
+.logo-wrapper a {
+  display: block; }
+
+.hipster-1-icon {
+  background: url("../images/logos/logos-sprite.png") 0 4px;
+  width: 130px;
+  height: 125px; }
+
+.hipster-2-icon {
+  background: url("../images/logos/logos-sprite.png") 546px 4px;
+  width: 130px;
+  height: 125px; }
+
+.hipster-3-icon {
+  background: url("../images/logos/logos-sprite.png") 331px -3px;
+  width: 130px;
+  height: 125px; }
+
+.abcd-icon {
+  background: url("../images/logos/logos-sprite.png") 973px 2px;
+  width: 130px;
+  height: 125px; }
+
+.design-icon {
+  background: url("../images/logos/logos-sprite.png") 766px 1px;
+  width: 130px;
+  height: 125px; }
+
+.studio-icon {
+  background: url("../images/logos/logos-sprite.png") 129px 4px;
+  width: 130px;
+  height: 125px; }
 
 footer {
   background-color: #f8f8f8;
