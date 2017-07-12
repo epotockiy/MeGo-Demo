@@ -21,24 +21,17 @@ footer h4 {
 	display: none;
 }
 
-.footer-row {
-	max-width: 1200px;
-	width: 100%;
-	margin: 0 auto;
-}
-
 .info-column {
 	float: left;
-	max-width: 465px;
+	width: 465px;
 	padding-right: 48px;
-	width: 100%;
 }
 
 .info-column .separator {
 	border-bottom: 1px solid #e5e5e5;
 }
 
-.info-column .description {
+.info-column .footer-description {
 	color: #999;
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
@@ -124,10 +117,9 @@ footer h4 {
 
 .blogs {
 	float: left;
-	max-width: 338px;
 	padding-right: 81px;
 	padding-top: 13px;
-	width: 100%;
+	width: 338px;
 }
 
 .blog {
@@ -168,9 +160,8 @@ footer h4 {
 
 .instagram {
 	float: left;
-	max-width: 268px;
+	width: 268px;
 	padding-top: 13px;
-	width: 100%;
 }
 
 .instagram-link {
@@ -270,8 +261,8 @@ footer h4 {
 	color: #333;
 	font-size: 14px;
 	font-weight: 500;
-	margin-left: 8px;
-	padding: 10px;
+	margin: 0 0 0 8px;
+	padding: 25px 0;
 	text-align: center;
 }
 
@@ -289,9 +280,8 @@ footer h4 {
 	}*/
 
 	.info-column {
-		max-width: 396px;
+		width: 396px;
 		padding-right: 41px;
-		width: 100%;
 	}
 
 	.info-column h3 {
@@ -299,10 +289,9 @@ footer h4 {
 	}
 
 	.blogs {
-		max-width: 286px;
+		width: 286px;
 		padding-right: 68px;
 		padding-top: 11px;
-		width: 100%;
 	}
 
 	.blog {
@@ -321,9 +310,8 @@ footer h4 {
 	}
 
 	.instagram {
-		max-width: 228px;
+		width: 228px;
 		padding-top: 11px;
-		width: 100%;
 	}
 
 	.gallery-image {
@@ -357,14 +345,14 @@ footer h4 {
 	}
 
 	.info-column {
-		max-width: 60%;
+		width: 60%;
 		padding: 30px 20%;
 		text-align: center;
 		float: right;
 	}
 
 	.blogs {
-		max-width: 60%;
+		width: 60%;
 		padding: 30px 20%;
 	}
 
@@ -373,7 +361,7 @@ footer h4 {
 	}
 
 	.instagram {
-		max-width: 50%;
+		width: 50%;
 		padding: 30px 25%;
 	}
 

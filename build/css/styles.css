@@ -404,6 +404,11 @@ body {
   clear: both;
   height: 0; }
 
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto; }
+
 .description {
   color: #999;
   font-family: 'Roboto', sans-serif;
@@ -522,8 +527,6 @@ header {
   background-size: cover; }
 
 .header-wrapper {
-  margin: 0 auto;
-  max-width: 1200px;
   padding-top: 25px; }
 
 .navbar-brand {
@@ -817,9 +820,6 @@ header {
     font-size: 24px; } }
 
 .about {
-  margin: 0 auto;
-  max-width: 1200px;
-  width: 100%;
   text-align: center;
   padding-top: 91px;
   padding-bottom: 110px; }
@@ -927,13 +927,8 @@ header {
     top: 58px;
     left: 76px; } }
 
-.facts-wrapper {
-  background-color: #95e1d3; }
-
 .facts {
-  margin: 0 auto;
-  max-width: 1200px;
-  width: 100%; }
+  background-color: #95e1d3; }
 
 .facts .table-cell {
   border-left: 1px solid #b5eae0;
@@ -974,9 +969,6 @@ header {
     font-size: 11px; } }
 
 .services {
-  margin: 0 auto;
-  max-width: 1200px;
-  width: 100%;
   padding: 108px 0 118px; }
 
 .services .separator {
@@ -991,16 +983,14 @@ header {
   justify-content: center;
   padding-top: 48px; }
 
-.services-row-wrapper .services-row:first-child {
+.services-row:first-child {
   padding-top: 26px;
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 47px; }
 
 .services-cell {
-  max-width: 33%;
-  width: 100%;
-  padding-left: 30px;
-  display: inline-block; }
+  width: 33%;
+  padding-left: 30px; }
 
 .services-cell img {
   float: left;
@@ -1011,10 +1001,9 @@ header {
 
 .service-info {
   float: left;
-  max-width: 74%;
-  width: 100%; }
+  width: 74%; }
 
-.service-info p:first-child {
+.service-info h6 {
   color: #333;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -1022,7 +1011,7 @@ header {
   margin: 0;
   text-transform: uppercase; }
 
-.service-info p:last-child {
+.service-info p {
   color: #b3b3b3;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -1031,9 +1020,9 @@ header {
   padding-top: 12px; }
 
 @media screen and (max-width: 1024px) {
-  .service-info p:first-child {
+  .service-info h6 {
     font-size: 12px; }
-  .service-info p:last-child {
+  .service-info p {
     font-size: 13px; }
   .services-cell img {
     height: 18px;
@@ -1089,9 +1078,6 @@ header {
     margin-left: 140px; } }
 
 .services-2 {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
   padding: 55px 0 120px; }
 
 .services-2 .description {
@@ -1146,6 +1132,9 @@ header {
   transition: .5s;
   padding: 14px 14px 12px 14px;
   width: 100%; }
+
+.accordion-btn:focus {
+  outline: 0; }
 
 .accordion-btn:first-child {
   margin-top: 0; }
@@ -1207,6 +1196,9 @@ header {
   display: inline-block;
   padding-bottom: 63px;
   padding-top: 70px; }
+
+.slide:focus {
+  outline: 0; }
 
 .slide img {
   float: left; }
@@ -1288,9 +1280,6 @@ header {
     font-size: 14px; } }
 
 .team {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
   padding-top: 100px; }
 
 .team .description {
@@ -1315,7 +1304,8 @@ header {
     left: 0; }
 
 .team-gallery .person img {
-  transition: .4s; }
+  transition: .4s;
+  width: 100%; }
 
 .team-gallery .person h4 {
   font-family: 'Montserrat', sans-serif;
@@ -1391,13 +1381,8 @@ header {
   color: #f38181;
   font-size: 26px; }
 
-.logos-wrapper {
-  background: #f8f8f8; }
-
 .logos {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
+  background: #f8f8f8;
   padding: 60px 0; }
 
 .logos .logo-wrapper {
@@ -1466,21 +1451,15 @@ footer h4 {
 .mobile {
   display: none; }
 
-.footer-row {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto; }
-
 .info-column {
   float: left;
-  max-width: 465px;
-  padding-right: 48px;
-  width: 100%; }
+  width: 465px;
+  padding-right: 48px; }
 
 .info-column .separator {
   border-bottom: 1px solid #e5e5e5; }
 
-.info-column .description {
+.info-column .footer-description {
   color: #999;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -1550,10 +1529,9 @@ footer h4 {
 
 .blogs {
   float: left;
-  max-width: 338px;
   padding-right: 81px;
   padding-top: 13px;
-  width: 100%; }
+  width: 338px; }
 
 .blog {
   display: inline-block;
@@ -1588,9 +1566,8 @@ footer h4 {
 
 .instagram {
   float: left;
-  max-width: 268px;
-  padding-top: 13px;
-  width: 100%; }
+  width: 268px;
+  padding-top: 13px; }
 
 .instagram-link {
   display: inline-block;
@@ -1672,8 +1649,8 @@ footer h4 {
   color: #333;
   font-size: 14px;
   font-weight: 500;
-  margin-left: 8px;
-  padding: 10px;
+  margin: 0 0 0 8px;
+  padding: 25px 0;
   text-align: center; }
 
 .copyright p span {
@@ -1688,16 +1665,14 @@ footer h4 {
 		display: none;
 	}*/
   .info-column {
-    max-width: 396px;
-    padding-right: 41px;
-    width: 100%; }
+    width: 396px;
+    padding-right: 41px; }
   .info-column h3 {
     font-size: 39px; }
   .blogs {
-    max-width: 286px;
+    width: 286px;
     padding-right: 68px;
-    padding-top: 11px;
-    width: 100%; }
+    padding-top: 11px; }
   .blog {
     padding-bottom: 21px; }
   .blog .blog-image {
@@ -1708,9 +1683,8 @@ footer h4 {
     width: 167px;
     padding-left: 17px; }
   .instagram {
-    max-width: 228px;
-    padding-top: 11px;
-    width: 100%; }
+    width: 228px;
+    padding-top: 11px; }
   .gallery-image {
     /*height: 74px;
 		width: 74px;*/ }
@@ -1733,17 +1707,17 @@ footer h4 {
   footer h4 {
     text-align: center; }
   .info-column {
-    max-width: 60%;
+    width: 60%;
     padding: 30px 20%;
     text-align: center;
     float: right; }
   .blogs {
-    max-width: 60%;
+    width: 60%;
     padding: 30px 20%; }
   .blog {
     padding-bottom: 30px; }
   .instagram {
-    max-width: 50%;
+    width: 50%;
     padding: 30px 25%; }
   .footer-row .instagram .gallery-image {
     position: relative;
