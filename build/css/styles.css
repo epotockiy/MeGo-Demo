@@ -396,6 +396,16 @@ body {
   font-size: 100%;
   font-family: 'Montserrat', sans-serif; }
 
+.description {
+  color: #999;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  line-height: 1.59;
+  max-width: 79.5%;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%; }
+
 .title {
   color: #333;
   text-align: center;
@@ -438,6 +448,46 @@ body {
 
 .table-cell {
   display: table-cell; }
+
+.facebook-icon {
+  background: url("../images/footer/socials/socials-sprite.png") 0 0;
+  height: 16px;
+  width: 16px; }
+
+.twitter-icon {
+  background: url("../images/footer/socials/socials-sprite.png") 193px 0;
+  height: 16px;
+  width: 16px; }
+
+.instagram-icon {
+  background: url("../images/footer/socials/socials-sprite.png") 163px 0;
+  height: 16px;
+  width: 16px; }
+
+.pinterest-icon {
+  background: url("../images/footer/socials/socials-sprite.png") 134px 0;
+  height: 16px;
+  width: 16px; }
+
+.google-icon {
+  background: url("../images/footer/socials/socials-sprite.png") 103px 0;
+  height: 16px;
+  width: 16px; }
+
+.youtube-icon {
+  background: url("../images/footer/socials/socials-sprite.png") 73px 0;
+  height: 16px;
+  width: 16px; }
+
+.dribble-icon {
+  background: url("../images/footer/socials/socials-sprite.png") 43px 0;
+  height: 16px;
+  width: 16px; }
+
+.tumblr-icon {
+  background: url("../images/footer/socials/socials-sprite.png") 16px 0;
+  height: 16px;
+  width: 16px; }
 
 @media screen and (max-width: 1200px) {
   .float-row {
@@ -767,15 +817,7 @@ header {
   padding-bottom: 110px; }
 
 .about .description {
-  color: #999;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  font-stretch: condensed;
-  line-height: 1.59;
-  max-width: 79.5%;
-  margin: 0 auto;
-  padding-top: 6px;
-  width: 100%; }
+  padding-top: 4px; }
 
 .pics {
   display: flex;
@@ -1037,15 +1079,7 @@ header {
   padding: 55px 0 120px; }
 
 .services-2 .description {
-  color: #999;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  line-height: 1.6;
-  max-width: 960px;
-  margin: 0 auto;
-  text-align: center;
-  padding-top: 4px;
-  width: 100%; }
+  padding-top: 5px; }
 
 .services-2 .table {
   padding-top: 89px; }
@@ -1101,7 +1135,7 @@ header {
   margin-top: 0; }
 
 .accordion-btn:after {
-  content: url("../../images/services-2/arrow-up.png");
+  content: url("../images/services-2/arrow-up.png");
   transform: rotate(180deg);
   float: right;
   margin-top: 8px;
@@ -1181,13 +1215,13 @@ header {
   left: -9.2%; }
 
 .quote .slick-prev:before {
-  content: url("../../images/quote/arrow-left.png"); }
+  content: url("../images/quote/arrow-left.png"); }
 
 .quote .slick-next {
   right: -9.1%; }
 
 .quote .slick-next:before {
-  content: url("../../images/quote/arrow-right.png"); }
+  content: url("../images/quote/arrow-right.png"); }
 
 .signature {
   padding-top: 10px;
@@ -1236,6 +1270,110 @@ header {
     max-width: 100%; }
   .signature span {
     font-size: 14px; } }
+
+.team {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 100px; }
+
+.team .description {
+  padding-top: 5px; }
+
+.team-gallery {
+  padding-top: 90px; }
+
+.team-gallery .person {
+  display: inline-block;
+  float: left;
+  max-width: 31.666%;
+  width: 100%;
+  text-align: center;
+  padding-left: 2.5%;
+  padding-bottom: 115px;
+  position: relative; }
+
+.team-gallery .person:first-child {
+  padding-left: 0; }
+  .team-gallery .person:first-child .overlay {
+    left: 0; }
+
+.team-gallery .person img {
+  transition: .4s; }
+
+.team-gallery .person h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #333;
+  margin: 0;
+  padding-top: 23px; }
+
+.team-gallery .person p {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: 15px;
+  font-weight: 300;
+  color: #acacac;
+  margin: 0;
+  padding-top: 11px; }
+
+.team-gallery .person .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 30px;
+  right: 0;
+  height: 470px;
+  width: 380px;
+  opacity: 0;
+  background: -moz-linear-gradient(90deg, #ebd483 0%, #e57e7e 100%);
+  background: -webkit-linear-gradient(90deg, #ebd483 0%, #e57e7e 100%);
+  background: -o-linear-gradient(90deg, #ebd483 0%, #e57e7e 100%);
+  background: -ms-linear-gradient(90deg, #ebd483 0%, #e57e7e 100%);
+  background: linear-gradient(0deg, #ebd483 0%, #e57e7e 100%);
+  transition: .4s;
+  z-index: -1; }
+
+.overlay-buttons {
+  position: absolute;
+  background: #fce38a;
+  top: 44%;
+  left: 16.59%;
+  font-size: 0; }
+
+.person:hover {
+  cursor: pointer; }
+  .person:hover img {
+    transform: translate(-10px, -10px);
+    box-shadow: 10px 10px #95e1d3; }
+  .person:hover .overlay {
+    opacity: 0.93;
+    transform: translate(-10px, -10px);
+    z-index: 1; }
+  .person:hover .overlay-buttons {
+    opacity: 1; }
+
+.person .overlay-buttons a {
+  border-left: 1px solid #f9bd87;
+  display: inline-block;
+  text-decoration: none;
+  transition: .4s;
+  padding: 15px 0;
+  width: 56px; }
+
+.person .overlay-buttons a:first-child {
+  border-left: none; }
+
+.overlay-buttons a:hover {
+  background: #f38181; }
+
+.overlay-buttons a:hover i {
+  color: #fff; }
+
+.overlay-buttons a i {
+  color: #f38181;
+  font-size: 26px; }
 
 footer {
   background-color: #f8f8f8;
@@ -1315,52 +1453,28 @@ footer h4 {
   display: inline-block; }
 
 .socials .facebook-icon {
-  background: url("../images/footer/socials/socials-sprite.png") 0 0;
-  height: 16px;
-  margin-left: 9px;
-  width: 16px; }
+  margin-left: 9px; }
 
 .socials .twitter-icon {
-  background: url("../images/footer/socials/socials-sprite.png") 193px 0;
-  height: 16px;
-  width: 16px;
   margin-left: 5px; }
 
 .socials .instagram-icon {
-  background: url("../images/footer/socials/socials-sprite.png") 163px 0;
-  height: 16px;
-  width: 16px;
   margin-left: 10px; }
 
 .socials .pinterest-icon {
-  background: url("../images/footer/socials/socials-sprite.png") 134px 0;
-  height: 16px;
-  margin-left: 8px;
-  width: 16px; }
+  margin-left: 8px; }
 
 .socials .google-icon {
-  background: url("../images/footer/socials/socials-sprite.png") 103px 0;
-  height: 16px;
-  margin-left: 10px;
-  width: 16px; }
+  margin-left: 10px; }
 
 .socials .youtube-icon {
-  background: url("../images/footer/socials/socials-sprite.png") 73px 0;
-  height: 16px;
-  margin-left: 10px;
-  width: 16px; }
+  margin-left: 10px; }
 
 .socials .dribble-icon {
-  background: url("../images/footer/socials/socials-sprite.png") 43px 0;
-  height: 16px;
-  margin-left: 11px;
-  width: 16px; }
+  margin-left: 11px; }
 
 .socials .tumblr-icon {
-  background: url("../images/footer/socials/socials-sprite.png") 16px 0;
-  height: 16px;
-  margin-left: 6px;
-  width: 16px; }
+  margin-left: 6px; }
 
 .blogs {
   float: left;

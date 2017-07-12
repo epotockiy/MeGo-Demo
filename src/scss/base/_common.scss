@@ -3,6 +3,17 @@ body {
   	font-family: 'Montserrat', sans-serif;
 }
 
+.description {
+	color: #999;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	line-height: 1.59;
+	max-width: 79.5%;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+
 .title {
 	color: #333;
 	text-align: center;
@@ -52,6 +63,54 @@ body {
 
 .table-cell {
 	display: table-cell;
+}
+
+.facebook-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 0 0;
+	height: 16px;
+	width: 16px;
+}
+
+.twitter-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 193px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.instagram-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 163px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.pinterest-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 134px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.google-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 103px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.youtube-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 73px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.dribble-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 43px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.tumblr-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 16px 0;
+	height: 16px;
+	width: 16px;
 }
 
 @media screen and  (max-width: 1200px) {

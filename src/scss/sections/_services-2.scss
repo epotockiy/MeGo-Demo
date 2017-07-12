@@ -6,15 +6,7 @@
 }
 
 .services-2 .description {
-	color: #999;
-	font-family: 'Roboto', sans-serif;
-	font-size: 15px;
-	line-height: 1.6;
-	max-width: 960px;
-	margin: 0 auto;
-	text-align: center;
-	padding-top: 4px;
-	width: 100%;
+	padding-top: 5px;
 }
 
 .services-2 .table {
@@ -80,7 +72,7 @@
 }
 
 .accordion-btn:after {
-	content: url('../../images/services-2/arrow-up.png');
+	content: url('../images/services-2/arrow-up.png');
 	transform: rotate(180deg);
 	float: right;
 	margin-top: 8px;
