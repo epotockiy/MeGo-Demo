@@ -862,7 +862,15 @@ header {
   position: absolute;
   box-shadow: none;
   top: 104px;
-  left: 131px; }
+  left: 174px; }
+
+.pics .overlay h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin: 0;
+  padding-top: 135px;
+  color: #fff; }
 
 .image-wrapper .about-img {
   transition: .4s; }
@@ -1551,8 +1559,10 @@ footer h4 {
   display: inline-block;
   padding-bottom: 25px; }
 
-.blog img {
+.blog .blog-image {
+  background-size: cover;
   float: left;
+  height: 80px;
   width: 120px; }
 
 .blog-info {
@@ -1594,21 +1604,23 @@ footer h4 {
   text-decoration: none; }
 
 .gallery-image {
-  padding: 1px;
+  background-size: cover;
+  margin: 1px;
   float: left;
-  width: 88px; }
+  width: 88px;
+  height: 88px; }
 
 .instagram .gallery-image:nth-child(3n + 1) {
-  padding-right: 0; }
+  margin-right: 0; }
 
 .gallery-image:nth-child(2) {
-  padding-left: 0; }
+  margin-left: 0; }
 
 .gallery-image:nth-child(5) {
-  padding-left: 0; }
+  margin-left: 0; }
 
 .gallery-image:nth-child(8) {
-  padding-left: 0; }
+  margin-left: 0; }
 
 .subscription {
   padding-left: 4px; }
@@ -1688,7 +1700,9 @@ footer h4 {
     width: 100%; }
   .blog {
     padding-bottom: 21px; }
-  .blog img {
+  .blog .blog-image {
+    float: left;
+    height: 68px;
     width: 102px; }
   .blog-info {
     width: 167px;
@@ -1698,7 +1712,8 @@ footer h4 {
     padding-top: 11px;
     width: 100%; }
   .gallery-image {
-    width: 74px; }
+    /*height: 74px;
+		width: 74px;*/ }
   .blog-info p {
     font-size: 11px;
     line-height: 1.5;
@@ -1720,7 +1735,8 @@ footer h4 {
   .info-column {
     max-width: 60%;
     padding: 30px 20%;
-    text-align: center; }
+    text-align: center;
+    float: right; }
   .blogs {
     max-width: 60%;
     padding: 30px 20%; }
@@ -1729,9 +1745,12 @@ footer h4 {
   .instagram {
     max-width: 50%;
     padding: 30px 25%; }
-  .gallery-image {
-    padding: 10px 5% 0 5% !important;
-    width: 35%; }
+  .footer-row .instagram .gallery-image {
+    position: relative;
+    margin: 10px 10px 0 10px;
+    /*height: 200px;
+		width: 200px;
+		background-size: 200px;*/ }
   .instagram-link {
     padding: 20% 0 0 10%; }
   .instagram-link a {
