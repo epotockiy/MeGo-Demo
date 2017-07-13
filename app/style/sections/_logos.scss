@@ -1,0 +1,21 @@
+.logos {
+	padding: 60px 0;
+	background: #f8f8f8;
+
+	ul {
+		font-size: 0;
+		text-align: center;
+	}
+
+	li {
+		display: inline-block;
+		width: 16.6%;
+
+		vertical-align: middle;
+	}
+
+	img {
+		display: block;
+		max-width: 90%;
+	}
+}

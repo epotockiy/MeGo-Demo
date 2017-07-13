@@ -92,17 +92,23 @@ $nav-size: 14px;
 	transform: translateX($scale) translateY($scale);
  }
 
+ @mixin sprite-size($sprite) {
+  $bg-width: nth($sprite, 5);
+  $bg-height: nth($sprite, 6);
+  background-size: $bg-width $bg-height;
+}
+
+ @mixin spriter($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-size($sprite);
+}
+
 .gradient-gallery {
 
-    li>a, .gradient-gallery-item {
+    .overlay{
     	position: relative;
     	display: block;
-    	background: $primary-color;
-
-    	&:hover > * {
-			@include transform(-10px);
-			transition: all 0.2s ease;
-    	}
 
     	&:hover .gallery-content {
 			opacity: 1;
@@ -110,10 +116,9 @@ $nav-size: 14px;
     }
 
     img {
-    	position: relative;
     	display: block;
     	width: 100%;
-    	z-index: 1;
+    	height: 100%;
     }
 
     .gallery-content {
@@ -125,14 +130,8 @@ $nav-size: 14px;
 		text-align: center;
 		z-index: 100;
     	opacity: 0;
+    	transition: 0.3s;
  		@extend .gradient;
 	}
-
-    .users-icon::before {
-    	content: '';
-    	display: block;
-    	margin: 0 auto 10px;
-    	@include sprite($users-icon);
-    }
 
 }

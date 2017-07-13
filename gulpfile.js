@@ -108,7 +108,7 @@ gulp.task('sprite:dist', function () {
     cssFormat: 'scss',
     algorithm: 'binary-tree',
     imgPath: '../img/sprite/sprite.png',
-    padding: 2    
+    padding: 20    
   }));
   spriteData.img.pipe(gulp.dest(path.dist.sprite)); // путь, куда сохраняем картинку
   spriteData.css.pipe(gulp.dest(path.app.spriteStyle));

@@ -7,29 +7,61 @@
 
 	li {
 		float: left;
-		width: 380px;
 		margin-right: 30px;
 
 		&:last-child {
 			margin-right: 0;
 		}
+
+		.overlay {
+			width: 380px;
+			height: 470px;
+			background: $primary-color;
+
+			> * {
+				transition: 0.3s
+			}
+
+			&:hover > * {
+				@include transform(-10px);
+	    	}
+		}
+
+		h4{
+			margin-top: 30px;
+			font-family: 'Montserrat', sans-serif;
+			font-size: 14px;
+			font-weight: 400;
+			color: #333;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		p {
+			margin-top: 10px;
+			font-size: 15px;
+			font-weight: 300;
+			font-style: italic;
+			color: #999;
+			text-align: center;
+		}
 	}
 
 	.buttons {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
 		position: absolute;
 		width: 100%;
 	 	top: 50%;
 	 	left: 50%;
-	 	font-size: 0;
-	 	text-align: center;
 	 	@include transform (-50%);
 	
 		a {
-			display: inline-block;
+			display: flex;
+			margin: 0;
 			width: 56px;
 			height: 56px;
-			font-size: 16px;
-			text-align: center;
 			background-color: #fce38a;
 			border-right: 1px solid #f38181;
 
@@ -40,17 +72,43 @@
 			&:hover {
 				background-color: #f38181;
 			}
+
+			&:hover .facebook-red-icon {
+				@include sprite($facebook-white-icon);
+			}
+
+			&:hover .twitter-red-icon {
+				@include sprite($twitter-white-icon);
+			}
+
+			&:hover .pinterest-red-icon {
+				@include sprite($pinterest-white-icon);
+			}
+
+			&:hover .instagram-red-icon {
+				@include sprite($instagram-white-icon);
+			}
 		}
 
 		span {
 			display: inline-block;
-			line-height: 56px;
-			vertical-align: middle;
+			margin: auto;
 		}
 
 		.facebook-red-icon {
-			@include sprite-image($facebook-red-icon);
-			@include sprite-position($facebook-red-icon);
+			@include sprite($facebook-red-icon);
+		}
+
+		.twitter-red-icon {
+			@include sprite($twitter-red-icon);
+		}
+
+		.pinterest-red-icon {
+			@include sprite($pinterest-red-icon);
+		}
+
+		.instagram-red-icon {
+			@include sprite($instagram-red-icon);
 		}
 	}
 	

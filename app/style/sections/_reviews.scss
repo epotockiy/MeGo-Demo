@@ -1,0 +1,68 @@
+.reviews {
+	padding: 110px 0 55px;
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.85) 1%, rgba(255,255,255,0.85) 100%), url(../img/reviews-bg.jpg) no-repeat center bottom;
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.85) 0%,rgba(255,255,255,0.85) 1%,rgba(255,255,255,0.85) 100%), url(../img/reviews-bg.jpg) no-repeat center bottom;
+	background: linear-gradient(to bottom, rgba(255,255,255,0.85) 0%,rgba(255,255,255,0.85) 1%,rgba(255,255,255,0.85) 100%), url(../img/reviews-bg.jpg) no-repeat center bottom;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9ffffff', endColorstr='#d9ffffff',GradientType=0 ), url(../img/reviews-bg.jpg) no-repeat center bottom;
+	background-size: cover; 
+}
+
+.reviews-list {
+	margin-top: 65px;
+	font-size: 0;
+
+	li {
+		display: inline-block;
+		width: 50%;
+		font-size: 16px;
+		padding-left: 40px;
+		margin-bottom: 65px;
+	}
+
+	.person-img {
+		float: left;
+		width: 110px;
+		margin-right: 30px;
+
+		img {
+			display: block;
+			max-width: 100%;
+		}
+	}
+
+	.person-info {
+		float: left;
+		max-width: 70%;
+		padding-top: 10px;
+
+		.name {
+			margin-bottom: 12px;
+			font-family: 'Montserrat', sans-serif;
+			font-size: 14px;
+			font-weight: 400;
+			color: #333;
+			text-transform: uppercase;
+		}
+
+		.speciality {
+			font-size: 15px;
+			font-weight: 300;
+			font-style: italic;
+			color: #333;
+
+			&::after {
+				@extend .section-title::after;
+				display: block !important;
+				margin-top: 17px !important;
+			}
+		}
+
+		.review {
+			margin-top: 20px;
+			font-size: 15px;
+			font-weight: 400;
+			color: #999;
+			line-height: 24px;
+		}
+	}
+}

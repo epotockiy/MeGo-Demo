@@ -4,8 +4,6 @@
     text-align: center;
 }
 
-
-
 .about-gallery{
 	margin-top: 100px;
 	display: flex;
@@ -13,9 +11,21 @@
     justify-content: space-between;
 
     li {
-    	width: 380px;
-    	height: 250px;
     	margin: 0;
+
+    	.overlay {
+    		width: 380px;
+    		height: 250px;
+    		background: $primary-color;
+
+    		> * {
+				transition: 0.3s;
+			}
+
+    		&:hover > * {
+				@include transform(-10px);
+	    	}
+    	}
     }
 
 	.gallery-content {
@@ -30,5 +40,13 @@
 			text-transform: uppercase;
 			@include transform (-50%);
 		}
+
+		.users-icon::before {
+    	content: '';
+    	display: block;
+    	margin: 0 auto 10px;
+    	@include sprite($users-icon);
+    	}
 	}
+
 }

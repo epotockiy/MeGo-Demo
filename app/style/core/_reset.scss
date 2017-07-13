@@ -57,7 +57,7 @@ button{
 	outline: none;
 }
 
-.navigation-container::after, .navigation-icons::after , .blog-list li::after, .services-cell::after, .team-gallery::after {
+.navigation-container::after, .navigation-icons::after , .blog-list li::after, .services-cell::after, .team-gallery::after, .columns-wrapper::after{
     content: "";
     display: table;
     clear: both;

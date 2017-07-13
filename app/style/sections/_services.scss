@@ -15,7 +15,7 @@
 	border-bottom: 1px solid #e5e5e5;
 
 	&:first-child .services-cell{
-		padding-bottom: 50px;
+		padding: 0 0 50px 30px;
 	}
 
 	&:last-child {
@@ -23,7 +23,7 @@
 	}
 
 	&:last-child .services-cell{
-		padding-top: 50px;
+		padding: 50px 0 0 30px;
 	}
 }
 
@@ -31,7 +31,7 @@
 	display: table-cell;
 	width: 33.3%;
 	vertical-align: top;
-	padding-left: 30px;
+	padding: 50px 0 50px 30px;
 }
 
 .icon {
