@@ -185,10 +185,14 @@ footer h4 {
 	height: 88px;
 }
 
-.instagram .gallery-image:nth-child(3n + 1) {
+.gallery .gallery-image:nth-child(3n) {
 	margin-right: 0;
 }
 
+.gallery .gallery-image:nth-child(3n + 1) {
+	margin-left: 0;
+}
+/*
 .gallery-image:nth-child(2) {
 	margin-left: 0;
 }
@@ -200,7 +204,7 @@ footer h4 {
 .gallery-image:nth-child(8) {
 	margin-left: 0;
 }
-
+*/
 .subscription {
 	padding-left: 4px;
 }
@@ -317,6 +321,15 @@ footer h4 {
 	.gallery-image {
 		/*height: 74px;
 		width: 74px;*/
+	}
+
+
+	.gallery .gallery-image:nth-child(3n) {
+		margin-right: 1px;
+	}
+
+	.gallery .gallery-image:nth-child(3n + 1) {
+		margin-left: 1px;
 	}
 
 	.blog-info p {
