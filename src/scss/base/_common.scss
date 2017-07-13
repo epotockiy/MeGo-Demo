@@ -140,6 +140,164 @@ body {
   }
 }
 
+.slide-wrapper {
+	margin: 0 auto;
+	max-width: 980px;
+	width: 100%;
+}
+
+.slide {
+	display: inline-block;
+	padding-bottom: 63px;
+	padding-top: 70px;
+}
+
+.slide:focus {
+	outline: 0;
+}
+
+.slide img {
+	float: left;
+}
+
+.slide .slide-content {
+	float: left;
+	width: 77%;
+	line-height: 1.6;	
+	padding-left: 59px;
+}
+
+.slide .slide-content p {
+	color: #999;
+	font-family: 'Roboto', sans-serif;
+	font-style: italic;
+	font-size: 23px;
+	font-weight: 300; 
+	margin: 0;
+	padding-top: 1px;
+}
+
+.slide-wrapper .slick-prev {
+	left: -9.2%	;
+}
+
+.slide-wrapper .slick-prev:before {
+	content: url("../images/quote/arrow-left.png");
+}
+
+.slide-wrapper .slick-next {
+	right: -9.1%;
+}
+
+.slide-wrapper .slick-next:before {
+	content: url("../images/quote/arrow-right.png");
+}	
+
+.slide .signature {
+	padding-top: 10px;
+	padding-left: 2px;
+}
+
+.slide .signature .sep-line {
+	background: #f38181;
+  	display: inline-block;
+  	height: 3px;
+  	margin: 0;
+	width: 60px;
+	vertical-align: middle;
+}
+
+.slide .signature span {
+	color: #333;
+	font-family: 'Kaushan Script', cursive;
+	font-size: 24px;
+	margin: 0;
+	padding-left: 5px;
+}
+
+
+@media screen and(max-width: 1200px) {
+	.slide-wrapper {
+		max-width: 678px;
+	}
+
+	.slide .slide-content {
+		width: 70%;
+	}
+
+	.slide .slide-content p {
+		font-size: 18px;
+	}
+
+	.slide img {
+		width: 15%;
+	}
+}
+
+@media screen and(max-width: 836px) {
+	.slide-wrapper {
+		max-width: 450px;
+	}
+
+	.slide .slide-content {
+		width: 70%;
+		padding-left: 20px;
+	}
+
+	.slide .slide-content p {
+		font-size: 14px;
+	}
+
+	.slide img {
+		width: 12%;
+	}
+
+	.signature span {
+		font-size: 18px;
+	}
+}
+
+@media screen and(max-width: 560px) {
+	.slide-wrapper .slick-next {
+		right: 0;
+	}
+
+	.slide-wrapper {
+		max-width: 300px;
+	}
+
+	.slide .slide-content {
+		width: 70%;
+		padding-left: 20px;
+	}
+
+	.slide .slide-content p {
+		line-height: 1.4;
+	}
+
+	.slide img {
+		width: 15%;
+	}
+}
+
+@media screen and(max-width: 420px) {
+	.slide-wrapper {
+		max-width: 240px;
+	}
+
+	.slide .slide-content {
+		width: 50%;
+	}
+
+	.slide .signature span {
+		font-size: 14px;
+	}
+
+	.slide .signature .sep-line {
+		width: 30px;
+	}
+}
+
 @media screen and (max-width: 1024px) {
   .flow-row-column {
   	width: 100%;

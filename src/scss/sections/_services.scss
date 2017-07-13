@@ -68,8 +68,21 @@
 	}
 }
 
-@media screen and(max-width: 811px) {
+@media screen and(max-width: 838px) {
 	.services-cell img {
+		padding-bottom: 10px;
+	}
+}
+
+@media screen and(max-width: 420px) {
+	.services-row {
+		display: inline-block;
+		width: auto;
+	}
+
+	.services-cell {
+		width: 80%;
+		float: left;
 		padding-bottom: 10px;
 	}
 }
