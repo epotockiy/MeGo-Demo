@@ -22,7 +22,7 @@
 .accordion .panel {
 	background: #fff;
 	max-height: 0;
-	transition: max-height .2s ease-out;
+	transition: max-height .4s ease-out;
 	overflow-y: scroll;
 	color: #a6a6a6;
 	font-family: 'Roboto', sans-serif;
@@ -122,17 +122,20 @@
 
 @media screen and(max-width: 480px) {
 	.accordion-btn {
-		font-size: 12px;
+		font-size: 11px;
+		padding: 10px 5px;
 	}
 
 	.accordion-btn img {
-		height: 20px;
-		width: 20px;
+		height: 17px;
+		width: 17px;
 		padding-right: 8px;
 	}
 
 	.accordion-btn:after {
 		margin-top: 3px;
 		margin-right: 3px;
+		height: 12px;
+		width: 10px;
 	}
 }

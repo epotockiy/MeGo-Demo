@@ -91,3 +91,44 @@
 	font-weight: 300;
 	padding-top: 17px;
 }
+
+@media screen and(max-width: 740px) {
+	.work-image .overlay img {
+		width: 10%;
+		padding-top: 10%;
+	}
+
+	.work-image.large .overlay img {
+		padding-top: 50%;
+	}
+
+	.work-image .overlay h6 {
+		font-size: 13px;
+	}
+
+	.wokr-image .overlay p {
+		font-size: 14px;
+	}
+}
+
+@media screen and(max-width: 660px) {
+	.work-gallery .gallery-group {
+		width: 100%;
+	}
+
+	.work-gallery .work-image {
+		width: 50%;
+	}
+
+	.work-image .overlay img {
+		width: 15%;
+	}
+
+	.work-image .overlay h6 {
+		font-size: 12px;
+	}
+
+	.wokr-image .overlay p {
+		font-size: 13px;
+	}
+}

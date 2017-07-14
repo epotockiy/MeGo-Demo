@@ -83,7 +83,7 @@
 
 	.overlay {
 		opacity: 0.93;
-		transform: translate(-10px, -10px);
+		transform: translate(-10px, -14px);
 		z-index: 1;
 	}
 
@@ -142,5 +142,45 @@
 @media screen and(max-width: 768px) {
 	.person .overlay-buttons a {
     	width: 12px;
+	}
+}
+
+@media screen and(max-width: 620px) {
+	.overlay-buttons {
+		left: 15%;
+	}
+}
+
+@media screen and(max-width: 560px) {
+	.person .overlay-buttons a {
+		width: 5px;
+	}
+
+	.overlay-buttons {
+		left: 18%;
+	}
+
+	.overlay-buttons a i {
+		font-size: 12px;
+	}
+
+	.team-gallery .person h4 {
+		font-size: 12px;
+	}
+}
+
+@media screen and(max-width: 460px) {
+	.overlay-buttons {
+		left: 8%;
+	}
+}
+
+@media screen and(max-width: 390px) {
+	.person .overlay-buttons a {
+		padding: 8px;
+	}
+
+	.overlay-buttons {
+		left: 4px;
 	}
 }
