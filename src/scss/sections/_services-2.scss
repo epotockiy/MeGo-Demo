@@ -22,7 +22,8 @@
 .accordion .panel {
 	background: #fff;
 	max-height: 0;
-	transition: max-height .4s ease-out;
+	transition: max-height .4s;
+	transition: margin .4s;
 	overflow-y: scroll;
 	color: #a6a6a6;
 	font-family: 'Roboto', sans-serif;
@@ -30,6 +31,7 @@
 	font-style: italic;
 	font-weight: lighter;
 	line-height: 1.6;
+	margin: 0 25px 0 20px;
 }
 
 .accordion .panel::-webkit-scrollbar-track {

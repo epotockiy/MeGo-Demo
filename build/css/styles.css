@@ -960,12 +960,12 @@ header {
   cursor: pointer;
   transform: translate(-10px, -10px);
   box-shadow: 10px 10px #95e1d3; }
-  .pics .image-wrapper:hover .pics .overlay {
+  .pics .image-wrapper:hover .overlay {
     opacity: 0.9; }
   .pics .image-wrapper:hover .pics .overlay-text {
     opacity: 1; }
   .pics .image-wrapper:hover .pics .overlay-text img {
-    box-shadow: none; }
+    /*box-shadow: none;*/ }
 
 @media screen and (max-width: 900px) {
   .pics .overlay img {
@@ -1159,14 +1159,16 @@ header {
 .accordion .panel {
   background: #fff;
   max-height: 0;
-  transition: max-height .4s ease-out;
+  transition: max-height .4s;
+  transition: margin .4s;
   overflow-y: scroll;
   color: #a6a6a6;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   font-style: italic;
   font-weight: lighter;
-  line-height: 1.6; }
+  line-height: 1.6;
+  margin: 0 25px 0 20px; }
 
 .accordion .panel::-webkit-scrollbar-track {
   border-radius: 10px;

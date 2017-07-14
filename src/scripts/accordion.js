@@ -6,15 +6,16 @@ for(let i = 0; i < accordionBtns.length; ++i) {
 
 		if(panel.style.maxHeight) {
 			panel.style.maxHeight = null;
-			panel.style.margin = 0;
+			panel.style.margin = '0 25px 0 20px';
+			this.classList.toggle('active-btn');
 		} else {
 			for(let j = 0; j < accordionBtns.length; ++j) {
 				accordionBtns[j].classList.remove('active-btn');
 				let nextPanel = accordionBtns[j].nextElementSibling;
 				console.log(nextPanel);
 
-				nextPanel.style.maxHeight = null
-				nextPanel.style.margin = 0;
+				nextPanel.style.maxHeight = null;
+				nextPanel.style.margin = '0 25px 0 20px';
 			}
 
 			this.classList.toggle('active-btn');

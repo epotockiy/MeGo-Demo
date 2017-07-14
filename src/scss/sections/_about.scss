@@ -76,7 +76,7 @@
 	transform: translate(-10px, -10px);
 	box-shadow: 10px 10px #95e1d3;
 
-	.pics .overlay {
+	.overlay {
   		opacity: 0.9;
 	}
 
@@ -85,7 +85,7 @@
 	}
 
 	.pics .overlay-text img {
-		box-shadow: none;
+		/*box-shadow: none;*/
 	}
 }
 
