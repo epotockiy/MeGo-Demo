@@ -113,7 +113,7 @@ footer h4 {
 	float: left;
 	padding-left: 33px;
 	padding-top: 13px;
-	width: 35%;
+	width: 56%;
   	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -165,7 +165,7 @@ footer h4 {
 
 .instagram {
 	float: left;
-	width: 25%;
+	width: 44%;
 	padding-top: 13px;
 	padding-left: 34px;
   	-webkit-box-sizing: border-box;
@@ -279,6 +279,11 @@ footer h4 {
 	color: #f38181;
 }
 
+.media {
+	float: right;
+	width: 60%;
+}
+
 @media screen and (max-width: 1200px) {
 	.footer-row {
 		box-sizing: border-box;
@@ -291,6 +296,11 @@ footer h4 {
 		width: 35%;
 	}
 
+	.blogs {
+		width: 55%;
+		padding-left: 20px;
+	}
+
 	.blog-info {
 		width: 60%;
 	}
@@ -300,7 +310,8 @@ footer h4 {
 	}
 
 	.instagram {
-		width: 30%;
+		width: 45%;
+		padding-left: 0;
 	}
 
 	.subscription input {
@@ -315,13 +326,23 @@ footer h4 {
 }
 
 @media screen and (max-width: 1000px) {
+	.media {
+		float: none;
+		margin: 0 auto;
+	}
+
 	.footer-row {
-		padding: 2% 20%;
+		padding: 10px;
 		text-align: center;
 	}
 
 	.info-column {
 		width: 100%;
+	}
+
+	.info-column .footer-description {
+		max-width: 90%;
+		margin: 0 auto;
 	}
 
 	.blogs {
@@ -333,11 +354,43 @@ footer h4 {
 	}
 
 	.instagram {
-		width: 100%;
+		width: 60%;
+		padding-left: 0;
+		margin-left: 20%;
+		margin-right: 20%;
+	}
+
+	.subscription input {
+		width: 30%;
+	}
+
+	.subscribe-btn {
+		width: 20%;
+	}
+}
+
+@media screen and(max-width: 648px) {
+	.subscription input {
+		width: 60%;
+	}
+
+	.subscribe-btn {
+		width: 30%;
+	}
+
+	.instagram {
+		width: 80%;
+		padding-left: 0;
+		margin-left: 10%;
+		margin-right: 10%;
 	}
 }
 
 @media screen and (max-width: 468px) {
+	footer {
+		padding-top: 30px;
+	}
+
 	.info-column .footer-description {
 		line-height: 1.5;
 	}
@@ -352,15 +405,16 @@ footer h4 {
 	}
 
 	.subscription .form-wrapper input {
+		box-sizing: border-box;
+	  	-webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
 		padding: 10px;
-		width: 80%;
+		width: 100%;
 	}
 
 	.form-wrapper .subscribe-btn {
 		font-size: 12px;
-		padding: 12px 20px;
 		margin-top: 10px;
-		height: auto;
-		width: auto;
+		width: 100%;
 	}
 }

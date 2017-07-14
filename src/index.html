@@ -25,13 +25,14 @@
 
           <ul class="navbar-nav" id="navbar-nav">
             <a href="javascript:void(0)" class="close-btn" id="navbar-close">&times;</a>
+            
             <li class="nav-item">
-              <a href="#">
+              <a href="#" class="search-icon">
                 <img src="images/header/search-icon.png" alt="Search">
               </a>
             </li>
             <li class="nav-item">
-              <a href="#">
+              <a href="#" class="search-icon">
                 <img src="images/header/chart-icon.png" alt="Chart">
               </a>
             </li>
@@ -62,7 +63,7 @@
           <a class="header-btn" href="#">learn more</a>
         </div>
 
-        <ul class="section-menu">
+        <ul class="section-menu clearfix">
           <li class="active-menu">
             <a class="menu-link" href="#">
               <span>01</span>intro
@@ -153,21 +154,21 @@
       </div>
 
       <div class="services-row">
-        <div class="services-cell">
+        <div class="services-cell clearfix">
           <img src="images/services/alarm.png" alt="alarm">
           <div class="service-info">
             <h6>photography</h6>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
           </div>
         </div>
-        <div class="services-cell">
+        <div class="services-cell clearfix">
           <img src="images/services/graph.png" alt="web">
           <div class="service-info">
             <h6>web design</h6>
             <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
           </div>
         </div>
-        <div class="services-cell">
+        <div class="services-cell clearfix">
           <img src="images/services/computer.png" alt="creativity">
           <div class="service-info">
             <h6>creativity</h6>
@@ -177,21 +178,21 @@
       </div>
 
       <div class="services-row">
-        <div class="services-cell">
+        <div class="services-cell clearfix">
           <img src="images/services/book.png" alt="seo">
           <div class="service-info">
             <h6>seo</h6>
             <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
           </div>
         </div>
-        <div class="services-cell">
+        <div class="services-cell clearfix">
           <img src="images/services/home.png" alt="html">
           <div class="service-info">
             <h6>css/html</h6>
             <p>Lorem dolor sit amet, consectetur adipiscing elit, sed do tempor.</p>
           </div>
         </div>
-        <div class="services-cell">
+        <div class="services-cell clearfix">
           <img src="images/services/frame.png" alt="digital">
           <div class="service-info">
             <h6>digital</h6>
@@ -658,8 +659,58 @@
     </section>
 
     <footer>
-      <div class="container footer-row">
-        <div class="info-column desktop">
+      <div class="container footer-row clearfix">
+        <div class="media">
+          <div class="blogs">
+            <h4>blogs</h4>
+
+            <div class="blog">
+              <div class="blog-image" style="background-image: url('images/footer/blogs/blog-1.png')"></div>
+              <div class="blog-info">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                <span>Jan 9, 2016</span>
+              </div>
+            </div>
+
+            <div class="blog">
+              <div class="blog-image" style="background-image: url('images/footer/blogs/blog-2.png')"></div>
+              <div class="blog-info">
+                <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
+                <span>Jan 9, 2016</span>
+              </div>
+            </div>
+
+            <div class="blog">
+              <div class="blog-image" style="background-image: url('images/footer/blogs/blog-3.png')"></div>
+              <div class="blog-info">
+                <p>sed do eiusmod tempor incididunt ut labore</p>
+                <span>Jan 9, 2016</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="instagram">
+            <h4>instagram</h4>
+
+            <div class="gallery">
+              <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-1.png')"></div>
+              <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-2.png')"></div>
+              <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-3.png')"></div>
+              <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-4.png')"></div>
+              <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-5.png')"></div>
+              <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-6.png')"></div>
+              <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-7.png')"></div>
+              <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-8.png')"></div>
+              <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-9.png')"></div>
+            </div>
+
+            <div class="instagram-link">
+              <a href="#">View more photos</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-column">
           <h3>MoGo</h3>
           <p class="footer-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -688,54 +739,6 @@
                 <button class="subscribe-btn" type="submit">Subscribe</button>
               </div>
             </form>
-          </div>
-        </div>
-
-        <div class="blogs">
-          <h4>blogs</h4>
-
-          <div class="blog">
-            <div class="blog-image" style="background-image: url('images/footer/blogs/blog-1.png')"></div>
-            <div class="blog-info">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
-              <span>Jan 9, 2016</span>
-            </div>
-          </div>
-
-          <div class="blog">
-            <div class="blog-image" style="background-image: url('images/footer/blogs/blog-2.png')"></div>
-            <div class="blog-info">
-              <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
-              <span>Jan 9, 2016</span>
-            </div>
-          </div>
-
-          <div class="blog">
-            <div class="blog-image" style="background-image: url('images/footer/blogs/blog-3.png')"></div>
-            <div class="blog-info">
-              <p>sed do eiusmod tempor incididunt ut labore</p>
-              <span>Jan 9, 2016</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="instagram">
-          <h4>instagram</h4>
-
-          <div class="gallery">
-            <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-1.png')"></div>
-            <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-2.png')"></div>
-            <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-3.png')"></div>
-            <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-4.png')"></div>
-            <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-5.png')"></div>
-            <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-6.png')"></div>
-            <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-7.png')"></div>
-            <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-8.png')"></div>
-            <div class="gallery-image" style="background-image: url('images/footer/instagram/instagram-9.png')"></div>
-          </div>
-
-          <div class="instagram-link">
-            <a href="#">View more photos</a>
           </div>
         </div>
       </div>

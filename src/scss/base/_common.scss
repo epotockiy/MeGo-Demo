@@ -6,9 +6,8 @@ body {
 .clearfix:after {
   visibility: hidden;
   display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
+  content: "";
+  clear: both;/*the most important thing*/
   height: 0;
 }
 

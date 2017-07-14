@@ -177,6 +177,20 @@
 }
 
 @media screen and(max-width: 460px) {
+	.team {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.team-gallery {
+		padding-top: 40px;
+	}
+
+	.team-gallery .person {
+		width: 80%;
+		padding-bottom: 40px;
+	}
+
 	.overlay-buttons a i {
 		font-size: 18px;
 	}

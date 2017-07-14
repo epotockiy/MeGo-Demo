@@ -109,22 +109,26 @@
 	}
 
 	.services-2 .services-image {
-		width: 60%;
+		width: 90%;
 	}
 
 	.services-2 .table-cell.accordion {
-		width: 60%;
+		width: 90%;
 		padding: 20px 0 0;
 	}
 
 	.services-2 .description {
-		max-width: 480px;
+		max-width: 450px;
 	}
 }
 
-@media screen and(max-width: 480px) {
+@media screen and(max-width: 460px) {
+	.services-2 {
+		padding: 0 0 30px;
+	}
+
 	.accordion-btn {
-		font-size: 11px;
+		font-size: 13px;
 		padding: 10px 5px;
 	}
 

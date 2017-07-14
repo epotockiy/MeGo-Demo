@@ -101,7 +101,7 @@
 
 @media screen and(max-width: 600px) {
 	.pics .image-wrapper {
-		width: 60%;
+		width: 90%;
 		margin-right: 0;
 	}
 
@@ -114,6 +114,16 @@
 	}
 }
 
+@media screen and(max-width: 460px) {
+	.about {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.pics {
+		padding-top: 30px;
+	}
+}
 
 @media screen and(max-width: 340px) {
 	.pics .overlay h6 {

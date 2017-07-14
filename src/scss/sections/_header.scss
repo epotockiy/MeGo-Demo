@@ -20,6 +20,7 @@ header {
   margin: 0;
   width: 620px;
   padding-top: 13px;
+  z-index: 1;
 }
 
 .navbar-nav .close-btn {
@@ -34,7 +35,6 @@ header {
 
 .nav-item:nth-child(2) {
   padding-left: 6.01%;
-  /*transform: translate(3px, 0);*/
 }
 
 .nav-item:nth-child(3) {
@@ -64,8 +64,8 @@ header {
 
 .nav-item a {
   color: #fff;
-  font-weight: 350;
-  font-size: 13.4px;
+  font-weight: 400;
+  font-size: 13px;
   text-decoration: none;
   text-transform: uppercase;
   transition: .3s;
@@ -75,6 +75,14 @@ header {
   color: #fce38a;
   border-bottom: 3px solid #fce38a;
   padding-bottom: 9px;
+}
+
+.nav-item .search-icon:hover {
+  /*background-image: url('../images/header/search-icon-hover.png');*/
+  /*background-position: 0 -6px;*/
+  /*background-repeat: no-repeat;*/
+  border: none;
+  /*transition: 0s;*/
 }
 
 .nav-item a img {
@@ -117,6 +125,7 @@ header {
 }
 
 .header-btn {
+  display: inline-block;
   border: 3px solid #fff;
   color: #fff;
   font-weight: 700;
@@ -138,7 +147,7 @@ header {
   text-align: center;
   padding-bottom: 73px;
   padding-left: 0;
-  margin-top: 168px;
+  padding-top: 168px;
 }
 
 .section-menu li {
@@ -260,6 +269,12 @@ header {
   width: 50px;
 }
 
+@media screen and(max-width: 1200px) {
+  .header-wrapper {
+    max-width: 1000px;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .nav-item {
     display: none;
@@ -280,7 +295,6 @@ header {
     right: 0;
     background-color: #e78582;
     overflow-x: hidden;
-    /*transition: 0.5s;*/
     padding: 60px 0 0;
   }
 
@@ -354,6 +368,15 @@ header {
 }
 
 @media screen and (max-width: 460px) {
+  .header-wrapper .header-title h3 {
+    margin-top: 30px;
+  }
+
+  .header-wrapper .section-menu {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+
   .header-title h2 {
     font-size: 50px;
   }

@@ -74,15 +74,24 @@
 	}
 }
 
-@media screen and(max-width: 420px) {
+@media screen and(max-width: 460px) {
+	.services {
+		padding-top: 30px;
+		padding-bottom: 0;
+	}
+
 	.services-row {
 		display: inline-block;
 		width: auto;
+		padding-top: 0;
 	}
 
 	.services-cell {
-		width: 80%;
-		float: left;
-		padding-bottom: 10px;
+	    width: 90%;
+	    margin: 0 auto;
+	    padding-left: 0;
+	    padding-bottom: 20px;
+	    padding-top: 20px;
+	    border-top: 1px solid #e5e5e5;
 	}
 }

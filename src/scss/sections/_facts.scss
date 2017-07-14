@@ -45,6 +45,12 @@
 @media screen and(max-width: 460px) {
 	.facts .table-cell {
 		padding: 20px 0;
+		border: none;
+		border-bottom: 1px solid #b5eae0;
+	}
+
+	.facts .table-cell:last-child {
+		border-right: none;
 	}
 
 	.facts .table-cell p:first-child {
@@ -56,9 +62,17 @@
 	}
 }
 
-@media screen and (max-width: 320px) {
-  .facts .table-cell {
-  	display: block;
-  	width: 100%;
-  }
+@media screen and (max-width: 400px) {
+	.facts .table-cell {
+		display: block;
+		width: 100%;
+	}
+
+	.facts .table-cell p:first-child {
+		font-size: 40px;
+	}
+
+	.facts .table-cell p:last-child {
+		font-size: 14px;
+	}
 }

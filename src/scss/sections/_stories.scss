@@ -226,6 +226,7 @@
 		display: block;
 		width: 80%;
 		margin: 0 auto;
+		padding-bottom: 40px;
 	}
 
 	.blog-image .date-1 {
@@ -280,5 +281,12 @@
 		font-size: 15px;
 		top: 41px;
 		left: 17px;
+	}
+}
+
+@media screen and(max-width: 460px) {
+	.stories {
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
 }
