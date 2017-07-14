@@ -23,9 +23,20 @@
 	padding-left: 0;
 }
 
-.team-gallery .person img {
+.person .image-wrapper {
+	font-size: 0;
+	position: relative;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 	transition: .4s;
+}
+
+.person .image-wrapper::before {
+	content: '';
+	display: block;
 	width: 100%;
+	padding-top: 123.684%;
 }
 
 .team-gallery .person h4 {
@@ -53,7 +64,6 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	height: 100%;
 	width: 100%;
 	opacity: 0;
 	background: -moz-linear-gradient(90deg, rgba(235,212,131,1) 0%, rgba(229,126,126,1) 100%);
@@ -76,14 +86,13 @@
 .person:hover {
 	cursor: pointer;
 
-	img {
+	.image-wrapper {
 		transform: translate(-10px, -10px);
 		box-shadow: 10px 10px #95e1d3;
 	}
 
 	.overlay {
 		opacity: 0.93;
-		transform: translate(-10px, -14px);
 		z-index: 1;
 	}
 
@@ -146,41 +155,40 @@
 }
 
 @media screen and(max-width: 620px) {
-	.overlay-buttons {
-		left: 15%;
-	}
-}
-
-@media screen and(max-width: 560px) {
-	.person .overlay-buttons a {
-		width: 5px;
+	.team-gallery .person {
+		width: 70%;
+		float: none;
+		margin: 0 auto;
+		padding-bottom: 20px;
 	}
 
 	.overlay-buttons {
-		left: 18%;
+		left: 16%;
 	}
 
 	.overlay-buttons a i {
-		font-size: 12px;
+		font-size: 26px;
 	}
 
-	.team-gallery .person h4 {
-		font-size: 12px;
+	.person .overlay-buttons a {
+		padding: 15px 0;
+    	width: 56px;
 	}
 }
 
 @media screen and(max-width: 460px) {
-	.overlay-buttons {
-		left: 8%;
+	.overlay-buttons a i {
+		font-size: 18px;
+	}
+
+	.person .overlay-buttons a {
+		padding: 8px 0;
+    	width: 40px;
 	}
 }
 
-@media screen and(max-width: 390px) {
-	.person .overlay-buttons a {
-		padding: 8px;
-	}
-
+@media screen and(max-width: 320px) {
 	.overlay-buttons {
-		left: 4px;
+		left: 10%;
 	}
 }
