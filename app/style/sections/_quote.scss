@@ -1,0 +1,89 @@
+.quote {
+	padding: 70px 0;
+	background: #f8f8f8;
+}
+
+.carousel {
+	position: relative;
+	overflow: hidden;
+
+	ul {
+		width: 9999px;
+		transition: margin-left 0.25s;
+		font-size: 0;
+	}
+
+	li {
+		display: inline-block
+	}
+
+	.arrow {
+		position: absolute;
+		top: 50%;
+		margin-top: -($arrow-icon-width) / 2;
+		@include sprite($arrow-icon);
+		opacity: 0.7;
+
+		&:hover {
+		opacity: 1;
+		}
+	}
+
+	.prev {
+		left: 25px;
+		transform: rotate(90deg);
+	}
+
+	.next{
+		right: 25px;
+		transform: rotate(-90deg);
+	}
+}
+
+.quote-list{
+	li {
+		padding: 0 110px;
+	}
+}
+
+.quote-img{
+	float: left;
+	width: 150px;
+	height: 150px;
+	margin-right: 60px;
+	background: url(../img/quote.png) no-repeat center;
+	background-size: cover;
+}
+
+.quote-content {
+	float: left;
+	max-width: 770px;
+	padding-top: 5px;
+}
+
+.quote-text {
+	margin-bottom: 12px;
+	font-size: 24px;
+	font-weight: 300;
+	font-style: italic;
+	color: #999;
+	line-height: 36px;
+}
+
+.quote-author {
+	@extend .styled-font;
+	font-size: 24px;
+	color: #333;
+	
+	span {		
+		vertical-align: middle;
+	}
+
+	&::before {
+		content: '';
+		margin-right: 10px;
+		vertical-align: middle;
+		@extend .red-line;
+	}
+}
+

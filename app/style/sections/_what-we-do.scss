@@ -1,5 +1,132 @@
 .what-we-do {
 	padding: 110px 0 120px;
 	background: #fff;
-	border-bottom: 1px solid #999;
 }
+
+.what-we-do-content {
+	margin-top: 90px;
+}
+
+.what-we-do-img {
+	float: left;
+	width: 50%;
+	padding-right: 30px;
+
+	.image {
+		height: 100%;
+		background: url(../img/what-we-do.jpg) no-repeat center;
+		background-size: cover;
+	}
+}
+
+.what-we-do-accordion {
+	float: right;
+	width: 50%;
+}
+
+.what-we-do-img, .what-we-do-accordion {
+	height: 380px;
+}
+
+/******************************* Accordion *******************/
+.accordion {
+	position: relative;
+	margin-top: 9px;
+	width: 100%;
+    height: 60px;
+    padding: 15px;
+    background-color: #fff;
+    text-align: left;    
+    border: 1px solid #e5e5e5;
+    transition: 0.4s;
+
+    &:first-child {
+    	margin-top: 0;
+    }
+
+    &::after {
+    	content: '';
+    	position: absolute;
+    	top: 50%;
+    	right: 15px;
+    	display: block;
+    	@include sprite($arrow-icon);
+    	margin-top: - $arrow-icon-height / 2;
+    	transform: rotate(0deg);
+    }
+
+    span {
+		font-family: "Montserrat", sans-serif;
+	    font-size: 14px;
+	    font-weight: 400;
+	    color: #333;
+	    text-transform: uppercase;
+	    vertical-align: middle;
+    }
+
+    .photography-icon {
+    	display: inline-block;
+    	vertical-align: middle;
+    	margin-right: 15px;
+    	@include sprite($photography-green-icon);
+    }
+
+    .creativity-icon {
+    	display: inline-block;
+    	vertical-align: middle;
+    	margin-right: 15px;
+    	@include sprite($creativity-green-icon);
+    }
+
+    .web-design-icon {
+    	display: inline-block;
+    	vertical-align: middle;
+    	margin-right: 15px;
+    	@include sprite($web-design-green-icon);
+    }
+}
+
+.accordion.active + .panel{
+	padding: 20px;
+	border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.accordion.active::after {
+	transform: rotate(180deg);
+}
+
+.what-we-do-accordion {
+	.panel {
+	    background-color: #fff;
+	    max-height: 0;
+	    overflow-y: hidden;
+	    transition: max-height 0.2s ease-out;
+
+	    p {
+	    	max-height: 0;
+	    	overflow-y: scroll;
+	    	font-size: 15px;
+	    	font-weight: 300;
+	    	font-style: italic;
+	    	color: #999;
+	    	line-height: 24px;
+	    }
+
+	    p::-webkit-scrollbar-track {
+			border-radius: 10px;
+			background-color: #f5f5f5; 
+		}
+
+		p::-webkit-scrollbar {
+			width: 5px;
+			background-color: #fff; 
+		}
+
+		p::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			background-color: #95e1d3; }
+	}
+}
+/******************************* Accordion END ***************/

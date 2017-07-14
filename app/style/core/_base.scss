@@ -47,6 +47,13 @@ $nav-size: 14px;
 	input[type="email"]::placeholder { color: $color; }
 }
 
+.red-line {
+	display: inline-block;
+	width: 60px;
+	height: 3px;
+	background: #f38181;
+}
+
 .section-title {
 	text-align: center;
 
@@ -64,12 +71,9 @@ $nav-size: 14px;
 	}
 
 	&::after {
-		content: '';
-		display: inline-block;
 		margin-top: 40px;
-		width: 60px;
-		height: 3px;
-		background: #f38181;
+		content: '';
+		@extend .red-line;
 		}
 }
 
@@ -91,18 +95,6 @@ $nav-size: 14px;
 	-ms-transform: translateX($scale) translateY($scale);
 	transform: translateX($scale) translateY($scale);
  }
-
- @mixin sprite-size($sprite) {
-  $bg-width: nth($sprite, 5);
-  $bg-height: nth($sprite, 6);
-  background-size: $bg-width $bg-height;
-}
-
- @mixin spriter($sprite) {
-  @include sprite-image($sprite);
-  @include sprite-position($sprite);
-  @include sprite-size($sprite);
-}
 
 .gradient-gallery {
 

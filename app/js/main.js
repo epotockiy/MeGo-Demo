@@ -1,0 +1,2 @@
+//= accordion.js
+//= carousel.js
