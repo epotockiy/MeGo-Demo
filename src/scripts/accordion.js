@@ -12,7 +12,6 @@ for(let i = 0; i < accordionBtns.length; ++i) {
 			for(let j = 0; j < accordionBtns.length; ++j) {
 				accordionBtns[j].classList.remove('active-btn');
 				let nextPanel = accordionBtns[j].nextElementSibling;
-				console.log(nextPanel);
 
 				nextPanel.style.maxHeight = null;
 				nextPanel.style.margin = '0 25px 0 20px';

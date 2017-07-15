@@ -1,6 +1,8 @@
 header {
-  background: url('../images/header/eagle-background.png') center center no-repeat;
+  background-image: url('../images/header/eagle-background.png');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .header-wrapper {
@@ -18,7 +20,7 @@ header {
   float: right;
   list-style-type: none;
   margin: 0;
-  width: 620px;
+  width: 630px;
   padding-top: 13px;
   z-index: 1;
 }
@@ -28,8 +30,6 @@ header {
 }
 
 .nav-item {
-  display: inline-block;
-  vertical-align: middle;
   float: right;
 }
 
@@ -121,7 +121,7 @@ header {
 
 .header-btn-wrapper {
   text-align: center;
-  margin-top: 24px;
+  margin-top: 13px;
 }
 
 .header-btn {
@@ -145,9 +145,9 @@ header {
   list-style-type: none;
   margin: 0;
   text-align: center;
-  padding-bottom: 73px;
+  padding-bottom: 22px;
   padding-left: 0;
-  padding-top: 168px;
+  padding-top: 158px;
 }
 
 .section-menu li {

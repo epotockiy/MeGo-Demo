@@ -184,6 +184,12 @@ footer h4 {
 	font-style: italic;
 	font-size: 12px;
 	text-decoration: none;
+	transition: color .6s;
+}
+
+.instagram-link a:hover {
+	color: #f38181;
+	border-bottom: 2px solid #f38181;
 }
 
 .gallery-image {
@@ -329,6 +335,7 @@ footer h4 {
 	.media {
 		float: none;
 		margin: 0 auto;
+		width: 100%;
 	}
 
 	.footer-row {
@@ -337,6 +344,7 @@ footer h4 {
 	}
 
 	.info-column {
+		padding-top: 30px;
 		width: 100%;
 	}
 
@@ -353,11 +361,23 @@ footer h4 {
 		text-align: left;
 	}
 
+	.blogs .blog-info p {
+		font-size: 14px;
+	}
+
+	.blog {
+		width: 70%;
+	}
+
 	.instagram {
 		width: 60%;
 		padding-left: 0;
 		margin-left: 20%;
 		margin-right: 20%;
+	}
+
+	.instagram .instagram-link a {
+		font-size: 14px;
 	}
 
 	.subscription input {
@@ -404,6 +424,10 @@ footer h4 {
 		font-size: 11px;
 	}
 
+	.blog {
+		width: 90%;
+	}
+
 	.subscription .form-wrapper input {
 		box-sizing: border-box;
 	  	-webkit-box-sizing: border-box;
@@ -416,5 +440,11 @@ footer h4 {
 		font-size: 12px;
 		margin-top: 10px;
 		width: 100%;
+	}
+}
+
+@media screen and(max-width: 360px) {
+	.instagram .gallery-image {
+		margin: 0;
 	}
 }

@@ -1,5 +1,4 @@
 .about {
-	text-align: center;
 	padding-top: 91px;
 	padding-bottom: 110px;
 }
@@ -13,19 +12,17 @@
 	flex-wrap: wrap;
 	justify-content: center;	
 	padding-top: 78px;
-	position: relative;
 }
 
 .pics .image-wrapper {
-	margin-right: 30px;
-	font-size: 0;
 	position: relative;
+	margin-right: 30px;
+	margin-top: 20px;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 	width: 31.666%;
 	transition: .4s;
-	margin-top: 20px;
 }
 
 .pics .image-wrapper::before {
@@ -69,6 +66,7 @@
 	margin: 0;
 	padding-top: 35.5%;
 	color: #fff;
+	text-align: center;
 }
 
 .pics .image-wrapper:hover {

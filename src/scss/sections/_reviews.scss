@@ -127,7 +127,13 @@
 	}
 
 	.review {
-		padding-bottom: 40px;
+		width: 100%;
+		padding: 20px 10px;
+		margin: 0 auto;
+	}
+
+	.review-gallery .review:nth-child(2n) {
+		padding-left: 10px;
 	}
 
 	.review .review-content h5 {

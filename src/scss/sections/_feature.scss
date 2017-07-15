@@ -1,9 +1,7 @@
-.feature {
-	margin: 0 auto;
-}
-
 .feature .tablet-wrapper {
-	background: url('../images/feature/feature_back.png') center center no-repeat;
+	background-image: url('../images/feature/feature_back.png');
+	background-position: center center;
+	background-repeat: no-repeat;
 	background-size: cover;
 	padding-top: 108px;
 }
@@ -11,12 +9,16 @@
 .feature .tablet {
 	margin-top: 9px;
 	margin-right: 51px;
-	background: url('../images/feature/feature_pad.png') center center no-repeat;
+	background-image: url('../images/feature/feature_pad.png');
+	background-repeat: no-repeat; 
+	background-position: center center;
 	height: 581px;
 }
 
 .feature .phone {
-	background: url('../images/feature/feature_phone2.png') center center no-repeat;
+	background-image: url('../images/feature/feature_phone2.png');
+	background-repeat: no-repeat;
+	background-position: center center;
 	height: 437px;
 	margin-top: -383px;
 	margin-left: 462px;
@@ -43,8 +45,9 @@
 
 	.feature .phone {
 		background-size: 90px;
-		margin-top: -270px;
+		margin-top: -135px;
 		margin-left: 140px;
+		height: 155px;
 	}
 }
 

@@ -4,7 +4,45 @@
 }
 
 .testimonial .slide .slide-content {
-    width: 75%;
+    width: 70%;
     padding-left: 30px;
     padding-top: 31px;
+}
+
+.testimonial .testimonial-image {
+	width: 22.6%;
+}
+
+.testimonial .slide-wrapper .slick-prev {
+	left: -6.4%	;
+}
+
+.testimonial .slide-wrapper .slick-next {
+	right: -18.4%;
+}
+
+@media screen and(max-width: 800px) {
+	.testimonial .slide .slide-content {
+    	padding-top: 0;
+	}
+}
+
+@media screen and(max-width: 560px) {
+	.testimonial .slide .slide-content {
+		width: 100%;
+		text-align: center;
+		padding-left: 0;
+		padding-top: 10px;
+	}
+}
+
+@media screen and(max-width: 460px) {
+	.testimonial {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.testimonial .slide-wrapper .slick-prev {
+		left: -15%	;
+	}
 }

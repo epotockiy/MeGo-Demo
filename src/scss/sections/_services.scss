@@ -10,16 +10,16 @@
 	padding: 0;
 }
 
-.services-row {
+.services-content .services-row {
 	display: flex;
 	justify-content: center;
-	padding-top: 48px;
+	padding-top: 46px;
 }
 
-.services-row:first-child {
+.services-content .services-row:first-child {
 	padding-top: 26px;
 	border-bottom: 1px solid #e5e5e5;
-	padding-bottom: 47px;
+	padding-bottom: 49px;
 }
 
 .services-cell {
@@ -80,18 +80,23 @@
 		padding-bottom: 0;
 	}
 
-	.services-row {
+	.services .services-row {
 		display: inline-block;
 		width: auto;
 		padding-top: 0;
 	}
 
-	.services-cell {
+	.services .services-cell {
 	    width: 90%;
 	    margin: 0 auto;
 	    padding-left: 0;
 	    padding-bottom: 20px;
 	    padding-top: 20px;
 	    border-top: 1px solid #e5e5e5;
+	}
+
+	.services-content .services-row:first-child {
+		border: none;
+		padding-bottom: 0;
 	}
 }

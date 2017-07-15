@@ -1,3 +1,21 @@
 .quote {
 	background-color: #f8f8f8;
 }
+
+.slide .quote-image {
+	width: 16%;
+}
+
+.slide .slick-prev {
+	left: -9.9%	;
+}
+
+.slide .slick-next {
+	right: -14.9%;
+}
+
+@media screen and(max-width: 836px) {
+	.slide .quote-image {
+		width: 14%;
+	}
+}

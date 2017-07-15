@@ -6,7 +6,7 @@ $('.quote .slide-wrapper').slick({
   slidesToScroll: 1
 });
 
-$('.testimonial.slide-wrapper').slick({
+$('.testimonial .slide-wrapper').slick({
   dots: false,
   infinite: false,
   speed: 400,

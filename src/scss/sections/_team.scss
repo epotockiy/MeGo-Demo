@@ -162,10 +162,6 @@
 		padding-bottom: 20px;	
 	}
 
-	.overlay-buttons {
-		left: 16%;
-	}
-
 	.overlay-buttons a i {
 		font-size: 26px;
 	}
@@ -179,7 +175,7 @@
 @media screen and(max-width: 460px) {
 	.team {
 		padding-top: 30px;
-		padding-bottom: 30px;
+		padding-bottom: 0;
 	}
 
 	.team-gallery {
@@ -189,6 +185,14 @@
 	.team-gallery .person {
 		width: 80%;
 		padding-bottom: 40px;
+	}
+
+	.team-gallery .person h4 {
+		padding-top: 10px;
+	}
+
+	.team-gallery .person p {
+		padding-top: 10px;
 	}
 
 	.overlay-buttons a i {
