@@ -6,10 +6,35 @@ body {
 .clearfix:after {
   visibility: hidden;
   display: block;
-  content: "";
-  clear: both;/*the most important thing*/
+  content: ""; /* or 'content: " "; font-size: 0;' */
+  clear: both; /*the most important thing*/
   height: 0;
 }
+
+/* 
+	For IE6-7 support:
+	* html .clearfix             { zoom: 1; }
+	*:first-child+html .clearfix { zoom: 1; } 
+/* 
+Generally clearfix could be specified usin 'overflow: hidden | auto' applying to parent div 
+
+You can write additional class '.clearfix' of just specify this properties in parent class '.parent:after'
+	.clerfix:after {
+		content: '';
+		display: table | block;         //'display: table' is commonly used for maintaining IE6-7 browsers 
+		clear: both;
+	}
+
+Also you could write additinal block after floatin blocks(at the bottom of parent block) with propertie:
+	.clear {
+		clear: both;
+	}
+
+The most moder way of clearing floats is to give to parent element 'flow-root' property:
+	.parent {
+		display: flow-root;
+	}
+*/
 
 .container {
 	max-width: 1200px;

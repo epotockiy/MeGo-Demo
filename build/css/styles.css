@@ -400,10 +400,35 @@ body {
   visibility: hidden;
   display: block;
   content: "";
+  /* or 'content: " "; font-size: 0;' */
   clear: both;
   /*the most important thing*/
   height: 0; }
 
+/* 
+	For IE6-7 support:
+	* html .clearfix             { zoom: 1; }
+	*:first-child+html .clearfix { zoom: 1; } 
+/* 
+Generally clearfix could be specified usin 'overflow: hidden | auto' applying to parent div 
+
+You can write additional class '.clearfix' of just specify this properties in parent class '.parent:after'
+	.clerfix:after {
+		content: '';
+		display: table | block;         //'display: table' is commonly used for maintaining IE6-7 browsers 
+		clear: both;
+	}
+
+Also you could write additinal block after floatin blocks(at the bottom of parent block) with propertie:
+	.clear {
+		clear: both;
+	}
+
+The most moder way of clearing floats is to give to parent element 'flow-root' property:
+	.parent {
+		display: flow-root;
+	}
+*/
 .container {
   max-width: 1200px;
   width: 100%;
@@ -737,7 +762,6 @@ header {
 .section-menu {
   list-style-type: none;
   margin: 0;
-  text-align: center;
   padding-bottom: 22px;
   padding-left: 0;
   padding-top: 158px; }
@@ -807,8 +831,7 @@ header {
 
 .section-menu li.active-menu {
   border-top: 3px solid #fff;
-  content: '';
-  display: block; }
+  content: ''; }
 
 .section-menu li:first-child {
   margin-left: 0; }
@@ -876,6 +899,33 @@ header {
     display: inline-block;
     float: right;
     font-size: 0;
+    /* 
+      Because this is an inline-block element, it has tabulation character after it.
+      That is why we use 'font-size: 0' property to get rid of it.
+
+      If you use <ul> list you can use one of those methods: 
+      1)
+      <ul>
+        <li>one</li><li>two</li><li>three</li>
+      </ul>
+      (in one line, just to delete all this whitespaces)
+
+      2)
+      <ul><!--
+          --><li>one</li><!--
+          --><li>two</li><!--
+          --><li>three</li><!--
+      --></ul>
+        (using comments)
+        
+      3)
+        <ul>
+          <li>one
+          <li>two
+          <li>three
+        </ul>
+        (remove closing tags)
+    */
     padding-right: 20px; }
   .navbar {
     max-width: 80%; }
@@ -1086,12 +1136,12 @@ header {
   margin-bottom: 49px;
   padding: 0; }
 
-.services-content .services-row {
+.services-row {
   display: flex;
   justify-content: center;
   padding-top: 46px; }
 
-.services-content .services-row:first-child {
+.services-row:first-child {
   padding-top: 26px;
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 49px; }
@@ -1152,7 +1202,7 @@ header {
     padding-bottom: 20px;
     padding-top: 20px;
     border-top: 1px solid #e5e5e5; }
-  .services-content .services-row:first-child {
+  .services-row:first-child {
     border: none;
     padding-bottom: 0; } }
 
@@ -1353,7 +1403,7 @@ header {
 
 .team {
   padding-top: 100px;
-  padding-bottom: 110px; }
+  padding-bottom: 115px; }
 
 .team .description {
   padding-top: 5px; }
@@ -1391,7 +1441,7 @@ header {
   text-transform: uppercase;
   color: #333;
   margin: 0;
-  padding-top: 23px; }
+  padding-top: 27px; }
 
 .team-gallery .person p {
   font-family: 'Roboto', sans-serif;
@@ -1578,6 +1628,10 @@ header {
 .work {
   padding-top: 110px; }
 
+.work .description {
+  padding-top: 5px;
+  width: 73%; }
+
 .work-gallery {
   padding-top: 100px; }
 
@@ -1743,7 +1797,7 @@ header {
   padding-left: 3.4%;
   vertical-align: top; }
 
-.review-gallery .review:nth-child(2n) {
+.review:nth-child(2n) {
   padding-left: 50px; }
 
 .review .review-image {
@@ -1810,7 +1864,7 @@ header {
     padding-left: 0; }
   .review-content p::before {
     margin: 0 auto; }
-  .review-gallery .review:nth-child(2n) {
+  .review:nth-child(2n) {
     padding-left: 0; } }
 
 @media screen and (max-width: 460px) {
@@ -1823,7 +1877,7 @@ header {
     width: 100%;
     padding: 20px 10px;
     margin: 0 auto; }
-  .review-gallery .review:nth-child(2n) {
+  .review:nth-child(2n) {
     padding-left: 10px; }
   .review .review-content h5 {
     font-size: 13px; }
@@ -1843,12 +1897,12 @@ header {
 .stories .title {
   padding-bottom: 48px; }
 
-.blog-image .date-1 {
+.stories .story-image .date {
   position: absolute;
   top: 66.666%;
   left: -2.631%; }
 
-.blog-image .date-1::before {
+.stories .story-image .date-1::before {
   content: '15';
   color: #fff;
   display: block;
@@ -1859,7 +1913,7 @@ header {
   font-size: 30px;
   padding: 11px 15px 23px; }
 
-.blog-image .date-1::after {
+.stories .story-image .date-1::after {
   content: 'Jan';
   color: #fff;
   display: block;
@@ -1871,12 +1925,7 @@ header {
   top: 41px;
   left: 17px; }
 
-.blog-image .date-2 {
-  position: absolute;
-  top: 66.666%;
-  left: -2.631%; }
-
-.blog-image .date-2::before {
+.stories .story-image .date-2::before {
   content: '14';
   color: #fff;
   display: block;
@@ -1887,7 +1936,7 @@ header {
   font-size: 30px;
   padding: 11px 15px 23px; }
 
-.blog-image .date-2::after {
+.stories .story-image .date-2::after {
   content: 'Jan';
   color: #fff;
   display: block;
@@ -1899,12 +1948,7 @@ header {
   top: 41px;
   left: 17px; }
 
-.blog-image .date-3 {
-  position: absolute;
-  top: 66.666%;
-  left: -2.631%; }
-
-.blog-image .date-3::before {
+.stories .story-image .date-3::before {
   content: '12';
   color: #fff;
   display: block;
@@ -1915,7 +1959,7 @@ header {
   font-size: 30px;
   padding: 11px 15px 23px; }
 
-.blog-image .date-3::after {
+.stories .story-image .date-3::after {
   content: 'Jan';
   color: #fff;
   display: block;
@@ -1927,16 +1971,16 @@ header {
   top: 41px;
   left: 17px; }
 
-.blog-item {
+.story-item {
   display: inline-block;
   width: 31.666%;
   padding-left: 2.5%;
   vertical-align: top; }
 
-.blog-item:first-child {
+.story-item:first-child {
   padding-left: 0; }
 
-.blog-item h5 {
+.story-item h5 {
   color: #333;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -1945,7 +1989,7 @@ header {
   margin: 0;
   padding-top: 17px; }
 
-.blog-item p {
+.story-item p {
   color: #999;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -1953,17 +1997,17 @@ header {
   margin: 0;
   padding-top: 11px; }
 
-.blog-item p::after {
+.story-item p::after {
   content: '';
   display: block;
   width: 100%;
   padding-bottom: 17px;
   border-bottom: 1px solid #e5e5e5; }
 
-.blog-item .stats {
+.story-item .stats {
   padding-top: 18px; }
 
-.blog-item .views {
+.story-item .views {
   display: inline-block;
   color: #b3b3b3;
   font-family: 'Roboto', sans-serif;
@@ -1971,94 +2015,94 @@ header {
   font-size: 15px;
   padding-right: 22px; }
 
-.blog-item .comments {
+.story-item .comments {
   display: inline-block;
   color: #b3b3b3;
   font-family: 'Roboto', sans-serif;
   font-style: italic;
   font-size: 15px; }
 
-.blog-image {
+.stories .story-image {
   position: relative; }
 
-.blog-image::before {
+.stories .story-image::before {
   content: '';
   display: block;
   padding-top: 63.15%;
   width: 100%; }
 
 @media screen and (max-width: 1200px) {
-  .stories .blog-item {
+  .stories .story-item {
     display: inline-block;
     width: 25%;
     padding-left: 4%;
     padding-right: 4%; } }
 
 @media screen and (max-width: 978px) {
-  .blog-image .date-1::before {
+  .stories .story-image .date-1::before {
     font-size: 18px;
     width: 20px;
     padding: 7px 10px 18px; }
-  .blog-image .date-1::after {
+  .stories .story-image .date-1::after {
     font-size: 13px;
     top: 28px;
     left: 6px; }
-  .blog-image .date-2::before {
+  .stories .story-image .date-2::before {
     font-size: 18px;
     width: 20px;
     padding: 7px 10px 18px; }
-  .blog-image .date-2::after {
+  .stories .story-image .date-2::after {
     font-size: 13px;
     top: 28px;
     left: 6px; }
-  .blog-image .date-3::before {
+  .stories .story-image .date-3::before {
     font-size: 18px;
     width: 20px;
     padding: 7px 10px 18px; }
-  .blog-image .date-3::after {
+  .stories .story-image .date-3::after {
     font-size: 13px;
     top: 28px;
     left: 6px; } }
 
 @media screen and (max-width: 550px) {
-  .stories .blog-item {
+  .stories .story-item {
     display: block;
     width: 80%;
     margin: 0 auto;
     padding-bottom: 40px; }
-  .blog-image .date-1 {
+  .stories .story-image .date-1 {
     position: absolute;
     top: 66.666%;
     left: -2.631%; }
-  .blog-image .date-1::before {
+  .stories .story-image .date-1::before {
     width: 30px;
     font-size: 30px;
     padding: 11px 15px 23px; }
-  .blog-image .date-1::after {
+  .stories .story-image .date-1::after {
     font-size: 15px;
     top: 41px;
     left: 17px; }
-  .blog-image .date-2 {
+  .stories .story-image .date-2 {
     position: absolute;
     top: 66.666%;
     left: -2.631%; }
-  .blog-image .date-2::before {
+  .stories .story-image .date-2::before {
     width: 30px;
     font-size: 30px;
     padding: 11px 15px 23px; }
-  .blog-image .date-2::after {
+  .stories .story-image .date-2::after {
     font-size: 15px;
     top: 41px;
     left: 17px; }
-  .blog-image .date-3 {
+  .stories .story-image .date-3 {
     position: absolute;
     top: 66.666%;
     left: -2.631%; }
-  .blog-image .date-3::before {
+  .stories .story-image .date-3::before {
     width: 30px;
     font-size: 30px;
     padding: 11px 15px 23px; }
-  .blog-image .date-3::after {
+  .stories .story-image .date-3::after {
     font-size: 15px;
     top: 41px;
     left: 17px; } }
@@ -2069,14 +2113,18 @@ header {
     padding-bottom: 30px; } }
 
 .map {
-  background: url("../images/map/map-back.png") center center no-repeat;
+  background-image: url("../images/map/map-back.png");
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
   text-align: center;
   font-size: 0;
   padding: 57px 0; }
 
 .map-marker {
-  background: url("../images/map/map-marker.png") center center no-repeat;
+  background-image: url("../images/map/map-marker.png");
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
   height: 26px;
   width: 20px;
@@ -2210,7 +2258,7 @@ footer h4 {
 
 .blogs {
   float: left;
-  padding-left: 33px;
+  padding-left: 34px;
   padding-top: 13px;
   width: 56%;
   -webkit-box-sizing: border-box;
@@ -2218,7 +2266,7 @@ footer h4 {
   box-sizing: border-box; }
 
 .blog {
-  display: inline-block;
+  /*display: inline-block;*/
   padding-bottom: 26px; }
 
 .blog .blog-image {
@@ -2259,14 +2307,14 @@ footer h4 {
   float: left;
   width: 44%;
   padding-top: 13px;
-  padding-left: 34px;
+  padding-left: 50px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 .instagram-link {
   display: inline-block;
-  padding-top: 17px; }
+  padding-top: 16px; }
 
 .instagram-link a {
   color: #646464;
@@ -2341,8 +2389,7 @@ footer h4 {
   cursor: pointer; }
 
 .copyright {
-  margin-top: 39px;
-  display: inline-block;
+  margin-top: 46px;
   border-top: 1px solid #e5e5e5;
   width: 100%; }
 
@@ -2350,7 +2397,7 @@ footer h4 {
   color: #333;
   font-size: 14px;
   font-weight: 500;
-  margin: 0 0 0 8px;
+  margin: 0 0 0 5px;
   padding: 22px 0;
   text-align: center; }
 
@@ -2372,6 +2419,8 @@ footer h4 {
   .blogs {
     width: 55%;
     padding-left: 20px; }
+  .blog {
+    display: inline-block; }
   .blog-info {
     width: 60%; }
   .blog-info p {
@@ -2457,3 +2506,8 @@ footer h4 {
 @media screen and (max-width: 360px) {
   .instagram .gallery-image {
     margin: 0; } }
+
+@media screen and (max-width: 350px) {
+  .socials a {
+    margin-top: 10px;
+    margin-right: 10px; } }

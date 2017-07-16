@@ -111,7 +111,7 @@ footer h4 {
 
 .blogs {
 	float: left;
-	padding-left: 33px;
+	padding-left: 34px;
 	padding-top: 13px;
 	width: 56%;
   	-webkit-box-sizing: border-box;
@@ -120,7 +120,7 @@ footer h4 {
 }
 
 .blog {
-	display: inline-block;
+	/*display: inline-block;*/
 	padding-bottom: 26px;
 }
 
@@ -167,7 +167,7 @@ footer h4 {
 	float: left;
 	width: 44%;
 	padding-top: 13px;
-	padding-left: 34px;
+	padding-left: 50px;
   	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -175,7 +175,7 @@ footer h4 {
 
 .instagram-link {
 	display: inline-block;
-	padding-top: 17px;
+	padding-top: 16px;
 }
 
 .instagram-link a {
@@ -266,8 +266,8 @@ footer h4 {
 }
 
 .copyright {
-	margin-top: 39px;
-	display: inline-block;
+	margin-top: 46px;
+	// display: inline-block;
 	border-top: 1px solid #e5e5e5;
 	width: 100%;
 }
@@ -276,7 +276,7 @@ footer h4 {
 	color: #333;
 	font-size: 14px;
 	font-weight: 500;
-	margin: 0 0 0 8px;
+	margin: 0 0 0 5px;
 	padding: 22px 0;
 	text-align: center;
 }
@@ -305,6 +305,10 @@ footer h4 {
 	.blogs {
 		width: 55%;
 		padding-left: 20px;
+	}
+
+	.blog {
+		display: inline-block;
 	}
 
 	.blog-info {
@@ -446,5 +450,12 @@ footer h4 {
 @media screen and(max-width: 360px) {
 	.instagram .gallery-image {
 		margin: 0;
+	}
+}
+
+@media screen and(max-width: 350px) {
+	.socials a {
+		margin-top: 10px;
+		margin-right: 10px;
 	}
 }

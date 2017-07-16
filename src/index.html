@@ -24,7 +24,9 @@
           </a>
 
           <ul class="navbar-nav" id="navbar-nav">
-            <a href="javascript:void(0)" class="close-btn" id="navbar-close">&times;</a>
+            <li>
+              <a href="javascript:void(0)" class="close-btn" id="navbar-close">&times;</a>
+            </li>
             
             <li class="nav-item">
               <a href="#" class="search-icon">
@@ -153,52 +155,50 @@
         <div></div>
       </div>
 
-      <div class="services-content">
-        <div class="services-row">
-          <div class="services-cell clearfix">
-            <img src="images/services/alarm.png" alt="alarm">
-            <div class="service-info">
-              <h6>photography</h6>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-            </div>
-          </div>
-          <div class="services-cell clearfix">
-            <img src="images/services/graph.png" alt="web">
-            <div class="service-info">
-              <h6>web design</h6>
-              <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-            </div>
-          </div>
-          <div class="services-cell clearfix">
-            <img src="images/services/computer.png" alt="creativity">
-            <div class="service-info">
-              <h6>creativity</h6>
-              <p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-            </div>
+      <div class="services-row">
+        <div class="services-cell clearfix">
+          <img src="images/services/alarm.png" alt="alarm">
+          <div class="service-info">
+            <h6>photography</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
           </div>
         </div>
+        <div class="services-cell clearfix">
+          <img src="images/services/graph.png" alt="web">
+          <div class="service-info">
+            <h6>web design</h6>
+            <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+          </div>
+        </div>
+        <div class="services-cell clearfix">
+          <img src="images/services/computer.png" alt="creativity">
+          <div class="service-info">
+            <h6>creativity</h6>
+            <p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+          </div>
+        </div>
+      </div>
 
-        <div class="services-row">
-          <div class="services-cell clearfix">
-            <img src="images/services/book.png" alt="seo">
-            <div class="service-info">
-              <h6>seo</h6>
-              <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-            </div>
+      <div class="services-row">
+        <div class="services-cell clearfix">
+          <img src="images/services/book.png" alt="seo">
+          <div class="service-info">
+            <h6>seo</h6>
+            <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
           </div>
-          <div class="services-cell clearfix">
-            <img src="images/services/home.png" alt="html">
-            <div class="service-info">
-              <h6>css/html</h6>
-              <p>Lorem dolor sit amet, consectetur adipiscing elit, sed do tempor.</p>
-            </div>
+        </div>
+        <div class="services-cell clearfix">
+          <img src="images/services/home.png" alt="html">
+          <div class="service-info">
+            <h6>css/html</h6>
+            <p>Lorem dolor sit amet, consectetur adipiscing elit, sed do tempor.</p>
           </div>
-          <div class="services-cell clearfix">
-            <img src="images/services/frame.png" alt="digital">
-            <div class="service-info">
-              <h6>digital</h6>
-              <p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-            </div>
+        </div>
+        <div class="services-cell clearfix">
+          <img src="images/services/frame.png" alt="digital">
+          <div class="service-info">
+            <h6>digital</h6>
+            <p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
           </div>
         </div>
       </div>
@@ -535,7 +535,7 @@
           <h2>what people say</h2>
         </div>
 
-        <div class="review-gallery clearfix">
+        <div class="clearfix">
           <div class="review">
             <div class="review-image" style="background-image: url('images/reviews/man-1.png');"></div>
             <div class="review-content">
@@ -592,9 +592,9 @@
       </div>
 
       <div class="container">
-        <div class="blog-item">
-          <div class="blog-image" style="background: url('images/stories/blog-1.png') center center no-repeat;">
-            <div class="date-1"></div>
+        <div class="story-item">
+          <div class="story-image" style="background: url('images/stories/blog-1.png') center center no-repeat;">
+            <div class="date date-1"></div>
           </div>
 
           <h5>lorem ipsum dolor sit amet</h5>
@@ -614,9 +614,9 @@
           </div>
         </div>
 
-        <div class="blog-item">
-          <div class="blog-image" style="background: url('images/stories/blog-2.png') center center no-repeat;">
-            <div class="date-2"></div>
+        <div class="story-item">
+          <div class="story-image" style="background: url('images/stories/blog-2.png') center center no-repeat;">
+            <div class="date date-2"></div>
           </div>
 
           <h5>sed do eiusmod tempor</h5>
@@ -636,9 +636,9 @@
           </div>
         </div>
 
-        <div class="blog-item">
-          <div class="blog-image" style="background: url('images/stories/blog-3.png') center center no-repeat;">
-            <div class="date-3"></div>
+        <div class="story-item">
+          <div class="story-image" style="background: url('images/stories/blog-3.png') center center no-repeat;">
+            <div class="date date-3"></div>
           </div>
 
           <h5>incididunt ut labore et dolore</h5>
@@ -673,7 +673,7 @@
           <div class="blogs">
             <h4>blogs</h4>
 
-            <div class="blog">
+            <div class="blog clearfix">
               <div class="blog-image" style="background-image: url('images/footer/blogs/blog-1.png')"></div>
               <div class="blog-info">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
@@ -681,7 +681,7 @@
               </div>
             </div>
 
-            <div class="blog">
+            <div class="blog clearfix">
               <div class="blog-image" style="background-image: url('images/footer/blogs/blog-2.png')"></div>
               <div class="blog-info">
                 <p>consectetur adipiscing elit, sed do eiusmod tempor</p>
@@ -689,7 +689,7 @@
               </div>
             </div>
 
-            <div class="blog">
+            <div class="blog clearfix">
               <div class="blog-image" style="background-image: url('images/footer/blogs/blog-3.png')"></div>
               <div class="blog-info">
                 <p>sed do eiusmod tempor incididunt ut labore</p>

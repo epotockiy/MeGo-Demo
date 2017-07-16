@@ -1,5 +1,7 @@
 .map {
-	background: url("../images/map/map-back.png") center center no-repeat;
+	background-image: url("../images/map/map-back.png");
+	background-repeat: no-repeat;
+	background-position: center center;
 	background-size: cover;
 	text-align: center;
 	font-size: 0;
@@ -7,7 +9,9 @@
 }
 
 .map-marker {
-	background: url("../images/map/map-marker.png") center center no-repeat;
+	background-image: url("../images/map/map-marker.png");
+	background-repeat: no-repeat;
+	background-position: center center;
 	background-size: cover;
 	height: 26px;
 	width: 20px;

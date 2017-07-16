@@ -11,13 +11,13 @@
 	padding-bottom: 48px;
 }
 
-.blog-image .date-1 {
+.stories .story-image .date {
 	position: absolute;
     top: 66.666%;
     left: -2.631%;
 }
 
-.blog-image .date-1::before {
+.stories .story-image .date-1::before {
 	content: '15';
 	color: #fff;
 	display: block;
@@ -29,7 +29,7 @@
 	padding: 11px 15px 23px;
 }
 
-.blog-image .date-1::after {
+.stories .story-image .date-1::after {
 	content: 'Jan';
 	color: #fff;
 	display: block;
@@ -42,13 +42,7 @@
 	left: 17px;
 }
 
-.blog-image .date-2 {
-	position: absolute;
-    top: 66.666%;
-    left: -2.631%;
-}
-
-.blog-image .date-2::before {
+.stories .story-image .date-2::before {
 	content: '14';
 	color: #fff;
 	display: block;
@@ -60,7 +54,7 @@
 	padding: 11px 15px 23px;
 }
 
-.blog-image .date-2::after {
+.stories .story-image .date-2::after {
 	content: 'Jan';
 	color: #fff;
 	display: block;
@@ -73,13 +67,7 @@
 	left: 17px;
 }
 
-.blog-image .date-3 {
-	position: absolute;
-    top: 66.666%;
-    left: -2.631%;
-}
-
-.blog-image .date-3::before {
+.stories .story-image .date-3::before {
 	content: '12';
 	color: #fff;
 	display: block;
@@ -91,7 +79,7 @@
 	padding: 11px 15px 23px;
 }
 
-.blog-image .date-3::after {
+.stories .story-image .date-3::after {
 	content: 'Jan';
 	color: #fff;
 	display: block;
@@ -104,18 +92,18 @@
 	left: 17px;
 }
 
-.blog-item {
+.story-item {
 	display: inline-block;
 	width: 31.666%;
 	padding-left: 2.5%;
 	vertical-align: top;
 }
 
-.blog-item:first-child {
+.story-item:first-child {
 	padding-left: 0;
 }
 
-.blog-item h5 {
+.story-item h5 {
 	color: #333;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 14px;
@@ -125,7 +113,7 @@
 	padding-top: 17px;
 }
 
-.blog-item p {
+.story-item p {
 	color: #999;
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
@@ -134,7 +122,7 @@
 	padding-top: 11px;
 }
 
-.blog-item p::after {
+.story-item p::after {
 	content: '';
 	display: block;
 	width: 100%;
@@ -142,11 +130,11 @@
 	border-bottom: 1px solid #e5e5e5;
 }
 
-.blog-item .stats {
+.story-item .stats {
 	padding-top: 18px;
 }
 
-.blog-item .views {
+.story-item .views {
 	display: inline-block;
 	color: #b3b3b3;
 	font-family: 'Roboto', sans-serif;
@@ -155,7 +143,7 @@
 	padding-right: 22px;
 }
 
-.blog-item .comments {
+.story-item .comments {
 	display: inline-block;
 	color: #b3b3b3;
 	font-family: 'Roboto', sans-serif;
@@ -163,11 +151,11 @@
 	font-size: 15px;
 }
 
-.blog-image {
+.stories .story-image {
 	position: relative;
 }
 
-.blog-image::before {
+.stories .story-image::before {
 	content: '';
 	display: block;
 	padding-top: 63.15%;
@@ -175,7 +163,7 @@
 }
 
 @media screen and(max-width: 1200px) {
-	.stories .blog-item {
+	.stories .story-item {
 		display: inline-block;
 		width: 25%;
 		padding-left: 4%;
@@ -184,37 +172,37 @@
 }
 
 @media screen and(max-width: 978px) {
-	.blog-image .date-1::before {
+	.stories .story-image .date-1::before {
 		font-size: 18px;
 		width: 20px;
 		padding: 7px 10px 18px;
 	}
 
-	.blog-image .date-1::after {
+	.stories .story-image .date-1::after {
 		font-size: 13px;
 		top: 28px;
 		left: 6px;
 	}
 
-	.blog-image .date-2::before {
+	.stories .story-image .date-2::before {
 		font-size: 18px;
 		width: 20px;
 		padding: 7px 10px 18px;
 	}
 
-	.blog-image .date-2::after {
+	.stories .story-image .date-2::after {
 		font-size: 13px;
 		top: 28px;
 		left: 6px;
 	}
 
-	.blog-image .date-3::before {
+	.stories .story-image .date-3::before {
 		font-size: 18px;
 		width: 20px;
 		padding: 7px 10px 18px;
 	}
 
-	.blog-image .date-3::after {
+	.stories .story-image .date-3::after {
 		font-size: 13px;
 		top: 28px;
 		left: 6px;
@@ -222,62 +210,62 @@
 }
 
 @media screen and(max-width: 550px) {
-	.stories .blog-item {
+	.stories .story-item {
 		display: block;
 		width: 80%;
 		margin: 0 auto;
 		padding-bottom: 40px;
 	}
 
-	.blog-image .date-1 {
+	.stories .story-image .date-1 {
 		position: absolute;
 	    top: 66.666%;
 	    left: -2.631%;
 	}
 
-	.blog-image .date-1::before {
+	.stories .story-image .date-1::before {
 		width: 30px;
 		font-size: 30px;
 		padding: 11px 15px 23px;
 	}
 
-	.blog-image .date-1::after {
+	.stories .story-image .date-1::after {
 		font-size: 15px;
 		top: 41px;
 		left: 17px;
 	}
 
-	.blog-image .date-2 {
+	.stories .story-image .date-2 {
 		position: absolute;
 	    top: 66.666%;
 	    left: -2.631%;
 	}
 
-	.blog-image .date-2::before {
+	.stories .story-image .date-2::before {
 		width: 30px;
 		font-size: 30px;
 		padding: 11px 15px 23px;
 	}
 
-	.blog-image .date-2::after {
+	.stories .story-image .date-2::after {
 		font-size: 15px;
 		top: 41px;
 		left: 17px;
 	}
 
-	.blog-image .date-3 {
+	.stories .story-image .date-3 {
 		position: absolute;
 	    top: 66.666%;
 	    left: -2.631%;
 	}
 
-	.blog-image .date-3::before {
+	.stories .story-image .date-3::before {
 		width: 30px;
 		font-size: 30px;
 		padding: 11px 15px 23px;
 	}
 
-	.blog-image .date-3::after {
+	.stories .story-image .date-3::after {
 		font-size: 15px;
 		top: 41px;
 		left: 17px;

@@ -144,7 +144,7 @@ header {
 .section-menu {
   list-style-type: none;
   margin: 0;
-  text-align: center;
+  // text-align: center;
   padding-bottom: 22px;
   padding-left: 0;
   padding-top: 158px;
@@ -232,7 +232,7 @@ header {
 .section-menu li.active-menu {
     border-top: 3px solid #fff;
     content: '';
-    display: block;
+    // display: block;
 }
 
 .section-menu li:first-child {
@@ -321,6 +321,35 @@ header {
     display: inline-block;
     float: right;
     font-size: 0;
+
+    /* 
+      Because this is an inline-block element, it has tabulation character after it.
+      That is why we use 'font-size: 0' property to get rid of it.
+
+      If you use <ul> list you can use one of those methods: 
+      1)
+      <ul>
+        <li>one</li><li>two</li><li>three</li>
+      </ul>
+      (in one line, just to delete all this whitespaces)
+
+      2)
+      <ul><!--
+          --><li>one</li><!--
+          --><li>two</li><!--
+          --><li>three</li><!--
+      --></ul>
+        (using comments)
+        
+      3)
+        <ul>
+          <li>one
+          <li>two
+          <li>three
+        </ul>
+        (remove closing tags)
+    */
+
     padding-right: 20px;
   }
 
