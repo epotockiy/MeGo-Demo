@@ -111,7 +111,7 @@ footer h4 {
 
 .blogs {
 	float: left;
-	padding-left: 34px;
+	padding-left: 33px;
 	padding-top: 13px;
 	width: 56%;
   	-webkit-box-sizing: border-box;
@@ -121,7 +121,7 @@ footer h4 {
 
 .blog {
 	/*display: inline-block;*/
-	padding-bottom: 26px;
+	padding-bottom: 30px;
 }
 
 .blog .blog-image {
@@ -129,7 +129,7 @@ footer h4 {
 	background-position: center center;
 	background-repeat: no-repeat;
 	float: left;
-	width: 33%;
+	width: 32.4%;
 }
 
 .blog .blog-image::before {
@@ -141,8 +141,8 @@ footer h4 {
 
 .blog-info {
 	float: left;
-	width: 61%;
-	padding-left: 6%;
+	width: 60%;
+	padding-left: 5.4%;
 }
 
 .blog-info p {
@@ -151,8 +151,8 @@ footer h4 {
 	font-weight: 500;
 	line-height: 1.5;
 	margin: 0;
-	padding-bottom: 2px;
-	padding-top: 18px;
+	padding-bottom: 3px;
+	padding-top: 17px;
 	text-transform: uppercase;
 }
 
@@ -266,8 +266,8 @@ footer h4 {
 }
 
 .copyright {
-	margin-top: 46px;
-	// display: inline-block;
+	margin-top: 40px;
+	/*display: inline-block;*/
 	border-top: 1px solid #e5e5e5;
 	width: 100%;
 }

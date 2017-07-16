@@ -562,13 +562,13 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
   margin: 0;
   padding-top: 1px; }
 
-.slide .slick-prev {
+.slide-wrapper .slick-prev {
   left: -9.2%; }
 
 .slide-wrapper .slick-prev:before {
   content: url("../images/quote/arrow-left.png"); }
 
-.slide .slick-next {
+.slide-wrapper .slick-next {
   right: -9.1%; }
 
 .slide-wrapper .slick-next:before {
@@ -1136,12 +1136,12 @@ header {
   margin-bottom: 49px;
   padding: 0; }
 
-.services-row {
+.services-content .services-row {
   display: flex;
   justify-content: center;
   padding-top: 46px; }
 
-.services-row:first-child {
+.services-content .services-row:first-child {
   padding-top: 26px;
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 49px; }
@@ -1202,7 +1202,7 @@ header {
     padding-bottom: 20px;
     padding-top: 20px;
     border-top: 1px solid #e5e5e5; }
-  .services-row:first-child {
+  .services-content .services-row:first-child {
     border: none;
     padding-bottom: 0; } }
 
@@ -1267,17 +1267,18 @@ header {
 .services-2 .services-2-image {
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover; }
+  background-size: cover;
+  width: 47.4%; }
 
 .services-2 .services-2-image::before {
   content: '';
   display: block;
   width: 100%;
-  padding-top: 67.6%; }
+  padding-top: 66.6%; }
 
 .services-2 .table-cell.accordion {
   width: 53%;
-  padding-left: 30px; }
+  padding-left: 32px; }
 
 .accordion .panel {
   background: #fff;
@@ -1391,10 +1392,10 @@ header {
 .slide .quote-image {
   width: 16%; }
 
-.slide .slick-prev {
+.slide-wrapper .slick-prev {
   left: -9.9%; }
 
-.slide .slick-next {
+.slide-wrapper .slick-next {
   right: -14.9%; }
 
 @media screen and (max-width: 836px) {
@@ -2258,7 +2259,7 @@ footer h4 {
 
 .blogs {
   float: left;
-  padding-left: 34px;
+  padding-left: 33px;
   padding-top: 13px;
   width: 56%;
   -webkit-box-sizing: border-box;
@@ -2267,14 +2268,14 @@ footer h4 {
 
 .blog {
   /*display: inline-block;*/
-  padding-bottom: 26px; }
+  padding-bottom: 30px; }
 
 .blog .blog-image {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   float: left;
-  width: 33%; }
+  width: 32.4%; }
 
 .blog .blog-image::before {
   content: '';
@@ -2284,8 +2285,8 @@ footer h4 {
 
 .blog-info {
   float: left;
-  width: 61%;
-  padding-left: 6%; }
+  width: 60%;
+  padding-left: 5.4%; }
 
 .blog-info p {
   color: #333;
@@ -2293,8 +2294,8 @@ footer h4 {
   font-weight: 500;
   line-height: 1.5;
   margin: 0;
-  padding-bottom: 2px;
-  padding-top: 18px;
+  padding-bottom: 3px;
+  padding-top: 17px;
   text-transform: uppercase; }
 
 .blog-info span {
@@ -2389,7 +2390,8 @@ footer h4 {
   cursor: pointer; }
 
 .copyright {
-  margin-top: 46px;
+  margin-top: 40px;
+  /*display: inline-block;*/
   border-top: 1px solid #e5e5e5;
   width: 100%; }
 

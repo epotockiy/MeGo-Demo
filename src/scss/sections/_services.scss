@@ -10,13 +10,13 @@
 	padding: 0;
 }
 
-.services-row {
+.services-content .services-row {
 	display: flex;
 	justify-content: center;
 	padding-top: 46px;
 }
 
-.services-row:first-child {
+.services-content .services-row:first-child {
 	padding-top: 26px;
 	border-bottom: 1px solid #e5e5e5;
 	padding-bottom: 49px;
@@ -95,7 +95,7 @@
 	    border-top: 1px solid #e5e5e5;
 	}
 
-	.services-row:first-child {
+	.services-content .services-row:first-child {
 		border: none;
 		padding-bottom: 0;
 	}

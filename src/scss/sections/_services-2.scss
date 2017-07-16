@@ -18,18 +18,19 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
+	width: 47.4%;
 }
 
 .services-2 .services-2-image::before {
 	content: '';
 	display: block;
 	width: 100%;
-	padding-top: 67.6%;
+	padding-top: 66.6%;
 }
 
 .services-2 .table-cell.accordion {
 	width: 53%;
-	padding-left: 30px;
+	padding-left: 32px;
 }
 
 .accordion .panel {

@@ -193,7 +193,7 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 	padding-top: 1px;
 }
 
-.slide .slick-prev {
+.slide-wrapper .slick-prev {
 	left: -9.2%	;
 }
 
@@ -201,7 +201,7 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 	content: url("../images/quote/arrow-left.png");
 }
 
-.slide .slick-next {
+.slide-wrapper .slick-next {
 	right: -9.1%;
 }
 
