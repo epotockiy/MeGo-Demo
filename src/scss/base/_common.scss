@@ -57,40 +57,40 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 	color: #333;
 	text-align: center;
 	padding-bottom: 38px;
-}
 
-.title h3 {
-	font-family: 'Kaushan Script', cursive;
-	font-size: 24px;
-	font-weight: normal;
-	margin: 0;
-	padding-bottom: 20px;
-}
+	&:after {
+		margin: 0 auto;
+		padding-top: 33px;
+	    height: 3px;
+	    display: block;
+	    width: 60px;
+	    border-bottom: 3px solid #f38181;
+	    content: '';
+	}
 
-.title h2 {
-	font-weight: 700;
-	font-size: 30px;
-	line-height: 0.95;
-	margin: 0;
-	text-transform: uppercase;
-}
+	h3 {
+		font-family: 'Kaushan Script', cursive;
+		font-size: 24px;
+		font-weight: normal;
+		margin: 0;
+		padding-bottom: 20px;
+	}
 
-.title:after {
-	margin: 0 auto;
-	padding-top: 33px;
-    height: 3px;
-    display: block;
-    width: 60px;
-    border-bottom: 3px solid #f38181;
-    content: '';
+	h2 {
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 0.95;
+		margin: 0;
+		text-transform: uppercase;
+	}
 }
 
 .table {
 	display: table;
-}
 
-.table-cell {
-	display: table-cell;
+	.table-cell {
+		display: table-cell;
+	}
 }
 
 .facebook-icon {
@@ -143,173 +143,168 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 
 .slide-wrapper {
 	margin: 0 auto;
-	max-width: 68.9%;
+	max-width: 72%;
 	width: 100%;
-}
 
-.slide {
-	display: inline-block;
-	padding-bottom: 63px;
-	padding-top: 70px;
-}
+	.slide {
+		display: inline-block;
+		padding-bottom: 63px;
+		padding-top: 70px;
 
-.slide:focus {
-	outline: 0;
-}
+		&:focus {
+			outline: 0;
+		}
 
-.slide img {
-	float: left;
-}
+		.slide-image {
+			width: 15%;
+			float: left;
+			background-position: center center;
+			background-size: cover;
+			background-repeat: no-repeat;
 
-.slide .slide-image {
-	width: 23%;
-	float: left;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
+			&::before {
+				content: '';
+				display: block;
+				width: 100%;
+				padding-top: 100%;
+			}
+		}
 
-.slide .slide-image::before {
-	content: '';
-	display: block;
-	width: 100%;
-	padding-top: 100%;
-}
+		.slide-content {
+			float: left;
+			width: 75%;
+			line-height: 1.6;	
+			padding-left: 6.4%;
 
-.slide .slide-content {
-	float: left;
-	width: 77%;
-	line-height: 1.6;	
-	padding-left: 59px;
-}
+			p {
+				color: #999;
+				font-family: 'Roboto', sans-serif;
+				font-style: italic;
+				font-size: 23px;
+				font-weight: 300; 
+				margin: 0;
+				padding-top: 1px;
+			}
+		}
 
-.slide .slide-content p {
-	color: #999;
-	font-family: 'Roboto', sans-serif;
-	font-style: italic;
-	font-size: 23px;
-	font-weight: 300; 
-	margin: 0;
-	padding-top: 1px;
-}
-
-.slide-wrapper .slick-prev {
-	left: -9.2%	;
-}
-
-.slide-wrapper .slick-prev:before {
-	content: url("../images/quote/arrow-left.png");
-}
-
-.slide-wrapper .slick-next {
-	right: -9.1%;
-}
-
-.slide-wrapper .slick-next:before {
-	content: url("../images/quote/arrow-right.png");
-}	
-
-.slide .signature {
-	padding-top: 10px;
-	padding-left: 2px;
-}
-
-.slide .signature span {
-	color: #333;
-	font-family: 'Kaushan Script', cursive;
-	font-size: 24px;
-	margin: 0;
-}
-
-.slide .signature span::before {
-	content: '';
-  	display: inline-block;
-	background: #f38181;
-  	height: 3px;
-  	margin: 0 10px 0 0;
-	width: 60px;
-	vertical-align: middle;
-}
-
-
-@media screen and(max-width: 1200px) {
-	.slide .slide-content {
-		width: 70%;
+		.signature {
+			padding-top: 10px;
+			padding-left: 2px;
+		
+			span {
+				color: #333;
+				font-family: 'Kaushan Script', cursive;
+				font-size: 24px;
+				margin: 0;
+			
+				&::before {
+					content: '';
+				  	display: inline-block;
+					background: #f38181;
+				  	height: 3px;
+				  	margin: 0 10px 0 0;
+					width: 60px;
+					vertical-align: middle;
+				}
+			}
+		}
 	}
 
-	.slide .slide-content p {
-		font-size: 18px;
+	.slick-prev {
+		display: inline-block;	
+		left: -9%;
+
+		&:before {
+			content: url("../images/quote/arrow-left.png");
+		}
 	}
 
-	.slide img {
-		width: 15%;
+	.slick-next {
+		display: inline-block;
+		right: -9%;
+
+		&:before {
+			content: url("../images/quote/arrow-right.png");
+		}	
+	}
+}
+
+
+@media screen and(max-width: 1024px) {
+	.slide-wrapper {
+		.slide {
+			.slide-content {
+				line-height: 1.5;
+
+				p {
+					font-size: 20px;
+				}
+			}
+		}
 	}
 }
 
 @media screen and(max-width: 836px) {
-	.slide .slide-content {
-		width: 70%;
-		padding-left: 20px;
-	}
+	.slide-wrapper {
+		.slide {
+			.slide-content {
+				line-height: 1.4;
 
-	.slide .slide-content p {
-		font-size: 14px;
-	}
+				p {
+					font-size: 18px;
+				}
 
-	.slide img {
-		width: 12%;
-	}
-
-	.signature span {
-		font-size: 18px;
+				.signature {
+					span {
+						font-size: 20px;
+					}
+				}
+			}
+		}
 	}
 }
 
 @media screen and(max-width: 560px) {
 	.slide-wrapper {
-		.slick-prev {
-			left: -16%;
-		}
-
-		.slick-next {
-			right: -16%;
-		}
-
-		.slide .slide-content {
-			width: 100%;
-			text-align: center;
-			padding-left: 0;
-			padding-top: 10px;
-		}
-
-		.slide .slide-content p {
-			line-height: 1.5;
-			font-size: 16px;
-		}
-
-		.slide .slide-image {
-			width: 40%;
-			float: none;
-			margin: 0 auto;
+		.slide {
+			.slide-image {
+				width: 25%;
+				float: none;
+				margin: 0 auto;
+			}
+		
+			.slide-content {
+				float: none;
+				text-align: center;
+				padding-left: 0;
+				padding-top: 10px;
+				width: 100%;
+			}
 		}
 	}
 }
 
 @media screen and(max-width: 440px) {
-	.slide .slide-content p {
-		line-height: 1.4;
-		font-size: 14px;
-	}
+	/*.slide-wrapper {
+		.slide {
+			.slide-content p {
+				line-height: 1.4;
+				font-size: 14px;
+			}
 
-	.slide .signature span {
-		font-size: 14px;
-	}
+			.signature {
+				span {
+					font-size: 14px;
+				}
 
-	.slide .signature .sep-line {
-		width: 30px;
-	}
+				.sep-line {
+					width: 30px;
+				}
+			} 
+		}
 
-	.slide-wrapper .slick-prev {
-		left: -15%;
-	}
+		.slick-prev {
+			left: -15%;
+		}
+	}*/
 }

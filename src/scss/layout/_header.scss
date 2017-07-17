@@ -281,13 +281,17 @@ header {
 
 @media screen and (max-width: 1024px) {
   .header-title {
-    h3 {
+    h2 {
       margin-top: 100px; 
     }
   }
 
   .section-menu {
     padding-top: 100px;
+
+    .menu-link {
+      padding-top: 25px;
+    }
   }
 
   .navbar-nav.responsive {
@@ -386,10 +390,6 @@ header {
     padding-left: 20px;
   }
 
-  .menu-link {
-    padding-top: 25px;
-  }
-
   .header-wrapper .section-menu li {
     width: 20%;
     margin: 0 2.5%;
@@ -403,20 +403,22 @@ header {
     }  
 
     h2 {
-      font-size: 78px;
+      font-size: 66px;
     }
 
-    div {
-      margin-top: 16px;
+    h1 {
+      font-size: 76px;
     }
   }
 
-  .menu-link {
-    font-size: 12px;
-    padding-top: 16px;
-    
-    span {
-      font-size: 18px;
+  .section-menu {
+    .menu-link {
+      font-size: 12px;
+      padding-top: 16px;
+      
+      span {
+        font-size: 18px;
+      }
     }
   }
 }
@@ -424,11 +426,11 @@ header {
 @media screen and (max-width: 460px) {
   .header-wrapper {
     .header-title {
-      h3 {
+      h2 {
         margin-top: 30px;
       }
       
-      h2 {
+      h1 {
         font-size: 50px;
       }
     }
