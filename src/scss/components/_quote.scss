@@ -6,12 +6,14 @@
 	width: 16%;
 }
 
-.slide-wrapper .slick-prev {
-	left: -9.9%	;
-}
+.slide-wrapper {
+	.slick-prev {
+		left: -9.9%	;
+	}
 
-.slide-wrapper .slick-next {
-	right: -14.9%;
+	.slick-next {
+		right: -14.9%;
+	}
 }
 
 @media screen and(max-width: 836px) {

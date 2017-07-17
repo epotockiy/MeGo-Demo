@@ -2,18 +2,19 @@
 @import 'base/typography';
 @import 'base/common';
 
-@import 'sections/header';
-@import 'sections/about';
-@import 'sections/facts';
-@import 'sections/services';
-@import 'sections/feature';
-@import 'sections/services-2';
-@import 'sections/quote';
-@import 'sections/team';
-@import 'sections/logos';
-@import 'sections/work';
-@import 'sections/testimonial';
-@import 'sections/reviews';
-@import 'sections/stories';
-@import 'sections/map';
-@import 'sections/footer';
+@import 'layout/header';
+@import 'layout/footer';
+
+@import 'components/about';
+@import 'components/facts';
+@import 'components/services';
+@import 'components/feature';
+@import 'components/services-2';
+@import 'components/quote';
+@import 'components/team';
+@import 'components/logos';
+@import 'components/work';
+@import 'components/testimonial';
+@import 'components/reviews';
+@import 'components/stories';
+@import 'components/map';

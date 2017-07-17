@@ -1,5 +1,11 @@
 let accordionBtns = document.getElementsByClassName('accordion-btn');
 
+(function() {
+	accordionBtns[0].nextElementSibling.style.maxHeight = '146px';
+	accordionBtns[0].nextElementSibling.style.margin = '15px 25px 20px 20px';
+	accordionBtns[0].classList.toggle('active-btn');
+})();
+
 for(let i = 0; i < accordionBtns.length; ++i) {
 	accordionBtns[i].onclick = function() {
 		let panel = this.nextElementSibling;

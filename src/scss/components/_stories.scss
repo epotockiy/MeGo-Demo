@@ -1,0 +1,307 @@
+.stories {
+	padding-top: 110px;
+	padding-bottom: 115px;
+
+	.container {
+		font-size: 0;
+	}
+
+	.title {
+		padding-bottom: 48px;
+	}
+
+	.story-image {
+		.date {
+			position: absolute;
+		    top: 66.666%;
+		    left: -2.631%;
+		}
+
+		.date-1 {
+			&::before {
+				content: '15';
+				color: #fff;
+				display: block;
+				background: #95e1d3;
+				width: 30px;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 700;
+				font-size: 30px;
+				padding: 11px 15px 23px;
+			}
+
+			&::after {
+				content: 'Jan';
+				color: #fff;
+				display: block;
+				position: absolute;
+				font-family: 'Roboto', sans-serif;
+				font-weight: 300;
+				font-style: italic;
+				font-size: 15px;
+				top: 41px;
+				left: 17px;
+			}
+		}
+
+		.date-2 {
+			&::before {
+				content: '14';
+				color: #fff;
+				display: block;
+				background: #95e1d3;
+				width: 30px;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 700;
+				font-size: 30px;
+				padding: 11px 15px 23px;
+			}
+
+			&::after {
+				content: 'Jan';
+				color: #fff;
+				display: block;
+				position: absolute;
+				font-family: 'Roboto', sans-serif;
+				font-weight: 300;
+				font-style: italic;
+				font-size: 15px;
+				top: 41px;
+				left: 17px;
+			}
+		}
+
+		.date-3 {
+			&::before {
+				content: '12';
+				color: #fff;
+				display: block;
+				background: #95e1d3;
+				width: 30px;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 700;
+				font-size: 30px;
+				padding: 11px 15px 23px;
+			}
+
+			&::after {
+				content: 'Jan';
+				color: #fff;
+				display: block;
+				position: absolute;
+				font-family: 'Roboto', sans-serif;
+				font-weight: 300;
+				font-style: italic;
+				font-size: 15px;
+				top: 41px;
+				left: 17px;
+			}
+		}
+	}
+}
+
+.story-item {
+	display: inline-block;
+	width: 31.666%;
+	padding-left: 2.5%;
+	vertical-align: top;
+
+	&:first-child {
+		padding-left: 0;
+	}
+
+	h5 {
+		color: #333;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 14px;
+		font-weight: 500;
+		text-transform: uppercase;
+		margin: 0;
+		padding-top: 17px;
+	}
+
+	p {
+		color: #999;
+		font-family: 'Roboto', sans-serif;
+		font-size: 15px;
+		line-height: 1.6;
+		margin: 0;
+		padding-top: 11px;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			padding-bottom: 17px;
+			border-bottom: 1px solid #e5e5e5;
+		}
+	}
+
+	.stats {
+		padding-top: 18px;
+	}
+
+	.views {
+		display: inline-block;
+		color: #b3b3b3;
+		font-family: 'Roboto', sans-serif;
+		font-style: italic;
+		font-size: 15px;
+		padding-right: 22px;
+	}
+
+	.comments {
+		display: inline-block;
+		color: #b3b3b3;
+		font-family: 'Roboto', sans-serif;
+		font-style: italic;
+		font-size: 15px;
+	}
+}
+
+.stories .story-image {
+	position: relative;
+
+	&::before {
+		content: '';
+		display: block;
+		padding-top: 63.15%;
+		width: 100%;
+	}
+}
+
+@media screen and(max-width: 1200px) {
+	.stories .story-item {
+		display: inline-block;
+		width: 25%;
+		padding-left: 4%;
+		padding-right: 4%;
+	}
+}
+
+@media screen and(max-width: 1024px) {
+	.stories {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+}
+
+@media screen and(max-width: 978px) {
+	.stories .sotry-image {
+		.date-1 {
+			&::before {
+				font-size: 18px;
+				width: 20px;
+				padding: 7px 10px 18px;
+			}
+
+			&::after {
+				font-size: 13px;
+				top: 28px;
+				left: 6px;
+			}
+		}
+
+		.date-2 {
+			&::before {
+				font-size: 18px;
+				width: 20px;
+				padding: 7px 10px 18px;
+			}
+
+			&::after {
+				font-size: 13px;
+				top: 28px;
+				left: 6px;
+			}
+		}
+
+		.date-3 {
+			&::before {
+				font-size: 18px;
+				width: 20px;
+				padding: 7px 10px 18px;
+			}
+
+			&::after {
+				font-size: 13px;
+				top: 28px;
+				left: 6px;
+			}
+		}
+	}
+}
+
+@media screen and(max-width: 550px) {
+	.stories {
+		.story-item {
+			display: block;
+			width: 80%;
+			margin: 0 auto;
+			padding-bottom: 40px;
+		}
+
+		.story-image {
+			.date-1 {
+				position: absolute;
+			    top: 66.666%;
+			    left: -2.631%;
+
+				&::before {
+					width: 30px;
+					font-size: 30px;
+					padding: 11px 15px 23px;
+				}
+
+				&::after {
+					font-size: 15px;
+					top: 41px;
+					left: 17px;
+				}
+			}
+
+			.date-2 {
+				position: absolute;
+			    top: 66.666%;
+			    left: -2.631%;
+
+				&::before {
+					width: 30px;
+					font-size: 30px;
+					padding: 11px 15px 23px;
+				}
+
+				&::after {
+					font-size: 15px;
+					top: 41px;
+					left: 17px;
+				}
+			}
+
+			.date-3 {
+				position: absolute;
+			    top: 66.666%;
+			    left: -2.631%;
+
+				&::before {
+					width: 30px;
+					font-size: 30px;
+					padding: 11px 15px 23px;
+				}
+
+				&::after {
+					font-size: 15px;
+					top: 41px;
+					left: 17px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and(max-width: 460px) {
+	.stories {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+}
