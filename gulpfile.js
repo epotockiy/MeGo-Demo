@@ -106,7 +106,7 @@ gulp.task('sprite:dist', function () {
     imgName: 'sprite.png',
     cssName: '_sprite.scss',
     cssFormat: 'scss',
-    algorithm: 'binary-tree',
+    algorithm: 'top-down',
     imgPath: '../img/sprite/sprite.png',
     padding: 20    
   }));

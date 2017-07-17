@@ -7,14 +7,14 @@
 
 	li {
 		float: left;
-		margin-right: 30px;
+		width: 31.66%;
+		padding-right: 2.5%;
 
-		&:last-child {
-			margin-right: 0;
+		&:nth-child(3n) {
+			padding-right: 0;
 		}
 
 		.overlay {
-			width: 380px;
 			height: 470px;
 			background: $primary-color;
 
@@ -27,7 +27,26 @@
 	    	}
 		}
 
-		h4{
+		.team-img {
+			height: 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+
+		&:nth-child(1) .team-img{
+			background-image: url(../img/team-1.jpg);
+		}
+
+		&:nth-child(2) .team-img{
+			background-image: url(../img/team-2.jpg);
+		}
+
+		&:nth-child(3) .team-img{
+			background-image: url(../img/team-3.jpg);
+		}
+
+		h3{
 			margin-top: 30px;
 			font-family: 'Montserrat', sans-serif;
 			font-size: 14px;

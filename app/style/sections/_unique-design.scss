@@ -9,21 +9,22 @@
 	.content {
 		position: relative;
 	}
+
+	.tablet {
+		margin-top: 45px;
+		margin-right: 50px;
+		height: 582px;
+		background: url(../img/unique-design-tablet.png) center bottom no-repeat;
+	}
+
+	.phone {
+		position: absolute;
+		left: 725px;
+		top: 383px;
+		width: 205px;
+		height: 437px;
+		background: url(../img/unique-design-phone.png) center no-repeat;
+		background-size: contain;
+	}
 }
 
-.tablet {
-	margin-top: 45px;
-	margin-right: 50px;
-	height: 582px;
-	background: url(../img/unique-design-tablet.png) center bottom no-repeat;
-}
-
-.phone {
-	position: absolute;
-	left: 725px;
-	top: 383px;
-	width: 205px;
-	height: 437px;
-	background: url(../img/unique-design-phone.png) center no-repeat;
-	background-size: contain;
-}

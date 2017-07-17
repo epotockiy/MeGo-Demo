@@ -117,14 +117,14 @@
 
 	.styled-title {
 		@extend .styled-font;
-		font-size: 4.5em;
+		font-size: 72px;
 		color: #fff;
 		margin-bottom: 50px;
 	}
 
 	.normal-title {
 		@extend .normal-font;
-		font-size: 9.375em;
+		font-size: 150px;
 		color: #fff;
 		max-width: 80%;
 		line-height: 140px;

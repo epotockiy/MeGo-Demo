@@ -10,9 +10,8 @@
 
 	li {
 		display: inline-block;
-		width: 380px;
-		font-size: 16px;
-		margin-right: 30px;
+		width: 31.66%;
+		margin-right: 2.5%;
 		vertical-align: top;
 
 		&:nth-child(3n) {
@@ -26,6 +25,7 @@
 
 		img {
 			display: block;
+			width: 100%;
 		}
 
 		.blog-date {

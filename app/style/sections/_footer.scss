@@ -25,9 +25,9 @@ footer {
 
 	.description {
 		margin-bottom: 40px;
-		font-size: .938em;
+		font-size: 15px;
 		color: #999;
-		line-height: 1.600em;
+		line-height: 24px;
 	}
 
 	.followers {
@@ -119,9 +119,10 @@ footer {
 	.subscription {
 
 		input[type="email"] {
+			display: inline-block;
 			margin-right: -4px;
 			padding: 12px 0 12px 12px;
-			font-size: 0.938em;
+			font-size: 15px;
 			font-weight: 300;
 			font-style: italic;
 			color: #333;
@@ -130,20 +131,23 @@ footer {
 			border-bottom: 1px solid #e7e7e7;
 			border-left: 1px solid #e7e7e7;
 			line-height: 1;
+			vertical-align: top;
 		}
 
 		@include placeholder(#ccc);
 
 		input[type="submit"] {
+			display: inline-block;
 			padding: 15px 33px;
 			font-family: 'Montserrat', sans-serif;
-			font-size: .875em;
+			font-size: 14px;
 			font-weight: 700;
 			background: $primary-color;
 			color: #fff;
 			text-transform: uppercase;
 			line-height: 1;
 			cursor: pointer;
+			vertical-align: top;
 		}
 	}
 }
@@ -153,7 +157,6 @@ footer {
 .blog-column {
 	width: 35%;
 	padding-top: 11px;
-	padding-right: 75px;
 
 	h3 {
 		margin-bottom: 36px;
@@ -163,50 +166,66 @@ footer {
 		color: #333;
 		text-transform: uppercase;
 	}
+}
 
-	.footer-blog-list {
+.footer-blog-list {
 
-		li {
-			display: inline-block;
-			margin-bottom: 30px;
+	li {
+		display: block;
+		margin-bottom: 30px;
 
-			&:last-child {
-				margin-bottom: 0;
-			}
+		&:last-child {
+			margin-bottom: 0;
 		}
 
-		li>a {
-			float: left;
-			width: 120px;
-			margin-right: 20px;
+		&:nth-child(1)>a{
+			background-image: url(../img/footer-blog-1.jpg);
 		}
 
-		img {
+		&:nth-child(2)>a{
+			background-image: url(../img/footer-blog-2.jpg);
+		}
+
+		&:nth-child(3)>a{
+			background-image: url(../img/footer-blog-3.jpg);
+		}
+	}
+
+	li>a {
+		float: left;
+		width: 28.6%;
+		height: 80px;
+		margin-right: 4.166%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+	}
+
+	.blog-info {
+		float: left;
+		max-width: 47.66%;
+		padding-top: 18px;
+
+		a {
 			display: block;
-			width: 100%;
+			margin-bottom: 2px;
+			font-size: .750em;
+			font-weight: 400;
+			color: #333;
+			line-height: 1.5em;
+			text-transform: uppercase;
 		}
 
-		.blog-info {
-			float: left;
-			width: 200px;
-			padding-top: 18px;
-
-			a {
-				display: block;
-				margin-bottom: 2px;
-				font-size: .750em;
-				font-weight: 400;
-				color: #333;
-				line-height: 1.5em;
-				text-transform: uppercase;
-			}
-
-			span {
-				font-size: .813em;
-				font-weight: 300;
-				font-style: italic;
-				color: #999;
-			}
+		span {
+			font-size: .813em;
+			font-weight: 300;
+			font-style: italic;
+			color: #999;
 		}
 	}
 }
@@ -227,37 +246,72 @@ footer {
 		text-transform: uppercase;
 	}
 
-	.instagram-gallery{
-		font-size: 0;
-		text-align: center;
-	}
+}
 
-	.instagram-gallery li {
+.instagram-gallery{
+	font-size: 0;
+	text-align: center;
+	
+	li {
 		display: inline-block;
 		width: 33.3%;
-		font-size: 16px;
+		height: 88px;
 		padding: 0 1px 1px 1px;
 		vertical-align: middle;
+
+		&:nth-child(1) a {
+			background-image: url(../img/instagram-gallery-1.jpg)
+		}
+
+		&:nth-child(2) a {
+			background-image: url(../img/instagram-gallery-2.jpg)
+		}
+
+		&:nth-child(3) a {
+			background-image: url(../img/instagram-gallery-3.jpg)
+		}
+
+		&:nth-child(4) a {
+			background-image: url(../img/instagram-gallery-4.jpg)
+		}
+
+		&:nth-child(5) a {
+			background-image: url(../img/instagram-gallery-5.jpg)
+		}
+
+		&:nth-child(6) a {
+			background-image: url(../img/instagram-gallery-6.jpg)
+		}
+
+		&:nth-child(7) a {
+			background-image: url(../img/instagram-gallery-7.jpg)
+		}
+
+		&:nth-child(8) a {
+			background-image: url(../img/instagram-gallery-8.jpg)
+		}
+
+		&:nth-child(9) a {
+			background-image: url(../img/instagram-gallery-9.jpg)
+		}
 	}
 
-	.instagram-gallery a {
+	a {
 		display: inline-block;
 		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
 	}
-
-	.instagram-gallery img{
-		display: block;
-		width: 100%;
-	}
-
-	.instagram-viewmore {
-		display: inline-block;
-		margin-top: 16px;
-		font-size: .813em;
-		font-weight: 300;
-		font-style: italic;
-		color: #333;
-	}
+}
+.instagram-viewmore {
+	display: inline-block;
+	margin-top: 16px;
+	font-size: 13px;
+	font-weight: 300;
+	font-style: italic;
+	color: #333;
 }
 /******************************* INSTAGRAM COLUMN END ***************/
 

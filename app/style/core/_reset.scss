@@ -58,7 +58,15 @@ button{
 	border: 0;
 }
 
-.navigation-container::after, .navigation-icons::after , .blog-list li::after, .services-cell::after, .team-gallery::after, .columns-wrapper::after, .what-we-do-content::after, .carousel-list li::after{
+.navigation-container::after, 
+.navigation-icons::after,
+.footer-blog-list li::after,
+.blog-list li::after,
+.services-cell::after,
+.team-gallery::after,
+.columns-wrapper::after,
+.what-we-do-content::after,
+.carousel-list li::after{
     content: "";
     display: table;
     clear: both;

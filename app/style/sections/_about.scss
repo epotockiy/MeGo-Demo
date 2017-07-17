@@ -8,14 +8,21 @@
 	margin-top: 100px;
 	display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 
     li {
-    	margin: 0;
+    	width: 31.66%;
+    	margin: 15px 1.25%;
+
+    	&:nth-child(3n+1) {
+    		margin: 15px 1.25% 15px 0;
+    	}
+
+    	&:nth-child(3n) {
+    		margin: 15px 0 15px 1.25%;
+    	}
 
     	.overlay {
-    		width: 380px;
-    		height: 250px;
     		background: $primary-color;
 
     		> * {

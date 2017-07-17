@@ -1,0 +1,131 @@
+@media screen and (max-width: 1200px) {
+	.content {
+	    max-width: 1000px;
+	}
+
+	.banner-title {
+		.styled-title {
+			font-size: 58px;
+		}
+
+		.normal-title {
+			font-size: 130px;
+		}	
+	}
+
+	
+
+	.unique-design {
+		.phone {
+			left: 625px;
+		}
+	}
+
+	.quote-list{
+		li {
+			padding: 0 92px;
+		}
+	}
+
+	.quote-img{
+		width: 125px;
+		height: 125px;
+		margin-right: 50px;
+	}
+
+	.quote-content {
+		max-width: 641px;
+	}
+
+	.quote-text {
+		font-size: 20px;
+		line-height: 30px;
+	}
+
+	.quote-author {
+		font-size: 20px;
+	}
+
+	.team-gallery {
+		li {
+			.overlay {
+				height: 390px;
+			}
+		}
+	}
+
+	.testimonial-list{
+		li {
+			padding: 0 92px 0 67px;
+		}
+	}
+
+	.testimonial-text {
+		font-size: 20px;
+		line-height: 30px;
+	}
+
+	.testimonial-author {
+		font-size: 20px;
+	}
+
+	.testimonial-img {
+		width: 180px;
+		height: 180px;
+		margin-right: 20px;
+	}
+
+	.testimonial-content {
+		max-width: 641px;
+	}
+
+	.reviews-list {
+		.person-info {
+			max-width: 60%;
+		}
+	}
+
+	.social-column {
+		h2 {
+			margin-bottom: 25px;
+		}
+
+		.description {
+			margin-bottom: 30px;
+		}
+
+		.social {
+			margin-bottom: 30px;
+		}
+	}
+
+	.footer-blog-list {
+		li>a {
+			height: 70px;
+		}
+
+		.blog-info {
+			max-width: 55%;
+		}
+	}
+
+	.instagram-gallery{
+		
+		li {
+			height: 73px;
+		}
+	}
+
+}
+
+@media screen and (max-width: 1000px) {
+	.content {
+		max-width: 768px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.content {
+		max-width: 320px;
+	}
+}
