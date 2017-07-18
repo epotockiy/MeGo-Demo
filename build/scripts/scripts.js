@@ -1,6 +1,17 @@
-let accordionBtns = document.getElementsByClassName('accordion-btn');
+let accordionBtns    = document.getElementsByClassName('accordion-btn');
+let simplebarContent = document.getElementsByClassName('simplebar-content');
 
 (function() {
+	new SimpleBar(document.getElementsByClassName('panel')[0], {
+		autoHide: true
+	}).recalculate();
+	new SimpleBar(document.getElementsByClassName('panel')[1], {
+		autoHide: true
+	}).recalculate();
+	new SimpleBar(document.getElementsByClassName('panel')[2], {
+		autoHide: true
+	}).recalculate();
+
 	accordionBtns[0].nextElementSibling.style.maxHeight = '146px';
 	accordionBtns[0].nextElementSibling.style.margin = '15px 25px 20px 20px';
 	accordionBtns[0].classList.toggle('active-btn');
@@ -44,6 +55,18 @@ if (navbarNav.className === "navbar-nav") {
       navbarNav.className = "navbar-nav";
   }
 };
+
+(function() {
+	new SimpleBar(document.getElementsByClassName('panel')[0], {
+		autoHide: true
+	});
+	new SimpleBar(document.getElementsByClassName('panel')[1], {
+		autoHide: true
+	});
+	new SimpleBar(document.getElementsByClassName('panel')[2], {
+		autoHide: true
+	});
+})();
 
 $('.quote .slide-wrapper').slick({
   dots: false,

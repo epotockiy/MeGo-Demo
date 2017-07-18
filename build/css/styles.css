@@ -394,7 +394,7 @@ template {
 
 body {
   font-size: 100%;
-  font-family: 'Montserrat', sans-serif; }
+  font-family: "Montserrat", sans-serif; }
 
 .clearfix:after {
   visibility: hidden;
@@ -436,7 +436,7 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 
 .description {
   color: #999;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 15px;
   line-height: 1.59;
   max-width: 79.5%;
@@ -457,7 +457,7 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
     border-bottom: 3px solid #f38181;
     content: ''; }
   .title h3 {
-    font-family: 'Kaushan Script', cursive;
+    font-family: "Kaushan Script", cursive;
     font-size: 24px;
     font-weight: normal;
     margin: 0;
@@ -542,7 +542,7 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
       padding-left: 6.4%; }
       .slide-wrapper .slide .slide-content p {
         color: #999;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Roboto", sans-serif;
         font-style: italic;
         font-size: 23px;
         font-weight: 300;
@@ -553,7 +553,7 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
       padding-left: 2px; }
       .slide-wrapper .slide .signature span {
         color: #333;
-        font-family: 'Kaushan Script', cursive;
+        font-family: "Kaushan Script", cursive;
         font-size: 24px;
         margin: 0; }
         .slide-wrapper .slide .signature span::before {
@@ -600,30 +600,6 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
     padding-left: 0;
     padding-top: 10px;
     width: 100%; } }
-
-@media screen and (max-width: 440px) {
-  /*.slide-wrapper {
-		.slide {
-			.slide-content p {
-				line-height: 1.4;
-				font-size: 14px;
-			}
-
-			.signature {
-				span {
-					font-size: 14px;
-				}
-
-				.sep-line {
-					width: 30px;
-				}
-			} 
-		}
-
-		.slick-prev {
-			left: -15%;
-		}
-	}*/ }
 
 header {
   background-image: url("../images/header/eagle-background.png");
@@ -700,7 +676,7 @@ header {
   color: #fff;
   margin: 0 auto;
   max-width: 802px;
-  color: #333;
+  color: #999;
   text-align: center;
   padding-bottom: 38px; }
   .header-title:after {
@@ -717,7 +693,7 @@ header {
     margin-top: 165px;
     margin-bottom: 37px;
     font-size: 72px;
-    font-family: 'Kaushan Script', cursive;
+    font-family: "Kaushan Script", cursive;
     font-weight: normal; }
   .header-title h1 {
     font-size: 150px;
@@ -861,7 +837,7 @@ header {
         display: inline-block; }
     .navbar-nav.responsive .close-btn {
       display: inline-block;
-      color: #f0f0f0;
+      color: #faf3dc;
       font-size: 46px;
       margin-left: 50px;
       position: fixed;
@@ -969,7 +945,7 @@ footer {
     padding-top: 14px; }
   .info-column .footer-description {
     color: #999;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 15px;
     line-height: 1.6;
     margin: 0;
@@ -1057,7 +1033,7 @@ footer {
     text-transform: uppercase; }
   .blog-info span {
     color: #b1b1b1;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 13px;
     font-style: italic; }
 
@@ -1075,7 +1051,7 @@ footer {
   padding-top: 16px; }
   .instagram-link a {
     color: #646464;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-style: italic;
     font-size: 12px;
     text-decoration: none;
@@ -1106,7 +1082,7 @@ footer {
   .subscription input {
     border: 1px solid #e7e7e7;
     font-size: 15px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: italic;
     padding: 10.5px 12px 10.5px 11px; }
@@ -1126,7 +1102,7 @@ footer {
   background-color: #95e1d3;
   border: none;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 1.19;
@@ -1304,7 +1280,7 @@ footer {
       top: 41.5%;
       left: 45.7%; }
     .pics .overlay h6 {
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
       font-size: 18px;
       text-transform: uppercase;
       margin: 0;
@@ -1450,14 +1426,14 @@ footer {
   width: 74%; }
   .service-info h6 {
     color: #333;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 500;
     margin: 0;
     text-transform: uppercase; }
   .service-info p {
     color: #b3b3b3;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 15px;
     line-height: 1.58;
     margin: 0;
@@ -1572,7 +1548,7 @@ footer {
   -webkit-transition: all .4s;
   -moz-transition: all .4s;
   transition: all .4s;
-  overflow-y: auto;
+  overflow: hidden;
   color: #a6a6a6;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -1589,17 +1565,29 @@ footer {
   .accordion-item .panel::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: #95e1d3; }
+  .accordion-item .panel .simplebar-track {
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    width: 6px; }
+    .accordion-item .panel .simplebar-track.horizontal {
+      display: none; }
+    .accordion-item .panel .simplebar-track .simplebar-scrollbar {
+      width: 5px;
+      background: #95e1d3;
+      left: 1px; }
+  .accordion-item .panel .simplebar-content {
+    width: 100%; }
 
 .accordion-item:first-child .accordion-btn {
   margin-top: 0; }
 
 .accordion-item .accordion-btn {
+  display: inline-block;
   background: #fff;
   border-style: none;
   border: 1px solid #e5e5e5;
   color: #333;
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-weight: 600;
   margin-top: 9px;
@@ -1651,7 +1639,9 @@ footer {
   .services-2 .services-image {
     width: 90%; }
   .services-2 .description {
-    max-width: 450px; } }
+    max-width: 450px; }
+  .services-2 .accordion-item .panel .simplebar-content {
+    width: 95%; } }
 
 @media screen and (max-width: 460px) {
   .services-2 {
@@ -1712,14 +1702,14 @@ footer {
         width: 100%;
         padding-top: 123.684%; }
     .team-gallery .person h4 {
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
       font-size: 14px;
       text-transform: uppercase;
       color: #333;
       margin: 0;
       padding-top: 27px; }
     .team-gallery .person p {
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       font-style: italic;
       font-size: 15px;
       font-weight: 300;
@@ -1951,7 +1941,7 @@ footer {
     padding-top: 30%; }
   .work-image .overlay h6 {
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 300;
     margin: 0;
@@ -1960,7 +1950,7 @@ footer {
   .work-image .overlay p {
     margin: 0;
     color: #fff;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 15px;
     font-style: italic;
     font-weight: 300;
@@ -2032,11 +2022,6 @@ footer {
     padding-left: 0;
     padding-top: 10px; } }
 
-@media screen and (max-width: 460px) {
-  /*.testimonial .slide-wrapper .slick-prev {
-		left: -15%	;
-	}*/ }
-
 .reviews-wrapper {
   background: url("../images/reviews/reviews-back.png") center center no-repeat;
   background-size: cover; }
@@ -2076,7 +2061,7 @@ footer {
     padding-left: 28px; }
     .review .review-content h5 {
       color: #333;
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
       font-size: 14px;
       font-weight: 500;
       margin: 0;
@@ -2085,7 +2070,7 @@ footer {
       padding-bottom: 11px; }
     .review .review-content h6 {
       color: #585858;
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       font-size: 15px;
       font-style: italic;
       font-weight: 300;
@@ -2093,7 +2078,7 @@ footer {
       padding-bottom: 17px; }
     .review .review-content p {
       color: #999;
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       font-size: 15px;
       font-weight: 400;
       line-height: 1.6;
@@ -2163,7 +2148,7 @@ footer {
     display: block;
     background: #95e1d3;
     width: 30px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 30px;
     padding: 11px 15px 23px; }
@@ -2172,7 +2157,7 @@ footer {
     color: #fff;
     display: block;
     position: absolute;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: italic;
     font-size: 15px;
@@ -2184,7 +2169,7 @@ footer {
     display: block;
     background: #95e1d3;
     width: 30px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 30px;
     padding: 11px 15px 23px; }
@@ -2193,7 +2178,7 @@ footer {
     color: #fff;
     display: block;
     position: absolute;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: italic;
     font-size: 15px;
@@ -2205,7 +2190,7 @@ footer {
     display: block;
     background: #95e1d3;
     width: 30px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-size: 30px;
     padding: 11px 15px 23px; }
@@ -2214,7 +2199,7 @@ footer {
     color: #fff;
     display: block;
     position: absolute;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: italic;
     font-size: 15px;
@@ -2230,7 +2215,7 @@ footer {
     padding-left: 0; }
   .story-item h5 {
     color: #333;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
@@ -2238,7 +2223,7 @@ footer {
     padding-top: 17px; }
   .story-item p {
     color: #999;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 15px;
     line-height: 1.6;
     margin: 0;
@@ -2254,14 +2239,14 @@ footer {
   .story-item .views {
     display: inline-block;
     color: #b3b3b3;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-style: italic;
     font-size: 15px;
     padding-right: 22px; }
   .story-item .comments {
     display: inline-block;
     color: #b3b3b3;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-style: italic;
     font-size: 15px; }
 
@@ -2283,7 +2268,9 @@ footer {
 @media screen and (max-width: 1024px) {
   .stories {
     padding-top: 60px;
-    padding-bottom: 60px; } }
+    padding-bottom: 60px; }
+    .stories .story-item h5 {
+      padding-top: 30px; } }
 
 @media screen and (max-width: 978px) {
   .stories .sotry-image .date-1::before {
@@ -2311,12 +2298,18 @@ footer {
     top: 28px;
     left: 6px; } }
 
+@media screen and (max-width: 860px) {
+  .stories .story-item h5 {
+    padding-top: 40px; } }
+
 @media screen and (max-width: 550px) {
   .stories .story-item {
     display: block;
     width: 80%;
     margin: 0 auto;
     padding-bottom: 40px; }
+    .stories .story-item h5 {
+      padding-top: 20px; }
   .stories .story-image .date-1 {
     position: absolute;
     top: 66.666%;

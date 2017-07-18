@@ -10,7 +10,7 @@ header {
 }
 
 .navbar-brand {
-  color: #fff;
+  color: $color-white;
   font-weight: 600;
   font-size: 30px;  
   text-decoration: none;
@@ -71,7 +71,7 @@ header {
   }
 
   a {
-    color: #fff;
+    color: $color-white;
     font-weight: 400;
     font-size: 13px;
     text-decoration: none;
@@ -80,23 +80,23 @@ header {
   }
 
   a:hover {
-    color: #fce38a;
-    border-bottom: 3px solid #fce38a;
+    color: $color-yellow;
+    border-bottom: 3px solid $color-yellow;
     padding-bottom: 9px;
   }
 }
 
 .active {
-  color: #fce38a;
-  border-bottom: 3px solid #fce38a;
+  color: $color-yellow;
+  border-bottom: 3px solid $color-yellow;
   padding-bottom: 9px;
 }
 
 .header-title {
-  color: #fff;
+  color: $color-white;
   margin: 0 auto;
   max-width: 802px;
-  color: #333;
+  color: $color-light-grey;
   text-align: center;
   padding-bottom: 38px;
 
@@ -106,17 +106,17 @@ header {
     height: 3px;
     display: block;
     width: 60px;
-    border-bottom: 3px solid #fff;
+    border-bottom: 3px solid $color-white;
     background: transparent;
     padding-top: 55px;
   }
 
   h2 {
-    color: #fff;
+    color: $color-white;
     margin-top: 165px;
     margin-bottom: 37px;
     font-size: 72px;
-    font-family: 'Kaushan Script', cursive;
+    font-family: $font-kaushan;
     font-weight: normal;
   }
 
@@ -126,7 +126,7 @@ header {
     line-height: 0.93;
     margin: 0;
     text-transform: uppercase;  
-    color: #fff;
+    color: $color-white;
   }
 }
 
@@ -136,8 +136,8 @@ header {
 
   .header-btn {
     display: inline-block;
-    border: 3px solid #fff;
-    color: #fff;
+    border: 3px solid $color-white;
+    color: $color-white;
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
@@ -147,8 +147,8 @@ header {
   }
 
   .header-btn:hover {
-    background-color: #fff;
-    color: #e98183;
+    background-color: $color-white;
+    color: $color-btn-hover;
   }
 }
 
@@ -174,7 +174,7 @@ header {
   }
 
   li.active-menu::before {
-      border-top: 3px solid #f38181;
+      border-top: 3px solid $color-red;
       width: 25%;
       top: -3px;
       position: absolute;
@@ -182,21 +182,21 @@ header {
 
   li:hover {
     .menu-link {
-      color: #fff;
+      color: $color-white;
 
       span {
-        color: #fff;
+        color: $color-white;
       }
     }
   }
 
   li:first-child:hover {
-    border-top: 3px solid #fff;
+    border-top: 3px solid $color-white;
     content: '';
     display: block;
 
     &::before {
-      border-top: 3px solid #f38181;
+      border-top: 3px solid $color-red;
       width: 25%;
       top: -3px;
       position: absolute;
@@ -204,12 +204,12 @@ header {
   }
 
   li:nth-child(2):hover {
-    border-top: 3px solid #fff;
+    border-top: 3px solid $color-white;
     content: '';
     display: block;
 
     &::before {
-      border-top: 3px solid #f38181;
+      border-top: 3px solid $color-red;
       width: 50%;
       top: -3px;
       position: absolute;
@@ -217,12 +217,12 @@ header {
   }
 
   li:nth-child(3):hover {
-    border-top: 3px solid #fff;
+    border-top: 3px solid $color-white;
     content: '';
     display: block;
 
     &::before {
-      border-top: 3px solid #f38181;
+      border-top: 3px solid $color-red;
       width: 75%;
       top: -3px;
       position: absolute;
@@ -230,12 +230,12 @@ header {
   }
 
   li:nth-child(4):hover {
-    border-top: 3px solid #fff;
+    border-top: 3px solid $color-white;
     content: '';
     display: block;
 
     &::before {
-      border-top: 3px solid #f38181;
+      border-top: 3px solid $color-red;
       width: 100%;
       top: -3px;
       position: absolute;
@@ -243,7 +243,7 @@ header {
   }
 
   li.active-menu {
-      border-top: 3px solid #fff;
+      border-top: 3px solid $color-white;
       content: '';
   }
 
@@ -256,7 +256,7 @@ header {
   }
 
   .menu-link {
-    color: #faf3dc;
+    color: $color-white-grey;
     display: inline-block;
     font-weight: 400;
     text-decoration: none;
@@ -265,7 +265,7 @@ header {
     font-size: 18px;
 
     span {
-      color: #faf3dc;
+      color: $color-white-grey;
       font-weight: 700;
       font-size: 24px;
       padding-right: 5px;
@@ -300,7 +300,7 @@ header {
     position: fixed;
     top: 0;
     right: 0;
-    background-color: #e78582;
+    background-color: $color-navbar;
     overflow-x: hidden;
     overflow-y: auto;
     z-index: 3;
@@ -325,7 +325,7 @@ header {
 
     .close-btn {
       display: inline-block;
-      color: #f0f0f0;
+      color: $color-white-grey;
       font-size: 46px;
       margin-left: 50px;
       position: fixed;

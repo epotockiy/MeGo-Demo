@@ -1,6 +1,6 @@
 body {
   	font-size: 100%;
-  	font-family: 'Montserrat', sans-serif;
+  	font-family: $font-montserrat;
 }
 
 .clearfix:after {
@@ -43,8 +43,8 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 }
 
 .description {
-	color: #999;
-	font-family: 'Roboto', sans-serif;
+	color: $color-light-grey;
+	font-family: $font-roboto;
 	font-size: 15px;
 	line-height: 1.59;
 	max-width: 79.5%;
@@ -54,7 +54,7 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 }
 
 .title {
-	color: #333;
+	color: $color-dark-grey;
 	text-align: center;
 	padding-bottom: 38px;
 
@@ -64,12 +64,12 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 	    height: 3px;
 	    display: block;
 	    width: 60px;
-	    border-bottom: 3px solid #f38181;
+	    border-bottom: 3px solid $color-red;
 	    content: '';
 	}
 
 	h3 {
-		font-family: 'Kaushan Script', cursive;
+		font-family: $font-kaushan;
 		font-size: 24px;
 		font-weight: normal;
 		margin: 0;
@@ -177,8 +177,8 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 			padding-left: 6.4%;
 
 			p {
-				color: #999;
-				font-family: 'Roboto', sans-serif;
+				color: $color-light-grey;
+				font-family: $font-roboto;
 				font-style: italic;
 				font-size: 23px;
 				font-weight: 300; 
@@ -192,15 +192,15 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 			padding-left: 2px;
 		
 			span {
-				color: #333;
-				font-family: 'Kaushan Script', cursive;
+				color: $color-dark-grey;
+				font-family: $font-kaushan;
 				font-size: 24px;
 				margin: 0;
 			
 				&::before {
 					content: '';
 				  	display: inline-block;
-					background: #f38181;
+					background: $color-red;
 				  	height: 3px;
 				  	margin: 0 10px 0 0;
 					width: 60px;
@@ -282,29 +282,4 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 			}
 		}
 	}
-}
-
-@media screen and(max-width: 440px) {
-	/*.slide-wrapper {
-		.slide {
-			.slide-content p {
-				line-height: 1.4;
-				font-size: 14px;
-			}
-
-			.signature {
-				span {
-					font-size: 14px;
-				}
-
-				.sep-line {
-					width: 30px;
-				}
-			} 
-		}
-
-		.slick-prev {
-			left: -15%;
-		}
-	}*/
 }

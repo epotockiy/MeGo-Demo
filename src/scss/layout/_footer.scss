@@ -1,9 +1,9 @@
 footer {
-	background-color: #f8f8f8;
+	background-color: $color-white-grey-background;
 	padding-top: 65px;
 
 	h4 {
-		color: #333;
+		color: $color-dark-grey;
 		font-size: 14px;
 		font-weight: 500;
 		margin: 0;
@@ -21,13 +21,13 @@ footer {
     box-sizing: border-box;
 
 	.separator {
-		border-bottom: 1px solid #e5e5e5;
+		border-bottom: 1px solid $color-separator;
 		padding-top: 14px;
 	}
 
 	.footer-description {
-		color: #999;
-		font-family: 'Roboto', sans-serif;
+		color: $color-light-grey;
+		font-family: $font-roboto;
 		font-size: 15px;
 		line-height: 1.6;
 		margin: 0;
@@ -36,7 +36,7 @@ footer {
 	}
 
 	.followers {
-		color: #333;
+		color: $color-dark-grey;
 		font-size: 14px;
 		margin: 0;
 		padding-top: 44px;
@@ -141,7 +141,7 @@ footer {
 	padding-left: 5.4%;
 
 	p {
-		color: #333;
+		color: $color-dark-grey;
 		font-size: 12px;
 		font-weight: 500;
 		line-height: 1.5;
@@ -153,7 +153,7 @@ footer {
 
 	span {
 		color: #b1b1b1;
-		font-family: 'Roboto', sans-serif;
+		font-family: $font-roboto;
 		font-size: 13px;
 		font-style: italic;
 	}
@@ -175,7 +175,7 @@ footer {
 
 	a {
 		color: #646464;
-		font-family: 'Roboto', sans-serif;
+		font-family: $font-roboto;
 		font-style: italic;
 		font-size: 12px;
 		text-decoration: none;
@@ -221,7 +221,7 @@ footer {
 	input {
 		border: 1px solid #e7e7e7;
 		font-size: 15px;
-		font-family: 'Roboto', sans-serif;
+		font-family: $font-roboto;
 		font-weight: 300;
 		font-style: italic;
 		padding: 10.5px 12px 10.5px 11px;
@@ -253,7 +253,7 @@ footer {
 	background-color: #95e1d3;
 	border: none;
 	color: #fff;
-	font-family: 'Roboto', sans-serif;
+	font-family: $font-roboto;
 	font-weight: 600;
 	font-size: 14px;
 	line-height: 1.19;
@@ -267,11 +267,11 @@ footer {
 
 .copyright {
 	margin-top: 40px;
-	border-top: 1px solid #e5e5e5;
+	border-top: 1px solid $color-separator;
 	width: 100%;
 
 	p {
-		color: #333;
+		color: $color-dark-grey;
 		font-size: 14px;
 		font-weight: 500;
 		margin: 0 0 0 5px;

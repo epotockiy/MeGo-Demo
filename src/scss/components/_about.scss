@@ -58,12 +58,12 @@
 		}
 
 		h6 {
-			font-family: 'Montserrat', sans-serif;
+			font-family: $font-montserrat;
 			font-size: 18px;
 			text-transform: uppercase;
 			margin: 0;
 			padding-top: 35.5%;
-			color: #fff;
+			color: $color-white;
 			text-align: center;
 		}
 	}

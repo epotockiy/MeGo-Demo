@@ -3,7 +3,7 @@
 
 	.separator {
 		width: 100%;
-		border-top: 1px solid #e5e5e5;
+		border-top: 1px solid $color-separator;
 		margin-top: 47px;
 		margin-bottom: 49px;
 		padding: 0;
@@ -17,7 +17,7 @@
 
 	&:first-child {
 		padding-top: 26px;
-		border-bottom: 1px solid #e5e5e5;
+		border-bottom: 1px solid $color-separator;
 		padding-bottom: 49px;
 	}
 }
@@ -41,8 +41,8 @@
 	width: 74%;
 
 	h6 {
-		color: #333;
-		font-family: 'Montserrat', sans-serif;
+		color: $color-dark-grey;
+		font-family: $font-montserrat;
 		font-size: 14px;
 		font-weight: 500;
 		margin: 0;
@@ -51,7 +51,7 @@
 
 	p {
 		color: #b3b3b3;
-		font-family: 'Roboto', sans-serif;
+		font-family: $font-roboto;
 		font-size: 15px;
 		line-height: 1.58;
 		margin: 0;
@@ -98,7 +98,7 @@
 		    padding-left: 0;
 		    padding-bottom: 20px;
 		    padding-top: 20px;
-		    border-top: 1px solid #e5e5e5;
+		    border-top: 1px solid $color-separator;
 		}
 	}
 
