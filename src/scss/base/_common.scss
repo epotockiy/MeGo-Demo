@@ -1,3 +1,19 @@
+/*  
+	CSS Preprocessors:
+		-Advantages:
+			-variables;
+			-mixins;
+			-mathematics;
+			-nesting;
+			-joining multiple files;
+
+		-Disadvantages:
+			-maintainence('red color' variable);
+			-compilation time;
+			-large output;
+*/
+
+
 body {
   	font-size: 100%;
   	font-family: $font-montserrat;
@@ -16,7 +32,7 @@ body {
 	* html .clearfix             { zoom: 1; }
 	*:first-child+html .clearfix { zoom: 1; } 
 /* 
-Generally clearfix could be specified usin 'overflow: hidden | auto' applying to parent div 
+Generally clearfix could be specified using 'overflow: hidden | auto' applying to parent div 
 
 You can write additional class '.clearfix' of just specify this properties in parent class '.parent:after'
 	.clerfix:after {
