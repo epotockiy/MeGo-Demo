@@ -29,7 +29,6 @@ header {
   float: right;
   list-style-type: none;
   margin: 0;
-  width: 630px;
   padding-top: 9px;
   z-index: 1;
 
@@ -54,11 +53,7 @@ header {
 
 .nav-item {
   display: inline-block;
-  padding-right: 8.2%;
-
-  &.nav-item__first {
-    padding-left: 15px;
-  }
+  padding-right: 52px;
 
   &.nav-item__last {
     padding-right: 0;

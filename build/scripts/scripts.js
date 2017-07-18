@@ -1,14 +1,15 @@
 let accordionBtns    = document.getElementsByClassName('accordion-btn');
 let simplebarContent = document.getElementsByClassName('simplebar-content');
+let accordionPanels  = document.getElementsByClassName('panel');
 
 (function() {
-	new SimpleBar(document.getElementsByClassName('panel')[0], {
+	new SimpleBar(accordionPanels[0], {
 		autoHide: true
-	}).recalculate();
-	new SimpleBar(document.getElementsByClassName('panel')[1], {
+	});
+	new SimpleBar(accordionPanels[1], {
 		autoHide: true
-	}).recalculate();
-	new SimpleBar(document.getElementsByClassName('panel')[2], {
+	});
+	new SimpleBar(accordionPanels[2], {
 		autoHide: true
 	}).recalculate();
 
@@ -55,18 +56,6 @@ if (navbarNav.className === "navbar-nav") {
       navbarNav.className = "navbar-nav";
   }
 };
-
-(function() {
-	new SimpleBar(document.getElementsByClassName('panel')[0], {
-		autoHide: true
-	});
-	new SimpleBar(document.getElementsByClassName('panel')[1], {
-		autoHide: true
-	});
-	new SimpleBar(document.getElementsByClassName('panel')[2], {
-		autoHide: true
-	});
-})();
 
 $('.quote .slide-wrapper').slick({
   dots: false,

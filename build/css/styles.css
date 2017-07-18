@@ -530,7 +530,7 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 
 .slide-wrapper {
   margin: 0 auto;
-  max-width: 72%;
+  max-width: 1000px;
   width: 100%; }
   .slide-wrapper .slide {
     display: inline-block;
@@ -540,15 +540,7 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
       outline: 0; }
     .slide-wrapper .slide .slide-image {
       width: 15%;
-      float: left;
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat; }
-      .slide-wrapper .slide .slide-image::before {
-        content: '';
-        display: block;
-        width: 100%;
-        padding-top: 100%; }
+      float: left; }
     .slide-wrapper .slide .slide-content {
       float: left;
       width: 75%;
@@ -642,7 +634,6 @@ header {
   float: right;
   list-style-type: none;
   margin: 0;
-  width: 630px;
   padding-top: 9px;
   z-index: 1; }
   .navbar-nav .close-btn {
@@ -660,9 +651,7 @@ header {
 
 .nav-item {
   display: inline-block;
-  padding-right: 8.2%; }
-  .nav-item.nav-item__first {
-    padding-left: 15px; }
+  padding-right: 52px; }
   .nav-item.nav-item__last {
     padding-right: 0; }
   .nav-item.search-icon a:hover,
@@ -1193,10 +1182,10 @@ footer {
   .blog {
     width: 70%; }
   .instagram {
-    width: 60%;
+    width: 40%;
     padding-left: 0;
-    margin-left: 20%;
-    margin-right: 20%; }
+    margin-left: 30%;
+    margin-right: 30%; }
     .instagram .instagram-link a {
       font-size: 14px; }
   .subscription input {
@@ -1431,8 +1420,7 @@ footer {
   .services-cell img {
     float: left;
     padding-top: 2px;
-    padding-right: 29px;
-    width: 32px; }
+    padding-right: 29px; }
 
 .service-info {
   float: left;
@@ -1545,22 +1533,19 @@ footer {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    width: 47.4%; }
+    width: 45.5%; }
     .services-2 .services-2-image::before {
       content: '';
       display: block;
       width: 100%;
       padding-top: 66.6%; }
   .services-2 .table-cell.accordion {
-    width: 53%;
-    padding-left: 2.666%; }
+    width: 50%;
+    padding-left: 2.4%; }
 
 .accordion-item .panel {
   background: #fff;
   max-height: 0;
-  -webkit-transition: all .4s;
-  -moz-transition: all .4s;
-  transition: all .4s;
   overflow: hidden;
   color: #a6a6a6;
   font-family: 'Roboto', sans-serif;
@@ -1595,6 +1580,9 @@ footer {
   margin-top: 0; }
 
 .accordion-item .accordion-btn {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   display: inline-block;
   background: #fff;
   border-style: none;
@@ -1636,7 +1624,7 @@ footer {
 
 @media screen and (max-width: 1024px) {
   .services-2 {
-    padding: 40px 0 80px; } }
+    padding: 40px 10px 80px; } }
 
 @media screen and (max-width: 948px) {
   .services-2 .table {
@@ -1674,6 +1662,8 @@ footer {
 
 .quote {
   background-color: #f8f8f8; }
+  .quote .slide-wrapper {
+    max-width: 72%; }
 
 .team {
   padding-top: 100px;
@@ -2009,16 +1999,16 @@ footer {
 .testimonial {
   padding-top: 30px;
   padding-bottom: 67px; }
-  .testimonial .slide-wrapper .slick-prev {
-    left: -6%; }
-  .testimonial .slide-wrapper .slick-next {
-    right: -13.5%; }
-  .testimonial .slide-wrapper .slide .slide-content {
-    width: 75%;
-    padding-left: 2.9%;
-    padding-top: 3.3%; }
-  .testimonial .slide-wrapper .slide .testimonial-image {
-    width: 22%; }
+  .testimonial .slide-wrapper {
+    max-width: 75%; }
+    .testimonial .slide-wrapper .slick-prev {
+      left: -6%; }
+    .testimonial .slide-wrapper .slide .slide-content {
+      width: 75%;
+      padding-left: 2.8%;
+      padding-top: 2.9%; }
+    .testimonial .slide-wrapper .slide .testimonial-image {
+      width: 21%; }
 
 @media screen and (max-width: 1024px) {
   .testimonial {

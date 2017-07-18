@@ -4,23 +4,25 @@
 
 
 	.slide-wrapper {
+		max-width: 75%;
+
 		.slick-prev {
 			left: -6%;
 		}
 
 		.slick-next {
-			right: -13.5%;
+
 		}
 
 		.slide {
 			.slide-content {
 			    width: 75%;
-			    padding-left: 2.9%;
-			    padding-top: 3.3%;
+			    padding-left: 2.8%;
+			    padding-top: 2.9%;
 			}	
 			
 			.testimonial-image {
-				width: 22%;
+				width: 21%;
 			}
 		}
 	

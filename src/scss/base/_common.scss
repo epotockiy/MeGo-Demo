@@ -159,7 +159,7 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 
 .slide-wrapper {
 	margin: 0 auto;
-	max-width: 72%;
+	max-width: 1000px;
 	width: 100%;
 
 	.slide {
@@ -174,16 +174,6 @@ The most moder way of clearing floats is to give to parent element 'flow-root' p
 		.slide-image {
 			width: 15%;
 			float: left;
-			background-position: center center;
-			background-size: cover;
-			background-repeat: no-repeat;
-
-			&::before {
-				content: '';
-				display: block;
-				width: 100%;
-				padding-top: 100%;
-			}
 		}
 
 		.slide-content {
