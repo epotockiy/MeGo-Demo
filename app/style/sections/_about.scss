@@ -1,26 +1,19 @@
 .about {
 	background: #fff;
-	padding: 90px 0 110px;
+	padding: 90px 0 100px;
     text-align: center;
 }
 
 .about-gallery{
-	margin-top: 100px;
+	margin-top: 80px;
 	display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 
     li {
     	width: 31.66%;
-    	margin: 15px 1.25%;
-
-    	&:nth-child(3n+1) {
-    		margin: 15px 1.25% 15px 0;
-    	}
-
-    	&:nth-child(3n) {
-    		margin: 15px 0 15px 1.25%;
-    	}
+        height: 250px;
+    	margin: 15px 0;
 
     	.overlay {
     		background: $primary-color;
@@ -33,6 +26,25 @@
 				@include transform(-10px);
 	    	}
     	}
+
+        &:nth-child(1) .about-img {
+            background-image: url(../img/about-1.jpg);
+        }
+
+        &:nth-child(2) .about-img {
+            background-image: url(../img/about-2.jpg);
+        }
+
+         &:nth-child(3) .about-img {
+            background-image: url(../img/about-3.jpg);
+        }
+    }
+
+    .about-img {
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
 	.gallery-content {

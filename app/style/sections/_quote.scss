@@ -14,7 +14,8 @@
 	}
 
 	li {
-		display: inline-block
+		display: inline-block;
+		vertical-align: top;
 	}
 
 	.arrow {
@@ -25,7 +26,7 @@
 		opacity: 0.7;
 
 		&:hover {
-		opacity: 1;
+			opacity: 1;
 		}
 	}
 
@@ -58,7 +59,6 @@
 .quote-content {
 	float: left;
 	max-width: 770px;
-	padding-top: 5px;
 }
 
 .quote-text {

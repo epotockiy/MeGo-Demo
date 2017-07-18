@@ -1,5 +1,5 @@
 .team {
-	padding: 100px 0 110px;
+	padding: 100px 0 120px;
 }
 
 .team-gallery {
@@ -8,10 +8,10 @@
 	li {
 		float: left;
 		width: 31.66%;
-		padding-right: 2.5%;
+		margin-right: 2.5%;
 
 		&:nth-child(3n) {
-			padding-right: 0;
+			margin-right: 0;
 		}
 
 		.overlay {

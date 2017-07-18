@@ -1,9 +1,6 @@
 (function () {
 	var carousel = document.getElementsByClassName('carousel');
-/*	var position = [];*/
-
 	
-		
 	for (var i = 0; i < carousel.length; i++) {
 
 		var carouselLists = carousel[i].querySelector('ul');

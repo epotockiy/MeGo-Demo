@@ -6,7 +6,7 @@
 .blog-list {
 	margin-top: 45px;
 	font-size: 0;
-	text-align: center;
+	text-align: left;
 
 	li {
 		display: inline-block;
@@ -14,7 +14,7 @@
 		margin-right: 2.5%;
 		vertical-align: top;
 
-		&:nth-child(3n) {
+		&:last-child {
 			margin-right: 0;
 		}
 	}
@@ -40,6 +40,7 @@
 			font-weight: 300;
 			font-style: italic;
 			color: #fff;
+			text-align: center;
 		}
 
 		p {
@@ -73,7 +74,7 @@
 	}
 
 	.blog-comments {
-		margin-top: 13px;
+		margin-top: 15px;
 		font-size: 15px;
 		font-weight: 300;
 		font-style: italic;
@@ -86,7 +87,7 @@
 		}
 
 		.views {
-			margin-right: 20px;
+			margin-right: 12px;
 
 			&::before {
 				content: '';

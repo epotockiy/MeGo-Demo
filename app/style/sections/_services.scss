@@ -3,7 +3,7 @@
 }
 
 .services-list {
-	margin-top: 65px;
+	margin-top: 60px;
 	display: table;
 	width: 100%;
 	border-collapse: collapse
@@ -18,12 +18,12 @@
 		padding: 0 0 50px 30px;
 	}
 
-	&:last-child {
-		border-bottom: 0;
-	}
-
 	&:last-child .services-cell{
 		padding: 50px 0 0 30px;
+	}
+
+	&:last-child {
+		border-bottom: 0;
 	}
 }
 
@@ -32,12 +32,14 @@
 	width: 33.3%;
 	vertical-align: top;
 	padding: 50px 0 50px 30px;
+
+	.icon {
+		float: left;
+		margin-right: 30px;
+	}
 }
 
-.icon {
-	float: left;
-	margin-right: 30px;
-}
+
 
 .services-info {
 	float: left;

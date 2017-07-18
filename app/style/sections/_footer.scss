@@ -3,28 +3,31 @@ footer {
 }
 
 .footer-top {
-
 	.content{
 		padding: 65px 0;
 		font-size: 0;
 	}
 }
 
+.social-column, .blog-column, .instagram-column {
+	display: inline-block;
+	vertical-align: top;
+}
 /******************************* SOCIAL COLUMN *******************/
 .social-column {
 	width: 42.5%;
 	padding-right: 45px;
 
 	h2 {
-		margin-bottom: 35px;
+		margin-bottom: 30px;
 		font-family: 'Montserrat', sans-serif;
-		font-size: 2.875em;
+		font-size: 46px;
 		font-weight: 700;
 		color: #ccc;	
 	}
 
 	.description {
-		margin-bottom: 40px;
+		margin-bottom: 45px;
 		font-size: 15px;
 		color: #999;
 		line-height: 24px;
@@ -33,12 +36,12 @@ footer {
 	.followers {
 		margin-bottom: 17px;
 		font-family: 'Montserrat', sans-serif;
-		font-size: .875em;
+		font-size: 14px;
 		font-weight: 400;
 		color: #333;
 
 		span {
-			font-size: 1.125em;
+			font-size: 18px;
 			font-weight: 700;
 		}
 
@@ -46,7 +49,7 @@ footer {
 			margin-top: 17px;
 			content: '';
 			display: block;
-			height: 2px;
+			height: 1px;
 			background: #e5e5e5;
 		}
 	}
@@ -57,7 +60,7 @@ footer {
 
 		span {
 			display: inline-block;
-			margin-right: 19px; 
+			margin-right: 20px; 
 			font-size: 15px;
 			font-weight: 300;
 			font-style: italic;
@@ -69,7 +72,7 @@ footer {
 
 			li {
 				display: inline-block;
-				margin-right: 15px;
+				margin-right: 16px;
 				vertical-align: middle;
 			}
 
@@ -121,7 +124,7 @@ footer {
 		input[type="email"] {
 			display: inline-block;
 			margin-right: -4px;
-			padding: 12px 0 12px 12px;
+			padding: 10px 10px 10px 12px;
 			font-size: 15px;
 			font-weight: 300;
 			font-style: italic;
@@ -130,7 +133,6 @@ footer {
 			border-top: 1px solid #e7e7e7;
 			border-bottom: 1px solid #e7e7e7;
 			border-left: 1px solid #e7e7e7;
-			line-height: 1;
 			vertical-align: top;
 		}
 
@@ -138,14 +140,13 @@ footer {
 
 		input[type="submit"] {
 			display: inline-block;
-			padding: 15px 33px;
+			padding: 13px 33px;
 			font-family: 'Montserrat', sans-serif;
 			font-size: 14px;
 			font-weight: 700;
 			background: $primary-color;
 			color: #fff;
 			text-transform: uppercase;
-			line-height: 1;
 			cursor: pointer;
 			vertical-align: top;
 		}
@@ -161,7 +162,7 @@ footer {
 	h3 {
 		margin-bottom: 36px;
 		font-family: 'Montserrat', sans-serif;
-		font-size: .875em;
+		font-size: 14px;
 		font-weight: 400;
 		color: #333;
 		text-transform: uppercase;
@@ -171,7 +172,6 @@ footer {
 .footer-blog-list {
 
 	li {
-		display: block;
 		margin-bottom: 30px;
 
 		&:last-child {
@@ -195,7 +195,7 @@ footer {
 		float: left;
 		width: 28.6%;
 		height: 80px;
-		margin-right: 4.166%;
+		margin-right: 4.76%;
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
@@ -214,7 +214,7 @@ footer {
 		a {
 			display: block;
 			margin-bottom: 2px;
-			font-size: .750em;
+			font-size: 12px;
 			font-weight: 400;
 			color: #333;
 			line-height: 1.5em;
@@ -222,7 +222,7 @@ footer {
 		}
 
 		span {
-			font-size: .813em;
+			font-size: 13px;
 			font-weight: 300;
 			font-style: italic;
 			color: #999;
@@ -240,7 +240,7 @@ footer {
 	h3 {
 		margin-bottom: 36px;
 		font-family: 'Montserrat', sans-serif;
-		font-size: .875em;
+		font-size: 14px;
 		font-weight: 400;
 		color: #333;
 		text-transform: uppercase;
@@ -307,7 +307,7 @@ footer {
 }
 .instagram-viewmore {
 	display: inline-block;
-	margin-top: 16px;
+	margin-top: 20px;
 	font-size: 13px;
 	font-weight: 300;
 	font-style: italic;
@@ -315,11 +315,6 @@ footer {
 }
 /******************************* INSTAGRAM COLUMN END ***************/
 
-.social-column, .blog-column, .instagram-column {
-	display: inline-block;
-	font-size: 16px;
-	vertical-align: top;
-}
 /******************************* COPYTIGHT *******************/
 .footer-copyright {
 	padding: 25px 0;
@@ -328,7 +323,7 @@ footer {
 
 .copyright {
 	font-family: 'Montserrat', sans-serif;
-	font-size: .875em;
+	font-size: 14px;
 	font-weight: 400;
 	color: #333;
 	text-align: center;

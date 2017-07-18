@@ -48,7 +48,7 @@
     	content: '';
     	position: absolute;
     	top: 50%;
-    	right: 15px;
+    	right: 17px;
     	display: block;
     	@include sprite($arrow-icon);
     	margin-top: - $arrow-icon-height / 2;
@@ -67,7 +67,7 @@
     .photography-icon {
     	display: inline-block;
     	vertical-align: middle;
-    	margin-right: 15px;
+    	margin-right: 10px;
     	@include sprite($photography-green-icon);
     }
 
@@ -87,7 +87,7 @@
 }
 
 .accordion.active + .panel{
-	padding: 20px;
+	padding: 15px 25px 20px 20px;
 	border-left: 1px solid #e5e5e5;
     border-right: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;

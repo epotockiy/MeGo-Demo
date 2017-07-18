@@ -9,7 +9,7 @@ var buttonsMarginCalc = function() {
 
     return buttonsMarginHeight;
 }
-// Поиск всех внутренних оступов у кнопок аккордеона
+// Поиск всех внутренних оступов у панелей аккордеона
 var panelPaddingCalc = function(panel) {
     return parseInt(window.getComputedStyle(panel).paddingTop) + parseInt(window.getComputedStyle(panel).paddingBottom);
 }

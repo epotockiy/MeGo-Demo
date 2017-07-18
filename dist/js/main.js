@@ -1,3 +1,17 @@
+(function() {
+	var respNav = document.getElementById('responsive-nav');
+	var burgerIcon = document.getElementById('burger-icon');
+	var respList = document.getElementById('responsive-nav-list');
+	var closeIcon = document.getElementById('close-icon');
+
+	burgerIcon.onclick = function() {
+		respList.style.display = "block";
+	}
+
+	closeIcon.onclick = function() {
+		respList.style.display = "";
+	}
+})();
 (function () {
 // Поиск всех оступов у кнопок аккордеона
 var buttonsMarginCalc = function() {
@@ -9,7 +23,7 @@ var buttonsMarginCalc = function() {
 
     return buttonsMarginHeight;
 }
-// Поиск всех внутренних оступов у кнопок аккордеона
+// Поиск всех внутренних оступов у панелей аккордеона
 var panelPaddingCalc = function(panel) {
     return parseInt(window.getComputedStyle(panel).paddingTop) + parseInt(window.getComputedStyle(panel).paddingBottom);
 }
@@ -65,10 +79,7 @@ for (var i = 0; i < acc.length; i++) {
 })();
 (function () {
 	var carousel = document.getElementsByClassName('carousel');
-/*	var position = [];*/
-
 	
-		
 	for (var i = 0; i < carousel.length; i++) {
 
 		var carouselLists = carousel[i].querySelector('ul');

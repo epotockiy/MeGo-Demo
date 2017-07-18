@@ -7,7 +7,7 @@
 	background-size: cover;
 	
 	.section-title::after {
-		margin-top: 12px;
+		margin-top: 20px;
 	}
 
 	h2 {
@@ -24,7 +24,7 @@
 		&::before {
 			content: '';
 			display: block;
-			margin: 0 auto 12px;
+			margin: 0 auto 15px;
 			@include sprite($geoposition-icon);
 		}
 	}
