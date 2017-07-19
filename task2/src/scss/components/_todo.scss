@@ -1,16 +1,109 @@
-.todo {
-	max-width: 1000px;
-	width: 100%;
-	margin: 0 auto;
-	text-align: center;
+@mixin btn {
+  color: white;
+  border: 1px solid lightblue;
+  background: deepskyblue;
+  font-size: 20px;
 
-	.edit {
-		display: none;
-		position: absolute;
-		top: 40%;
-		left: 40%;
-		background: #eee;
-		width: 400px;
-		height: 400px;
-	}
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: #50D4FF;
+  }
+}
+
+.todo {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Helvetica', sans-serif;
+  color: #333;
+
+  h2 {
+    font-size: 32px;
+  }
+
+  form {
+    padding: 10px;
+    font-size: 0;
+    display: inline-block;
+
+    .task-input {
+      color: #333 ;
+      padding: 10px 20px;
+      font-size: 24px;
+      vertical-align: top;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .add-btn {
+      @include btn;
+      padding: 13px 40px;
+    }
+  }
+
+  .todo-list {
+    position: relative;
+  }
+
+  .task {
+    width: 40%;
+    margin: 0 auto;
+    background: #E6E6E6;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+
+    span {
+      font-size: 28px;
+    }
+
+    .edit-btn,
+    .remove-btn {
+      @include btn;
+      padding: 5px 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-radius: 5px;
+      float: right;
+    }
+  }
+
+  .edit {
+    display: block;
+    position: absolute;
+    background: #eee;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    top: 100px;
+    margin: 0 18%;
+    width: 400px;
+    height: auto;
+    padding: 50px;
+    -webkit-box-shadow: 0 0 100px #333;
+    -moz-box-shadow: 0 0 100px #333;
+    box-shadow: 0 0 100px #333;
+
+    .edit-input {
+      padding: 10px 15px;
+      font-size: 20px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .save-btn {
+      @include btn;
+      padding: 11px 15px;
+    }
+  }
 }

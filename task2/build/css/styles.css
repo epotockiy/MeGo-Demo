@@ -393,12 +393,91 @@ template {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  text-align: center; }
+  text-align: center;
+  font-family: 'Helvetica', sans-serif;
+  color: #333; }
+  .todo h2 {
+    font-size: 32px; }
+  .todo form {
+    padding: 10px;
+    font-size: 0;
+    display: inline-block; }
+    .todo form .task-input {
+      color: #333;
+      padding: 10px 20px;
+      font-size: 24px;
+      vertical-align: top; }
+      .todo form .task-input:focus {
+        outline: none; }
+    .todo form .add-btn {
+      color: white;
+      border: 1px solid lightblue;
+      background: deepskyblue;
+      font-size: 20px;
+      padding: 13px 40px; }
+      .todo form .add-btn:focus {
+        outline: none; }
+      .todo form .add-btn:hover {
+        cursor: pointer;
+        background: #50D4FF; }
+  .todo .todo-list {
+    position: relative; }
+  .todo .task {
+    width: 40%;
+    margin: 0 auto;
+    background: #E6E6E6;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    overflow: hidden; }
+    .todo .task span {
+      font-size: 28px; }
+    .todo .task .edit-btn,
+    .todo .task .remove-btn {
+      color: white;
+      border: 1px solid lightblue;
+      background: deepskyblue;
+      font-size: 20px;
+      padding: 5px 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-radius: 5px;
+      float: right; }
+      .todo .task .edit-btn:focus,
+      .todo .task .remove-btn:focus {
+        outline: none; }
+      .todo .task .edit-btn:hover,
+      .todo .task .remove-btn:hover {
+        cursor: pointer;
+        background: #50D4FF; }
   .todo .edit {
-    display: none;
+    display: block;
     position: absolute;
-    top: 40%;
-    left: 40%;
     background: #eee;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    top: 100px;
+    margin: 0 18%;
     width: 400px;
-    height: 400px; }
+    height: auto;
+    padding: 50px;
+    -webkit-box-shadow: 0 0 100px #333;
+    -moz-box-shadow: 0 0 100px #333;
+    box-shadow: 0 0 100px #333; }
+    .todo .edit .edit-input {
+      padding: 10px 15px;
+      font-size: 20px; }
+      .todo .edit .edit-input:focus {
+        outline: none; }
+    .todo .edit .save-btn {
+      color: white;
+      border: 1px solid lightblue;
+      background: deepskyblue;
+      font-size: 20px;
+      padding: 11px 15px; }
+      .todo .edit .save-btn:focus {
+        outline: none; }
+      .todo .edit .save-btn:hover {
+        cursor: pointer;
+        background: #50D4FF; }
