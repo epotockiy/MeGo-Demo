@@ -1,0 +1,16 @@
+.todo {
+	max-width: 1000px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+
+	.edit {
+		display: none;
+		position: absolute;
+		top: 40%;
+		left: 40%;
+		background: #eee;
+		width: 400px;
+		height: 400px;
+	}
+}
