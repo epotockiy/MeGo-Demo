@@ -26,18 +26,6 @@
 				@include transform(-10px);
 	    	}
     	}
-
-        &:nth-child(1) .about-img {
-            background-image: url(../img/about-1.jpg);
-        }
-
-        &:nth-child(2) .about-img {
-            background-image: url(../img/about-2.jpg);
-        }
-
-         &:nth-child(3) .about-img {
-            background-image: url(../img/about-3.jpg);
-        }
     }
 
     .about-img {
@@ -48,7 +36,7 @@
     }
 
 	.gallery-content {
-		span {
+		a {   
  			position: absolute;
 		 	top: 50%;
 		 	left: 50%;	
@@ -61,10 +49,10 @@
 		}
 
 		.users-icon::before {
-    	content: '';
-    	display: block;
-    	margin: 0 auto 10px;
-    	@include sprite($users-icon);
+        	content: '';
+        	display: block;
+        	margin: 0 auto 10px;
+        	@include sprite($users-icon);
     	}
 	}
 

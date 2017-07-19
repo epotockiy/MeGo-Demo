@@ -22,7 +22,6 @@
 		font-size: $logo-size;
 		font-weight: 700;
 		color: #fff;
-		line-height: 1;
 	}
 }
 /******************************* LOGO END ***************/
@@ -86,14 +85,14 @@
 	a {
 		display: inline-block;
 	}
-	
-	.search-icon {
-		@include sprite($search-icon);
-	}
+}
 
-	.shop-icon {
-		@include sprite($shop-icon);
-	}
+.search-icon {
+	@include sprite($search-icon);
+}
+
+.shop-icon {
+	@include sprite($shop-icon);
 }
 
 /******************************* ICONS END ***************/
@@ -120,10 +119,20 @@
     background-color: #e78582;
     overflow-x: hidden;
     z-index: 10;
+    font-size: 0;
     
 	
 	li {
 		border-bottom: 1px solid #f1bbba;
+
+		&:nth-last-child(1), &:nth-last-child(2) {
+			display: inline-block;
+			width: 50%;
+		}
+
+		&:nth-last-child(1) {
+			border-left: 1px solid #f1bbba;
+		}
 	}
 
 	a {
@@ -216,6 +225,7 @@
 		margin-right: 2.22%;
 		opacity: 0.5;
 		cursor: pointer;
+		vertical-align: top;
 
 		&:last-child {
 		margin-right: 0;
@@ -269,6 +279,7 @@
 		color: #fff;
 
 		span {
+			margin-right: 7px;
 			font-size: 24px;
 			font-weight: 700;
 		}

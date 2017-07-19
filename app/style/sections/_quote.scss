@@ -52,7 +52,8 @@
 	width: 150px;
 	height: 150px;
 	margin-right: 60px;
-	background: url(../img/quote.png) no-repeat center;
+	background-repeat: no-repeat;
+	background-position: center;
 	background-size: cover;
 }
 

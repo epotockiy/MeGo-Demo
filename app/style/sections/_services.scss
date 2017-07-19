@@ -33,13 +33,12 @@
 	vertical-align: top;
 	padding: 50px 0 50px 30px;
 
-	.icon {
+	img {
 		float: left;
+		max-width: 23%;
 		margin-right: 30px;
 	}
 }
-
-
 
 .services-info {
 	float: left;
@@ -60,29 +59,5 @@
 		color: #999;
 		line-height: 24px;
 	}
-}
-
-.photography-icon {
-	@include sprite($photography-icon);
-}
-
-.web-design-icon {
-	@include sprite($web-design-icon);
-}
-
-.creativity-icon {
-	@include sprite($creativity-icon);
-}
-
-.seo-icon {
-	@include sprite($seo-icon);
-}
-
-.css-html-icon {
-	@include sprite($css-html-icon);
-}
-
-.digital-icon {
-	@include sprite($digital-icon);
 }
 

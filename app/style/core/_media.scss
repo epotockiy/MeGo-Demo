@@ -21,7 +21,7 @@
 
 	.unique-design {
 		.phone {
-			left: 625px;
+			left: 595px;
 		}
 	}
 
@@ -162,8 +162,13 @@
 		margin-top: 50px;
 
 		li {
-	    	width: 48%;
-	    	margin: 15px 0;
+			height: 180px;
+		}
+
+		.gallery-content {
+			a {
+				font-size: 14px;
+			}
 		}
 	}
 
@@ -218,7 +223,7 @@
 
 	.unique-design {
 		.phone {
-			left: 509px;
+			left: 479px;
 		}
 	}
 
@@ -241,7 +246,7 @@
 	}
 
 	.what-we-do-accordion {
-		height: 400px;
+		max-height: 400px;
 	}
 
 	.accordion {
@@ -298,6 +303,13 @@
 		li{
 			.overlay {
 				height: 350px;
+			}
+		}
+
+		.buttons {
+			a {
+				width: 50px;
+				height: 50px;
 			}
 		}
 	}
@@ -390,37 +402,35 @@
 		padding: 110px 0 90px;
 	}
 	.blog-list {
-		li {
-			width: 45%;
-			margin-right: 2.5%;
-			margin-bottom: 30px;
-
-			&:nth-child(2n) {
-				margin-right: 0;
-			}
-		}
 
 		.blog-info {
 			h3 {
-				font-size: 16px;
+				line-height: 18px;
+			}
+		}
+
+		.blog-img {
+
+			.blog-date {
+				width: 55px;
+				height: 65px;
+				font-size: 14px;
 			}
 
 			p {
-				font-size: 17px;
-				line-height: 25px;
+				font-size: 25px;
 			}
 		}
 	}
 
 	.social-column, .blog-column, .instagram-column {
-		display: block;
+		float: none;
 		width: 100%;
 	}
 
 	.social-column {
 		text-align: center;
 		padding-right: 0;
-		margin-bottom: 80px;
 
 		.description {
 			max-width: 90%;
@@ -467,6 +477,7 @@
 
 	.instagram-column {
 		padding-top: 0;
+		margin-bottom: 80px;
 
 		h3 {
 			font-size: 16px;
@@ -489,11 +500,464 @@
 		text-align: center;
 	}
 }
+/************************************************** 425 **************************************/
+
+/************************************************** 425 END **********************************/
+@media screen and (max-width: 767px) {
+	.content {
+		max-width: 425px;
+		padding: 0 15px;
+	}
+
+	.section-description {
+		max-width: 100%;
+		font-size: 18px;
+		line-height: 27px;
+		letter-spacing: normal;
+	}
+
+	.navigation {
+		display: none;
+	}
+
+	.responsive-nav {
+		display: block;
+	}
+
+	.responsive-nav-list {
+		width: 200px;
+	}
+
+	.banner-title {
+		margin-top: 120px;
+
+		.styled-title {
+			margin-bottom: 25px;
+			font-size: 45px;
+		}
+
+		.normal-title {
+			max-width: 100%;
+			font-size: 57px;
+			line-height: 55px;
+		}
+	}
+
+	.banner-slider {
+		li {
+			width: 46%;
+			margin-right: 2%;
+			margin-bottom: 20px;
+		}
+
+		.progress-bar {
+			margin-bottom: 10px;
+		}
+
+		.banner-slider-desc {
+			font-size: 16px;
+
+			span {
+				font-size: 22px;
+			}
+		}
+	}
+
+	.about {
+		padding: 70px 0;
+	}
+
+	.about-gallery {
+		margin-top: 50px;
+
+		li {
+	    	width: 100%;
+	    	height: 220px;
+	    	margin: 10px 0;
+		}
+	}
+
+	.counter {
+		.content {
+			padding: 0;
+		}
+	}
+
+	.counter-list {
+
+
+		p:first-child {
+			margin-bottom: 17px;
+			font-size: 45px;
+		}
+
+		p:last-child {
+			font-size: 12px;
+		}
+	}
+
+	.services {
+		padding: 70px 0 70px;
+	}
+
+	.services-list {
+		display: block;
+	}
+
+	.services-row {
+		display: block;
+		border-bottom: 0;
+
+		&:last-child {
+			.services-cell{
+				&:last-child {
+					border-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.services-cell {
+		display: block;
+		max-width: 90%;
+		width: 100%;
+		padding: 30px 0 25px !important;
+		border-bottom: 1px solid #e5e5e5;
+
+		img {
+			float: none;
+			display: block;
+			margin: 0 auto 15px;
+		}
+	}
+
+	.services-info {
+		max-width: 100%;
+		text-align: center;
+
+		h3 {
+			font-size: 16px;
+		}
+
+		p {
+			font-size: 17px;
+			line-height: 25px;
+		}
+	}
+
+	.unique-design {
+		padding-top: 70px;
+
+		.tablet {
+			height: 300px;
+		}
+		.phone {
+			top: 260px;
+			left: 180px;
+			height: 230px;
+		}
+	}
+
+	.what-we-do {
+		padding: 110px 0 60px;
+	}
+
+	.what-we-do-content {
+		margin-top: 50px;
+	}
+
+	.what-we-do-accordion {
+
+		.panel {
+			p {
+				font-size: 16px;
+				line-height: 24px;
+			}
+		}
+	}
+
+	.carousel {
+		.arrow {
+			top: 20%;
+		}
+	}
+
+	.quote {
+		padding: 50px 0;
+	}
+
+	.quote-list{
+		li {
+			padding: 0 39px;
+		}
+	}
+
+	.quote-img{
+		float: none;
+		width: 115px;
+		height: 115px;
+		margin: 0 auto 20px;
+	}
+
+	.quote-content {
+		float: none;
+		max-width: 327px;
+	}
+
+	.quote-text {
+		font-size: 16px;
+		line-height: 22px;
+	}
+
+	.quote-author {
+		font-size: 16px;
+	}
+
+	.team {
+		padding: 70px 0;
+	}
+
+	.team-gallery {
+		margin-top: 50px;
+
+		li{
+			width: 100%;
+			margin: 0 auto 30px;
+			
+			.overlay {
+				height: 390px;
+			}
+
+			h3 {
+				margin-top: 15px;
+			}
+
+			p {
+				margin-top: 5px;
+			}
+		}
+	}
+
+	.works {
+		padding-top: 70px;
+	}
+
+	.works-gallery {
+		margin-top: 50px;
+		
+		.info {
+			h4 {
+				font-size: 13px;
+			}
+		}
+	}
+
+	.testimonial {
+		padding: 50px 0;
+	}
+
+	.testimonial-list{
+		li {
+			padding: 0 39px;
+		}
+	}
+
+	.testimonial-img {
+		float: none;
+		width: 150px;
+		height: 150px;
+		margin: 0 auto 10px;
+	}
+
+	.testimonial-content {
+		float: none;
+		max-width: 327px;
+	}
+
+	.testimonial-text {
+		font-size: 16px;
+		line-height: 22px;
+	}
+
+	.testimonial-author {
+		font-size: 16px;
+	}
+
+	.reviews {
+		padding: 50px 0;
+	}
+
+	.reviews-list {
+		margin-top: 50px;
+
+		li {
+			width: 100%;
+			text-align: center;
+			padding-left: 0;
+		}
+
+		.person-img {
+			float: none;
+			display: inline-block;
+			margin-right: 0;
+		}
+
+		.person-info {
+			float: none;
+			max-width: 80%;
+
+			.name {
+				font-size: 15px;
+			}
+
+			.speciality {
+				font-size: 16px;
+
+				&::after {
+					margin: 17px auto 0;
+				}
+			}
+
+			.review {
+				font-size: 18px;
+				line-height: 27px;
+			}
+		}
+	}
+	
+	.blog {
+		padding: 50px 0;
+	}
+
+	.blog-list {
+		li {
+			width: 100%;
+			margin-bottom: 30px;
+		}
+
+		.blog-info {
+			h3 {
+				font-size: 16px;
+			}
+
+			p {
+				font-size: 17px;
+				line-height: 25px;
+			}
+		}
+	}
+
+	.footer-top {
+		.content{
+			padding: 50px 15px;
+		}
+	}
+
+	.social-column, .blog-column, .instagram-column {
+		display: block;
+		width: 100%;
+	}
+
+	.social-column {
+		text-align: center;
+		padding-right: 0;
+
+		.description {
+			max-width: 100%;
+			font-size: 17px;
+			line-height: 25px;
+		}
+
+		.social {
+			margin-bottom: 45px;
+			
+			span {
+				margin-bottom: 15px;
+			}
+		}
+
+		.subscription {
+			text-align: center;
+
+			input[type="email"], input[type="submit"] {
+				width: 100%;
+				margin-right: 0;
+			}
+
+			input[type="email"] {
+				margin-bottom: 10px;
+			}
+		}
+
+	}
+
+	.blog-column {
+		margin-bottom: 80px;
+		padding-top: 0;
+
+		h3 {
+			font-size: 16px;
+			text-align: center;
+		}
+	}
+
+	.footer-blog-list {
+		max-width: 100%;
+
+		li>a {
+			height: 70px;
+		}
+
+		.blog-info {
+			max-width: 65%;
+			padding-top: 14px;
+
+			a {
+				margin-bottom: 5px;
+				font-size: 12px;
+				line-height: 18px
+			}
+
+			span {
+				font-size: 15px;
+			}
+		}
+	}
+
+	.instagram-column {
+		padding-top: 0;
+		margin-bottom: 80px; 
+
+		h3 {
+			font-size: 16px;
+			text-align: center;
+		}
+
+		.instagram-gallery {
+			max-width: 100%;
+
+			li {
+				height: 130px;
+			}
+		}
+	}
+
+	.instagram-viewmore {
+		display: block;
+		margin-top: 30px;
+		font-size: 18px;
+		text-align: center;
+	}
+
+	.copyright {
+		font-size: 12px;
+	}
+}
 
 /************************************************** 320 **************************************/
 
 /************************************************** 320 END **********************************/
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 425px) {
 	.content {
 		max-width: 320px;
 		padding: 0 15px;
@@ -582,11 +1046,11 @@
 
 		p:first-child {
 			margin-bottom: 17px;
-			font-size: 65px;
+			font-size: 50px;
 		}
 
 		p:last-child {
-			font-size: 11px;
+			font-size: 12px;
 		}
 	}
 
@@ -618,8 +1082,9 @@
 		padding: 30px 0 25px !important;
 		border-bottom: 1px solid #e5e5e5;
 
-		.icon {
+		img {
 			float: none;
+			display: block;
 			margin: 0 auto 15px;
 		}
 	}
@@ -645,8 +1110,8 @@
 			height: 300px;
 		}
 		.phone {
-			top: 270px;
-			left: 160px;
+			top: 265px;
+			left: 125px;
 			height: 230px;
 		}
 	}
@@ -670,7 +1135,7 @@
 	}
 
 	.what-we-do-accordion {
-		height: 500px;
+		max-height: 500px;
 	}
 
 	.accordion {
@@ -893,7 +1358,6 @@
 	.social-column {
 		text-align: center;
 		padding-right: 0;
-		margin-bottom: 80px;
 
 		.description {
 			max-width: 100%;
@@ -959,6 +1423,7 @@
 
 	.instagram-column {
 		padding-top: 0;
+		margin-bottom: 80px; 
 
 		h3 {
 			font-size: 16px;

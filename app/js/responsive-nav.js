@@ -4,11 +4,12 @@
 	var respList = document.getElementById('responsive-nav-list');
 	var closeIcon = document.getElementById('close-icon');
 
-	burgerIcon.onclick = function() {
+	burgerIcon.addEventListener('click', function(event){
 		respList.style.display = "block";
-	}
+	});
 
-	closeIcon.onclick = function() {
+	closeIcon.addEventListener('click', function(event) {
 		respList.style.display = "";
-	}
+	});
+	
 })();

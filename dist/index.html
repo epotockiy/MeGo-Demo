@@ -38,6 +38,8 @@
 						<li><a href="#">work</a></li>
 						<li><a href="#">blog</a></li>
 						<li><a href="#">contact</a></li>
+						<li><a href="#"><div class="shop-icon"></div></a></li>
+						<li><a href="#"><div class="search-icon"></div></a></li>
 					</ul>
 				</div>
 			</div>
@@ -54,19 +56,19 @@
 				<ul>
 					<li class="active">
 						<div class="progress-bar"></div>
-						<div class="banner-slider-desc"><span>01</span> Intro</div>
+						<div class="banner-slider-desc"><span>01</span>Intro</div>
 					</li>
 					<li>
 						<div class="progress-bar"></div>
-						<div class="banner-slider-desc"><span>02</span> Work</div>
+						<div class="banner-slider-desc"><span>02</span>Work</div>
 					</li>
 					<li>
 						<div class="progress-bar"></div>
-						<div class="banner-slider-desc"><span>03</span> About</div>
+						<div class="banner-slider-desc"><span>03</span>About</div>
 					</li>
 					<li>
 						<div class="progress-bar"></div>
-						<div class="banner-slider-desc"><span>04</span> Contacts</div>
+						<div class="banner-slider-desc"><span>04</span>Contacts</div>
 					</li>
 				</ul>
 			</div>
@@ -81,26 +83,26 @@
 			<p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 			</p>
 			<ul class="gradient-gallery about-gallery">
-				<li><a class="overlay" href="#">
-						<div class="about-img"></div>
+				<li><div class="overlay" href="#">
+						<div class="about-img" style="background-image: url(/img/about-1.jpg)"></div>
 						<div class="gallery-content">
-							<span class="users-icon">super team</span>
+							<a href="#" class="users-icon">super team</a>
 						</div>					
-					</a>
+					</div>
 				</li>
-				<li><a class="overlay" href="#">
-						<div class="about-img"></div>
+				<li><div class="overlay" href="#">
+						<div class="about-img"  style="background-image: url(/img/about-2.jpg)"></div>
 						<div class="gallery-content">
-							<span class="users-icon">super team</span>
+							<a href="#" class="users-icon">super team</a>
 						</div>					
-					</a>
+					</div>
 				</li>
-				<li><a class="overlay" href="#">
-						<div class="about-img"></div>
+				<li><div class="overlay" href="#">
+						<div class="about-img"  style="background-image: url(/img/about-3.jpg)"></div>
 						<div class="gallery-content">
-							<span class="users-icon">super team</span>
+							<a href="#" class="users-icon">super team</a>
 						</div>					
-					</a>
+					</div>
 				</li>
 			</ul>
 		</div>
@@ -140,21 +142,21 @@
 			<ul class="services-list">
 				<li class="services-row">
 					<div class="services-cell">
-						<div class="icon photography-icon"></div>
+						<img src="img/photography-icon.png">
 						<div class="services-info">
 							<h3>Photography</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
 						</div>
 					</div>
 					<div class="services-cell">
-						<div class="icon web-design-icon"></div>
+						<img src="img/web-design-icon.png">
 						<div class="services-info">
 							<h3>Web Design</h3>
 							<p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
 						</div>
 					</div>
 					<div class="services-cell">
-						<div class="icon creativity-icon"></div>
+						<img src="img/creativity-icon.png">
 						<div class="services-info">
 							<h3>Creativity</h3>
 							<p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
@@ -163,21 +165,21 @@
 				</li>
 				<li class="services-row">
 					<div class="services-cell">
-						<div class="icon seo-icon"></div>
+						<img src="img/seo-icon.png">
 						<div class="services-info">
 							<h3>Seo</h3>
 							<p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
 						</div>
 					</div>
 					<div class="services-cell">
-						<div class="icon css-html-icon"></div>
+						<img src="img/css-html-icon.png">
 						<div class="services-info">
 							<h3>Css/html</h3>
 							<p>Lorem dolor sit amet, consectetur adipiscing elit, sed do tempor.</p>
 						</div>
 					</div>
 					<div class="services-cell">
-						<div class="icon digital-icon"></div>
+						<img src="img/digital-icon.png">
 						<div class="services-info">
 							<h3>Digital</h3>
 							<p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
@@ -208,27 +210,34 @@
 				<div class="what-we-do-img">
 					<div class="image"></div>
 				</div>
-				<div class="what-we-do-accordion">
-					<button class="accordion">
-						<span class="photography-icon"></span>
-						<span>Photography</span>
-					</button>
-					<div class="panel">
-					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem fugiat ut amet omnis molestias facilis, deserunt incidunt accusantium vero? Officia provident voluptas illum impedit ullam maxime laboriosam, neque iure rerum consectetur laborum consequatur repellendus quisquam, doloribus tempora, ipsa excepturi aliquam minus voluptatem. Distinctio voluptatum impedit delectus at reiciendis voluptatibus doloremque omnis expedita eveniet nisi temporibus, adipisci laborum, quis facere. Voluptatibus eum officia voluptas reiciendis iusto consequuntur minus. Iste alias veritatis nostrum ipsa facere necessitatibus.</p>
+				<div id="accordion" class="what-we-do-accordion">
+					<div class="accordion-item">
+						<div class="button active">
+							<span class="photography-icon"></span>
+							<span>Photography</span>
+						</div>
+						<div class="panel">
+						  <p data-simplebar>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illo vero sit est incidunt natus laudantium voluptas! Velit reiciendis sequi itaque animi impedit accusantium sit suscipit totam ullam pariatur iusto officia, cupiditate, voluptate, iure, voluptatem eum molestiae! Tempora soluta quod placeat esse, ipsa id itaque tempore, facilis nam iusto debitis.</p>
+	
+						</div>
 					</div>
-					<button class="accordion">
-						<span class="creativity-icon"></span>
-						<span>creativity</span>
-					</button>
-					<div class="panel">
-					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem fugiat ut amet omnis molestias facilis, deserunt incidunt accusantium vero? Officia provident voluptas illum impedit ullam maxime laboriosam, neque iure rerum consectetur laborum consequatur repellendus quisquam, doloribus tempora, ipsa excepturi aliquam minus voluptatem. Distinctio voluptatum impedit delectus at reiciendis voluptatibus doloremque omnis expedita eveniet nisi temporibus, adipisci laborum, quis facere. Voluptatibus eum officia voluptas reiciendis iusto consequuntur minus. Iste alias veritatis nostrum ipsa facere necessitatibus.</p>
+					<div class="accordion-item">
+						<div class="button">
+							<span class="creativity-icon"></span>
+							<span>creativity</span>
+						</div>
+						<div class="panel">
+						  <p data-simplebar>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem fugiat ut amet omnis molestias facilis, deserunt incidunt accusantium vero? Officia provident voluptas illum impedit ullam maxime laboriosam, neque iure rerum consectetur laborum consequatur repellendus quisquam, doloribus tempora, ipsa excepturi aliquam minus voluptatem. Distinctio voluptatum impedit delectus at reiciendis voluptatibus doloremque omnis expedita eveniet nisi temporibus, adipisci laborum, quis facere. Voluptatibus eum officia voluptas reiciendis iusto consequuntur minus. Iste alias veritatis nostrum ipsa facere necessitatibus.</p>
+						</div>
 					</div>
-					<button class="accordion">
-						<span class="web-design-icon"></span>
-						<span>web design</span>
-					</button>
-					<div class="panel">
-					  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem fugiat ut amet omnis molestias facilis, deserunt incidunt accusantium vero? </p>
+					<div class="accordion-item">
+						<div class="button">
+							<span class="web-design-icon"></span>
+							<span>web design</span>
+						</div>
+						<div class="panel">
+						  <p data-simplebar>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem fugiat ut amet omnis molestias facilis, deserunt incidunt accusantium vero? </p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -240,21 +249,21 @@
 				<button class="arrow prev"></button>
 				<ul class="carousel-list quote-list">
 					<li>
-						<div class="quote-img"></div>
+						<div class="quote-img" style="background-image: url(img/quote.png);"></div>
 						<div class="quote-content">
 							<p class="quote-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.”</p>
 							<p class="quote-author"><span>Jon Doe</span></p>
 						</div>
 					</li>
 					<li>
-						<div class="quote-img"></div>
+						<div class="quote-img" style="background-image: url(img/quote.png);"></div>
 						<div class="quote-content">
 							<p class="quote-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 							<p class="quote-author"><span>Meet our team</span></p>
 						</div>
 					</li>
 					<li>
-						<div class="quote-img"></div>
+						<div class="quote-img" style="background-image: url(img/quote.png);"></div>
 						<div class="quote-content">
 							<p class="quote-text">“Lalalalal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, eius.”</p>
 							<p class="quote-author"><span>Who we are</span></p>
@@ -274,7 +283,7 @@
 			<div class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
 			<ul class="gradient-gallery team-gallery">
 				<li><div class="overlay">
-						<div class="team-img"></div>
+						<div class="team-img" style="background-image: url(img/team-1.jpg);"></div>
 						<div class="gallery-content">
 							<div class="buttons">
 								<a href="#"><span class="facebook-red-icon"></span></a>
@@ -288,7 +297,7 @@
 					<p>Graphic Design</p>
 				</li>
 				<li><div class="overlay">
-						<div class="team-img"></div>
+						<div class="team-img" style="background-image: url(img/team-2.jpg);"></div>
 						<div class="gallery-content">
 							<div class="buttons">
 								<a href="#"><span class="facebook-red-icon"></span></a>
@@ -302,7 +311,7 @@
 					<p>Branding/UX design</p>
 				</li>
 				<li><div class="overlay">
-						<div class="team-img"></div>
+						<div class="team-img" style="background-image: url(img/team-3.jpg);"></div>
 						<div class="gallery-content">
 							<div class="buttons">
 								<a href="#"><span class="facebook-red-icon"></span></a>
@@ -342,48 +351,48 @@
 				<div class="works-row-container">
 					<div class="works-vertical-container">
 						<li>
-							<a class="overlay" href="#">
+							<div class="overlay">
 								<img src="img/works-1.jpg">	
 								<div class="gallery-content">
-									<div class="info">
+									<a href="#" class="info">
 										<h4>creatively designed</h4>
 										<p>Lorem ipsum dolor sit</p>
-									</div>
+									</a>
 								</div>
 							</a>
 						</li>
 						<li>
-							<a class="overlay" href="#">
+							<div class="overlay">
 								<img src="img/works-2.jpg">
 								<div class="gallery-content">
-									<div class="info">
+									<a href="#" class="info">
 										<h4>creatively designed</h4>
 										<p>Lorem ipsum dolor sit</p>
-									</div>
+									</a>
 								</div>
 							</a>
 						</li>
 					</div>
 					<div class="works-vertical-container">
 						<li>
-							<a class="overlay" href="#">
+							<div class="overlay">
 								<img src="img/works-3.jpg">
 								<div class="gallery-content">
-									<div class="info">
+									<a href="#" class="info">
 										<h4>creatively designed</h4>
 										<p>Lorem ipsum dolor sit</p>
-									</div>
+									</a>
 								</div>
 							</a>
 						</li>
 						<li>
-							<a class="overlay" href="#">
+							<div class="overlay">
 								<img src="img/works-4.jpg">
 								<div class="gallery-content">
-									<div class="info">
+									<a href="#" class="info">
 										<h4>creatively designed</h4>
 										<p>Lorem ipsum dolor sit</p>
-									</div>
+									</a>
 								</div>
 							</a>
 						</li>
@@ -392,37 +401,37 @@
 				<div class="works-row-container">
 					<div class="works-vertical-container">
 						<li>
-							<a class="overlay" href="#">
+							<div class="overlay">
 								<img src="img/works-5.jpg">
 								<div class="gallery-content">
-									<div class="info">
+									<a href="#" class="info">
 										<h4>creatively designed</h4>
 										<p>Lorem ipsum dolor sit</p>
-									</div>
+									</a>
 								</div>
 							</a>
 						</li>
 					</div>
 					<div class="works-vertical-container">
 						<li>
-							<a class="overlay" href="#">
+							<div class="overlay">
 								<img src="img/works-6.jpg">
 								<div class="gallery-content">
-									<div class="info">
+									<a href="#" class="info">
 										<h4>creatively designed</h4>
 										<p>Lorem ipsum dolor sit</p>
-									</div>
+									</a>
 								</div>
 							</a>
 						</li>
 						<li>
-							<a class="overlay" href="#">
+							<div class="overlay">
 								<img src="img/works-7.jpg">
 								<div class="gallery-content">
-									<div class="info">
+									<a href="#" class="info">
 										<h4>creatively designed</h4>
 										<p>Lorem ipsum dolor sit</p>
-									</div>
+									</a>
 								</div>
 							</a>
 						</li>
@@ -436,21 +445,21 @@
 				<button class="arrow prev"></button>
 				<ul class="carousel-list testimonial-list">
 					<li>
-						<div class="testimonial-img"></div>
+						<div class="testimonial-img" style="background-image: url(img/testimonial.jpg);"></div>
 						<div class="testimonial-content">
 							<p class="testimonial-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.”</p>
 							<p class="testimonial-author"><span>Jon Doe</span></p>
 						</div>
 					</li>
 					<li>
-						<div class="testimonial-img"></div>
+						<div class="testimonial-img" style="background-image: url(img/testimonial.jpg);"></div>
 						<div class="testimonial-content">
 							<p class="testimonial-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 							<p class="testimonial-author"><span>Meet our team</span></p>
 						</div>
 					</li>
 					<li>
-						<div class="testimonial-img"></div>
+						<div class="testimonial-img" style="background-image: url(img/testimonial.jpg);"></div>
 						<div class="testimonial-content">
 							<p class="testimonial-text">“Lalalalal Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, eius.”</p>
 							<p class="testimonial-author"><span>Who we are</span></p>
@@ -469,7 +478,7 @@
 			</div>
 			<ul class="reviews-list">
 				<li>
-					<div class="person-img"></div>
+					<div class="person-img" style="background-image: url(img/review-1.png);"></div>
 					<div class="person-info">
 						<p class="name">Matthew Dix</p>
 						<div class="speciality">Graphic Design</div>
@@ -477,7 +486,7 @@
 					</div>
 				</li>
 				<li>
-					<div class="person-img"></div>
+					<div class="person-img" style="background-image: url(img/review-2.png);"></div>
 					<div class="person-info">
 						<p class="name">Nick Karvounis</p>
 						<div class="speciality">Graphic Design</div>
@@ -485,7 +494,7 @@
 					</div>
 				</li>
 				<li>
-					<div class="person-img"></div>
+					<div class="person-img" style="background-image: url(img/review-3.png);"></div>
 					<div class="person-info">
 						<p class="name">Jaelynn Castillo </p>
 						<div class="speciality">Graphic Design</div>
@@ -493,7 +502,7 @@
 					</div>
 				</li>
 				<li>
-					<div class="person-img"></div>
+					<div class="person-img" style="background-image: url(img/review-4.png);"></div>
 					<div class="person-info">
 						<p class="name">Mike Petrucci</p>
 						<div class="speciality">Graphic Design</div>
@@ -564,31 +573,20 @@
 	<footer class="page-footer">
 		<div class="footer-top">
 			<div class="content">
-				<div class="social-column">
-					<h2>MoGo</h2>
-					<div class="description">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</div>
-					<div class="followers"><span>15k</span> followers</div>
-					<div class="social">
-						<span>Follow Us:</span>
-						<ul class="social-list">
-							<li><a href="#" class="facebook"></a></li>
-							<li><a href="#" class="twitter"></a></li>
-							<li><a href="#" class="instagram"></a></li>
-							<li><a href="#" class="pinterest"></a></li>
-							<li><a href="#" class="google-plus"></a></li>
-							<li><a href="#" class="youtube"></a></li>
-							<li><a href="#" class="dribble"></a></li>
-							<li><a href="#" class="tumbl"></a></li>
-						</ul>
-					</div>
-					<div class="subscription">
-						<form>
-							<input size="26" type="email" name="email" id="email" placeholder="Your Email...">
-							<input type="submit" value="Subscribe">
-						</form>
-					</div>
+				<div class="instagram-column">
+					<h3>instagram</h3>
+					<ul class="instagram-gallery">
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+						<li><a href="#"></a></li>
+					</ul>
+					<a href="#" class="instagram-viewmore">View more photos</a>
 				</div>
 				<div class="blog-column">
 					<h3>blogs</h3>
@@ -616,20 +614,31 @@
 						</li>
 					</ul>
 				</div>
-				<div class="instagram-column">
-					<h3>instagram</h3>
-					<ul class="instagram-gallery">
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-					</ul>
-					<a href="#" class="instagram-viewmore">View more photos</a>
+				<div class="social-column">
+					<h2>MoGo</h2>
+					<div class="description">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</div>
+					<div class="followers"><span>15k</span> followers</div>
+					<div class="social">
+						<span>Follow Us:</span>
+						<ul class="social-list">
+							<li><a href="#" class="facebook"></a></li>
+							<li><a href="#" class="twitter"></a></li>
+							<li><a href="#" class="instagram"></a></li>
+							<li><a href="#" class="pinterest"></a></li>
+							<li><a href="#" class="google-plus"></a></li>
+							<li><a href="#" class="youtube"></a></li>
+							<li><a href="#" class="dribble"></a></li>
+							<li><a href="#" class="tumbl"></a></li>
+						</ul>
+					</div>
+					<div class="subscription">
+						<form>
+							<input size="26" type="email" name="email" id="email" placeholder="Your Email...">
+							<input type="submit" value="Subscribe">
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
