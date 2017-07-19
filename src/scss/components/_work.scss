@@ -82,7 +82,7 @@
 		z-index: -1;
 
 		img {
-			padding-top: 30%;
+			padding-top: 25%;
 		}
 
 		h6 {
@@ -111,6 +111,10 @@
 	.work {
 		padding-top: 60px;
 	}
+	
+	.work-image .overlay img {
+		padding-top: 20%;
+	}
 }
 
 @media screen and(max-width: 740px) {
@@ -118,7 +122,7 @@
 		&.large {
 			.overlay {
 				img {
-		padding-top: 50%;
+					padding-top: 50%;
 				}
 			}
 		}

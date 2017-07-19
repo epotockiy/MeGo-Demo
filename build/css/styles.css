@@ -433,7 +433,7 @@ You can write additional class '.clearfix' of just specify this properties in pa
 		clear: both;
 	}
 
-Also you could write additinal block after floatin blocks(at the bottom of parent block) with propertie:
+Also you could write additinal block after floating blocks(at the bottom of parent block) with propertie:
 	.clear {
 		clear: both;
 	}
@@ -1543,76 +1543,74 @@ footer {
     width: 50%;
     padding-left: 2.4%; }
 
-.accordion-item .panel {
-  background: #fff;
-  max-height: 0;
-  overflow: hidden;
-  color: #a6a6a6;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  font-style: italic;
-  font-weight: lighter;
-  line-height: 1.6;
-  margin: 0 25px 0 20px; }
-  .accordion-item .panel::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: #f5f5f5; }
-  .accordion-item .panel::-webkit-scrollbar {
-    width: 5px;
-    background-color: #fff; }
-  .accordion-item .panel::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: #95e1d3; }
-  .accordion-item .panel .simplebar-track {
-    border-radius: 10px;
-    background-color: #f5f5f5;
-    width: 6px; }
-    .accordion-item .panel .simplebar-track.horizontal {
-      display: none; }
-    .accordion-item .panel .simplebar-track .simplebar-scrollbar {
-      width: 5px;
-      background: #95e1d3;
-      left: 1px; }
-  .accordion-item .panel .simplebar-content {
-    width: 100%; }
-
-.accordion-item:first-child .accordion-btn {
-  margin-top: 0; }
-
-.accordion-item .accordion-btn {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  display: inline-block;
-  background: #fff;
-  border-style: none;
-  border: 1px solid #e5e5e5;
-  color: #333;
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+.accordion-item {
   margin-top: 9px;
-  text-align: left;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: .5s;
-  padding: 14px 14px 12px 14px;
-  width: 100%; }
-  .accordion-item .accordion-btn:focus {
-    outline: 0; }
-  .accordion-item .accordion-btn:after {
-    content: url("../images/services-2/arrow-up.png");
-    transform: rotate(180deg);
-    float: right;
-    margin-top: 8px;
-    margin-right: 6px; }
-  .accordion-item .accordion-btn.active-btn:after {
-    transform: rotate(0deg); }
-  .accordion-item .accordion-btn:hover {
-    cursor: pointer; }
-  .accordion-item .accordion-btn img {
-    vertical-align: middle;
-    padding-right: 10px; }
+  border-left: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5; }
+  .accordion-item:first-child {
+    margin-top: 0; }
+  .accordion-item .panel {
+    color: #a6a6a6;
+    max-height: 0;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: lighter;
+    line-height: 1.6;
+    margin: 0 25px 0 20px; }
+    .accordion-item .panel:hover .simplebar-track {
+      opacity: 1; }
+    .accordion-item .panel .simplebar-track {
+      border-radius: 10px;
+      background-color: #f5f5f5;
+      width: 6px;
+      opacity: 0;
+      transition: opacity .4s; }
+      .accordion-item .panel .simplebar-track.horizontal {
+        display: none; }
+      .accordion-item .panel .simplebar-track .simplebar-scrollbar {
+        width: 5px;
+        background: #95e1d3;
+        left: 1px; }
+    .accordion-item .panel .simplebar-content {
+      width: 100%; }
+  .accordion-item .accordion-btn {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: inline-block;
+    background: #fff;
+    border-style: none;
+    border-bottom: 1px solid #e5e5e5;
+    color: #333;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .5s;
+    padding: 14px 14px 12px 14px;
+    width: 100%; }
+    .accordion-item .accordion-btn:focus {
+      outline: 0; }
+    .accordion-item .accordion-btn:after {
+      content: url("../images/services-2/arrow-up.png");
+      transform: rotate(180deg);
+      float: right;
+      margin-top: 8px;
+      margin-right: 6px; }
+    .accordion-item .accordion-btn.active-btn:after {
+      transform: rotate(0deg); }
+    .accordion-item .accordion-btn:hover {
+      cursor: pointer; }
+    .accordion-item .accordion-btn img {
+      vertical-align: middle;
+      padding-right: 10px; }
+  .accordion-item .border-wrapper {
+    border: 1px solid #e5e5e5; }
 
 @media screen and (max-width: 1200px) {
   .services-2 {
@@ -1624,7 +1622,9 @@ footer {
 
 @media screen and (max-width: 1024px) {
   .services-2 {
-    padding: 40px 10px 80px; } }
+    padding: 40px 10px 80px; }
+    .services-2 .panel .simplebar-content {
+      max-width: 95%; } }
 
 @media screen and (max-width: 948px) {
   .services-2 .table {
@@ -1655,6 +1655,9 @@ footer {
       margin-right: 3px;
       height: 12px;
       width: 10px; }
+    .accordion-btn.active-btn:after {
+      margin-top: 3px;
+      margin-right: 18px; }
     .accordion-btn img {
       height: 17px;
       width: 17px;
@@ -1828,16 +1831,16 @@ footer {
         padding-top: 10px; }
       .team-gallery .person p {
         padding-top: 10px; }
-  .person .overlay-buttons a {
-    padding: 8px 0;
-    width: 40px; }
-    .person .overlay-buttons a i {
-      font-size: 18px; }
-  .person .overlay-buttons .instagram-social::before {
-    width: 10px;
-    background-size: 18px;
-    padding-top: 18px;
-    padding-left: 25px; } }
+      .team-gallery .person .overlay-buttons a {
+        padding: 8px 0;
+        width: 40px; }
+        .team-gallery .person .overlay-buttons a i {
+          font-size: 18px; }
+      .team-gallery .person .overlay-buttons .instagram-social::before {
+        width: 10px;
+        background-size: 18px;
+        padding-top: 18px;
+        padding-left: 25px; } }
 
 @media screen and (max-width: 320px) {
   .overlay-buttons {
@@ -1941,7 +1944,7 @@ footer {
   transition: .7s;
   z-index: -1; }
   .work-image .overlay img {
-    padding-top: 30%; }
+    padding-top: 25%; }
   .work-image .overlay h6 {
     color: #fff;
     font-family: "Montserrat", sans-serif;
@@ -1961,7 +1964,9 @@ footer {
 
 @media screen and (max-width: 1024px) {
   .work {
-    padding-top: 60px; } }
+    padding-top: 60px; }
+  .work-image .overlay img {
+    padding-top: 20%; } }
 
 @media screen and (max-width: 740px) {
   .work-image.large .overlay img {

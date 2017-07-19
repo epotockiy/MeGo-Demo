@@ -240,26 +240,24 @@
 			p {
 				padding-top: 10px;
 			}
-		}
-	}
 
-	.person {
-		.overlay-buttons {
-			a {
-				padding: 8px 0;
-		    	width: 40px;
+			.overlay-buttons {
+				a {
+					padding: 8px 0;
+			    	width: 40px;
 
-				i {
-					font-size: 18px;
+					i {
+						font-size: 18px;
+					}
+				}
+
+				.instagram-social::before {
+					width: 10px;
+					background-size: 18px;
+					padding-top: 18px;
+					padding-left: 25px;
 				}
 			}
-
-			.instagram-social::before {
-			width: 10px;
-			background-size: 18px;
-			padding-top: 18px;
-			padding-left: 25px;
-		}
 		}
 	}
 }

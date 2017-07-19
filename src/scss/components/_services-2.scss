@@ -34,57 +34,53 @@
 
 }
 
-.accordion-item .panel {
-	background: $color-white;
-	max-height: 0;
-	overflow: hidden;
-	color: #a6a6a6;
-	font-family: 'Roboto', sans-serif;
-	font-size: 15px;	
-	font-style: italic;
-	font-weight: lighter;
-	line-height: 1.6;
-	margin: 0 25px 0 20px;
-
-	&::-webkit-scrollbar-track {
-		border-radius: 10px;
-		background-color: #f5f5f5;
-	}
-
-	&::-webkit-scrollbar {
-		width: 5px;
-		background-color: $color-white;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		border-radius: 10px;
-		background-color: #95e1d3;
-	}
-
-	.simplebar-track {
-		border-radius: 10px;
-		background-color: #f5f5f5;
-		width: 6px;
-
-		&.horizontal {
-			display: none;
-		}
-
-		.simplebar-scrollbar {
-			width: 5px;
-			background: #95e1d3;
-			left: 1px;
-		}
-	}
-
-	.simplebar-content {
-		width: 100%;
-	}
-}
 
 .accordion-item {
-	&:first-child .accordion-btn {
+	margin-top: 9px;
+	border-left: 1px solid $color-separator;
+	border-right: 1px solid $color-separator;
+	border-top: 1px solid $color-separator;
+
+	&:first-child {
 		margin-top: 0;
+	}
+
+	.panel {
+		color: #a6a6a6;
+		max-height: 0;
+		overflow: hidden;
+		font-family: $font-roboto;
+		font-size: 15px;	
+		font-style: italic;
+		font-weight: lighter;
+		line-height: 1.6;
+		margin: 0 25px 0 20px;
+		&:hover .simplebar-track {
+			opacity: 1;
+		}
+
+		.simplebar-track {
+			border-radius: 10px;
+			background-color: #f5f5f5;
+			width: 6px;
+			opacity: 0;
+			transition: opacity .4s;
+
+
+			&.horizontal {
+				display: none;
+			}
+
+			.simplebar-scrollbar {
+				width: 5px;
+				background: #95e1d3;
+				left: 1px;
+			}
+		}
+
+		.simplebar-content {
+			width: 100%;
+		}
 	}
 
 	.accordion-btn {
@@ -94,12 +90,11 @@
 		display: inline-block;
 		background: $color-white;
 		border-style: none;
-		border: 1px solid $color-separator;
+		border-bottom: 1px solid $color-separator;
 		color: $color-dark-grey;
 		font-family: $font-montserrat;
 		font-size: 14px;
 		font-weight: 600;
-		margin-top: 9px;
 		text-align: left;
 		text-decoration: none;
 		text-transform: uppercase;
@@ -132,6 +127,10 @@
 			padding-right: 10px;
 		}
 	}
+
+	.border-wrapper {
+		border: 1px solid $color-separator;
+	}
 }
 
 @media screen and(max-width: 1200px) {
@@ -147,6 +146,10 @@
 @media screen and(max-width: 1024px) {
 	.services-2 {
 		padding: 40px 10px 80px;
+
+		.panel .simplebar-content {
+			max-width: 95%;
+		}
 	}
 }
 
@@ -196,6 +199,11 @@
 			margin-right: 3px;
 			height: 12px;
 			width: 10px;
+		}
+
+		&.active-btn:after {
+			margin-top: 3px;
+			margin-right: 18px;
 		}
 
 		img {
