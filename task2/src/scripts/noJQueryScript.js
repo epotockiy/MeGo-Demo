@@ -1,3 +1,4 @@
+//Javascript version
 ;(function() {
   'use strict';
 
@@ -12,7 +13,7 @@
   }
 
   function getDataFromStorage() {
-    tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
+    tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   }
 
   function renderTasksList() {

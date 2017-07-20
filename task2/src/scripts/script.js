@@ -1,4 +1,4 @@
-/*
+//JQuery version
 'use strict';
 
 (function($, undefined) {
@@ -13,7 +13,7 @@
   }
 
   function readDataFromStorage() {
-    tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
+    tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   }
 
   function renderTasksList() {
@@ -103,4 +103,3 @@
     renderTasksList();
   });
 })(jQuery);
-*/
