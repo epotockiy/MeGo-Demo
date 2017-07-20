@@ -5,7 +5,16 @@
   var $addBtn        = $('.add-btn');
   var $taskInput     = $('.task-input');
   var $todoList      = $('.todo-list');
-  var tasksArray     = ['first'];
+  var tasksArray;
+
+  function saveDataToStorage(data) {
+    localStorage.setItem('tasksArray', JSON.stringify(data));
+  }
+
+  function readDataFromStorage() {
+    tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
+    console.log(tasksArray);
+  }
 
   function renderTasksList() {
     $todoList.empty();
@@ -31,15 +40,16 @@
       setRemoveAction(removeBtn, i);
       setEditAction(editBtn, i);
 
-      taskBlock.append(taskText);
-      taskBlock.append(removeBtn);
-      taskBlock.append(editBtn);
+      taskBlock.append(taskText)
+          .append(removeBtn)
+          .append(editBtn);
       $todoList.append(taskBlock);
     }
   }
 
   function onAddBtnClick() {
     tasksArray.push($taskInput.val());
+    saveDataToStorage(tasksArray);
     $taskInput.val('');
     renderTasksList();
   }
@@ -47,6 +57,7 @@
   function setRemoveAction(removeButton, index) {
     removeButton.on('click', function() {
       tasksArray.splice(index, 1);
+      saveDataToStorage(tasksArray);
       renderTasksList();
     });
   }
@@ -66,8 +77,8 @@
         value: 'Save',
         class: 'save-btn'
       });
-      editBlock.append(editInput);
-      editBlock.append(saveButton);
+      editBlock.append(editInput)
+          .append(saveButton);
 
       $todoSection.append(editBlock);
 
@@ -78,12 +89,14 @@
   function setSaveAction(saveButton, editInput, index, editBlock) {
     saveButton.on('click', function() {
       tasksArray[index] = editInput.val();
+      saveDataToStorage(tasksArray);
       renderTasksList();
       editBlock.remove();
     })
   }
 
   $(function() {
+    readDataFromStorage();
     $addBtn.on('click', onAddBtnClick);
     renderTasksList();
 });
