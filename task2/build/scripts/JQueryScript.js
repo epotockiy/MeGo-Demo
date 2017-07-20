@@ -1,4 +1,3 @@
-/*
 'use strict';
 
 (function($, undefined) {
@@ -41,8 +40,8 @@
       removeItem    (removeButton, i);
 
       taskBlock.append(taskText)
-          .append(removeButton)
-          .append(editButton);
+        .append(removeButton)
+        .append(editButton);
 
       $todoList.append(taskBlock);
     }
@@ -80,7 +79,7 @@
       });
 
       editBlock.append(editInput)
-          .append(saveButton);
+        .append(saveButton);
 
       $todoSection.append(editBlock);
 
@@ -103,4 +102,3 @@
     renderTasksList();
   });
 })(jQuery);
-*/

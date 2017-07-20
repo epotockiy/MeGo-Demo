@@ -35,7 +35,7 @@ gulp.task('scripts', function() {
   return gulp.src('src/scripts/**/*.js')
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('build/scripts'));
-})
+});
 
 gulp.task('watch', ['html', 'sass', 'scripts', 'images'], function() {
   gulp.watch('src/*.html', ['html']);
