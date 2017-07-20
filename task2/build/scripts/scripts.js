@@ -2,7 +2,7 @@
 
 (function($, undefined) {
   var $todoSection   = $('.todo');
-  var $addBtn        = $('.add-btn');
+  var $addButton     = $('.add-btn');
   var $taskInput     = $('.task-input');
   var $todoList      = $('.todo-list');
   var tasksArray;
@@ -13,7 +13,6 @@
 
   function readDataFromStorage() {
     tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
-    console.log(tasksArray);
   }
 
   function renderTasksList() {
@@ -23,13 +22,13 @@
       var taskBlock = $('<div />', {
         class: 'task'
       });
-      var editBtn = $('<input />', {
-        type: 'button',
+      var editButton = $('<input />', {
+        type:  'button',
         value: 'Edit',
         class: 'edit-btn'
       });
-      var removeBtn = $('<input />', {
-        type: 'button',
+      var removeButton = $('<input />', {
+        type:  'button',
         value: 'X',
         class: 'remove-btn'
       });
@@ -37,24 +36,24 @@
         text: tasksArray[i]
       });
 
-      setRemoveAction(removeBtn, i);
-      setEditAction(editBtn, i);
+      setEditAction (editButton, i);
+      removeItem    (removeButton, i);
 
       taskBlock.append(taskText)
-          .append(removeBtn)
-          .append(editBtn);
+               .append(removeButton)
+               .append(editButton);
       $todoList.append(taskBlock);
     }
   }
 
-  function onAddBtnClick() {
+  function addItem() {
     tasksArray.push($taskInput.val());
     saveDataToStorage(tasksArray);
     $taskInput.val('');
     renderTasksList();
   }
 
-  function setRemoveAction(removeButton, index) {
+  function removeItem(removeButton, index) {
     removeButton.on('click', function() {
       tasksArray.splice(index, 1);
       saveDataToStorage(tasksArray);
@@ -68,25 +67,26 @@
         class: 'edit'
       });
       var editInput = $('<input />', {
-        type: 'text',
+        type:  'text',
         value: tasksArray[index],
         class: 'edit-input'
       });
       var saveButton = $('<input />', {
-        type: 'button',
+        type:  'button',
         value: 'Save',
         class: 'save-btn'
       });
+
       editBlock.append(editInput)
-          .append(saveButton);
+               .append(saveButton);
 
       $todoSection.append(editBlock);
 
-      setSaveAction(saveButton, editInput, index, editBlock);
+      saveItem(saveButton, editInput, index, editBlock);
     });
   }
 
-  function setSaveAction(saveButton, editInput, index, editBlock) {
+  function saveItem(saveButton, editInput, index, editBlock) {
     saveButton.on('click', function() {
       tasksArray[index] = editInput.val();
       saveDataToStorage(tasksArray);
@@ -97,7 +97,7 @@
 
   $(function() {
     readDataFromStorage();
-    $addBtn.on('click', onAddBtnClick);
+    $addButton.on('click', addItem);
     renderTasksList();
 });
 })(jQuery);
