@@ -40,9 +40,7 @@
       setEditAction (editButton, i);
       removeItem    (removeButton, i);
 
-      taskBlock.append(taskText)
-          .append(removeButton)
-          .append(editButton);
+      taskBlock.append(taskText, removeButton, editButton);
 
       $todoList.append(taskBlock);
     }
@@ -79,8 +77,7 @@
         class: 'save-btn'
       });
 
-      editBlock.append(editInput)
-          .append(saveButton);
+      editBlock.append(editInput, saveButton);
 
       $todoSection.append(editBlock);
 

@@ -2,6 +2,13 @@
 ;(function() {
   'use strict';
 
+  window.onload = function() {
+    getDataFromStorage();
+    setAddAction();
+    renderTasksList();
+    bindListEvents();
+  };
+
   var todoSection = document.querySelector('.todo');
   var addButton   = document.querySelector('.add-btn');
   var taskInput   = document.querySelector('.task-input');
@@ -16,74 +23,88 @@
     tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   }
 
+  function createElement(name, className, type, value) {
+    var element = document.createElement(name);
+
+    if(className !== undefined) {
+      element.setAttribute('class', className);
+    }
+    if(type !== undefined) {
+      element.setAttribute('type', type);
+    }
+    if(value !== undefined) {
+      element.setAttribute('value', value);
+    }
+
+    return element;
+  }
+
   function renderTasksList() {
     todoList.innerHTML = '';
 
     for(var i = 0; i < tasksArray.length; i++) {
-      var taskBlock = document.createElement('div');
-      taskBlock.setAttribute('class', 'task');
-
-      var editButton = document.createElement('input');
-      editButton.setAttribute('class', 'edit-btn');
-      editButton.setAttribute('type', 'button');
-      editButton.setAttribute('value', 'Edit');
-
-      var removeButton = document.createElement('input');
-      removeButton.setAttribute('class', 'remove-btn');
-      removeButton.setAttribute('type', 'button');
-      removeButton.setAttribute('value', 'X');
-
-      var taskText = document.createElement('span');
-      taskText.innerHTML = tasksArray[i];
-
-      setEditAction (editButton, i);
-      removeItem    (removeButton, i);
-
-      taskBlock.appendChild(taskText);
-      taskBlock.appendChild(removeButton);
-      taskBlock.appendChild(editButton);
-
-      todoList.appendChild(taskBlock);
+      addItemToDOM(tasksArray[i], i);
     }
   }
 
-  function addItem() {
-    tasksArray.push(taskInput.value);
-    saveDataToStorage(tasksArray);
-    taskInput.value = '';
-    renderTasksList();
+  function addItemToDOM(task, index) {
+    var taskBlock      = createElement('div', 'task');
+    var editButton     = createElement('input', 'edit-btn', 'button', 'Edit');
+    var removeButton   = createElement('input', 'remove-btn', 'button', 'X');
+    var taskText       = createElement('span');
+    taskText.innerHTML = task;
+
+    if(index !== undefined) {
+      taskBlock.setAttribute('data-index', index);
+    } else {
+      for(var i = 0; i < todoList.childNodes.length; i++) {
+        todoList.childNodes[i].setAttribute('data-index', i);
+      }
+      taskBlock.setAttribute('data-index', tasksArray.length - 1);
+    }
+
+    taskBlock.appendChild(taskText);
+    taskBlock.appendChild(removeButton);
+    taskBlock.appendChild(editButton);
+
+    todoList.appendChild(taskBlock);
   }
 
-  function removeItem(removeButton, index) {
-    removeButton.addEventListener('click', function() {
+  function bindListEvents() {
+    todoList.addEventListener('click', function(event) {
+      if(event.target && event.target.matches('input.remove-btn')) {
+        removeItem(event.target.parentNode.getAttribute('data-index'));
+      }
+
+      if(event.target && event.target.matches('input.edit-btn')) {
+        editItem(event.target.parentNode.getAttribute('data-index'));
+      }
+    });
+  }
+
+  function removeItem(index) {
+    if(tasksArray.length === 1) {
+      tasksArray = [];
+      saveDataToStorage(tasksArray);
+      todoList.removeChild(todoList.firstChild);
+    } else {
       tasksArray.splice(index, 1);
       saveDataToStorage(tasksArray);
-      renderTasksList();
-    });
+      todoList.childNodes[index].parentNode.removeChild(todoList.childNodes[index]);
+    }
   }
 
-  function setEditAction(editButton, index) {
-    editButton.addEventListener('click', function() {
-      var editBlock = document.createElement('div');
-      editBlock.setAttribute('class', 'edit');
+  function editItem(index) {
+    var editBlock  = createElement('div', 'edit');
+    var editInput  = createElement('input', 'edit-input', 'text', tasksArray[index]);
+    var saveButton = createElement('input', 'save-btn', 'button', 'Save');
 
-      var editInput = document.createElement('input');
-      editInput.setAttribute('class', 'edit-input');
-      editInput.setAttribute('type', 'text');
-      editInput.setAttribute('value', tasksArray[index]);
+    editBlock.appendChild(editInput);
+    editBlock.appendChild(saveButton);
 
-      var saveButton = document.createElement('input');
-      saveButton.setAttribute('class', 'save-btn');
-      saveButton.setAttribute('type', 'button');
-      saveButton.setAttribute('value', 'Save');
+    todoSection.appendChild(editBlock);
 
-      editBlock.appendChild(editInput);
-      editBlock.append(saveButton);
-
-      todoSection.appendChild(editBlock);
-
-      saveItem(saveButton, editInput, index, editBlock);
-    });
+    saveItem(saveButton, editInput, index, editBlock);
   }
 
   function saveItem(saveButton, editInput, index, editBlock) {
@@ -95,9 +116,12 @@
     });
   }
 
-  window.onload = function() {
-    getDataFromStorage();
-    addButton.addEventListener('click', addItem);
-    renderTasksList();
+  function setAddAction() {
+    addButton.addEventListener('click', function() {
+      tasksArray.push(taskInput.value);
+      saveDataToStorage(tasksArray);
+      addItemToDOM(taskInput.value);
+      taskInput.value = '';
+    });
   }
 })();
