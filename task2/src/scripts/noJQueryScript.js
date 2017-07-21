@@ -91,7 +91,11 @@
     } else {
       tasksArray.splice(index, 1);
       saveDataToStorage(tasksArray);
+
       todoList.childNodes[index].parentNode.removeChild(todoList.childNodes[index]);
+      for(var i = 0; i < todoList.childNodes.length; i++) {
+        todoList.childNodes[i].setAttribute('data-index', i);
+      }
     }
   }
 
@@ -126,7 +130,7 @@
       saveDataToStorage(tasksArray);
       renderTasksList();
       editBlock.parentNode.removeChild(editBlock);
-      overlay.style.display = 'none'; 
+      overlay.style.display = 'none';
     });
   }
 
