@@ -13,6 +13,7 @@
   var addButton   = document.querySelector('.add-btn');
   var taskInput   = document.querySelector('.task-input');
   var todoList    = document.querySelector('.todo-list');
+  var overlay     = document.querySelector('.overlay');
   var tasksArray;
 
   function saveDataToStorage(data) {
@@ -95,24 +96,37 @@
   }
 
   function editItem(index) {
-    var editBlock  = createElement('div', 'edit');
-    var editInput  = createElement('input', 'edit-input', 'text', tasksArray[index]);
-    var saveButton = createElement('input', 'save-btn', 'button', 'Save');
+    var editBlock   = createElement('div', 'edit');
+    var editInput   = createElement('input', 'edit-input', 'text', tasksArray[index]);
+    var saveButton  = createElement('input', 'save-btn', 'button', 'Save');
+    var closeButton = createElement('input', 'close-btn', 'button', 'X');
+
+    bindCloseAction(closeButton, editBlock);
 
     editBlock.appendChild(editInput);
     editBlock.appendChild(saveButton);
+    editBlock.appendChild(closeButton);
 
     todoSection.appendChild(editBlock);
+    overlay.style.display = 'block';
 
-    saveItem(saveButton, editInput, index, editBlock);
+    updateItem(saveButton, editInput, index, editBlock);
   }
 
-  function saveItem(saveButton, editInput, index, editBlock) {
+  function bindCloseAction(closeButton, editBlock) {
+    closeButton.addEventListener('click', function() {
+      todoSection.removeChild(todoSection.lastChild);
+      overlay.style.display = 'none';
+    });
+  }
+
+  function updateItem(saveButton, editInput, index, editBlock) {
     saveButton.addEventListener('click', function() {
       tasksArray[index] = editInput.value;
       saveDataToStorage(tasksArray);
       renderTasksList();
       editBlock.parentNode.removeChild(editBlock);
+      overlay.style.display = 'none'; 
     });
   }
 
