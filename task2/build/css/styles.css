@@ -433,6 +433,7 @@ template {
     overflow: hidden; }
     .todo .task span {
       font-size: 28px; }
+    .todo .task .done-btn,
     .todo .task .edit-btn,
     .todo .task .remove-btn {
       color: white;
@@ -444,9 +445,11 @@ template {
       margin-right: 10px;
       border-radius: 5px;
       float: right; }
+      .todo .task .done-btn:focus,
       .todo .task .edit-btn:focus,
       .todo .task .remove-btn:focus {
         outline: none; }
+      .todo .task .done-btn:hover,
       .todo .task .edit-btn:hover,
       .todo .task .remove-btn:hover {
         cursor: pointer;

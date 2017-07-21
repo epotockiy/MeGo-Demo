@@ -45,6 +45,7 @@
 
   function addItemToDOM(task, index) {
     var taskBlock    = createElement('div', 'task');
+    var doneButton     = createElement('input', 'done-btn', 'button', 'Done');
     var editButton   = createElement('input', 'edit-btn', 'button', 'Edit');
     var removeButton = createElement('input', 'remove-btn', 'button', 'X');
     var taskText     = createElement('span');
@@ -62,7 +63,7 @@
       taskBlock.attr('data-index', tasksArray.length - 1);
     }
 
-    taskBlock.append(taskText, removeButton, editButton);
+    taskBlock.append(taskText, removeButton, editButton, doneButton);
 
     $todoList.append(taskBlock);
   }
@@ -74,6 +75,11 @@
 
     $todoList.on('click', 'input.edit-btn', function(event) {
       editItem(event.target.parentNode.getAttribute('data-index'));
+    });
+
+    $todoList.on('click', 'input.done-btn', function(event) {
+      var taskText = $(this).parent().children().first();
+      taskText.css('text-decoration', taskText.css('text-decoration').match('line-through') ? 'none' : 'line-through');
     });
   }
 

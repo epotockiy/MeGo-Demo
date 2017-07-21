@@ -50,6 +50,7 @@
 
   function addItemToDOM(task, index) {
     var taskBlock      = createElement('div', 'task');
+    var doneButton     = createElement('input', 'done-btn', 'button', 'Done');
     var editButton     = createElement('input', 'edit-btn', 'button', 'Edit');
     var removeButton   = createElement('input', 'remove-btn', 'button', 'X');
     var taskText       = createElement('span');
@@ -67,6 +68,7 @@
     taskBlock.appendChild(taskText);
     taskBlock.appendChild(removeButton);
     taskBlock.appendChild(editButton);
+    taskBlock.appendChild(doneButton);
 
     todoList.appendChild(taskBlock);
   }
@@ -79,6 +81,10 @@
 
       if(event.target && event.target.matches('input.edit-btn')) {
         editItem(event.target.parentNode.getAttribute('data-index'));
+      }
+
+      if(event.target && event.target.matches('input.done-btn')) {
+        event.target.parentNode.firstChild.style.textDecoration = event.target.parentNode.firstChild.style.textDecoration === 'line-through' ? 'none' : 'line-through';
       }
     });
   }
@@ -105,8 +111,6 @@
     var saveButton  = createElement('input', 'save-btn', 'button', 'Save');
     var closeButton = createElement('input', 'close-btn', 'button', 'X');
 
-    bindCloseAction(closeButton, editBlock);
-
     editBlock.appendChild(editInput);
     editBlock.appendChild(saveButton);
     editBlock.appendChild(closeButton);
@@ -114,6 +118,7 @@
     todoSection.appendChild(editBlock);
     overlay.style.display = 'block';
 
+    bindCloseAction(closeButton, editBlock);
     updateItem(saveButton, editInput, index, editBlock);
   }
 
