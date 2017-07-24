@@ -42,10 +42,13 @@
 
   function renderTasksList() {
     $todoList.empty();
+    var newTodoList = document.createDocumentFragment();
 
     for(var i = 0; i < tasksArray.length; i++) {
-      addItemToDOM(tasksArray[i]);
+      newTodoList.append(addItemToDOM(tasksArray[i]));
     }
+
+    $todoList.append(newTodoList);
   }
 
   function addItemToDOM(task) {
@@ -60,7 +63,8 @@
 
     taskBlock.append(taskText, removeButton, editButton, doneButton);
 
-    $todoList.append(taskBlock);
+    console.log(taskBlock[0]);
+    return taskBlock[0];
   }
 
   function bindListEvents() {
@@ -161,7 +165,7 @@
           }
         );
         saveDataToStorage(tasksArray);
-        addItemToDOM(tasksArray[tasksArray.length - 1]);
+        $todoList.append(addItemToDOM(tasksArray[tasksArray.length - 1]));
         $taskInput.val('');
       }
     });

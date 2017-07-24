@@ -40,10 +40,13 @@
 
   function renderTasksList() {
     todoList.innerHTML = '';
+    var newTodoList = document.createDocumentFragment();
 
     for(var i = 0; i < tasksArray.length; i++) {
-      addItemToDOM(tasksArray[i]);
+      newTodoList.appendChild(addItemToDOM(tasksArray[i]));
     }
+
+    todoList.appendChild(newTodoList);
   }
 
   function addItemToDOM(task) {
@@ -61,7 +64,8 @@
     taskBlock.appendChild(editButton);
     taskBlock.appendChild(doneButton);
 
-    todoList.appendChild(taskBlock);
+    return taskBlock;
+    // todoList.appendChild(taskBlock);
   }
 
   function bindListEvents() {
@@ -156,7 +160,7 @@
             }
         );
         saveDataToStorage(tasksArray);
-        addItemToDOM(tasksArray[tasksArray.length - 1]);
+        todoList.appendChild(addItemToDOM(tasksArray[tasksArray.length - 1]));
         taskInput.value = '';
       }
     });
