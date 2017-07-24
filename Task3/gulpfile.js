@@ -10,7 +10,8 @@ var rimraf = require('rimraf');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var cssnano = require('gulp-cssnano');
-
+var format = require("gulp-standard-format");
+var prettify = require('gulp-js-prettify');
 var path = {
   build: {
     html: 'build/',
@@ -21,6 +22,7 @@ var path = {
   },
   src: {
     html: 'src/*.html',
+    format: 'src/js/',
     js: 'src/js/main.js',
     style: 'src/style/main.scss',
     img: 'src/img/*.*',
@@ -56,51 +58,51 @@ gulp.task('clean', function(cb) {
 
 gulp.task('html:build', function() {
   gulp.src(path.src.html)
-    .pipe(rigger())
-    .pipe(gulp.dest(path.build.html))
-    .pipe(reload({
-      stream: true
-    }));
+  .pipe(rigger())
+  .pipe(gulp.dest(path.build.html))
+  .pipe(reload({
+    stream: true
+  }));
 });
 
 gulp.task('js:build', function() {
   gulp.src(path.src.js)
-    .pipe(rigger())
-    .pipe(sourcemaps.init())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(path.build.js))
-    .pipe(reload({
-      stream: true
-    }));
+  .pipe(rigger())
+  .pipe(sourcemaps.init())
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(path.build.js))
+  .pipe(reload({
+    stream: true
+  }));
 });
 
 gulp.task('style:build', function() {
   gulp.src(path.src.style)
-    .pipe(sourcemaps.init())
-    .pipe(sass({
-      includePaths: ['src/style/'],
-      sourceMap: true,
-      errLogToConsole: true
-    }))
-    .pipe(cssnano())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(path.build.css))
-    .pipe(reload({
-      stream: true
-    }));
+  .pipe(sourcemaps.init())
+  .pipe(sass({
+    includePaths: ['src/style/'],
+    sourceMap: true,
+    errLogToConsole: true
+  }))
+  .pipe(cssnano())
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(path.build.css))
+  .pipe(reload({
+    stream: true
+  }));
 });
 
 gulp.task('img:build', function() {
   gulp.src(path.src.img)
-    .pipe(gulp.dest(path.build.img))
-    .pipe(reload({
-      stream: true
-    }));
+  .pipe(gulp.dest(path.build.img))
+  .pipe(reload({
+    stream: true
+  }));
 });
 
 gulp.task('fonts:build', function() {
   gulp.src(path.src.fonts)
-    .pipe(gulp.dest(path.build.fonts));
+  .pipe(gulp.dest(path.build.fonts));
 });
 
 gulp.task('build', [
@@ -109,7 +111,7 @@ gulp.task('build', [
   'style:build',
   'fonts:build',
   'img:build'
-]);
+  ]);
 
 gulp.task('watch', function() {
   watch([path.watch.html], function(event, cb) {

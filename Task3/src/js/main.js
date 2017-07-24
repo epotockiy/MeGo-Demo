@@ -1,1 +1,1 @@
-//= noJqueryToDo.js
+//= noJqueryToDo
