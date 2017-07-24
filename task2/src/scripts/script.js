@@ -19,7 +19,8 @@
   var $saveButton  = $('.edit .save-btn');
   var $closeButton = $('.edit .close-btn');
   var $overlay     = $('.overlay');
-  var tasksArray;
+  var tasksArray,
+      currentIndex;
 
   function saveDataToStorage(data) {
     localStorage.setItem('tasksArray', JSON.stringify(data));
@@ -63,7 +64,6 @@
 
     taskBlock.append(taskText, removeButton, editButton, doneButton);
 
-    console.log(taskBlock[0]);
     return taskBlock[0];
   }
 
@@ -116,33 +116,26 @@
   }
 
   function editItem(id) {
-    var index = findIndex(id);
+    currentIndex = findIndex(id);
 
-    $editInput.val(tasksArray[index].name);
+    $editInput.val(tasksArray[currentIndex].name);
     $editBlock.addClass('active');
     $overlay  .addClass('active');
 
-    updateItem(index);
+    $saveButton.on('click', updateItem);
   }
 
-  function updateItem(index) {
-    $saveButton.unbind();
-    $saveButton.on('click', function() {
-      var inputValue = $editInput.val()
-          .replace(/<(\w+)>/gi, '')
-          .replace(/<(\/\w+)>/gi, '');
+  function updateItem() {
+    if(!$editInput.val()) {
+      alertError("Enter new task name", $editInput);
+    } else {
+      tasksArray[currentIndex].name = $editInput.val();
+      saveDataToStorage(tasksArray);
+      $todoList.find('.task').eq(currentIndex).children('span').text($editInput.val());
 
-      if(!inputValue) {
-        alertError("Enter new task name", $editInput);
-      } else {
-        tasksArray[index].name = inputValue;
-        saveDataToStorage(tasksArray);
-        $todoList.find('.task').eq(index).children('span').text(inputValue);
-
-        $editBlock.removeClass('active');
-        $overlay  .removeClass('active');
-      }
-    });
+      $editBlock.removeClass('active');
+      $overlay  .removeClass('active');
+    }
   }
 
   function alertError(message, toFocus) {
@@ -152,15 +145,12 @@
 
   function setAddAction() {
     $addButton.on('click', function() {
-      var inputValue = $taskInput.val()
-          .replace(/<(\w+)>/gi, '')
-          .replace(/<(\/\w+)>/gi, '');
-      if(!inputValue) {
+      if(!$taskInput.val()) {
         alertError("Enter task name", $taskInput);
       } else {
         tasksArray.push(
           {
-            name: inputValue,
+            name: $taskInput.val(),
             id: Math.floor(Math.random() * 1000000)
           }
         );

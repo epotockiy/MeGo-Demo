@@ -19,7 +19,8 @@
   var saveButton  = document.querySelector('.edit .save-btn');
   var closeButton = document.querySelector('.edit .close-btn');
   var overlay     = document.querySelector('.overlay');
-  var tasksArray;
+  var tasksArray,
+      currentIndex;
 
   function saveDataToStorage(data) {
     localStorage.setItem('tasksArray', JSON.stringify(data));
@@ -65,7 +66,6 @@
     taskBlock.appendChild(doneButton);
 
     return taskBlock;
-    // todoList.appendChild(taskBlock);
   }
 
   function bindListEvents() {
@@ -75,7 +75,7 @@
       }
 
       if(event.target && event.target.matches('input.edit-btn')) {
-        updateItem(event.target.parentNode.getAttribute('data-id'));
+        editItem(event.target.parentNode.getAttribute('data-id'));
       }
 
       if(event.target && event.target.matches('input.done-btn')) {
@@ -114,29 +114,32 @@
     });
   }
 
-  function updateItem(id) {
-    var index = findIndex(id);
+  function editItem(id) {
+    currentIndex = findIndex(id);
 
-    editInput.value = tasksArray[index].name;
+    editInput.value = tasksArray[currentIndex].name;
+
     editBlock.classList.add('active');
     overlay  .classList.add('active');
 
-    saveButton.addEventListener('click', function() {
-      var inputValue = editInput.value
-          .replace(/<(\w+)>/gi, '')
-          .replace(/<(\/\w+)>/gi, '');
+    saveButton.addEventListener('click', updateItem);
+  }
 
-      if(!inputValue) {
-        alertError("Enter new task name", editInput);
-      } else {
-        tasksArray[index].name = inputValue;
-        saveDataToStorage(tasksArray);
-        todoList.childNodes[index].firstChild.innerHTML = inputValue;
+  function updateItem() {
+    var inputValue = editInput.value
+        .replace(/<(\w+)>/gi, '')
+        .replace(/<(\/\w+)>/gi, '');
 
-        editBlock.classList.remove('active');
-        overlay  .classList.remove('active');
-      }
-    });
+    if(!inputValue) {
+      alertError("Enter new task name", editInput);
+    } else {
+      tasksArray[currentIndex].name = inputValue;
+      saveDataToStorage(tasksArray);
+      todoList.childNodes[currentIndex].firstChild.innerHTML = inputValue;
+
+      editBlock.classList.remove('active');
+      overlay  .classList.remove('active');
+    }
   }
 
   function alertError(message, toFocus) {
