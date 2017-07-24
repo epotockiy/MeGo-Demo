@@ -455,7 +455,7 @@ template {
         cursor: pointer;
         background: #50D4FF; }
   .todo .edit {
-    display: block;
+    display: none;
     position: absolute;
     background: #eee;
     border: 1px solid #aaa;
@@ -469,6 +469,8 @@ template {
     -moz-box-shadow: 0 0 100px #333;
     box-shadow: 0 0 100px #333;
     z-index: 101; }
+    .todo .edit.active {
+      display: block; }
     .todo .edit .edit-input {
       padding: 10px 15px;
       font-size: 20px; }
@@ -507,3 +509,5 @@ template {
     background: #333;
     opacity: 0.5;
     display: none; }
+    .todo .overlay.active {
+      display: block; }

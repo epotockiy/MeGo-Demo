@@ -7,13 +7,18 @@
     setAddAction();
     renderTasksList();
     bindListEvents();
+    bindCloseEditBlock();
   });
 
   var $todoSection = $('.todo');
   var $addButton   = $('.add-btn');
   var $taskInput   = $('.task-input');
   var $todoList    = $('.todo-list');
-  var overlay      = $('.overlay');
+  var $editBlock   = $('.edit');
+  var $editInput   = $('.edit .edit-input');
+  var $saveButton  = $('.edit .save-btn');
+  var $closeButton = $('.edit .close-btn');
+  var $overlay     = $('.overlay');
   var tasksArray;
 
   function saveDataToStorage(data) {
@@ -39,29 +44,19 @@
     $todoList.empty();
 
     for(var i = 0; i < tasksArray.length; i++) {
-      addItemToDOM(tasksArray[i], i);
+      addItemToDOM(tasksArray[i]);
     }
   }
 
-  function addItemToDOM(task, index) {
+  function addItemToDOM(task) {
     var taskBlock    = createElement('div', 'task');
-    var doneButton     = createElement('input', 'done-btn', 'button', 'Done');
+    var doneButton   = createElement('input', 'done-btn', 'button', 'Done');
     var editButton   = createElement('input', 'edit-btn', 'button', 'Edit');
     var removeButton = createElement('input', 'remove-btn', 'button', 'X');
     var taskText     = createElement('span');
-    taskText.text(task);
+    taskText.text(task.name);
 
-    if(index !== undefined) {
-      taskBlock.attr('data-index', index);
-    } else {
-      for(var i = 0; i < $todoList.children().length; i++) {
-        $todoList
-            .children()
-              .eq(i)
-              .attr('data-index', i);
-      }
-      taskBlock.attr('data-index', tasksArray.length - 1);
-    }
+    taskBlock.attr('data-id', task.id);
 
     taskBlock.append(taskText, removeButton, editButton, doneButton);
 
@@ -69,84 +64,106 @@
   }
 
   function bindListEvents() {
-    $todoList.on('click', 'input.remove-btn', function() {
-      removeItem(event.target.parentNode.getAttribute('data-index'));
+    $todoList.on('click', 'input.remove-btn', function(event) {
+      removeItem(event.target.parentNode.getAttribute('data-id'));
     });
 
     $todoList.on('click', 'input.edit-btn', function(event) {
-      editItem(event.target.parentNode.getAttribute('data-index'));
+      editItem(event.target.parentNode.getAttribute('data-id'));
     });
 
-    $todoList.on('click', 'input.done-btn', function(event) {
+    $todoList.on('click', 'input.done-btn', function() {
       var taskText = $(this).parent().children().first();
       taskText.css('text-decoration', taskText.css('text-decoration').match('line-through') ? 'none' : 'line-through');
     });
   }
 
-  function updateIndexes() {
-    for(var i = 0; i < $todoList.children().length; i++) {
-      $todoList
-          .children()
-          .eq(i)
-          .attr('data-index', i);
+  function bindCloseEditBlock() {
+    $closeButton.on('click', function() {
+      $editBlock.removeClass('active');
+      $overlay  .removeClass('active');
+    });
+  }
+
+  function findIndex(id) {
+    for(var i = 0; i < tasksArray.length; ++i) {
+      if(tasksArray[i].id === parseInt(id)) {
+        return i;
+      }
     }
   }
 
-  function removeItem(index) {
+  function removeItem(id) {
+    var index = findIndex(id);
+
     if(tasksArray.length === 1) {
       tasksArray = [];
       saveDataToStorage(tasksArray);
-      $todoList.children().first().remove();
+      $todoList.children()
+          .first()
+          .remove();
     } else {
       tasksArray.splice(index, 1);
       saveDataToStorage(tasksArray);
-      $todoList
-          .children()
+      $todoList.children()
             .eq(index)
             .remove();
-      updateIndexes();
     }
   }
 
-  function editItem(index) {
-    var editBlock   = createElement('div', 'edit');
-    var editInput   = createElement('input', 'edit-input', 'text', tasksArray[index]);
-    var saveButton  = createElement('input', 'save-btn', 'button', 'Save');
-    var closeButton = createElement('input', 'close-btn', 'button', 'X');
+  function editItem(id) {
+    var index = findIndex(id);
 
-    bindCloseAction(closeButton);
+    $editInput.val(tasksArray[index].name);
+    $editBlock.addClass('active');
+    $overlay  .addClass('active');
 
-    editBlock.append(editInput, saveButton, closeButton);
-
-    $todoSection.append(editBlock);
-    overlay.css('display', 'block');
-
-    updateItem(saveButton, editInput, index, editBlock);
+    updateItem(index);
   }
 
-  function bindCloseAction(closeButton) {
-    closeButton.on('click', function() {
-      $(this).parent().remove();
-      overlay.css('display', 'none');
+  function updateItem(index) {
+    $saveButton.unbind();
+    $saveButton.on('click', function() {
+      var inputValue = $editInput.val()
+          .replace(/<(\w+)>/gi, '')
+          .replace(/<(\/\w+)>/gi, '');
+
+      if(!inputValue) {
+        alertError("Enter new task name", $editInput);
+      } else {
+        tasksArray[index].name = inputValue;
+        saveDataToStorage(tasksArray);
+        $todoList.find('.task').eq(index).children('span').text(inputValue);
+
+        $editBlock.removeClass('active');
+        $overlay  .removeClass('active');
+      }
     });
   }
 
-  function updateItem(saveButton, editInput, index, editBlock) {
-    saveButton.on('click', function() {
-      tasksArray[index] = editInput.val();
-      saveDataToStorage(tasksArray);
-      renderTasksList();
-      editBlock.remove();
-      overlay.css('display', 'none');
-    });
+  function alertError(message, toFocus) {
+    alert(message);
+    toFocus.focus();
   }
 
   function setAddAction() {
     $addButton.on('click', function() {
-      tasksArray.push($taskInput.val());
-      saveDataToStorage(tasksArray);
-      addItemToDOM($taskInput.val());
-      $taskInput.val('');
+      var inputValue = $taskInput.val()
+          .replace(/<(\w+)>/gi, '')
+          .replace(/<(\/\w+)>/gi, '');
+      if(!inputValue) {
+        alertError("Enter task name", $taskInput);
+      } else {
+        tasksArray.push(
+          {
+            name: inputValue,
+            id: Math.floor(Math.random() * 1000000)
+          }
+        );
+        saveDataToStorage(tasksArray);
+        addItemToDOM(tasksArray[tasksArray.length - 1]);
+        $taskInput.val('');
+      }
     });
   }
 })(jQuery);

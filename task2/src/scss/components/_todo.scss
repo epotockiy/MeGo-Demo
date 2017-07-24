@@ -79,7 +79,7 @@
   }
 
   .edit {
-    display: block;
+    display: none;
     position: absolute;
     background: #eee;
     border: 1px solid #aaa;
@@ -93,6 +93,10 @@
     -moz-box-shadow: 0 0 100px #333;
     box-shadow: 0 0 100px #333;
     z-index: 101;
+
+    &.active {
+      display: block;
+    }
 
     .edit-input {
       padding: 10px 15px;
@@ -135,5 +139,9 @@
     background: #333;
     opacity: 0.5;
     display: none;
+
+    &.active {
+      display: block;
+    }
   }
 }

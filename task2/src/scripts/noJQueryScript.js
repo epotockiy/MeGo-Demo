@@ -7,12 +7,17 @@
     setAddAction();
     renderTasksList();
     bindListEvents();
+    bindCloseEditBlock();
   };
 
   var todoSection = document.querySelector('.todo');
   var addButton   = document.querySelector('.add-btn');
   var taskInput   = document.querySelector('.task-input');
   var todoList    = document.querySelector('.todo-list');
+  var editBlock   = document.querySelector('.edit');
+  var editInput   = document.querySelector('.edit .edit-input');
+  var saveButton  = document.querySelector('.edit .save-btn');
+  var closeButton = document.querySelector('.edit .close-btn');
   var overlay     = document.querySelector('.overlay');
   var tasksArray;
 
@@ -26,16 +31,9 @@
 
   function createElement(name, className, type, value) {
     var element = document.createElement(name);
-
-    if(className !== undefined) {
-      element.setAttribute('class', className);
-    }
-    if(type !== undefined) {
-      element.setAttribute('type', type);
-    }
-    if(value !== undefined) {
-      element.setAttribute('value', value);
-    }
+    element.className = className ? className : '';
+    element.type      = type      ? type      : '';
+    element.value     = value     ? value     : '';
 
     return element;
   }
@@ -44,26 +42,19 @@
     todoList.innerHTML = '';
 
     for(var i = 0; i < tasksArray.length; i++) {
-      addItemToDOM(tasksArray[i], i);
+      addItemToDOM(tasksArray[i]);
     }
   }
 
-  function addItemToDOM(task, index) {
+  function addItemToDOM(task) {
     var taskBlock      = createElement('div', 'task');
     var doneButton     = createElement('input', 'done-btn', 'button', 'Done');
     var editButton     = createElement('input', 'edit-btn', 'button', 'Edit');
     var removeButton   = createElement('input', 'remove-btn', 'button', 'X');
     var taskText       = createElement('span');
-    taskText.innerHTML = task;
+    taskText.innerHTML = task.name;
 
-    if(index !== undefined) {
-      taskBlock.setAttribute('data-index', index);
-    } else {
-      for(var i = 0; i < todoList.childNodes.length; i++) {
-        todoList.childNodes[i].setAttribute('data-index', i);
-      }
-      taskBlock.setAttribute('data-index', tasksArray.length - 1);
-    }
+    taskBlock.setAttribute('data-id', task.id);
 
     taskBlock.appendChild(taskText);
     taskBlock.appendChild(removeButton);
@@ -76,11 +67,11 @@
   function bindListEvents() {
     todoList.addEventListener('click', function(event) {
       if(event.target && event.target.matches('input.remove-btn')) {
-        removeItem(event.target.parentNode.getAttribute('data-index'));
+        removeItem(event.target.parentNode.getAttribute('data-id'));
       }
 
       if(event.target && event.target.matches('input.edit-btn')) {
-        editItem(event.target.parentNode.getAttribute('data-index'));
+        updateItem(event.target.parentNode.getAttribute('data-id'));
       }
 
       if(event.target && event.target.matches('input.done-btn')) {
@@ -89,7 +80,17 @@
     });
   }
 
-  function removeItem(index) {
+  function findIndex(id) {
+    for(var i = 0; i < tasksArray.length; ++i) {
+      if(tasksArray[i].id === parseInt(id)) {
+        return i;
+      }
+    }
+  }
+
+  function removeItem(id) {
+    var index = findIndex(id);
+
     if(tasksArray.length === 1) {
       tasksArray = [];
       saveDataToStorage(tasksArray);
@@ -99,52 +100,65 @@
       saveDataToStorage(tasksArray);
 
       todoList.childNodes[index].parentNode.removeChild(todoList.childNodes[index]);
-      for(var i = 0; i < todoList.childNodes.length; i++) {
-        todoList.childNodes[i].setAttribute('data-index', i);
-      }
     }
   }
 
-  function editItem(index) {
-    var editBlock   = createElement('div', 'edit');
-    var editInput   = createElement('input', 'edit-input', 'text', tasksArray[index]);
-    var saveButton  = createElement('input', 'save-btn', 'button', 'Save');
-    var closeButton = createElement('input', 'close-btn', 'button', 'X');
-
-    editBlock.appendChild(editInput);
-    editBlock.appendChild(saveButton);
-    editBlock.appendChild(closeButton);
-
-    todoSection.appendChild(editBlock);
-    overlay.style.display = 'block';
-
-    bindCloseAction(closeButton, editBlock);
-    updateItem(saveButton, editInput, index, editBlock);
-  }
-
-  function bindCloseAction(closeButton, editBlock) {
+  function bindCloseEditBlock() {
     closeButton.addEventListener('click', function() {
-      todoSection.removeChild(todoSection.lastChild);
-      overlay.style.display = 'none';
+      editBlock.classList.remove('active');
+      overlay  .classList.remove('active');
     });
   }
 
-  function updateItem(saveButton, editInput, index, editBlock) {
+  function updateItem(id) {
+    var index = findIndex(id);
+
+    editInput.value = tasksArray[index].name;
+    editBlock.classList.add('active');
+    overlay  .classList.add('active');
+
     saveButton.addEventListener('click', function() {
-      tasksArray[index] = editInput.value;
-      saveDataToStorage(tasksArray);
-      renderTasksList();
-      editBlock.parentNode.removeChild(editBlock);
-      overlay.style.display = 'none';
+      var inputValue = editInput.value
+          .replace(/<(\w+)>/gi, '')
+          .replace(/<(\/\w+)>/gi, '');
+
+      if(!inputValue) {
+        alertError("Enter new task name", editInput);
+      } else {
+        tasksArray[index].name = inputValue;
+        saveDataToStorage(tasksArray);
+        todoList.childNodes[index].firstChild.innerHTML = inputValue;
+
+        editBlock.classList.remove('active');
+        overlay  .classList.remove('active');
+      }
     });
+  }
+
+  function alertError(message, toFocus) {
+    alert(message);
+    toFocus.focus();
   }
 
   function setAddAction() {
     addButton.addEventListener('click', function() {
-      tasksArray.push(taskInput.value);
-      saveDataToStorage(tasksArray);
-      addItemToDOM(taskInput.value);
-      taskInput.value = '';
+      var inputValue = taskInput.value
+          .replace(/<(\w+)>/gi, '')
+          .replace(/<(\/\w+)>/gi, '');
+
+      if(!inputValue) {
+        alertError("Enter task name", taskInput);
+      } else {
+        tasksArray.push(
+            {
+              name: inputValue,
+              id: Math.floor(Math.random() * 1000000)
+            }
+        );
+        saveDataToStorage(tasksArray);
+        addItemToDOM(tasksArray[tasksArray.length - 1]);
+        taskInput.value = '';
+      }
     });
   }
 })();

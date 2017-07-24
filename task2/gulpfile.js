@@ -2,6 +2,7 @@ var gulp        = require('gulp');
 var sass        = require('gulp-sass');
 var concat      = require('gulp-concat');
 var clean       = require('gulp-clean');
+var uglify      = require('gulp-uglify');
 var runSequence = require('run-sequence');
 
 gulp.task('clean', function() {
@@ -34,6 +35,7 @@ gulp.task('sass', function() {
 gulp.task('scripts', function() {
   return gulp.src('src/scripts/**/*.js')
     // .pipe(concat('scripts.js'))
+    // .pipe(uglify())
     .pipe(gulp.dest('build/scripts'));
 });
 
