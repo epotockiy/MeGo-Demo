@@ -46,7 +46,7 @@
   }
 
   function createElement(name, className, type, value) {
-    var element = document.createElement(name);
+    var element       = document.createElement(name);
     element.className = className ? className : '';
     element.type      = type      ? type      : '';
     element.value     = value     ? value     : '';
@@ -164,20 +164,19 @@
 
   function bindAddAction() {
     addButton.addEventListener('click', function() {
-      console.log(taskInput.input);
       var inputValue = taskInput.value;
 
       if(!inputValue) {
         alertError("Enter task name", taskInput);
       } else {
-        tasksArray.push(
+        tasksArray.unshift(
             {
               name: inputValue,
               id: Math.floor(Math.random() * 1000000)
             }
         );
         saveDataToStorage(tasksArray);
-        todoList.appendChild(addItemToDOM(tasksArray[tasksArray.length - 1]));
+        todoList.insertBefore(addItemToDOM(tasksArray[0]), todoList.firstChild);
         taskInput.value = '';
       }
     });

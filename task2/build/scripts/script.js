@@ -83,13 +83,13 @@
   }
 
   function bindListEvents() {
-    $todoList.on('click', 'input.remove-btn', function(event) {
-      removeItem(event.target.parentNode.getAttribute('data-id'));
+    $todoList.on('click', 'input.remove-btn', function() {
+      removeItem($(this).parent().data('id'));
       return;
     });
 
-    $todoList.on('click', 'input.edit-btn', function(event) {
-      editItem(event.target.parentNode.getAttribute('data-id'));
+    $todoList.on('click', 'input.edit-btn', function() {
+      editItem($(this).parent().data('id'));
       return;
     });
 
@@ -162,14 +162,14 @@
       if(!$taskInput.val()) {
         alertError("Enter task name", $taskInput);
       } else {
-        tasksArray.push(
+        tasksArray.unshift(
           {
             name: $taskInput.val(),
             id: Math.floor(Math.random() * 1000000)
           }
         );
         saveDataToStorage(tasksArray);
-        $todoList.append(addItemToDOM(tasksArray[tasksArray.length - 1]));
+        $todoList.prepend(addItemToDOM(tasksArray[0]));
         $taskInput.val('');
       }
     });
