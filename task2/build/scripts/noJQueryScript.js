@@ -132,7 +132,7 @@
         var inputValue = self.editInput.value;
 
         if(!inputValue) {
-          self.alertError("Enter new task name", this.editInput);
+          self.alertError("Enter new task name", self.editInput);
         } else {
           self.tasksArray[self.currentIndex].name = inputValue;
           self.saveDataToStorage(self.tasksArray);
@@ -176,7 +176,7 @@
         var inputValue = self.taskInput.value;
 
         if(!inputValue) {
-          self.alertError("Enter task name", this.taskInput);
+          self.alertError("Enter task name", self.taskInput);
         } else {
           self.tasksArray.unshift(
               {
