@@ -8,17 +8,19 @@
   });
 
   function TodoList(container) {
-    this.$todoSection = $('.' + container);
-    this.$addButton   = this.$todoSection.find('.add-btn');
-    this.$taskInput   = this.$todoSection.find('.task-input');
-    this.$todoList    = this.$todoSection.find('.todo-list');
-    this.$editBlock   = this.$todoSection.find('.edit');
-    this.$editInput   = this.$todoSection.find('.edit .edit-input');
-    this.$saveButton  = this.$todoSection.find('.edit .save-btn');
-    this.$closeButton = this.$todoSection.find('.edit .close-btn');
-    this.$overlay     = this.$todoSection.find('.overlay');
-    this.tasksArray   = [];
-    this.currentIndex = 0;
+    this.$todoContainer = $('.' + container);
+    this.$addButton     = this.$todoContainer.find('.add-btn');
+    this.$taskInput     = this.$todoContainer.find('.task-input');
+    this.$todoList      = this.$todoContainer.find('.todo-list');
+    this.$editBlock     = this.$todoContainer.find('.edit');
+    this.$editInput     = this.$todoContainer.find('.edit .edit-input');
+    this.$saveButton    = this.$todoContainer.find('.edit .save-btn');
+    this.$closeButton   = this.$todoContainer.find('.edit .close-btn');
+    this.$filterBlock   = this.$todoContainer.find('.filter-btns');
+    this.$filterButtons = this.$filterBlock  .find('button');
+    this.$overlay       = this.$todoContainer.find('.overlay');
+    this.tasksArray     = [];
+    this.currentIndex   = 0;
 
     this.init = function() {
       this.getDataFromStorage();
@@ -31,6 +33,45 @@
       this.bindListEvents();
       this.bindUpdateItem();
       this.bindCloseEditBlock();
+      this.bindFilterButtons();
+    };
+
+    this.bindFilterButtons = function() {
+      var self = this;
+
+      this.$filterBlock.on('click', function() {
+        console.log(self.$filterButtons);
+        for(var i = 0; i < self.$filterButtons.length; ++i) {
+          // console.log(self.$filterButtons[i].);
+          // self.$filterButtons[i].removeClass('active');
+          self.$filterButtons[i].removeClass('active');
+        }
+
+        $.each(self.$filterButtons, function(element, index) {
+
+        });
+
+        console.log($(this));
+
+        /*if(event.target && event.target.getAttribute('data-type') === 'all') {
+          event.target.addClass('active');
+          self.renderTasksList();
+
+          return;
+        }
+
+        if(event.target && event.target.getAttribute('data-type') === 'progress') {
+          event.target.addClass('active');
+          self.renderTasksList('progress');
+
+          return;
+        }
+
+        if(event.target && event.target.getAttribute('data-type') === 'done') {
+          event.target.addClass('active');
+          self.renderTasksList('done');
+        }*/
+      });
     };
 
     this.saveDataToStorage = function(data) {

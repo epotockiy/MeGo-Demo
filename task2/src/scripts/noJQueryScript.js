@@ -5,8 +5,6 @@
   document.addEventListener('DOMContentLoaded', function() {
     var todoList = new TodoList('todo');
     todoList.init();
-    // var todoList2 = new TodoList('todo2');
-    // todoList2.init();
   });
 
   function TodoList(container) {
@@ -23,260 +21,260 @@
     this.overlay       = this.todoContainer.querySelector('.overlay');
     this.tasksArray    = [];
     this.currentIndex  = 0;
+  }
 
-    this.init = function() {
-      this.getDataFromStorage();
-      this.renderTasksList();
-      this.bindEvents();
-    };
+  TodoList.prototype.init = function() {
+    this.getDataFromStorage();
+    this.renderTasksList();
+    this.bindEvents();
+  };
 
-    this.bindEvents = function() {
-      this.bindAddAction();
-      this.bindListEvents();
-      this.bindUpdateItem();
-      this.bindCloseEditBlock();
-      this.bindFilterButtons();
-    };
+  TodoList.prototype.bindEvents = function() {
+    this.bindAddAction();
+    this.bindListEvents();
+    this.bindUpdateItem();
+    this.bindCloseEditBlock();
+    this.bindFilterButtons();
+  };
 
-    this.bindFilterButtons = function() {
-      var self = this;
+  TodoList.prototype.bindFilterButtons = function() {
+    var self = this;
 
-      this.filterBlock.addEventListener('click', function(event) {
-        for(var i = 0; i < self.filterButtons.length; ++i) {
-          self.filterButtons[i].classList.remove('active');
-        }
-
-        if(event.target && event.target.getAttribute('data-type') === 'all') {
-          event.target.classList.add('active');
-          self.renderTasksList();
-
-          return;
-        }
-
-        if(event.target && event.target.getAttribute('data-type') === 'progress') {
-          event.target.classList.add('active');
-          self.renderTasksList('progress');
-
-          return;
-        }
-
-        if(event.target && event.target.getAttribute('data-type') === 'done') {
-          event.target.classList.add('active');
-          self.renderTasksList('done');
-        }
-      });
-    };
-
-    this.saveDataToStorage = function(data) {
-      if(typeof localStorage !== 'undefined') {
-        localStorage.setItem('tasksArray', JSON.stringify(data));
+    this.filterBlock.addEventListener('click', function(event) {
+      for(var i = 0; i < self.filterButtons.length; ++i) {
+        self.filterButtons[i].classList.remove('active');
       }
-    };
 
-    this.getDataFromStorage = function() {
-      if(typeof localStorage !== 'undefined') {
-        this.tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
-      } else {
-        this.tasksArray = [];
+      if(event.target && event.target.getAttribute('data-type') === 'all') {
+        event.target.classList.add('active');
+        self.renderTasksList();
+
+        return;
       }
-    };
 
-    this.createElement = function(name, className, type, value) {
-      var element       = document.createElement(name);
-      element.className = className ? className : '';
-      element.type      = type      ? type      : '';
-      element.value     = value     ? value     : '';
+      if(event.target && event.target.getAttribute('data-type') === 'progress') {
+        event.target.classList.add('active');
+        self.renderTasksList('progress');
 
-      return element;
-    };
+        return;
+      }
 
-    this.renderTasksList = function(type) {
-      this.todoList.innerHTML = '';
+      if(event.target && event.target.getAttribute('data-type') === 'done') {
+        event.target.classList.add('active');
+        self.renderTasksList('done');
+      }
+    });
+  };
 
-      var newTodoList = document.createDocumentFragment();
+  TodoList.prototype.saveDataToStorage = function(data) {
+    if(typeof localStorage !== 'undefined') {
+      localStorage.setItem('tasksArray', JSON.stringify(data));
+    }
+  };
 
-      if(type === 'progress') {
+  TodoList.prototype.getDataFromStorage = function() {
+    if(typeof localStorage !== 'undefined') {
+      this.tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
+    } else {
+      this.tasksArray = [];
+    }
+  };
+
+  TodoList.prototype.createElement = function(name, className, type, value) {
+    var element       = document.createElement(name);
+    element.className = className ? className : '';
+    element.type      = type      ? type      : '';
+    element.value     = value     ? value     : '';
+
+    return element;
+  };
+
+  TodoList.prototype.renderTasksList = function(type) {
+    this.todoList.innerHTML = '';
+
+    var newTodoList = document.createDocumentFragment();
+
+    if(type === 'progress') {
+      for(var i = 0; i < this.tasksArray.length; i++) {
+        if(!this.tasksArray[i].done) {
+          newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
+        }
+      }
+    } else {
+      if(type === 'done') {
         for(var i = 0; i < this.tasksArray.length; i++) {
-          if(!this.tasksArray[i].done) {
+          if(this.tasksArray[i].done) {
             newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
           }
         }
       } else {
-        if(type === 'done') {
-          for(var i = 0; i < this.tasksArray.length; i++) {
-            if(this.tasksArray[i].done) {
-              newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
-            }
-          }
+        for(var i = 0; i < this.tasksArray.length; i++) {
+          newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
+        }
+      }
+    }
+
+    this.todoList.appendChild(newTodoList);
+  };
+
+  TodoList.prototype.addItemToDOM = function(task) {
+    var taskBlock        = this.createElement('div', 'task');
+    var doneButton       = this.createElement('input', 'done-btn', 'button', task.done ? 'Undone' : 'Done');
+    var editButton       = this.createElement('input', 'edit-btn', 'button', 'Edit');
+    var removeButton     = this.createElement('input', 'remove-btn', 'button', 'X');
+    var taskText         = this.createElement('span');
+
+    taskText.textContent = task.name;
+    if(task.done) {
+      taskText.classList.add('done');
+      editButton.classList.add('disabled');
+      editButton.disabled = true;
+    }
+
+    taskBlock.setAttribute('data-id', task.id);
+
+    taskBlock.appendChild(taskText);
+    taskBlock.appendChild(removeButton);
+    taskBlock.appendChild(editButton);
+    taskBlock.appendChild(doneButton);
+
+    return taskBlock;
+  };
+
+  TodoList.prototype.bindListEvents = function() {
+    var self = this;
+
+    this.todoList.addEventListener('click', function(event) {
+      if(event.target &&
+          event.target.classList.value.indexOf('remove-btn') !== -1) {
+        self.removeItem(event.target.parentNode.getAttribute('data-id'));
+        return;
+      }
+
+      if(event.target &&
+          event.target.classList.value.indexOf('edit-btn') !== -1) {
+        self.editItem(event.target.parentNode.getAttribute('data-id'));
+        return;
+      }
+
+      if(event.target &&
+          event.target.classList.value.indexOf('done-btn') !== -1) {
+        var item  = event.target,
+            index = self.tasksArray.findIndex(function(element) {
+              return element.id === parseInt(item.parentNode.getAttribute('data-id'));
+            });
+
+        if(item.parentNode.firstChild.classList.value.indexOf('done') === -1) {
+          self.tasksArray[index].done = true;
+          item.value = 'Undone';
+          item.parentNode.firstChild.classList.add('done');
         } else {
-          for(var i = 0; i < this.tasksArray.length; i++) {
-            newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
-          }
+          self.tasksArray[index].done = false;
+          item.value = 'Done';
+          item.parentNode.firstChild.classList.remove('done');
         }
+
+        self.saveDataToStorage(self.tasksArray);
       }
+    });
+  };
 
-      this.todoList.appendChild(newTodoList);
-    };
+  TodoList.prototype.removeItem = function(id) {
+    var index;
 
-    this.addItemToDOM = function(task) {
-      var taskBlock        = this.createElement('div', 'task');
-      var doneButton       = this.createElement('input', 'done-btn', 'button', task.done ? 'Undone' : 'Done');
-      var editButton       = this.createElement('input', 'edit-btn', 'button', 'Edit');
-      var removeButton     = this.createElement('input', 'remove-btn', 'button', 'X');
-      var taskText         = this.createElement('span');
-
-      taskText.textContent = task.name;
-      if(task.done) {
-        taskText.classList.add('done');
-        editButton.classList.add('disabled');
-        editButton.disabled = true;
+    for(var j = 0; j < this.todoList.childNodes.length; ++j) {
+      if(parseInt(this.todoList.childNodes[j].getAttribute('data-id')) === parseInt(id)) {
+        index = j;
+        break;
       }
+    }
 
-      taskBlock.setAttribute('data-id', task.id);
+    console.log(index);
 
-      taskBlock.appendChild(taskText);
-      taskBlock.appendChild(removeButton);
-      taskBlock.appendChild(editButton);
-      taskBlock.appendChild(doneButton);
+    if(this.tasksArray.length === 1) {
+      this.tasksArray = [];
+      this.saveDataToStorage(this.tasksArray);
+      this.todoList.removeChild(this.todoList.firstChild);
+    } else {
+      this.tasksArray.splice(index, 1);
+      this.saveDataToStorage(this.tasksArray);
 
-      return taskBlock;
-    };
+      this.todoList.removeChild(this.todoList.childNodes[index]);
+    }
+  };
 
-    this.bindListEvents = function() {
-      var self = this;
+  TodoList.prototype.bindUpdateItem = function() {
+    var self = this;
 
-      this.todoList.addEventListener('click', function(event) {
-        if(event.target &&
-            event.target.classList.value.indexOf('remove-btn') !== -1) {
-          self.removeItem(event.target.parentNode.getAttribute('data-id'));
-          return;
-        }
+    this.saveButton.addEventListener('click', function() {
+      var inputValue = self.editInput.value;
 
-        if(event.target &&
-            event.target.classList.value.indexOf('edit-btn') !== -1) {
-          self.editItem(event.target.parentNode.getAttribute('data-id'));
-          return;
-        }
-
-        if(event.target &&
-            event.target.classList.value.indexOf('done-btn') !== -1) {
-          var item  = event.target,
-              index = self.tasksArray.findIndex(function(element) {
-                return element.id === parseInt(item.parentNode.getAttribute('data-id'));
-              });
-
-          if(item.parentNode.firstChild.classList.value.indexOf('done') === -1) {
-            self.tasksArray[index].done = true;
-            item.value = 'Undone';
-            item.parentNode.firstChild.classList.add('done');
-          } else {
-            self.tasksArray[index].done = false;
-            item.value = 'Done';
-            item.parentNode.firstChild.classList.remove('done');
-          }
-
-          self.saveDataToStorage(self.tasksArray);
-        }
-      });
-    };
-
-    this.removeItem = function(id) {
-      var index;
-
-      for(var j = 0; j < this.todoList.childNodes.length; ++j) {
-        if(parseInt(this.todoList.childNodes[j].getAttribute('data-id')) === parseInt(id)) {
-          index = j;
-          break;
-        }
-      }
-
-      console.log(index);
-
-      if(this.tasksArray.length === 1) {
-        this.tasksArray = [];
-        this.saveDataToStorage(this.tasksArray);
-        this.todoList.removeChild(this.todoList.firstChild);
+      if(!inputValue) {
+        self.alertError("Enter new task name", self.editInput);
       } else {
-        this.tasksArray.splice(index, 1);
-        this.saveDataToStorage(this.tasksArray);
+        self.tasksArray[self.currentIndex].name = inputValue;
+        self.saveDataToStorage(self.tasksArray);
+        self.todoList.childNodes[self.currentIndex].firstChild.textContent = inputValue;
 
-        this.todoList.removeChild(this.todoList.childNodes[index]);
-      }
-    };
-
-    this.bindUpdateItem = function() {
-      var self = this;
-
-      this.saveButton.addEventListener('click', function() {
-        var inputValue = self.editInput.value;
-
-        if(!inputValue) {
-          self.alertError("Enter new task name", self.editInput);
-        } else {
-          self.tasksArray[self.currentIndex].name = inputValue;
-          self.saveDataToStorage(self.tasksArray);
-          self.todoList.childNodes[self.currentIndex].firstChild.textContent = inputValue;
-
-          self.editBlock.classList.remove('active');
-          self.overlay  .classList.remove('active');
-        }
-      });
-    };
-
-    this.bindCloseEditBlock = function() {
-      var self = this;
-
-      this.closeButton.addEventListener('click', function() {
         self.editBlock.classList.remove('active');
         self.overlay  .classList.remove('active');
-      });
-    };
-
-    this.editItem = function(id) {
-      var arrayIndex = this.tasksArray.findIndex(function(element) {
-        return element.id === parseInt(id);
-      });
-
-
-      for(var j = 0; j < this.todoList.childNodes.length; ++j) {
-        if(parseInt(this.todoList.childNodes[j].getAttribute('data-id')) === parseInt(id)) {
-          this.currentIndex = j;
-          break;
-        }
       }
+    });
+  };
 
-      this.editInput.value = this.todoList.childNodes[this.currentIndex].firstChild.innerText;
+  TodoList.prototype.bindCloseEditBlock = function() {
+    var self = this;
 
-      this.editBlock.classList.add('active');
-      this.overlay  .classList.add('active');
-    };
+    this.closeButton.addEventListener('click', function() {
+      self.editBlock.classList.remove('active');
+      self.overlay  .classList.remove('active');
+    });
+  };
 
-    this.alertError = function(message, toFocus) {
-      alert(message);
-      toFocus.focus();
-    };
+  TodoList.prototype.editItem = function(id) {
+    var arrayIndex = this.tasksArray.findIndex(function(element) {
+      return element.id === parseInt(id);
+    });
 
-    this.bindAddAction = function() {
-      var self = this;
 
-      this.addButton.addEventListener('click', function() {
-        var inputValue = self.taskInput.value;
+    for(var j = 0; j < this.todoList.childNodes.length; ++j) {
+      if(parseInt(this.todoList.childNodes[j].getAttribute('data-id')) === parseInt(id)) {
+        this.currentIndex = j;
+        break;
+      }
+    }
 
-        if(!inputValue) {
-          self.alertError("Enter task name", self.taskInput);
-        } else {
-          self.tasksArray.unshift(
-              {
-                name: inputValue,
-                id: Math.floor(Math.random() * 1000000),
-                done: false
-              }
-          );
-          self.saveDataToStorage(self.tasksArray);
-          self.todoList.insertBefore(self.addItemToDOM(self.tasksArray[0]), self.todoList.firstChild);
-          self.taskInput.value = '';
-        }
-      });
-    };
-  }
+    this.editInput.value = this.todoList.childNodes[this.currentIndex].firstChild.innerText;
+
+    this.editBlock.classList.add('active');
+    this.overlay  .classList.add('active');
+  };
+
+  TodoList.prototype.alertError = function(message, toFocus) {
+    alert(message);
+    toFocus.focus();
+  };
+
+  TodoList.prototype.bindAddAction = function() {
+    var self = this;
+
+    this.addButton.addEventListener('click', function() {
+      var inputValue = self.taskInput.value;
+
+      if(!inputValue) {
+        self.alertError("Enter task name", self.taskInput);
+      } else {
+        self.tasksArray.unshift(
+            {
+              name: inputValue,
+              id: Math.floor(Math.random() * 1000000),
+              done: false
+            }
+        );
+        self.saveDataToStorage(self.tasksArray);
+        self.todoList.insertBefore(self.addItemToDOM(self.tasksArray[0]), self.todoList.firstChild);
+        self.taskInput.value = '';
+      }
+    });
+  };
 })();
