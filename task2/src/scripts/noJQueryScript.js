@@ -92,26 +92,30 @@
   TodoList.prototype.renderTasksList = function(type) {
     this.todoList.innerHTML = '';
 
-    var newTodoList = document.createDocumentFragment();
+    var newTodoList = document.createDocumentFragment(), i;
 
-    if(type === 'progress') {
-      for(var i = 0; i < this.tasksArray.length; i++) {
-        if(!this.tasksArray[i].done) {
-          newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
+    switch(type) {
+      case 'progress':
+        for (i = 0; i < this.tasksArray.length; i++) {
+          if (!this.tasksArray[i].done) {
+            newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
+          }
         }
-      }
-    } else {
-      if(type === 'done') {
-        for(var i = 0; i < this.tasksArray.length; i++) {
+        break;
+
+      case 'done':
+        for(i = 0; i < this.tasksArray.length; i++) {
           if(this.tasksArray[i].done) {
             newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
           }
         }
-      } else {
-        for(var i = 0; i < this.tasksArray.length; i++) {
+        break;
+
+      default:
+        for(i = 0; i < this.tasksArray.length; i++) {
           newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
         }
-      }
+        break;
     }
 
     this.todoList.appendChild(newTodoList);
@@ -141,52 +145,56 @@
     return taskBlock;
   };
 
+  TodoList.prototype.findCurrentIndex = function(array, id) {
+    for(var i = 0; i < array.length; ++i) {
+      if(array[i].id === id) {
+        return i;
+      }
+    }
+  };
+
   TodoList.prototype.bindListEvents = function() {
     var self = this;
 
     this.todoList.addEventListener('click', function(event) {
-      if(event.target &&
-          event.target.classList.value.indexOf('remove-btn') !== -1) {
-        self.removeItem(event.target.parentNode.getAttribute('data-id'));
-        return;
-      }
+      var listItem = event.target;
 
-      if(event.target &&
-          event.target.classList.value.indexOf('edit-btn') !== -1) {
-        self.editItem(event.target.parentNode.getAttribute('data-id'));
-        return;
-      }
-
-      if(event.target &&
-          event.target.classList.value.indexOf('done-btn') !== -1) {
-        var item  = event.target,
-            index = self.tasksArray.findIndex(function(element) {
-              return element.id === parseInt(item.parentNode.getAttribute('data-id'));
-            });
-
-        if(item.parentNode.firstChild.classList.value.indexOf('done') === -1) {
-          self.tasksArray[index].done = true;
-          item.value = 'Undone';
-          item.parentNode.firstChild.classList.add('done');
-          item.parentNode.childNodes[2].classList.add('disabled');
-          item.parentNode.childNodes[2].setAttribute('disabled', 'true');
-        } else {
-          self.tasksArray[index].done = false;
-          item.value = 'Done';
-          item.parentNode.firstChild.classList.remove('done');
-          item.parentNode.childNodes[2].classList.remove('disabled');
-          item.parentNode.childNodes[2].removeAttribute('disabled');
+      if(listItem) {
+        if(listItem.classList.contains('remove-btn')) {
+          self.removeItem(listItem.parentNode.getAttribute('data-id'));
+          return;
         }
 
-        self.saveDataToStorage(self.tasksArray);
+        if(listItem.classList.contains('edit-btn')) {
+          self.editItem(listItem.parentNode.getAttribute('data-id'));
+          return;
+        }
+
+        if(listItem.classList.contains('done-btn')) {
+          var index = self.findCurrentIndex(self.tasksArray, parseInt(listItem.parentNode.getAttribute('data-id')));
+
+          if(!listItem.parentNode.firstChild.classList.contains('done')) {
+            self.tasksArray[index].done = true;
+            listItem.value = 'Undone';
+            listItem.parentNode.querySelector('span')     .classList.add('done');
+            listItem.parentNode.querySelector('.edit-btn').classList.add('disabled');
+            listItem.parentNode.querySelector('.edit-btn').setAttribute('disabled', 'true');
+          } else {
+            self.tasksArray[index].done = false;
+            listItem.value = 'Done';
+            listItem.parentNode.querySelector('span')     .classList.remove('done');
+            listItem.parentNode.querySelector('.edit-btn').classList.remove('disabled');
+            listItem.parentNode.querySelector('.edit-btn').removeAttribute('disabled');
+          }
+
+          self.saveDataToStorage(self.tasksArray);
+        }
       }
     });
   };
 
   TodoList.prototype.removeItem = function(id) {
-    var arrayIndex = this.tasksArray.findIndex(function(element) {
-      return element.id === parseInt(id);
-    });
+    var arrayIndex = this.findCurrentIndex(this.tasksArray, parseInt(id));
 
     var index;
 
@@ -237,10 +245,7 @@
   };
 
   TodoList.prototype.editItem = function(id) {
-    var arrayIndex = this.tasksArray.findIndex(function(element) {
-      return element.id === parseInt(id);
-    });
-
+    var arrayIndex = this.findCurrentIndex(this.tasksArray, parseInt(id));
 
     for(var j = 0; j < this.todoList.childNodes.length; ++j) {
       if(parseInt(this.todoList.childNodes[j].getAttribute('data-id')) === parseInt(id)) {
