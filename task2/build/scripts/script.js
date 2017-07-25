@@ -3,31 +3,46 @@
   'use strict';
 
   $(function() {
-    getDataFromStorage();
-    setAddAction();
-    renderTasksList();
-    bindListEvents();
-    bindCloseEditBlock();
+    init();
+    bindEvents();
   });
 
-  var $todoSection = $('.todo');
-  var $addButton   = $('.add-btn');
-  var $taskInput   = $('.task-input');
-  var $todoList    = $('.todo-list');
-  var $editBlock   = $('.edit');
-  var $editInput   = $('.edit .edit-input');
-  var $saveButton  = $('.edit .save-btn');
-  var $closeButton = $('.edit .close-btn');
-  var $overlay     = $('.overlay');
-  var tasksArray,
+  var $todoSection = $('.todo'),
+      $addButton   = $('.add-btn'),
+      $taskInput   = $('.task-input'),
+      $todoList    = $('.todo-list'),
+      $editBlock   = $('.edit'),
+      $editInput   = $('.edit .edit-input'),
+      $saveButton  = $('.edit .save-btn'),
+      $closeButton = $('.edit .close-btn'),
+      $overlay     = $('.overlay'),
+      tasksArray,
       currentIndex;
 
+  function init() {
+    getDataFromStorage();
+    renderTasksList();
+  }
+
+  function bindEvents() {
+    bindAddAction();
+    bindListEvents();
+    bindUpdateItem();
+    bindCloseEditBlock();
+  }
+
   function saveDataToStorage(data) {
-    localStorage.setItem('tasksArray', JSON.stringify(data));
+    if(typeof localStorage !== 'undefined') {
+      localStorage.setItem('tasksArray', JSON.stringify(data));
+    }
   }
 
   function getDataFromStorage() {
-    tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
+    if(typeof localStorage !== 'undefined') {
+      tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
+    } else {
+      tasksArray = [];
+    }
   }
 
   function createElement(name, className, type, value) {
@@ -70,15 +85,33 @@
   function bindListEvents() {
     $todoList.on('click', 'input.remove-btn', function(event) {
       removeItem(event.target.parentNode.getAttribute('data-id'));
+      return;
     });
 
     $todoList.on('click', 'input.edit-btn', function(event) {
       editItem(event.target.parentNode.getAttribute('data-id'));
+      return;
     });
 
     $todoList.on('click', 'input.done-btn', function() {
       var taskText = $(this).parent().children().first();
       taskText.css('text-decoration', taskText.css('text-decoration').match('line-through') ? 'none' : 'line-through');
+      return;
+    });
+  }
+
+  function bindUpdateItem() {
+    $saveButton.on('click', function() {
+      if(!$editInput.val()) {
+        alertError("Enter new task name", $editInput);
+      } else {
+        tasksArray[currentIndex].name = $editInput.val();
+        saveDataToStorage(tasksArray);
+        $todoList.find('.task').eq(currentIndex).children('span').text($editInput.val());
+
+        $editBlock.removeClass('active');
+        $overlay  .removeClass('active');
+      }
     });
   }
 
@@ -89,16 +122,10 @@
     });
   }
 
-  function findIndex(id) {
-    for(var i = 0; i < tasksArray.length; ++i) {
-      if(tasksArray[i].id === parseInt(id)) {
-        return i;
-      }
-    }
-  }
-
   function removeItem(id) {
-    var index = findIndex(id);
+    var index = tasksArray.findIndex(function(element) {
+      return element.id === parseInt(id);
+    });
 
     if(tasksArray.length === 1) {
       tasksArray = [];
@@ -116,26 +143,13 @@
   }
 
   function editItem(id) {
-    currentIndex = findIndex(id);
+    currentIndex = tasksArray.findIndex(function(element) {
+      return element.id === parseInt(id);
+    });
 
     $editInput.val(tasksArray[currentIndex].name);
     $editBlock.addClass('active');
     $overlay  .addClass('active');
-
-    $saveButton.on('click', updateItem);
-  }
-
-  function updateItem() {
-    if(!$editInput.val()) {
-      alertError("Enter new task name", $editInput);
-    } else {
-      tasksArray[currentIndex].name = $editInput.val();
-      saveDataToStorage(tasksArray);
-      $todoList.find('.task').eq(currentIndex).children('span').text($editInput.val());
-
-      $editBlock.removeClass('active');
-      $overlay  .removeClass('active');
-    }
   }
 
   function alertError(message, toFocus) {
@@ -143,7 +157,7 @@
     toFocus.focus();
   }
 
-  function setAddAction() {
+  function bindAddAction() {
     $addButton.on('click', function() {
       if(!$taskInput.val()) {
         alertError("Enter task name", $taskInput);
