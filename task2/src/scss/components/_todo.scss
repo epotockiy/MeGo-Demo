@@ -1,7 +1,7 @@
 @mixin btn {
   color: white;
   border: 1px solid lightblue;
-  background: deepskyblue;
+  background: #5882FA;
   font-size: 20px;
 
   &:focus {
@@ -10,7 +10,7 @@
 
   &:hover {
     cursor: pointer;
-    background: #50D4FF;
+    background: #819FF7;
   }
 }
 
@@ -28,7 +28,11 @@ body {
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 10px;
   position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 
   form {
     padding: 10px;
@@ -52,12 +56,25 @@ body {
     }
   }
 
-  .filter-btns button {
-    @include btn;
-    padding: 10px 20px;
+  .error-message {
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+    padding: 10px 20px 0;
+    color: orangered;
+  }
 
-    &.active {
-      background: #50D4FF;
+  .filter-btns {
+    padding-top: 20px;
+
+    button {
+      @include btn;
+      padding: 10px 20px;
+
+      &.active {
+        background: #819FF7;
+        text-decoration: underline;
+      }
     }
   }
 
@@ -67,7 +84,7 @@ body {
 
   .task {
     margin: 20px auto 0;
-    background: #E6E6E6;
+    background: #F2F2F2;
     padding: 10px;
     overflow: hidden;
 
@@ -87,7 +104,7 @@ body {
 
     .edit-btn.disabled {
       cursor: default;
-      background: #50D4FF;
+      background: #A9BCF5;
     }
     
     .done {

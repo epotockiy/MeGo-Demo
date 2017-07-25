@@ -400,7 +400,11 @@ body {
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
-  position: relative; }
+  padding: 0 10px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
   .container form {
     padding: 10px;
     font-size: 0;
@@ -415,32 +419,41 @@ body {
     .container form .add-btn {
       color: white;
       border: 1px solid lightblue;
-      background: deepskyblue;
+      background: #5882FA;
       font-size: 20px;
       padding: 13px 40px; }
       .container form .add-btn:focus {
         outline: none; }
       .container form .add-btn:hover {
         cursor: pointer;
-        background: #50D4FF; }
-  .container .filter-btns button {
-    color: white;
-    border: 1px solid lightblue;
-    background: deepskyblue;
+        background: #819FF7; }
+  .container .error-message {
     font-size: 20px;
-    padding: 10px 20px; }
-    .container .filter-btns button:focus {
-      outline: none; }
-    .container .filter-btns button:hover {
-      cursor: pointer;
-      background: #50D4FF; }
-    .container .filter-btns button.active {
-      background: #50D4FF; }
+    font-weight: normal;
+    margin: 0;
+    padding: 10px 20px 0;
+    color: orangered; }
+  .container .filter-btns {
+    padding-top: 20px; }
+    .container .filter-btns button {
+      color: white;
+      border: 1px solid lightblue;
+      background: #5882FA;
+      font-size: 20px;
+      padding: 10px 20px; }
+      .container .filter-btns button:focus {
+        outline: none; }
+      .container .filter-btns button:hover {
+        cursor: pointer;
+        background: #819FF7; }
+      .container .filter-btns button.active {
+        background: #819FF7;
+        text-decoration: underline; }
   .container .todo-list {
     position: relative; }
   .container .task {
     margin: 20px auto 0;
-    background: #E6E6E6;
+    background: #F2F2F2;
     padding: 10px;
     overflow: hidden; }
     .container .task span {
@@ -450,7 +463,7 @@ body {
     .container .task .remove-btn {
       color: white;
       border: 1px solid lightblue;
-      background: deepskyblue;
+      background: #5882FA;
       font-size: 20px;
       padding: 5px 20px;
       margin-left: 10px;
@@ -464,10 +477,10 @@ body {
       .container .task .edit-btn:hover,
       .container .task .remove-btn:hover {
         cursor: pointer;
-        background: #50D4FF; }
+        background: #819FF7; }
     .container .task .edit-btn.disabled {
       cursor: default;
-      background: #50D4FF; }
+      background: #A9BCF5; }
     .container .task .done {
       text-decoration: line-through; }
   .container .edit {
@@ -498,14 +511,14 @@ body {
     .container .edit .save-btn {
       color: white;
       border: 1px solid lightblue;
-      background: deepskyblue;
+      background: #5882FA;
       font-size: 20px;
       padding: 11px 15px; }
       .container .edit .save-btn:focus {
         outline: none; }
       .container .edit .save-btn:hover {
         cursor: pointer;
-        background: #50D4FF; }
+        background: #819FF7; }
     .container .edit .close-btn {
       position: absolute;
       font-size: 24px;
