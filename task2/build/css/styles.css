@@ -389,15 +389,17 @@ template {
 [hidden] {
   display: none; }
 
-.todo {
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
+body {
   text-align: center;
   font-family: 'Helvetica', sans-serif;
   color: #333; }
-  .todo h2 {
+  body h2 {
     font-size: 32px; }
+
+.todo {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto; }
   .todo form {
     padding: 10px;
     font-size: 0;
