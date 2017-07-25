@@ -3,6 +3,7 @@
   border: 1px solid lightblue;
   background: #5882FA;
   font-size: 20px;
+  transition: background .4s;
 
   &:focus {
     outline: none;
@@ -88,27 +89,70 @@ body {
     padding: 10px;
     overflow: hidden;
 
-    span {
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    p {
+      margin: 0;
+      width: 60%;
+      float: left;
+      overflow-x: auto;
       font-size: 28px;
     }
 
-    .done-btn,
     .edit-btn,
     .remove-btn {
       @include btn;
       padding: 5px 20px;
-      margin-left: 10px;
-      margin-right: 10px;
-      float: right;
+      margin: 0 10px;
+      float: left;
     }
 
     .edit-btn.disabled {
       cursor: default;
       background: #A9BCF5;
     }
-    
+
     .done {
       text-decoration: line-through;
+    }
+
+    .done-icon {
+      float: left;
+      width: 5%;
+      cursor: pointer;
+      margin-left: 10px;
+      margin-right: 20px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: background .4s;
+
+      &.activated {
+        background-image: url('../images/done-active.png');
+      }
+
+      &.faded {
+        background-image: url('../images/done-faded.png');
+      }
+
+      &.activated:hover {
+        background-image: url('../images/done-faded.png');
+      }
+
+      &.faded:hover {
+        background-image: url('../images/done-active.png');
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-top: 100%;
+      }
     }
   }
 

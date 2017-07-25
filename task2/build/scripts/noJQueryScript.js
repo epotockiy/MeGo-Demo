@@ -131,25 +131,28 @@
   };
 
   TodoList.prototype.addItemToDOM = function(task) {
-    var taskBlock    = this.createElement('div', 'task');
-    var doneButton   = this.createElement('input', 'done-btn', 'button', task.done ? 'Undone' : 'Done');
-    var editButton   = this.createElement('input', 'edit-btn', 'button', 'Edit');
+    var taskBlock    = this.createElement('div',   'task');
+    var doneIcon     = this.createElement('div',   'done-icon');
+    var editButton   = this.createElement('input', 'edit-btn',   'button', 'Edit');
     var removeButton = this.createElement('input', 'remove-btn', 'button', 'X');
-    var taskText     = this.createElement('span');
+    var taskText     = this.createElement('p');
 
     taskText.textContent = task.name;
     if(task.done) {
+      doneIcon  .classList.add('activated');
       taskText  .classList.add('done');
       editButton.classList.add('disabled');
       editButton.disabled = true;
+    } else {
+      doneIcon.classList.add('faded');
     }
 
     taskBlock.setAttribute('data-id', task.id);
 
+    taskBlock.appendChild(doneIcon);
     taskBlock.appendChild(taskText);
-    taskBlock.appendChild(removeButton);
     taskBlock.appendChild(editButton);
-    taskBlock.appendChild(doneButton);
+    taskBlock.appendChild(removeButton);
 
     return taskBlock;
   };
@@ -179,19 +182,19 @@
           return;
         }
 
-        if(listItem.classList.contains('done-btn')) {
+        if(listItem.classList.contains('done-icon')) {
           var doneItemIndex = self.findCurrentIndex(self.tasksArray, parseInt(listItem.parentNode.getAttribute('data-id')));
 
-          if(!listItem.parentNode.firstChild.classList.contains('done')) {
+          if(!listItem.parentNode.querySelector('p').classList.contains('done')) {
             self.tasksArray[doneItemIndex].done = true;
-            listItem.value = 'Undone';
-            listItem.parentNode.querySelector('span')     .classList.add('done');
+            listItem.className = 'done-icon activated';
+            listItem.parentNode.querySelector('p')        .classList.add('done');
             listItem.parentNode.querySelector('.edit-btn').classList.add('disabled');
             listItem.parentNode.querySelector('.edit-btn').setAttribute('disabled', 'true');
           } else {
             self.tasksArray[doneItemIndex].done = false;
-            listItem.value = 'Done';
-            listItem.parentNode.querySelector('span')     .classList.remove('done');
+            listItem.className = 'done-icon faded';
+            listItem.parentNode.querySelector('p')        .classList.remove('done');
             listItem.parentNode.querySelector('.edit-btn').classList.remove('disabled');
             listItem.parentNode.querySelector('.edit-btn').removeAttribute('disabled');
           }
@@ -271,7 +274,7 @@
       }
     }
 
-    this.editInput.value = this.todoList.childNodes[this.currentIndex].firstChild.innerText;
+    this.editInput.value = this.todoList.childNodes[this.currentIndex].querySelector('p').innerText;
 
     this.editBlock.classList.add('active');
     this.overlay  .classList.add('active');

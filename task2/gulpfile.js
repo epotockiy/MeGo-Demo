@@ -21,8 +21,8 @@ gulp.task('html', function() {
 });
 
 gulp.task('images', function() {
-  // return gulp.src('src/images/**/*.png')
-  //   .pipe(gulp.dest('build/images'));
+  return gulp.src('src/images/**/*.png')
+    .pipe(gulp.dest('build/images'));
 });
 
 gulp.task('sass', function() {

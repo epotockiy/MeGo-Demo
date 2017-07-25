@@ -421,6 +421,7 @@ body {
       border: 1px solid lightblue;
       background: #5882FA;
       font-size: 20px;
+      transition: background .4s;
       padding: 13px 40px; }
       .container form .add-btn:focus {
         outline: none; }
@@ -440,6 +441,7 @@ body {
       border: 1px solid lightblue;
       background: #5882FA;
       font-size: 20px;
+      transition: background .4s;
       padding: 10px 20px; }
       .container .filter-btns button:focus {
         outline: none; }
@@ -456,24 +458,29 @@ body {
     background: #F2F2F2;
     padding: 10px;
     overflow: hidden; }
-    .container .task span {
+    .container .task * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+    .container .task p {
+      margin: 0;
+      width: 60%;
+      float: left;
+      overflow-x: auto;
       font-size: 28px; }
-    .container .task .done-btn,
     .container .task .edit-btn,
     .container .task .remove-btn {
       color: white;
       border: 1px solid lightblue;
       background: #5882FA;
       font-size: 20px;
+      transition: background .4s;
       padding: 5px 20px;
-      margin-left: 10px;
-      margin-right: 10px;
-      float: right; }
-      .container .task .done-btn:focus,
+      margin: 0 10px;
+      float: left; }
       .container .task .edit-btn:focus,
       .container .task .remove-btn:focus {
         outline: none; }
-      .container .task .done-btn:hover,
       .container .task .edit-btn:hover,
       .container .task .remove-btn:hover {
         cursor: pointer;
@@ -483,6 +490,29 @@ body {
       background: #A9BCF5; }
     .container .task .done {
       text-decoration: line-through; }
+    .container .task .done-icon {
+      float: left;
+      width: 5%;
+      cursor: pointer;
+      margin-left: 10px;
+      margin-right: 20px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: background .4s; }
+      .container .task .done-icon.activated {
+        background-image: url("../images/done-active.png"); }
+      .container .task .done-icon.faded {
+        background-image: url("../images/done-faded.png"); }
+      .container .task .done-icon.activated:hover {
+        background-image: url("../images/done-faded.png"); }
+      .container .task .done-icon.faded:hover {
+        background-image: url("../images/done-active.png"); }
+      .container .task .done-icon:before {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-top: 100%; }
   .container .edit {
     display: none;
     position: absolute;
@@ -513,6 +543,7 @@ body {
       border: 1px solid lightblue;
       background: #5882FA;
       font-size: 20px;
+      transition: background .4s;
       padding: 11px 15px; }
       .container .edit .save-btn:focus {
         outline: none; }
