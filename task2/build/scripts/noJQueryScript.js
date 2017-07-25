@@ -45,21 +45,21 @@
         self.filterButtons[i].classList.remove('active');
       }
 
-      if(event.target && event.target.getAttribute('data-type') === 'all') {
+      if(event.target && event.target.id === 'all') {
         event.target.classList.add('active');
         self.renderTasksList();
 
         return;
       }
 
-      if(event.target && event.target.getAttribute('data-type') === 'progress') {
+      if(event.target && event.target.id === 'progress') {
         event.target.classList.add('active');
         self.renderTasksList('progress');
 
         return;
       }
 
-      if(event.target && event.target.getAttribute('data-type') === 'done') {
+      if(event.target && event.target.id === 'done') {
         event.target.classList.add('active');
         self.renderTasksList('done');
       }
@@ -180,6 +180,10 @@
   };
 
   TodoList.prototype.removeItem = function(id) {
+    var arrayIndex = this.tasksArray.findIndex(function(element) {
+      return element.id === parseInt(id);
+    });
+
     var index;
 
     for(var j = 0; j < this.todoList.childNodes.length; ++j) {
@@ -189,16 +193,13 @@
       }
     }
 
-    console.log(index);
-
     if(this.tasksArray.length === 1) {
       this.tasksArray = [];
       this.saveDataToStorage(this.tasksArray);
       this.todoList.removeChild(this.todoList.firstChild);
     } else {
-      this.tasksArray.splice(index, 1);
+      this.tasksArray.splice(arrayIndex, 1);
       this.saveDataToStorage(this.tasksArray);
-
       this.todoList.removeChild(this.todoList.childNodes[index]);
     }
   };
