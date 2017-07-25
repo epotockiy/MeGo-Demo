@@ -168,10 +168,14 @@
           self.tasksArray[index].done = true;
           item.value = 'Undone';
           item.parentNode.firstChild.classList.add('done');
+          item.parentNode.childNodes[2].classList.add('disabled');
+          item.parentNode.childNodes[2].setAttribute('disabled', 'true');
         } else {
           self.tasksArray[index].done = false;
           item.value = 'Done';
           item.parentNode.firstChild.classList.remove('done');
+          item.parentNode.childNodes[2].classList.remove('disabled');
+          item.parentNode.childNodes[2].removeAttribute('disabled');
         }
 
         self.saveDataToStorage(self.tasksArray);
