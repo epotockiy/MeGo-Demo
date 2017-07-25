@@ -24,7 +24,7 @@ body {
   }
 }
 
-.todo {
+.container {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
@@ -51,18 +51,26 @@ body {
     }
   }
 
+  .filter-btns button {
+    @include btn;
+    padding: 10px 20px;
+
+    &.active {
+      background: #50D4FF;
+    }
+  }
+
   .todo-list {
     position: relative;
   }
 
   .task {
-    width: 40%;
-    margin: 0 auto;
+    width: 60%;
+    margin: 20px auto 0;
     background: #E6E6E6;
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-top: 20px;
     overflow: hidden;
 
     span {
@@ -78,6 +86,15 @@ body {
       margin-right: 10px;
       border-radius: 5px;
       float: right;
+    }
+
+    .edit-btn.disabled {
+      cursor: default;
+      background: #50D4FF;
+    }
+    
+    .done {
+      text-decoration: line-through;
     }
   }
 

@@ -396,48 +396,60 @@ body {
   body h2 {
     font-size: 32px; }
 
-.todo {
+.container {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto; }
-  .todo form {
+  .container form {
     padding: 10px;
     font-size: 0;
     display: inline-block; }
-    .todo form .task-input {
+    .container form .task-input {
       color: #333;
       padding: 10px 20px;
       font-size: 24px;
       vertical-align: top; }
-      .todo form .task-input:focus {
+      .container form .task-input:focus {
         outline: none; }
-    .todo form .add-btn {
+    .container form .add-btn {
       color: white;
       border: 1px solid lightblue;
       background: deepskyblue;
       font-size: 20px;
       padding: 13px 40px; }
-      .todo form .add-btn:focus {
+      .container form .add-btn:focus {
         outline: none; }
-      .todo form .add-btn:hover {
+      .container form .add-btn:hover {
         cursor: pointer;
         background: #50D4FF; }
-  .todo .todo-list {
+  .container .filter-btns button {
+    color: white;
+    border: 1px solid lightblue;
+    background: deepskyblue;
+    font-size: 20px;
+    padding: 10px 20px; }
+    .container .filter-btns button:focus {
+      outline: none; }
+    .container .filter-btns button:hover {
+      cursor: pointer;
+      background: #50D4FF; }
+    .container .filter-btns button.active {
+      background: #50D4FF; }
+  .container .todo-list {
     position: relative; }
-  .todo .task {
-    width: 40%;
-    margin: 0 auto;
+  .container .task {
+    width: 60%;
+    margin: 20px auto 0;
     background: #E6E6E6;
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-top: 20px;
     overflow: hidden; }
-    .todo .task span {
+    .container .task span {
       font-size: 28px; }
-    .todo .task .done-btn,
-    .todo .task .edit-btn,
-    .todo .task .remove-btn {
+    .container .task .done-btn,
+    .container .task .edit-btn,
+    .container .task .remove-btn {
       color: white;
       border: 1px solid lightblue;
       background: deepskyblue;
@@ -447,16 +459,21 @@ body {
       margin-right: 10px;
       border-radius: 5px;
       float: right; }
-      .todo .task .done-btn:focus,
-      .todo .task .edit-btn:focus,
-      .todo .task .remove-btn:focus {
+      .container .task .done-btn:focus,
+      .container .task .edit-btn:focus,
+      .container .task .remove-btn:focus {
         outline: none; }
-      .todo .task .done-btn:hover,
-      .todo .task .edit-btn:hover,
-      .todo .task .remove-btn:hover {
+      .container .task .done-btn:hover,
+      .container .task .edit-btn:hover,
+      .container .task .remove-btn:hover {
         cursor: pointer;
         background: #50D4FF; }
-  .todo .edit {
+    .container .task .edit-btn.disabled {
+      cursor: default;
+      background: #50D4FF; }
+    .container .task .done {
+      text-decoration: line-through; }
+  .container .edit {
     display: none;
     position: absolute;
     background: #eee;
@@ -471,25 +488,25 @@ body {
     -moz-box-shadow: 0 0 100px #333;
     box-shadow: 0 0 100px #333;
     z-index: 101; }
-    .todo .edit.active {
+    .container .edit.active {
       display: block; }
-    .todo .edit .edit-input {
+    .container .edit .edit-input {
       padding: 10px 15px;
       font-size: 20px; }
-      .todo .edit .edit-input:focus {
+      .container .edit .edit-input:focus {
         outline: none; }
-    .todo .edit .save-btn {
+    .container .edit .save-btn {
       color: white;
       border: 1px solid lightblue;
       background: deepskyblue;
       font-size: 20px;
       padding: 11px 15px; }
-      .todo .edit .save-btn:focus {
+      .container .edit .save-btn:focus {
         outline: none; }
-      .todo .edit .save-btn:hover {
+      .container .edit .save-btn:hover {
         cursor: pointer;
         background: #50D4FF; }
-    .todo .edit .close-btn {
+    .container .edit .close-btn {
       position: absolute;
       font-size: 24px;
       font-weight: bold;
@@ -499,9 +516,9 @@ body {
       border: none;
       cursor: pointer;
       background: none; }
-      .todo .edit .close-btn:hover {
+      .container .edit .close-btn:hover {
         color: #ccc; }
-  .todo .overlay {
+  .container .overlay {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -511,5 +528,5 @@ body {
     background: #333;
     opacity: 0.5;
     display: none; }
-    .todo .overlay.active {
+    .container .overlay.active {
       display: block; }

@@ -3,12 +3,12 @@
   'use strict';
 
   $(function() {
-    var todoList = new TodoList();
+    var todoList = new TodoList('todo');
     todoList.init();
   });
 
-  function TodoList() {
-    this.$todoSection = $('.todo');
+  function TodoList(container) {
+    this.$todoSection = $('.' + container);
     this.$addButton   = this.$todoSection.find('.add-btn');
     this.$taskInput   = this.$todoSection.find('.task-input');
     this.$todoList    = this.$todoSection.find('.todo-list');

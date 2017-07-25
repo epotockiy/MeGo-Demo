@@ -8,13 +8,19 @@
   <body>
     <h2>Todo list</h2>
 
-    <div class="todo">
+    <div class="todo container">
       <div class="overlay"></div>
 
       <form>
         <input class="task-input" type="text" name="task" placeholder="Enter task..." />
         <input class="add-btn" type="button" value="Add" />
       </form>
+
+      <div class="filter-btns">
+        <button class="active" data-type="all">All</button>
+        <button data-type="progress">In progress</button>
+        <button data-type="done">Done</button>
+      </div>
 
       <div class="todo-list"></div>
 

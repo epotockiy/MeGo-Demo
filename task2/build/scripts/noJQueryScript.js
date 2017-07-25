@@ -3,12 +3,14 @@
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function() {
-    var todoList = new TodoList();
+    var todoList = new TodoList('todo');
     todoList.init();
+    // var todoList2 = new TodoList('todo2');
+    // todoList2.init();
   });
 
-  function TodoList() {
-    this.todoContainer = document.querySelector('.todo');
+  function TodoList(container) {
+    this.todoContainer = document.querySelector('.' + container);
     this.addButton     = this.todoContainer.querySelector('.add-btn');
     this.taskInput     = this.todoContainer.querySelector('.task-input');
     this.todoList      = this.todoContainer.querySelector('.todo-list');
@@ -16,6 +18,8 @@
     this.editInput     = this.todoContainer.querySelector('.edit .edit-input');
     this.saveButton    = this.todoContainer.querySelector('.edit .save-btn');
     this.closeButton   = this.todoContainer.querySelector('.edit .close-btn');
+    this.filterBlock   = this.todoContainer.querySelector('.filter-btns');
+    this.filterButtons = this.filterBlock  .querySelectorAll('button');
     this.overlay       = this.todoContainer.querySelector('.overlay');
     this.tasksArray    = [];
     this.currentIndex  = 0;
@@ -31,6 +35,36 @@
       this.bindListEvents();
       this.bindUpdateItem();
       this.bindCloseEditBlock();
+      this.bindFilterButtons();
+    };
+
+    this.bindFilterButtons = function() {
+      var self = this;
+
+      this.filterBlock.addEventListener('click', function(event) {
+        for(var i = 0; i < self.filterButtons.length; ++i) {
+          self.filterButtons[i].classList.remove('active');
+        }
+
+        if(event.target && event.target.getAttribute('data-type') === 'all') {
+          event.target.classList.add('active');
+          self.renderTasksList();
+
+          return;
+        }
+
+        if(event.target && event.target.getAttribute('data-type') === 'progress') {
+          event.target.classList.add('active');
+          self.renderTasksList('progress');
+
+          return;
+        }
+
+        if(event.target && event.target.getAttribute('data-type') === 'done') {
+          event.target.classList.add('active');
+          self.renderTasksList('done');
+        }
+      });
     };
 
     this.saveDataToStorage = function(data) {
@@ -56,12 +90,29 @@
       return element;
     };
 
-    this.renderTasksList = function() {
+    this.renderTasksList = function(type) {
       this.todoList.innerHTML = '';
+
       var newTodoList = document.createDocumentFragment();
 
-      for(var i = 0; i < this.tasksArray.length; i++) {
-        newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
+      if(type === 'progress') {
+        for(var i = 0; i < this.tasksArray.length; i++) {
+          if(!this.tasksArray[i].done) {
+            newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
+          }
+        }
+      } else {
+        if(type === 'done') {
+          for(var i = 0; i < this.tasksArray.length; i++) {
+            if(this.tasksArray[i].done) {
+              newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
+            }
+          }
+        } else {
+          for(var i = 0; i < this.tasksArray.length; i++) {
+            newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
+          }
+        }
       }
 
       this.todoList.appendChild(newTodoList);
@@ -69,11 +120,17 @@
 
     this.addItemToDOM = function(task) {
       var taskBlock        = this.createElement('div', 'task');
-      var doneButton       = this.createElement('input', 'done-btn', 'button', 'Done');
+      var doneButton       = this.createElement('input', 'done-btn', 'button', task.done ? 'Undone' : 'Done');
       var editButton       = this.createElement('input', 'edit-btn', 'button', 'Edit');
       var removeButton     = this.createElement('input', 'remove-btn', 'button', 'X');
       var taskText         = this.createElement('span');
+
       taskText.textContent = task.name;
+      if(task.done) {
+        taskText.classList.add('done');
+        editButton.classList.add('disabled');
+        editButton.disabled = true;
+      }
 
       taskBlock.setAttribute('data-id', task.id);
 
@@ -103,15 +160,37 @@
 
         if(event.target &&
             event.target.classList.value.indexOf('done-btn') !== -1) {
-          event.target.parentNode.firstChild.style.textDecoration = event.target.parentNode.firstChild.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+          var item  = event.target,
+              index = self.tasksArray.findIndex(function(element) {
+                return element.id === parseInt(item.parentNode.getAttribute('data-id'));
+              });
+
+          if(item.parentNode.firstChild.classList.value.indexOf('done') === -1) {
+            self.tasksArray[index].done = true;
+            item.value = 'Undone';
+            item.parentNode.firstChild.classList.add('done');
+          } else {
+            self.tasksArray[index].done = false;
+            item.value = 'Done';
+            item.parentNode.firstChild.classList.remove('done');
+          }
+
+          self.saveDataToStorage(self.tasksArray);
         }
       });
     };
 
     this.removeItem = function(id) {
-      var index = this.tasksArray.findIndex(function(element) {
-        return element.id === parseInt(id);
-      });
+      var index;
+
+      for(var j = 0; j < this.todoList.childNodes.length; ++j) {
+        if(parseInt(this.todoList.childNodes[j].getAttribute('data-id')) === parseInt(id)) {
+          index = j;
+          break;
+        }
+      }
+
+      console.log(index);
 
       if(this.tasksArray.length === 1) {
         this.tasksArray = [];
@@ -121,7 +200,7 @@
         this.tasksArray.splice(index, 1);
         this.saveDataToStorage(this.tasksArray);
 
-        this.todoList.childNodes[index].parentNode.removeChild(this.todoList.childNodes[index]);
+        this.todoList.removeChild(this.todoList.childNodes[index]);
       }
     };
 
@@ -154,11 +233,19 @@
     };
 
     this.editItem = function(id) {
-      this.currentIndex = this.tasksArray.findIndex(function(element) {
+      var arrayIndex = this.tasksArray.findIndex(function(element) {
         return element.id === parseInt(id);
       });
 
-      this.editInput.value = this.tasksArray[this.currentIndex].name;
+
+      for(var j = 0; j < this.todoList.childNodes.length; ++j) {
+        if(parseInt(this.todoList.childNodes[j].getAttribute('data-id')) === parseInt(id)) {
+          this.currentIndex = j;
+          break;
+        }
+      }
+
+      this.editInput.value = this.todoList.childNodes[this.currentIndex].firstChild.innerText;
 
       this.editBlock.classList.add('active');
       this.overlay  .classList.add('active');
@@ -181,7 +268,8 @@
           self.tasksArray.unshift(
               {
                 name: inputValue,
-                id: Math.floor(Math.random() * 1000000)
+                id: Math.floor(Math.random() * 1000000),
+                done: false
               }
           );
           self.saveDataToStorage(self.tasksArray);
@@ -189,6 +277,6 @@
           self.taskInput.value = '';
         }
       });
-    }
-  };
+    };
+  }
 })();
