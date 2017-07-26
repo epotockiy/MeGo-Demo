@@ -243,7 +243,7 @@
 
         self.tasksArray[self.currentIndex].name = inputValue;
         self.saveDataToStorage(self.tasksArray);
-        self.todoList.childNodes[self.currentIndex].firstChild.textContent = inputValue;
+        self.todoList.childNodes[self.currentIndex].querySelector('p').textContent = inputValue;
 
         self.editBlock.classList.remove('active');
         self.overlay  .classList.remove('active');

@@ -476,7 +476,7 @@ body {
       font-size: 20px;
       transition: background .4s;
       padding: 5px 20px;
-      margin: 0 10px;
+      margin-left: 10px;
       float: left; }
       .container .task .edit-btn:focus,
       .container .task .remove-btn:focus {
@@ -485,6 +485,8 @@ body {
       .container .task .remove-btn:hover {
         cursor: pointer;
         background: #819FF7; }
+    .container .task .edit-btn {
+      margin-left: 90px; }
     .container .task .edit-btn.disabled {
       cursor: default;
       background: #A9BCF5; }
