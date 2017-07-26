@@ -16,9 +16,9 @@
     this.$editInput     = this.$todoContainer.find('.edit .edit-input');
     this.$saveButton    = this.$todoContainer.find('.edit .save-btn');
     this.$closeButton   = this.$todoContainer.find('.edit .close-btn');
+    this.$overlay       = this.$todoContainer.find('.overlay');
     this.$filterBlock   = this.$todoContainer.find('.filter-btns');
     this.$filterButtons = this.$filterBlock  .find('button');
-    this.$overlay       = this.$todoContainer.find('.overlay');
     this.tasksArray     = [];
     this.currentIndex   = 0;
   }

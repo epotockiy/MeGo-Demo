@@ -16,9 +16,9 @@
     this.editInput          = this.todoContainer.querySelector('.edit .edit-input');
     this.saveButton         = this.todoContainer.querySelector('.edit .save-btn');
     this.closeButton        = this.todoContainer.querySelector('.edit .close-btn');
+    this.overlay            = this.todoContainer.querySelector('.overlay');
     this.filterBlock        = this.todoContainer.querySelector('.filter-btns');
     this.filterButtons      = this.filterBlock  .querySelectorAll('button');
-    this.overlay            = this.todoContainer.querySelector('.overlay');
     this.tasksArray         = [];
     this.currentIndex       = 0;
     this.isStorageAvailable = true;
@@ -38,7 +38,7 @@
     this.bindFilterButtons();
   };
 
-  TodoList.prototype.bindFilterButtons = function() {///////////////err
+  TodoList.prototype.bindFilterButtons = function() {
     var self = this;
 
     this.filterBlock.addEventListener('click', function(event) {
@@ -52,26 +52,17 @@
         switch(filterButton.id) {
           case 'all':
             filterButton.classList.add('active');
-            // self.renderTasksList();
-            self.todoList.classList.remove('progress');
-            self.todoList.classList.remove('done');
-            self.todoList.classList.add('all');
+            self.todoList.className = 'todo-list all';
             break;
 
           case 'progress':
             filterButton.classList.add('active');
-            // self.renderTasksList('progress');
-            self.todoList.classList.remove('all');
-            self.todoList.classList.remove('done');
-            self.todoList.classList.add('progress');
+            self.todoList.className = 'todo-list progress';
             break;
 
           case 'done':
             filterButton.classList.add('active');
-            // self.renderTasksList('done');
-            self.todoList.classList.remove('all');
-            self.todoList.classList.remove('progress');
-            self.todoList.classList.add('done');
+            self.todoList.className = 'todo-list done';
             break;
 
           default:
@@ -85,6 +76,7 @@
   TodoList.prototype.saveDataToStorage = function(data) {
     if(typeof localStorage !== 'undefined') {
       this.isStorageAvailable = true;
+
       localStorage.setItem('tasksArray', JSON.stringify(data));
     } else {
       this.isStorageAvailable = false;
@@ -95,10 +87,12 @@
   TodoList.prototype.getDataFromStorage = function() {
     if(typeof localStorage !== 'undefined') {
       this.isStorageAvailable = true;
+
       this.tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
     } else {
       this.isStorageAvailable = false;
       this.tasksArray = [];
+
       console.log('Local storage is not available in your browser.');
     }
   };
@@ -121,33 +115,12 @@
     return element;
   };
 
-  TodoList.prototype.renderTasksList = function(type) {
+  TodoList.prototype.renderTasksList = function() {
     this.todoList.innerHTML = '';
 
     var newTodoList = document.createDocumentFragment(), i;
-
-    switch(type) {
-      case 'progress':
-        for(i = 0; i < this.tasksArray.length; i++) {
-          if(!this.tasksArray[i].done) {
-            newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
-          }
-        }
-        break;
-
-      case 'done':
-        for(i = 0; i < this.tasksArray.length; i++) {
-          if(this.tasksArray[i].done) {
-            newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
-          }
-        }
-        break;
-
-      default:
-        for(i = 0; i < this.tasksArray.length; i++) {
-          newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
-        }
-        break;
+    for(i = 0; i < this.tasksArray.length; i++) {
+      newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
     }
 
     this.todoList.appendChild(newTodoList);
@@ -161,15 +134,12 @@
     var taskText     = this.createElement('p');
 
     taskText.textContent = task.name;
+
     if(task.done) {
       taskBlock .classList.add('done-task');
-      doneIcon  .classList.add('activated');
-      taskText  .classList.add('done');
-      editButton.classList.add('disabled');
       editButton.disabled = true;
     } else {
       taskBlock.classList.add('progress-task');
-      doneIcon .classList.add('faded');
     }
 
     taskBlock.setAttribute('data-id', task.id);
@@ -208,7 +178,7 @@
         }
 
         if(listItem.classList.contains('done-icon')) {
-          var doneItemIndex = self.findCurrentIndex(self.tasksArray, parseInt(listItem.parentNode.getAttribute('data-id')));
+          var doneItemIndex = self.findCurrentIndex(self.tasksArray, (listItem.parentNode.getAttribute('data-id')));
 
           if(!self.tasksArray[doneItemIndex].done) {
             self.tasksArray[doneItemIndex].done = true;
@@ -231,12 +201,12 @@
   };
 
   TodoList.prototype.removeItem = function(id) {
-    var itemToRemoveArrayIndex = this.findCurrentIndex(this.tasksArray, parseInt(id));
+    var itemToRemoveArrayIndex = this.findCurrentIndex(this.tasksArray, id);
 
     var itemToRemoveIndex;
 
     for(var j = 0; j < this.todoList.childNodes.length; ++j) {
-      if(parseInt(this.todoList.childNodes[j].getAttribute('data-id')) === parseInt(id)) {
+      if(this.todoList.childNodes[j].getAttribute('data-id') === id) {
         itemToRemoveIndex = j;
         break;
       }
@@ -296,10 +266,10 @@
   };
 
   TodoList.prototype.editItem = function(id) {
-    var arrayIndex = this.findCurrentIndex(this.tasksArray, parseInt(id));
+    var arrayIndex = this.findCurrentIndex(this.tasksArray, id);
 
     for(var j = 0; j < this.todoList.childNodes.length; ++j) {
-      if(parseInt(this.todoList.childNodes[j].getAttribute('data-id')) === parseInt(id)) {
+      if(this.todoList.childNodes[j].getAttribute('data-id') === id) {
         this.currentIndex = j;
         break;
       }
@@ -336,7 +306,7 @@
         self.tasksArray.unshift(
             {
               name: inputValue,
-              id: Math.floor(Math.random() * 1000000),//err
+              id: Math.random().toString(36).substr(2, 10),
               done: false
             }
         );
