@@ -88,6 +88,7 @@ body {
     background: #F2F2F2;
     padding: 10px;
     overflow: hidden;
+    width: 60%;
 
     * {
       -webkit-box-sizing: border-box;
@@ -100,19 +101,37 @@ body {
       width: 60%;
       float: left;
       overflow-x: auto;
-      font-size: 28px;
+      font-size: 24px;
     }
 
     .edit-btn,
     .remove-btn {
-      @include btn;
-      padding: 5px 20px;
-      margin-left: 10px;
+      color: #A4A4A4;
+      cursor: pointer;
+      background: none;
+      border: none;
       float: left;
+      transition: color .4s;
+      font-size: 18px;
+
+      &:hover {
+        color: #5882FA;
+      }
+
+      &:active,
+      &:focus {
+        outline: none;
+      }
     }
 
     .edit-btn {
-      margin-left: 90px;
+      padding: 5px 0 0 40px;
+    }
+
+    .remove-btn {
+      font-weight: bold;
+      font-size: 24px;
+      padding: 1px 0 0 35px;
     }
 
     .edit-btn.disabled {
@@ -130,6 +149,7 @@ body {
       cursor: pointer;
       margin-left: 10px;
       margin-right: 20px;
+      margin-top: 3px;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;

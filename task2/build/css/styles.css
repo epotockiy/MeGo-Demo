@@ -457,7 +457,8 @@ body {
     margin: 20px auto 0;
     background: #F2F2F2;
     padding: 10px;
-    overflow: hidden; }
+    overflow: hidden;
+    width: 60%; }
     .container .task * {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -467,26 +468,29 @@ body {
       width: 60%;
       float: left;
       overflow-x: auto;
-      font-size: 28px; }
+      font-size: 24px; }
     .container .task .edit-btn,
     .container .task .remove-btn {
-      color: white;
-      border: 1px solid lightblue;
-      background: #5882FA;
-      font-size: 20px;
-      transition: background .4s;
-      padding: 5px 20px;
-      margin-left: 10px;
-      float: left; }
-      .container .task .edit-btn:focus,
-      .container .task .remove-btn:focus {
-        outline: none; }
+      color: #A4A4A4;
+      cursor: pointer;
+      background: none;
+      border: none;
+      float: left;
+      transition: color .4s;
+      font-size: 18px; }
       .container .task .edit-btn:hover,
       .container .task .remove-btn:hover {
-        cursor: pointer;
-        background: #819FF7; }
+        color: #5882FA; }
+      .container .task .edit-btn:active, .container .task .edit-btn:focus,
+      .container .task .remove-btn:active,
+      .container .task .remove-btn:focus {
+        outline: none; }
     .container .task .edit-btn {
-      margin-left: 90px; }
+      padding: 5px 0 0 40px; }
+    .container .task .remove-btn {
+      font-weight: bold;
+      font-size: 24px;
+      padding: 1px 0 0 35px; }
     .container .task .edit-btn.disabled {
       cursor: default;
       background: #A9BCF5; }
@@ -498,6 +502,7 @@ body {
       cursor: pointer;
       margin-left: 10px;
       margin-right: 20px;
+      margin-top: 3px;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
