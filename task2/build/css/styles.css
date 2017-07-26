@@ -453,73 +453,89 @@ body {
         text-decoration: underline; }
   .container .todo-list {
     position: relative; }
-  .container .task {
-    margin: 20px auto 0;
-    background: #F2F2F2;
-    padding: 10px;
-    overflow: hidden;
-    width: 60%; }
-    .container .task * {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box; }
-    .container .task p {
-      margin: 0;
+    .container .todo-list.all .task.done-task,
+    .container .todo-list.all .task.progress-task {
+      display: block; }
+    .container .todo-list.done .task.done-task {
+      display: block; }
+    .container .todo-list.progress .task.progress-task {
+      display: block; }
+    .container .todo-list .task {
+      margin: 20px auto 0;
+      background: #F2F2F2;
+      padding: 10px;
+      overflow: hidden;
       width: 60%;
-      float: left;
-      overflow-x: auto;
-      font-size: 24px; }
-    .container .task .edit-btn,
-    .container .task .remove-btn {
-      color: #A4A4A4;
-      cursor: pointer;
-      background: none;
-      border: none;
-      float: left;
-      transition: color .4s;
-      font-size: 18px; }
-      .container .task .edit-btn:hover,
-      .container .task .remove-btn:hover {
-        color: #5882FA; }
-      .container .task .edit-btn:active, .container .task .edit-btn:focus,
-      .container .task .remove-btn:active,
-      .container .task .remove-btn:focus {
-        outline: none; }
-    .container .task .edit-btn {
-      padding: 5px 0 0 40px; }
-    .container .task .remove-btn {
-      font-weight: bold;
-      font-size: 24px;
-      padding: 1px 0 0 35px; }
-    .container .task .edit-btn.disabled {
-      cursor: default;
-      background: #A9BCF5; }
-    .container .task .done {
-      text-decoration: line-through; }
-    .container .task .done-icon {
-      float: left;
-      width: 5%;
-      cursor: pointer;
-      margin-left: 10px;
-      margin-right: 20px;
-      margin-top: 3px;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      transition: background .4s; }
-      .container .task .done-icon.activated {
-        background-image: url("../images/done-active.png"); }
-      .container .task .done-icon.faded {
+      display: none; }
+      .container .todo-list .task.progress-task p {
+        text-decoration: none; }
+      .container .todo-list .task.progress-task .edit-btn {
+        cursor: pointer;
+        color: #A4A4A4; }
+        .container .todo-list .task.progress-task .edit-btn:hover {
+          color: #5882FA; }
+      .container .todo-list .task.progress-task .done-icon {
         background-image: url("../images/done-faded.png"); }
-      .container .task .done-icon.activated:hover {
-        background-image: url("../images/done-faded.png"); }
-      .container .task .done-icon.faded:hover {
+      .container .todo-list .task.progress-task .done-icon:hover {
         background-image: url("../images/done-active.png"); }
-      .container .task .done-icon:before {
-        content: '';
-        display: block;
-        width: 100%;
-        padding-top: 100%; }
+      .container .todo-list .task.done-task p {
+        text-decoration: line-through; }
+      .container .todo-list .task.done-task .edit-btn {
+        cursor: not-allowed; }
+        .container .todo-list .task.done-task .edit-btn:hover {
+          color: #A4A4A4; }
+      .container .todo-list .task.done-task .done-icon {
+        background-image: url("../images/done-active.png"); }
+      .container .todo-list .task.done-task .done-icon:hover {
+        background-image: url("../images/done-faded.png"); }
+      .container .todo-list .task * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; }
+      .container .todo-list .task p {
+        margin: 0;
+        width: 60%;
+        float: left;
+        overflow-x: auto;
+        font-size: 24px; }
+      .container .todo-list .task .edit-btn,
+      .container .todo-list .task .remove-btn {
+        color: #A4A4A4;
+        cursor: pointer;
+        background: none;
+        border: none;
+        float: left;
+        transition: color .4s;
+        font-size: 18px; }
+        .container .todo-list .task .edit-btn:hover,
+        .container .todo-list .task .remove-btn:hover {
+          color: #5882FA; }
+        .container .todo-list .task .edit-btn:active, .container .todo-list .task .edit-btn:focus,
+        .container .todo-list .task .remove-btn:active,
+        .container .todo-list .task .remove-btn:focus {
+          outline: none; }
+      .container .todo-list .task .edit-btn {
+        padding: 5px 0 0 40px; }
+      .container .todo-list .task .remove-btn {
+        font-weight: bold;
+        font-size: 24px;
+        padding: 1px 0 0 35px; }
+      .container .todo-list .task .done-icon {
+        float: left;
+        width: 5%;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-right: 20px;
+        margin-top: 3px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: background .4s; }
+        .container .todo-list .task .done-icon:before {
+          content: '';
+          display: block;
+          width: 100%;
+          padding-top: 100%; }
   .container .edit {
     display: none;
     position: absolute;

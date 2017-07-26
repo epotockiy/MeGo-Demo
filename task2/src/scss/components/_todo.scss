@@ -81,101 +81,135 @@ body {
 
   .todo-list {
     position: relative;
-  }
 
-  .task {
-    margin: 20px auto 0;
-    background: #F2F2F2;
-    padding: 10px;
-    overflow: hidden;
-    width: 60%;
-
-    * {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
+    &.all .task.done-task,
+    &.all .task.progress-task{
+      display: block;
     }
 
-    p {
-      margin: 0;
+    &.done .task.done-task {
+      display: block;
+    }
+
+    &.progress .task.progress-task {
+      display: block;
+    }
+
+    .task {
+      margin: 20px auto 0;
+      background: #F2F2F2;
+      padding: 10px;
+      overflow: hidden;
       width: 60%;
-      float: left;
-      overflow-x: auto;
-      font-size: 24px;
-    }
+      display: none;
 
-    .edit-btn,
-    .remove-btn {
-      color: #A4A4A4;
-      cursor: pointer;
-      background: none;
-      border: none;
-      float: left;
-      transition: color .4s;
-      font-size: 18px;
+      &.progress-task {
+        p {
+          text-decoration: none;
+        }
 
-      &:hover {
-        color: #5882FA;
+        .edit-btn {
+          cursor: pointer;
+          color: #A4A4A4;
+
+          &:hover {
+            color: #5882FA;
+          }
+        }
+
+        .done-icon {
+          background-image: url('../images/done-faded.png');
+        }
+
+        .done-icon:hover {
+          background-image: url('../images/done-active.png');
+        }
       }
 
-      &:active,
-      &:focus {
-        outline: none;
-      }
-    }
+      &.done-task {
+        p {
+          text-decoration: line-through;
+        }
 
-    .edit-btn {
-      padding: 5px 0 0 40px;
-    }
+        .edit-btn {
+          cursor: not-allowed;
 
-    .remove-btn {
-      font-weight: bold;
-      font-size: 24px;
-      padding: 1px 0 0 35px;
-    }
+          &:hover {
+            color: #A4A4A4;
+          }
+        }
 
-    .edit-btn.disabled {
-      cursor: default;
-      background: #A9BCF5;
-    }
+        .done-icon {
+          background-image: url('../images/done-active.png');
+        }
 
-    .done {
-      text-decoration: line-through;
-    }
-
-    .done-icon {
-      float: left;
-      width: 5%;
-      cursor: pointer;
-      margin-left: 10px;
-      margin-right: 20px;
-      margin-top: 3px;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      transition: background .4s;
-
-      &.activated {
-        background-image: url('../images/done-active.png');
+        .done-icon:hover {
+          background-image: url('../images/done-faded.png');
+        }
       }
 
-      &.faded {
-        background-image: url('../images/done-faded.png');
+      * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
       }
 
-      &.activated:hover {
-        background-image: url('../images/done-faded.png');
+      p {
+        margin: 0;
+        width: 60%;
+        float: left;
+        overflow-x: auto;
+        font-size: 24px;
       }
 
-      &.faded:hover {
-        background-image: url('../images/done-active.png');
+      .edit-btn,
+      .remove-btn {
+        color: #A4A4A4;
+        cursor: pointer;
+        background: none;
+        border: none;
+        float: left;
+        transition: color .4s;
+        font-size: 18px;
+
+        &:hover {
+          color: #5882FA;
+        }
+
+        &:active,
+        &:focus {
+          outline: none;
+        }
       }
 
-      &:before {
-        content: '';
-        display: block;
-        width: 100%;
-        padding-top: 100%;
+      .edit-btn {
+        padding: 5px 0 0 40px;
+      }
+
+      .remove-btn {
+        font-weight: bold;
+        font-size: 24px;
+        padding: 1px 0 0 35px;
+      }
+
+      .done-icon {
+        float: left;
+        width: 5%;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-right: 20px;
+        margin-top: 3px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: background .4s;
+
+        &:before {
+          content: '';
+          display: block;
+          width: 100%;
+          padding-top: 100%;
+        }
       }
     }
   }
