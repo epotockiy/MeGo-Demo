@@ -7,10 +7,11 @@
     todoList.init();
   });
 
+
   function TodoList(container) {
     this.todoContainer      = container;
     this.formBlock          = this.todoContainer.querySelector('form');
-    this.formErrorMessage   = this.formBlock     .querySelector('.error-message');
+    this.formErrorMessage   = this.formBlock    .querySelector('.error-message');
     this.addButton          = this.todoContainer.querySelector('.add-btn');
     this.taskInput          = this.todoContainer.querySelector('.task-input');
     this.todoList           = this.todoContainer.querySelector('.todo-list');
@@ -89,9 +90,9 @@
 
       this.tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
     } else {
-      this.isStorageAvailable = false;
       this.tasksArray = [];
 
+      this.isStorageAvailable = false;
       console.log('Local storage is not available in your browser.');
     }
   };
@@ -135,7 +136,7 @@
     taskText.textContent = task.name;
 
     if(task.done) {
-      taskBlock .classList.add('done-task');
+      taskBlock.classList.add('done-task');
       editButton.disabled = true;
     } else {
       taskBlock.classList.add('progress-task');
@@ -163,42 +164,46 @@
     var listItem = event.target;
 
     if(listItem) {
-      if(listItem.classList.contains('remove-btn')) {
-        this.removeItem(listItem.parentNode.getAttribute('data-id'));
-        return;
-      }
+      switch(listItem.className) {
+        case 'remove-btn':
+          this.removeItem(listItem.parentNode.getAttribute('data-id'));
+          break;
 
-      if(listItem.classList.contains('edit-btn')) {
-        this.editItem(listItem.parentNode.getAttribute('data-id'));
-        return;
-      }
+        case 'edit-btn':
+          this.editItem(listItem.parentNode.getAttribute('data-id'));
+          break;
 
-      if(listItem.classList.contains('done-icon')) {
-        var doneItemIndex = this.findCurrentIndex(this.tasksArray, (listItem.parentNode.getAttribute('data-id')));
+        case 'done-icon':
+          var doneItemIndex = this.findCurrentIndex(this.tasksArray, (listItem.parentNode.getAttribute('data-id')));
 
-        if(!this.tasksArray[doneItemIndex].done) {
-          this.tasksArray[doneItemIndex].done = true;
+          if(!this.tasksArray[doneItemIndex].done) {
+            this.tasksArray[doneItemIndex].done = true;
 
-          listItem.parentNode.className = 'task done-task';
-          listItem.parentNode.querySelector('.edit-btn').setAttribute('disabled', 'true');
-        } else {
-          this.tasksArray[doneItemIndex].done = false;
+            listItem.parentNode.className = 'task done-task';
+            listItem.parentNode.querySelector('.edit-btn').setAttribute('disabled', 'true');
+          } else {
+            this.tasksArray[doneItemIndex].done = false;
 
-          listItem.parentNode.className = 'task progress-task';
-          listItem.parentNode.querySelector('.edit-btn').removeAttribute('disabled');
-        }
+            listItem.parentNode.className = 'task progress-task';
+            listItem.parentNode.querySelector('.edit-btn').removeAttribute('disabled');
+          }
 
-        if(this.isStorageAvailable) {
-          this.saveDataToStorage(this.tasksArray);
-        }
+          if(this.isStorageAvailable) {
+            this.saveDataToStorage(this.tasksArray);
+          }
+
+          break;
+
+        default:
+          console.log("No such event for task item ( TodoList.prototype.bindListEvents() ).");
+          break;
       }
     }
   };
 
   TodoList.prototype.removeItem = function(id) {
-    var itemToRemoveArrayIndex = this.findCurrentIndex(this.tasksArray, id);
-
-    var itemToRemoveIndex;
+    var itemToRemoveArrayIndex = this.findCurrentIndex(this.tasksArray, id),
+        itemToRemoveIndex;
 
     for(var j = 0; j < this.todoList.childNodes.length; ++j) {
       if(this.todoList.childNodes[j].getAttribute('data-id') === id) {
@@ -235,9 +240,11 @@
       this.editErrorMessage.style.display = 'none';
 
       this.tasksArray[this.currentIndex].name = inputValue;
+
       if (this.isStorageAvailable) {
         this.saveDataToStorage(this.tasksArray);
       }
+
       this.todoList.childNodes[this.currentIndex].querySelector('p').textContent = inputValue;
 
       this.editBlock.classList.remove('active');
