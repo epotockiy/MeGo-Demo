@@ -64,17 +64,13 @@
 
     <!--Uncomment what is necessary-->
     <!--<script src="scripts/script.js"></script>-->
-    <script src="scripts/noJQueryScript.js"></script>
-
     <!--<script>
       $('.todo').TodoList();
     </script>-->
 
+    <script src="scripts/noJQueryScript.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var todoList = new TodoList(document.querySelectorAll('.todo'));
-//        todoList.init();
-      });
+      var todoList = new TodoList(document.querySelectorAll('.todo'));
     </script>
   </body>
 </html>
