@@ -2,7 +2,6 @@
 
 ;(function($, undefined) {
   $.fn.TodoList = function() {
-    var self = this;
     return this.each(function(index, container) {
       new $.TodoList(container);
     });

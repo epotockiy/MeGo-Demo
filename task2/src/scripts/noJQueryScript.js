@@ -1,13 +1,13 @@
-//Javascript version
+//Javascript TodoList plugin
 ;(function() {
-  'use strict';
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var todoList = new TodoList(document.querySelector('.todo'));
-    todoList.init();
-  });
+  this.TodoList = function (containers) {
+    for(var i = 0; i < containers.length; ++i) {
+      new TodoListModule(containers[i]);
+    }
+  };
 
-  function TodoList(container) {
+  this.TodoListModule = function(container) {
     this.todoContainer      = container;
     this.formBlock          = this.todoContainer.querySelector('form');
     this.formErrorMessage   = this.formBlock    .querySelector('.error-message');
@@ -25,15 +25,17 @@
     this.tasksArray         = [];
     this.currentIndex       = 0;
     this.isStorageAvailable = true;
-  }
 
-  TodoList.prototype.init = function() {
+    this.init();
+  };
+
+  TodoListModule.prototype.init = function() {
     this.getDataFromStorage();
     this.renderTasksList();
     this.bindEvents();
   };
 
-  TodoList.prototype.bindEvents = function() {
+  TodoListModule.prototype.bindEvents = function() {
     this.todoList   .addEventListener('click', this.listEventsHandler    .bind(this));
     this.addButton  .addEventListener('click', this.addItemHandler       .bind(this));
     this.saveButton .addEventListener('click', this.updateItemHandler    .bind(this));
@@ -41,7 +43,7 @@
     this.filterBlock.addEventListener('click', this.filterButtonsHandler .bind(this));
   };
 
-  TodoList.prototype.filterButtonsHandler = function() {
+  TodoListModule.prototype.filterButtonsHandler = function() {
     for(var i = 0; i < this.filterButtons.length; ++i) {
       this.filterButtons[i].classList.remove('active');
     }
@@ -66,13 +68,13 @@
           break;
 
         default:
-          console.log('No such option for filter buttons ( TodoList.prototype.filterButtonsHandler() ).');
+          console.log('No such option for filter buttons ( TodoListModule.prototype.filterButtonsHandler() ).');
           break;
       }
     }
   };
 
-  TodoList.prototype.saveDataToStorage = function(data) {
+  TodoListModule.prototype.saveDataToStorage = function(data) {
     if(typeof localStorage !== 'undefined') {
       this.isStorageAvailable = true;
 
@@ -83,7 +85,7 @@
     }
   };
 
-  TodoList.prototype.getDataFromStorage = function() {
+  TodoListModule.prototype.getDataFromStorage = function() {
     if(typeof localStorage !== 'undefined') {
       this.isStorageAvailable = true;
 
@@ -96,7 +98,7 @@
     }
   };
 
-  TodoList.prototype.createElement = function(name, className, type, value) {
+  TodoListModule.prototype.createElement = function(name, className, type, value) {
     var element = document.createElement(name);
 
     if(className) {
@@ -114,18 +116,18 @@
     return element;
   };
 
-  TodoList.prototype.renderTasksList = function() {
+  TodoListModule.prototype.renderTasksList = function() {
     this.todoList.innerHTML = '';
 
-    var newTodoList = document.createDocumentFragment(), i;
+    var newTodoListModule = document.createDocumentFragment(), i;
     for(i = 0; i < this.tasksArray.length; i++) {
-      newTodoList.appendChild(this.addItemToDOM(this.tasksArray[i]));
+      newTodoListModule.appendChild(this.addItemToDOM(this.tasksArray[i]));
     }
 
-    this.todoList.appendChild(newTodoList);
+    this.todoList.appendChild(newTodoListModule);
   };
 
-  TodoList.prototype.addItemToDOM = function(task) {
+  TodoListModule.prototype.addItemToDOM = function(task) {
     var taskBlock    = this.createElement('div',   'task');
     var doneIcon     = this.createElement('div',   'done-icon');
     var editButton   = this.createElement('input', 'edit-btn',   'button', 'Edit');
@@ -151,7 +153,7 @@
     return taskBlock;
   };
 
-  TodoList.prototype.findCurrentIndex = function(array, id) {
+  TodoListModule.prototype.findCurrentIndex = function(array, id) {
     for(var i = 0; i < array.length; ++i) {
       if(array[i].id === id) {
         return i;
@@ -159,7 +161,7 @@
     }
   };
 
-  TodoList.prototype.listEventsHandler= function() {
+  TodoListModule.prototype.listEventsHandler= function() {
     var listItem = event.target;
 
     if(listItem) {
@@ -194,13 +196,13 @@
           break;
 
         default:
-          console.log("No such event for task item ( TodoList.prototype.listEventsHandler() ).");
+          console.log("No such event for task item ( TodoListModule.prototype.listEventsHandler() ).");
           break;
       }
     }
   };
 
-  TodoList.prototype.removeItem = function(id) {
+  TodoListModule.prototype.removeItem = function(id) {
     var itemToRemoveArrayIndex = this.findCurrentIndex(this.tasksArray, id),
         itemToRemoveIndex;
 
@@ -230,7 +232,7 @@
     }
   };
 
-  TodoList.prototype.updateItemHandler = function() {
+  TodoListModule.prototype.updateItemHandler = function() {
     var inputValue = this.editInput.value;
 
     if(!inputValue) {
@@ -251,14 +253,14 @@
     }
   };
 
-  TodoList.prototype.closeEditBlockHandler = function() {
+  TodoListModule.prototype.closeEditBlockHandler = function() {
     this.editBlock.classList.remove('active');
     this.overlay  .classList.remove('active');
 
     this.editErrorMessage.style.display = 'none';
   };
 
-  TodoList.prototype.editItem = function(id) {
+  TodoListModule.prototype.editItem = function(id) {
     var arrayIndex = this.findCurrentIndex(this.tasksArray, id);
 
     for(var j = 0; j < this.todoList.childNodes.length; ++j) {
@@ -274,7 +276,7 @@
     this.overlay  .classList.add('active');
   };
 
-  TodoList.prototype.addItemHandler = function() {
+  TodoListModule.prototype.addItemHandler = function() {
     var inputValue = this.taskInput.value;
 
     if(!inputValue) {

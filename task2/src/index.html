@@ -34,15 +34,46 @@
       </div>
     </div>
 
+    <div class="todo container">
+      <div class="overlay"></div>
+
+      <form>
+        <input class="task-input" type="text" name="task" placeholder="Enter task..." />
+        <input class="add-btn" type="button" value="Add" />
+        <h5 class="error-message">Ent#er task name</h5>
+      </form>
+
+      <div class="filter-btns">
+        <button class="all-filter active">All</button>
+        <button class="progress-filter">In %progress</button>
+        <button class="done-filter">Do@ne</button>
+      </div>
+
+      <div class="todo-list all"></div>
+
+      <div class="edit">
+        <h4>Edi!@t task</h4>
+        <input type="text" class="edit-input">
+        <input type="button" class="save-btn" value="Save">
+        <input type="button" class="close-btn" value="X">
+        <h5 class="error-message">Enter new ta$#sk name</h5>
+      </div>
+    </div>
+
     <script src="libs/jquery.min.js"></script>
 
     <!--Uncomment what is necessary-->
-    <script src="scripts/script.js"></script>
-    <!--<script src="scripts/noJQueryScript.js"></script>-->
+    <!--<script src="scripts/script.js"></script>-->
+    <script src="scripts/noJQueryScript.js"></script>
+
+    <!--<script>
+      $('.todo').TodoList();
+    </script>-->
 
     <script>
-      $(function() {
-        $('.todo').TodoList();
+      document.addEventListener('DOMContentLoaded', function() {
+        var todoList = new TodoList(document.querySelectorAll('.todo'));
+//        todoList.init();
       });
     </script>
   </body>
