@@ -7,7 +7,6 @@
     todoList.init();
   });
 
-
   function TodoList(container) {
     this.todoContainer      = container;
     this.formBlock          = this.todoContainer.querySelector('form');
@@ -35,7 +34,7 @@
   };
 
   TodoList.prototype.bindEvents = function() {
-    this.todoList   .addEventListener('click', this.bindListEvents       .bind(this));
+    this.todoList   .addEventListener('click', this.listEventsHandler    .bind(this));
     this.addButton  .addEventListener('click', this.addItemHandler       .bind(this));
     this.saveButton .addEventListener('click', this.updateItemHandler    .bind(this));
     this.closeButton.addEventListener('click', this.closeEditBlockHandler.bind(this));
@@ -50,18 +49,18 @@
     var filterButton = event.target;
 
     if(filterButton) {
-      switch(filterButton.id) {
-        case 'all':
+      switch(filterButton.className) {
+        case 'all-filter':
           filterButton.classList.add('active');
           this.todoList.className = 'todo-list all';
           break;
 
-        case 'progress':
+        case 'progress-filter':
           filterButton.classList.add('active');
           this.todoList.className = 'todo-list progress';
           break;
 
-        case 'done':
+        case 'done-filter':
           filterButton.classList.add('active');
           this.todoList.className = 'todo-list done';
           break;
@@ -160,7 +159,7 @@
     }
   };
 
-  TodoList.prototype.bindListEvents = function() {
+  TodoList.prototype.listEventsHandler= function() {
     var listItem = event.target;
 
     if(listItem) {
@@ -195,7 +194,7 @@
           break;
 
         default:
-          console.log("No such event for task item ( TodoList.prototype.bindListEvents() ).");
+          console.log("No such event for task item ( TodoList.prototype.listEventsHandler() ).");
           break;
       }
     }
