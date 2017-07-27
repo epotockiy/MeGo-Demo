@@ -4,22 +4,6 @@
   width: 400px;
   margin: 100px auto 0;
 }
-.message{
-  float:left;
-  margin-top:10px;
-  display: none;
-}
-.warning{
-  color:#FF0000;
-}
-.success{
-  color: #4DB84D;
-}
-.message
-ul {
-  margin: 0;
-  padding: 0;
-}
 h3 span{
   background-color: #000;
   color: #fff;
@@ -130,11 +114,21 @@ p > button:hover {
   }
 }
 
-.hidden-list {
+.hidden {
   display: none;
 }
 
+.edit {
+  display: block;
+}
+
+.save {
+  display: none;
+}
+
+
 li {
+  display: block;
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -158,7 +152,7 @@ li > .delete:hover {
 }
 
 /* Completed */
-.completed-tasks label, .all-tasks input:checked ~ label {
+.tasks .completed label {
   text-decoration: line-through;
   color: #888;
 }
@@ -174,4 +168,12 @@ ul li.editMode input[type=text] {
 
 ul li.editMode label {
   display:none;
+}
+
+ul li.editMode .save {
+  display: block;
+}
+
+ul li.editMode .edit {
+  display: none;
 }

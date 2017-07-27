@@ -1,95 +1,85 @@
-"use strict";
+(function () {
+  "use strict";
 
-function todoList(list, i) {
-  var toDoContainer = list;
-  var taskLists = {};
-  var tasksStorage = storage('tasksList' + i);
+  function todoList(list, i) {
+    var toDoContainer = list;
+    var taskList;
+    if(storage().disable()) {
+      var tasksStorage = storage('tasksList' + i);
+    }
+    else {
+      alert("LocalStorage не поддерживается или отключен в вашем браузере!")
+    }
 
-  function init() {
-    tasksStorage.check(i);
-    var initialListsItems = tasksStorage.get();
-    taskLists = renderTaskLists(initialListsItems);
-    watchTaskChanges();
+    function init() {
+     
+      var initialListsItems = tasksStorage.get();
+      taskList = renderTaskLists(initialListsItems);
+      watchTaskChanges();
 
-    return taskLists;
-  }
+      return taskList;
+    }
 
-  function watchTaskChanges() {
+    function watchTaskChanges() {
 
-    var addTaskInput = toDoContainer.querySelector('.new-task'),
-    addTaskSubmitBtn = toDoContainer.querySelector('.add'),
-    filterBtn = toDoContainer.querySelector(".filter");
+      var addTaskInput = toDoContainer.querySelector('.new-task'),
+      addTaskSubmitBtn = toDoContainer.querySelector('.add'),
+      filterBtn = toDoContainer.querySelector(".filter");
+          
+      filterBtn.addEventListener('click', function(event) {
+        var elements = taskList.querySelectorAll("li");
 
-    filterBtn.addEventListener('click', function(event) {
-      if(event.target.textContent == "All"){
-        return activateFilter(event.target, taskLists, taskLists.all);
-      }
+        if(event.target.textContent == "All"){
 
-      if(event.target.textContent == "Incompleted"){
-        return activateFilter(event.target, taskLists, taskLists.incompleted);
-      }
+          elements.forEach(function(item) {
+            return item.classList.remove('hidden');
+          });
+        }
 
-      if(event.target.textContent == "Completed"){
-        return activateFilter(event.target, taskLists, taskLists.completed);
-      }
-    });
+        if(event.target.textContent == "Incompleted"){
+          elements.forEach(function(item) {
+            if (item.classList.contains('completed')) {
+              return item.classList.add('hidden');
+            }
 
-    function activateFilter(btn, allList, list){
-      var btnParent = btn.parentNode;
-      var activeBtn = btnParent.querySelector(".active");
-      var activeList = Object.values(allList).filter(function(item) {
-        return !item.classList.contains("hidden-list")
+            return item.classList.remove('hidden');
+          });
+        }
+
+        if(event.target.textContent == "Completed"){
+          elements.forEach(function(item) {
+            if (item.classList.contains('incompleted')) {
+              return item.classList.add('hidden');
+            }
+
+            return item.classList.remove('hidden');
+          });
+        }
       });
 
-      if(activeBtn == undefined || activeBtn == btn) {
-        btn.classList.add("active");
-        list.classList.remove("hidden-list");
-      }
-      else {
-        activeBtn.classList.remove("active");
-        activeList[0].classList.add("hidden-list");
+      addTaskSubmitBtn.addEventListener('click', function () {
+        var item = {
+          id: Math.random().toString(36).substr(2, 9), // генерация уникального id
+          value: addTaskInput.value,
+          completed: false
+        };
 
-        btn.classList.add("active");
-        list.classList.remove("hidden-list");
-      }
-    }
+        if(addTaskInput.value == ""){
+          alert("Заполните пустое поле!");
+        } 
+        else{
+          addTaskInput.value = "";
+          taskList.insertBefore(renderListItem(item), taskList.firstChild)
+          tasksStorage.setItem(item);
+        }
+      });
 
-    addTaskSubmitBtn.addEventListener('click', function () {
-      var item = {
-        id: Math.random().toString(36).substr(2, 9), // генерация уникального id
-        value: addTaskInput.value,
-        completed: false
-      };
-
-      if(addTaskInput.value == ""){
-        alert("Заполните пустое поле!");
-      } 
-      else{
-        addTaskInput.value = "";
-        addItemToList(item);
-        tasksStorage.setItem(item);
-      }
-    });
-
-    function addItemToList(item) {
-      taskLists.incompleted.insertBefore(
-        renderListItem(item),
-        taskLists.incompleted.firstChild
-        );
-
-      taskLists.all.insertBefore(
-        renderListItem(item),
-        taskLists.all.firstChild
-        );
-    }
-
-    function changesListenter(list) {
-      list.addEventListener('click', function(event){
+      taskList.addEventListener('click', function(event){
         if (event.target.getAttribute("type") == "checkbox") {
           return moveItem(event.target);
         }
 
-        if (event.target.className == "edit") {
+        if (event.target.className == "edit" || event.target.className == "save") {
           return editItem(event.target);
         }
 
@@ -99,48 +89,24 @@ function todoList(list, i) {
       });
 
       function deleteItem(item) {
-        var completed = item.parentNode.querySelector('input[type="checkbox"]').checked,
-        id = item.parentNode.getAttribute("data-id"),
-        liSearchString = 'li[data-id=' +'"' + id + '"' + ']';
+        var id = item.parentNode.getAttribute("data-id"),
+        itemParent = item.parentNode;
 
-        if (completed) {
-          console.log(liSearchString)
-          taskLists.all.removeChild(taskLists.all.querySelector(liSearchString));
-          taskLists.completed.removeChild(taskLists.completed.querySelector(liSearchString));
-        } else {
-          taskLists.all.removeChild(taskLists.all.querySelector(liSearchString));
-          taskLists.incompleted.removeChild(taskLists.incompleted.querySelector(liSearchString));
-        }
-
+        taskList.removeChild(itemParent);
         tasksStorage.removeItem(id);
       }
 
       function editItem(item) {
         var id = item.parentNode.getAttribute('data-id'),
-        checkbox = item.parentNode.querySelector('input[type="checkbox"]').checked,
-        liSearchString = 'li[data-id=' +'"' + id + '"' + ']',
+        itemParent = item.parentNode,
         editModeClass = 'editMode';
-
-        if(item.parentNode.classList.contains(editModeClass)) {
-          var newValue = item.parentNode.querySelector('input[type="text"]').value;
+        
+        if (itemParent.classList.contains(editModeClass)) {
+          var newValue = itemParent.querySelector('input[type="text"]').value;
           
-          if(checkbox) {
-            taskLists.completed.querySelector(liSearchString + " " + 'label').textContent = newValue;
-            taskLists.completed.querySelector(liSearchString + " " + 'input[type="text"]').value = newValue;
-          }
-          else {
-            taskLists.incompleted.querySelector(liSearchString + " " + 'label').textContent = newValue;
-            taskLists.incompleted.querySelector(liSearchString + " " + 'input[type="text"]').value = newValue;
-          }
-
-          item.parentNode.querySelector('label').textContent = newValue;
-          taskLists.all.querySelector(liSearchString + " " + 'label').textContent = newValue;
-          taskLists.all.querySelector(liSearchString + " " + 'input[type="text"]').value = newValue;
+          itemParent.querySelector('label').textContent = newValue;
           tasksStorage.setItemValue(id, 'value', newValue);
           item.innerText = "Edit";
-        } 
-        else {
-          item.innerText = "Save";
         }
 
        item.parentNode.classList.toggle(editModeClass);
@@ -148,209 +114,199 @@ function todoList(list, i) {
 
       function moveItem(item) {
         var id = item.value,
-        liSearchString = 'li[data-id=' +'"' + id + '"' + ']',
+        itemParent = item.parentNode,
         completed = item.checked;
 
         if (completed) {
-          taskLists.completed.insertBefore(taskLists.incompleted.querySelector(liSearchString), taskLists.completed.firstChild);
-          taskLists.completed.querySelector(liSearchString + " " + 'input[type="checkbox"]').setAttribute("checked", true);
-          taskLists.all.querySelector(liSearchString + " " + 'input[type="checkbox"]').setAttribute("checked", true);
+          itemParent.classList.remove("incompleted");
+          itemParent.classList.add("completed");
         } else {
-          taskLists.incompleted.appendChild(taskLists.completed.querySelector(liSearchString));
-          taskLists.incompleted.querySelector(liSearchString + " " + 'input[type="checkbox"]').setAttribute("checked", false);
-          taskLists.all.querySelector(liSearchString + " " + 'input[type="checkbox"]').setAttribute("checked", false);
-          
+          itemParent.classList.remove("completed");
+          itemParent.classList.add("incompleted");
         }
         tasksStorage.setItemValue(id, 'completed', completed);
       }
     }
 
-    changesListenter(taskLists.incompleted);
-    changesListenter(taskLists.completed);
-    changesListenter(taskLists.all);
-  }
+    function renderTaskLists(initialListsItems) {
 
-  function renderTaskLists(initialListsItems) {
-
-    var completedList = toDoContainer.querySelector(".completed-tasks"),
-    incompletedList = toDoContainer.querySelector(".incomplete-tasks"),
-    allList = toDoContainer.querySelector(".all-tasks");
-
-    var completedListContainer = document.createDocumentFragment(),
-    incompletedListContainer = document.createDocumentFragment(),
-    allListContainer = document.createDocumentFragment();
-    
-    initialListsItems.forEach(function (item) {
-      if (item.completed) {
-        completedListContainer.appendChild(
+      var taskList = toDoContainer.querySelector(".tasks"),
+      taskListContainer = document.createDocumentFragment();
+      
+      initialListsItems.forEach(function (item) {
+        taskListContainer.appendChild(
           renderListItem(item)
-        );
-      } 
+          );
+      });
+
+      taskList.appendChild(taskListContainer);
+
+      return taskList;
+    }
+
+    function renderListItem(item) {
+      if(item.completed) {
+        var taskItem = createElements('li', 
+        {
+          'data-id': item.id,
+          class: 'completed'
+        });
+      }
       else {
-        incompletedListContainer.appendChild(
-          renderListItem(item)
+        var taskItem = createElements('li', 
+        {
+          'data-id': item.id,
+          class: 'incompleted'
+        });
+      }
+      var taskText = createElements('label', {
+
+      });
+
+      if(item.completed) {
+        var taskCheckbox = createElements('input', 
+        {
+          type: 'checkbox',
+          value: item.id,
+          checked: ''
+        });
+      } 
+      else { 
+        var taskCheckbox = createElements('input', 
+        {
+          type: 'checkbox',
+          value: item.id            
+        });
+      }
+
+      var taskInput = createElements('input', 
+      {
+        type: 'text',
+        value: item.value
+      });
+      var taskEditBtn = createElements('button', 
+      {
+        class: 'edit'
+      });
+      var taskSaveBtn = createElements('button', 
+      {
+        class: 'save'
+      });
+      var taskDeleteBtn = createElements('button', 
+      {
+        class: 'delete'
+      });
+
+      taskText.innerText = item.value;
+      taskEditBtn.innerText = "Edit";
+      taskSaveBtn.innerText = "Save";
+      taskDeleteBtn.innerText = "Delete";
+
+      taskItem.appendChild(taskCheckbox);
+      taskItem.appendChild(taskText);
+      taskItem.appendChild(taskInput);
+      taskItem.appendChild(taskEditBtn);
+      taskItem.appendChild(taskSaveBtn);
+      taskItem.appendChild(taskDeleteBtn);
+
+      return taskItem;
+    }
+
+    function createElements(element, obj) {
+      var item = document.createElement(element);
+      
+      for(var prop in obj) {
+        item.setAttribute(prop, obj[prop]);
+      }
+      return item;
+    }
+
+    function storage(path){
+
+      function setItemValue(id, field, value) {
+        var currentItems = readDataFromStorage();
+
+        currentItems.forEach(function (item) {
+          if (item.id === id) {
+            item[field] = value
+          }
+        });
+
+        saveArray(currentItems);
+      }
+
+      function saveArray(array) {
+        localStorage.setItem(path, JSON.stringify(array));
+      }
+
+      function saveItem(item) {
+        var currentItems = readDataFromStorage();
+        currentItems.unshift(item);
+        saveArray(currentItems)
+      }
+
+      function removeItem(id) {
+        var currentItems = readDataFromStorage();
+        saveArray(
+          currentItems.filter(function (item) {
+            return item.id !== id;
+          })
         );
       }
 
-      allListContainer.appendChild(
-        renderListItem(item)
-        );
-    });
+      function readDataFromStorage() {
+        return JSON.parse(localStorage.getItem(path)) || [];
+      }
 
-    completedList.appendChild(completedListContainer);
-    incompletedList.appendChild(incompletedListContainer);
-    allList.appendChild(allListContainer);
+      function storageCheck(i) {
+        var locStorLength = localStorage.length;
 
-    completedList.classList.toggle("hidden-list");
-    incompletedList.classList.toggle("hidden-list");
-    allList.classList.toggle("hidden-list");
+        for (var j = 0, count = 0; j < locStorLength; j++) {
+          if (count < i) {
+              count++;
+            }
+          else {
+            localStorage.removeItem(localStorage.key(count));
+          }
+        }        
+      }
+
+      function checkDisable(){
+        var test = 'test';
+        try {
+          localStorage.setItem(test, test);
+          localStorage.removeItem(test);
+          return true;
+        } 
+        catch(e) {
+          return false;
+        }
+      }
+
+      return {
+        setItem: saveItem,
+        setItemValue: setItemValue,
+        setArray: saveArray,
+        removeItem: removeItem,
+        get: readDataFromStorage,
+        check: storageCheck,
+        disable: checkDisable
+      }
+    }
     
     return {
-      incompleted: incompletedList,
-      completed: completedList,
-      all: allList
+      init: init,
+      storage: storage
     }
   }
 
-  function renderListItem(item) {
-
-    function createElements(element, attrs) {
-      var element = document.createElement(element);
-      return setAttributes(element, attrs);
-    }
-
-    function setAttributes(element, attrs) {
-      Object.keys(attrs).forEach(function(key){
-        element.setAttribute(key, attrs[key]);
-      });
-
-      return element;
-    }
-
-    var taskItem = createElements('li', 
-    {
-      'data-id': item.id
-    }),
-    taskText = createElements('label', {
-
-    });
-
-    if(item.completed) {
-      var taskCheckbox = createElements('input', 
-      {
-        type: 'checkbox',
-        value: item.id,
-        checked: ''
-      });
-    } 
-    else { 
-      var taskCheckbox = createElements('input', 
-      {
-        type: 'checkbox',
-        value: item.id            
-      });
-    }
-
-    var taskInput = createElements('input', 
-    {
-      type: 'text',
-      value: item.value
-    }),
-    taskEditBtn = createElements('button', 
-    {
-      class: 'edit'
-    }),
-    taskDeleteBtn = createElements('button', 
-    {
-      class: 'delete'
-    });
-
-    taskText.innerText = item.value;
-    taskEditBtn.innerText = "Edit";
-    taskDeleteBtn.innerText = "Delete";
-
-    function appendChildrenArray(parent, children) {
-      children.forEach(function (item) {
-        parent.appendChild(item);
-      });
-
-      return parent;
-    }
-
-    return appendChildrenArray(taskItem, [taskCheckbox, taskText, taskInput, taskEditBtn, taskDeleteBtn]);
-  }
-
-  return {
-    init: init
-  }
-}
-
-function storage(path){
-  function setItemValue(id, field, value) {
-    var currentItems = readDataFromStorage();
-
-    currentItems.forEach(function (item) {
-      if (item.id === id) {
-        item[field] = value
-      }
-    });
-
-    saveArray(currentItems);
-  }
-
-  function saveArray(array) {
-    localStorage.setItem(path, JSON.stringify(array));
-  }
-
-  function saveItem(item) {
-    var currentItems = readDataFromStorage();
-    currentItems.unshift(item);
-    saveArray(currentItems)
-  }
-
-  function removeItem(id) {
-    var currentItems = readDataFromStorage();
-    saveArray(
-      currentItems.filter(function (item) {
-        return item.id !== id;
-      })
-    );
-  }
-
-  function storageCheck(i) {
-    for (var j = 0, count = 0; j < localStorage.length; j++) {
-      if (localStorage.key(j) == ('tasksList' + count)) {
-        if (count <= i) {
-          count++;
-        }
-        else {
-          localStorage.removeItem(localStorage.key(j));
-        }
-      } else {
-        localStorage.removeItem(localStorage.key(j));
-      }
-    }
+  document.addEventListener("DOMContentLoaded", function() {
+    var taskLists = document.getElementsByClassName('to-do-list')
     
-  }
+    for (var i = 0; i < taskLists.length; i++) {
+      taskLists[i] = todoList(taskLists[i], i).init();
+    }
 
-  function readDataFromStorage() {
-    return JSON.parse(localStorage.getItem(path)) || [];
-  }
-
-  return {
-    setItem: saveItem,
-    setItemValue: setItemValue,
-    setArray: saveArray,
-    removeItem: removeItem,
-    check: storageCheck,
-    get: readDataFromStorage
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  var taskLists = document.getElementsByClassName('to-do-list')
-  
-  for (var i = 0; i < taskLists.length; i++) {
-    taskLists[i] = todoList(taskLists[i], i).init();
-  }
-});
+    todoList().storage().check(i);
+  });
+})();
