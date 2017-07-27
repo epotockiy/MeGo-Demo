@@ -6,20 +6,20 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-	<div class="to-do-list container">
-		<p>
-			<label for="new-task">Add Item</label>
-			<input class="new-task" type="text" required>
-			<button class="add">Add</button>
-		</p>
-		<div class="filter">
-			<div>All</div>
-			<div>Incompleted</div>
-			<div>Completed</div>
-		</div>
-		<ul class="tasks"></ul>
-    </div>
-    
+		<form id="to-do-list" class="to-do-list container">
+			<p>
+				<label for="new-task">Add Item</label>
+				<input class="new-task" type="text">
+				<button form="to-do-list" class="add">Add</button>
+			</p>
+			<div class="filter">
+				<div>All</div>
+				<div>Incompleted</div>
+				<div>Completed</div>
+			</div>
+			<ul class="tasks"></ul>
+		</form>
+
 	<script src="js/main.js"></script>
 </body>
 </html>

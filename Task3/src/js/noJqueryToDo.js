@@ -25,7 +25,24 @@
       var addTaskInput = toDoContainer.querySelector('.new-task'),
       addTaskSubmitBtn = toDoContainer.querySelector('.add'),
       filterBtn = toDoContainer.querySelector(".filter");
-          
+      
+      addTaskSubmitBtn.addEventListener('click', function () {
+        var item = {
+          id: Math.random().toString(36).substr(2, 9), // генерация уникального id
+          value: addTaskInput.value,
+          completed: false
+        };
+
+        if(addTaskInput.value == ""){
+          alert("Заполните пустое поле!");
+        } 
+        else{
+          addTaskInput.value = "";
+          taskList.insertBefore(renderListItem(item), taskList.firstChild)
+          tasksStorage.setItem(item);
+        }
+      });
+      
       filterBtn.addEventListener('click', function(event) {
         var elements = taskList.querySelectorAll("li");
 
@@ -57,23 +74,6 @@
         }
       });
 
-      addTaskSubmitBtn.addEventListener('click', function () {
-        var item = {
-          id: Math.random().toString(36).substr(2, 9), // генерация уникального id
-          value: addTaskInput.value,
-          completed: false
-        };
-
-        if(addTaskInput.value == ""){
-          alert("Заполните пустое поле!");
-        } 
-        else{
-          addTaskInput.value = "";
-          taskList.insertBefore(renderListItem(item), taskList.firstChild)
-          tasksStorage.setItem(item);
-        }
-      });
-
       taskList.addEventListener('click', function(event){
         if (event.target.getAttribute("type") == "checkbox") {
           return moveItem(event.target);
@@ -87,45 +87,6 @@
            return deleteItem(event.target);
         }
       });
-
-      function deleteItem(item) {
-        var id = item.parentNode.getAttribute("data-id"),
-        itemParent = item.parentNode;
-
-        taskList.removeChild(itemParent);
-        tasksStorage.removeItem(id);
-      }
-
-      function editItem(item) {
-        var id = item.parentNode.getAttribute('data-id'),
-        itemParent = item.parentNode,
-        editModeClass = 'editMode';
-        
-        if (itemParent.classList.contains(editModeClass)) {
-          var newValue = itemParent.querySelector('input[type="text"]').value;
-          
-          itemParent.querySelector('label').textContent = newValue;
-          tasksStorage.setItemValue(id, 'value', newValue);
-          item.innerText = "Edit";
-        }
-
-       item.parentNode.classList.toggle(editModeClass);
-      }
-
-      function moveItem(item) {
-        var id = item.value,
-        itemParent = item.parentNode,
-        completed = item.checked;
-
-        if (completed) {
-          itemParent.classList.remove("incompleted");
-          itemParent.classList.add("completed");
-        } else {
-          itemParent.classList.remove("completed");
-          itemParent.classList.add("incompleted");
-        }
-        tasksStorage.setItemValue(id, 'completed', completed);
-      }
     }
 
     function renderTaskLists(initialListsItems) {
@@ -219,6 +180,45 @@
         item.setAttribute(prop, obj[prop]);
       }
       return item;
+    }
+
+    function deleteItem(item) {
+      var id = item.parentNode.getAttribute("data-id"),
+      itemParent = item.parentNode;
+
+      taskList.removeChild(itemParent);
+      tasksStorage.removeItem(id);
+    }
+
+    function editItem(item) {
+      var id = item.parentNode.getAttribute('data-id'),
+      itemParent = item.parentNode,
+      editModeClass = 'editMode';
+      
+      if (itemParent.classList.contains(editModeClass)) {
+        var newValue = itemParent.querySelector('input[type="text"]').value;
+        
+        itemParent.querySelector('label').textContent = newValue;
+        tasksStorage.setItemValue(id, 'value', newValue);
+        item.innerText = "Edit";
+      }
+
+     item.parentNode.classList.toggle(editModeClass);
+    }
+
+    function moveItem(item) {
+      var id = item.value,
+      itemParent = item.parentNode,
+      completed = item.checked;
+
+      if (completed) {
+        itemParent.classList.remove("incompleted");
+        itemParent.classList.add("completed");
+      } else {
+        itemParent.classList.remove("completed");
+        itemParent.classList.add("incompleted");
+      }
+      tasksStorage.setItemValue(id, 'completed', completed);
     }
 
     function storage(path){

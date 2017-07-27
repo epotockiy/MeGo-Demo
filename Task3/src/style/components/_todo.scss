@@ -162,6 +162,10 @@ ul li input[type=text] {
   display:none;
 }
 
+ul li.completed .edit {
+  display: none;
+}
+
 ul li.editMode input[type=text] {
   display:block;
 }
