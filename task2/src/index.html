@@ -8,7 +8,7 @@
   <body>
     <h2>Todo list</h2>
 
-    <div class="todo container">
+    <div class="todo container" >
       <div class="overlay"></div>
 
       <form>
@@ -63,14 +63,14 @@
     <script src="libs/jquery.min.js"></script>
 
     <!--Uncomment what is necessary-->
-    <script src="scripts/script.js"></script>
-    <script>
+    <!--<script src="scripts/script.js"></script>-->
+    <!--<script>
       $('.todo').TodoList();
-    </script>
+    </script>-->
 
-    <!--<script src="scripts/noJQueryScript.js"></script>-->
-    <!--<script>-->
-      <!--var todoList = new TodoList(document.querySelectorAll('.todo'));-->
-    <!--</script>-->
+    <script src="scripts/noJQueryScript.js"></script>
+    <script>
+      var todoList = new TodoList(document.querySelectorAll('.todo'));
+    </script>
   </body>
 </html>

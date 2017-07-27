@@ -4,11 +4,11 @@
 
   window.TodoList = function (containers) {
     for(var i = 0; i < containers.length; ++i) {
-      containers[i].dataset.todoList = new TodoListModule(containers[i]);
+      containers[i].dataset.todoList = new TodoListModule(containers[i], i);
     }
   };
 
-  TodoListModule = function(container) {
+  TodoListModule = function(container, index) {
     this.todoContainer      = container;
     this.formBlock          = this.todoContainer.querySelector('form');
     this.formErrorMessage   = this.formBlock    .querySelector('.error-message');
@@ -24,6 +24,7 @@
     this.filterBlock        = this.todoContainer.querySelector('.filter-btns');
     this.filterButtons      = this.filterBlock  .querySelectorAll('button');
     this.isStorageAvailable = true;
+    this.localStorageName   = 'tasksArray' + index;
     this.tasksArray         = [];
     this.currentItem        = {};
 
@@ -85,7 +86,7 @@
     if(typeof localStorage !== 'undefined') {
       this.isStorageAvailable = true;
 
-      localStorage.setItem('tasksArray', JSON.stringify(data));
+      localStorage.setItem(this.localStorageName, JSON.stringify(data));
     } else {
       this.isStorageAvailable = false;
       console.log('Local storage is not available in your browser.');
@@ -96,7 +97,7 @@
     if(typeof localStorage !== 'undefined') {
       this.isStorageAvailable = true;
 
-      this.tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
+      this.tasksArray = JSON.parse(localStorage.getItem(this.localStorageName)) || [];
     } else {
       this.tasksArray = [];
 

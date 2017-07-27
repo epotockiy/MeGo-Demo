@@ -3,11 +3,11 @@
 ;(function($, undefined) {
   $.fn.TodoList = function() {
     return this.each(function(index, container) {
-      $(container).data('todo-list', new TodoList(container));
+      $(container).data('todo-list', new TodoList(container, index));
     });
   };
 
-  TodoList = function(container) {
+  TodoList = function(container, index) {
     this.$todoContainer     = $(container);//inside .each() container is a DOM element, not jQuery!!!!!!!!
     this.$formBlock         = this.$todoContainer.find('form');
     this.$formErrorMessage  = this.$formBlock    .find('.error-message');
@@ -23,6 +23,7 @@
     this.$filterBlock       = this.$todoContainer.find('.filter-btns');
     this.$filterButtons     = this.$filterBlock  .find('button');
     this.isStorageAvailable = true;
+    this.localStorageName   = 'tasksArray' + index;
     this.tasksArray         = [];
     this.currentItem        = {};
 
@@ -85,7 +86,7 @@
     if(typeof localStorage !== 'undefined') {
       this.isStorageAvailable = true;
 
-      localStorage.setItem('tasksArray', JSON.stringify(data));
+      localStorage.setItem(this.localStorageName, JSON.stringify(data));
     } else {
       this.isStorageAvailable = false;
       console.log('Local storage is not available in your browser.');
@@ -96,7 +97,7 @@
     if(typeof localStorage !== 'undefined') {
       this.isStorageAvailable = true;
 
-      this.tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
+      this.tasksArray = JSON.parse(localStorage.getItem(this.localStorageName)) || [];
     } else {
       this.tasksArray = [];
 
