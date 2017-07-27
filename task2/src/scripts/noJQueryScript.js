@@ -1,13 +1,14 @@
 //Javascript TodoList plugin
+
 ;(function() {
 
-  this.TodoList = function (containers) {
+  window.TodoList = function (containers) {
     for(var i = 0; i < containers.length; ++i) {
-      new TodoListModule(containers[i]);
+      containers[i].dataset.todoList = new TodoListModule(containers[i]);
     }
   };
 
-  this.TodoListModule = function(container) {
+  TodoListModule = function(container) {
     this.todoContainer      = container;
     this.formBlock          = this.todoContainer.querySelector('form');
     this.formErrorMessage   = this.formBlock    .querySelector('.error-message');
@@ -22,9 +23,9 @@
     this.overlay            = this.todoContainer.querySelector('.overlay');
     this.filterBlock        = this.todoContainer.querySelector('.filter-btns');
     this.filterButtons      = this.filterBlock  .querySelectorAll('button');
-    this.tasksArray         = [];
-    this.currentIndex       = 0;
     this.isStorageAvailable = true;
+    this.tasksArray         = [];
+    this.currentItem        = {};
 
     this.init();
   };
@@ -54,17 +55,23 @@
       switch(filterButton.className) {
         case 'all-filter':
           filterButton.classList.add('active');
-          this.todoList.className = 'todo-list all';
+          this.todoList.classList.remove('progress');
+          this.todoList.classList.remove('done');
+          this.todoList.classList.add('all');
           break;
 
         case 'progress-filter':
           filterButton.classList.add('active');
-          this.todoList.className = 'todo-list progress';
+          this.todoList.classList.remove('all');
+          this.todoList.classList.remove('done');
+          this.todoList.classList.add('progress');
           break;
 
         case 'done-filter':
           filterButton.classList.add('active');
-          this.todoList.className = 'todo-list done';
+          this.todoList.classList.remove('all');
+          this.todoList.classList.remove('progress');
+          this.todoList.classList.add('done');
           break;
 
         default:
@@ -180,12 +187,14 @@
           if(!this.tasksArray[doneItemIndex].done) {
             this.tasksArray[doneItemIndex].done = true;
 
-            listItem.parentNode.className = 'task done-task';
+            listItem.parentNode.classList.remove('progress-task');
+            listItem.parentNode.classList.add('done-task');
             listItem.parentNode.querySelector('.edit-btn').setAttribute('disabled', 'true');
           } else {
             this.tasksArray[doneItemIndex].done = false;
 
-            listItem.parentNode.className = 'task progress-task';
+            listItem.parentNode.classList.remove('done-task');
+            listItem.parentNode.classList.add('progress-task');
             listItem.parentNode.querySelector('.edit-btn').removeAttribute('disabled');
           }
 
@@ -203,15 +212,7 @@
   };
 
   TodoListModule.prototype.removeItem = function(id) {
-    var itemToRemoveArrayIndex = this.findCurrentIndex(this.tasksArray, id),
-        itemToRemoveIndex;
-
-    for(var j = 0; j < this.todoList.childNodes.length; ++j) {
-      if(this.todoList.childNodes[j].getAttribute('data-id') === id) {
-        itemToRemoveIndex = j;
-        break;
-      }
-    }
+    var itemToRemoveIndex = this.findCurrentIndex(this.tasksArray, id);
 
     if(this.tasksArray.length === 1) {
       this.tasksArray = [];
@@ -222,13 +223,13 @@
 
       this.todoList.removeChild(this.todoList.firstChild);
     } else {
-      this.tasksArray.splice(itemToRemoveArrayIndex, 1);
+      this.tasksArray.splice(itemToRemoveIndex, 1);
 
       if(this.isStorageAvailable) {
         this.saveDataToStorage(this.tasksArray);
       }
 
-      this.todoList.removeChild(this.todoList.childNodes[itemToRemoveIndex]);
+      this.todoList.removeChild(this.todoList.querySelector('[data-id="' + id + '"]'));
     }
   };
 
@@ -240,13 +241,13 @@
     } else {
       this.editErrorMessage.style.display = 'none';
 
-      this.tasksArray[this.currentIndex].name = inputValue;
+      this.currentItem.name = inputValue;
 
       if (this.isStorageAvailable) {
         this.saveDataToStorage(this.tasksArray);
       }
 
-      this.todoList.childNodes[this.currentIndex].querySelector('p').textContent = inputValue;
+      this.currentItem.querySelector('p').textContent = inputValue;
 
       this.editBlock.classList.remove('active');
       this.overlay.classList.remove('active');
@@ -262,15 +263,9 @@
 
   TodoListModule.prototype.editItem = function(id) {
     var arrayIndex = this.findCurrentIndex(this.tasksArray, id);
+    this.currentItem = this.todoList.querySelector('[data-id="' + id + '"]');
 
-    for(var j = 0; j < this.todoList.childNodes.length; ++j) {
-      if(this.todoList.childNodes[j].getAttribute('data-id') === id) {
-        this.currentIndex = j;
-        break;
-      }
-    }
-
-    this.editInput.value = this.todoList.childNodes[this.currentIndex].querySelector('p').innerText;
+    this.editInput.value = this.currentItem.querySelector('p').innerText;
 
     this.editBlock.classList.add('active');
     this.overlay  .classList.add('active');
