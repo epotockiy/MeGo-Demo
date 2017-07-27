@@ -42,15 +42,15 @@ function todoList(list, i) {
       });
 
       if(activeBtn == undefined || activeBtn == btn) {
-        btn.classList.toggle("active");
-        list.classList.toggle("hidden-list");
+        btn.classList.add("active");
+        list.classList.remove("hidden-list");
       }
       else {
-        activeBtn.classList.toggle("active");
-        activeList[0].classList.toggle("hidden-list");
+        activeBtn.classList.remove("active");
+        activeList[0].classList.add("hidden-list");
 
-        btn.classList.toggle("active");
-        list.classList.toggle("hidden-list");
+        btn.classList.add("active");
+        list.classList.remove("hidden-list");
       }
     }
 
@@ -100,10 +100,11 @@ function todoList(list, i) {
 
       function deleteItem(item) {
         var completed = item.parentNode.querySelector('input[type="checkbox"]').checked,
-        liSearchString = 'li[data-id=' +'"' + id + '"' + ']',
-        id = item.parentNode.getAttribute("data-id");
+        id = item.parentNode.getAttribute("data-id"),
+        liSearchString = 'li[data-id=' +'"' + id + '"' + ']';
 
         if (completed) {
+          console.log(liSearchString)
           taskLists.all.removeChild(taskLists.all.querySelector(liSearchString));
           taskLists.completed.removeChild(taskLists.completed.querySelector(liSearchString));
         } else {
