@@ -1,18 +1,18 @@
-(function () {
+(function() {
   "use strict";
 
   function todoList(list, i) {
+    
     var toDoContainer = list;
     var taskList;
-    if(storage().disable()) {
+    if (storage().disable()) {
       var tasksStorage = storage('tasksList' + i);
-    }
-    else {
-      alert("LocalStorage не поддерживается или отключен в вашем браузере!")
+    } else {
+      alert("LocalStorage не поддерживается или отключен в вашем браузере!");
     }
 
     function init() {
-     
+
       var initialListsItems = tasksStorage.get();
       taskList = renderTaskLists(initialListsItems);
       watchTaskChanges();
@@ -23,37 +23,36 @@
     function watchTaskChanges() {
 
       var addTaskInput = toDoContainer.querySelector('.new-task'),
-      addTaskSubmitBtn = toDoContainer.querySelector('.add'),
-      filterBtn = toDoContainer.querySelector(".filter");
-      
-      addTaskSubmitBtn.addEventListener('click', function () {
+        addTaskSubmitBtn = toDoContainer.querySelector('.add'),
+        filterBtn = toDoContainer.querySelector(".filter");
+
+      addTaskSubmitBtn.addEventListener('click', function() {
         var item = {
           id: Math.random().toString(36).substr(2, 9), // генерация уникального id
           value: addTaskInput.value,
           completed: false
         };
 
-        if(addTaskInput.value == ""){
+        if (addTaskInput.value == "") {
           alert("Заполните пустое поле!");
-        } 
-        else{
+        } else {
           addTaskInput.value = "";
-          taskList.insertBefore(renderListItem(item), taskList.firstChild)
+          taskList.insertBefore(renderListItem(item), taskList.firstChild);
           tasksStorage.setItem(item);
         }
       });
-      
+
       filterBtn.addEventListener('click', function(event) {
         var elements = taskList.querySelectorAll("li");
 
-        if(event.target.textContent == "All"){
+        if (event.target.textContent == "All") {
 
           elements.forEach(function(item) {
             return item.classList.remove('hidden');
           });
         }
 
-        if(event.target.textContent == "Incompleted"){
+        if (event.target.textContent == "Incompleted") {
           elements.forEach(function(item) {
             if (item.classList.contains('completed')) {
               return item.classList.add('hidden');
@@ -63,7 +62,7 @@
           });
         }
 
-        if(event.target.textContent == "Completed"){
+        if (event.target.textContent == "Completed") {
           elements.forEach(function(item) {
             if (item.classList.contains('incompleted')) {
               return item.classList.add('hidden');
@@ -74,7 +73,7 @@
         }
       });
 
-      taskList.addEventListener('click', function(event){
+      taskList.addEventListener('click', function(event) {
         if (event.target.getAttribute("type") == "checkbox") {
           return moveItem(event.target);
         }
@@ -84,7 +83,7 @@
         }
 
         if (event.target.className == "delete") {
-           return deleteItem(event.target);
+          return deleteItem(event.target);
         }
       });
     }
@@ -92,12 +91,12 @@
     function renderTaskLists(initialListsItems) {
 
       var taskList = toDoContainer.querySelector(".tasks"),
-      taskListContainer = document.createDocumentFragment();
-      
-      initialListsItems.forEach(function (item) {
+        taskListContainer = document.createDocumentFragment();
+
+      initialListsItems.forEach(function(item) {
         taskListContainer.appendChild(
           renderListItem(item)
-          );
+        );
       });
 
       taskList.appendChild(taskListContainer);
@@ -106,16 +105,13 @@
     }
 
     function renderListItem(item) {
-      if(item.completed) {
-        var taskItem = createElements('li', 
-        {
+      if (item.completed) {
+        var taskItem = createElements('li', {
           'data-id': item.id,
           class: 'completed'
         });
-      }
-      else {
-        var taskItem = createElements('li', 
-        {
+      } else {
+        var taskItem = createElements('li', {
           'data-id': item.id,
           class: 'incompleted'
         });
@@ -124,37 +120,30 @@
 
       });
 
-      if(item.completed) {
-        var taskCheckbox = createElements('input', 
-        {
+      if (item.completed) {
+        var taskCheckbox = createElements('input', {
           type: 'checkbox',
           value: item.id,
           checked: ''
         });
-      } 
-      else { 
-        var taskCheckbox = createElements('input', 
-        {
+      } else {
+        var taskCheckbox = createElements('input', {
           type: 'checkbox',
-          value: item.id            
+          value: item.id
         });
       }
 
-      var taskInput = createElements('input', 
-      {
+      var taskInput = createElements('input', {
         type: 'text',
         value: item.value
       });
-      var taskEditBtn = createElements('button', 
-      {
+      var taskEditBtn = createElements('button', {
         class: 'edit'
       });
-      var taskSaveBtn = createElements('button', 
-      {
+      var taskSaveBtn = createElements('button', {
         class: 'save'
       });
-      var taskDeleteBtn = createElements('button', 
-      {
+      var taskDeleteBtn = createElements('button', {
         class: 'delete'
       });
 
@@ -175,8 +164,8 @@
 
     function createElements(element, obj) {
       var item = document.createElement(element);
-      
-      for(var prop in obj) {
+
+      for (var prop in obj) {
         item.setAttribute(prop, obj[prop]);
       }
       return item;
@@ -184,7 +173,7 @@
 
     function deleteItem(item) {
       var id = item.parentNode.getAttribute("data-id"),
-      itemParent = item.parentNode;
+        itemParent = item.parentNode;
 
       taskList.removeChild(itemParent);
       tasksStorage.removeItem(id);
@@ -192,24 +181,24 @@
 
     function editItem(item) {
       var id = item.parentNode.getAttribute('data-id'),
-      itemParent = item.parentNode,
-      editModeClass = 'editMode';
-      
+        itemParent = item.parentNode,
+        editModeClass = 'editMode';
+
       if (itemParent.classList.contains(editModeClass)) {
         var newValue = itemParent.querySelector('input[type="text"]').value;
-        
+
         itemParent.querySelector('label').textContent = newValue;
         tasksStorage.setItemValue(id, 'value', newValue);
         item.innerText = "Edit";
       }
 
-     item.parentNode.classList.toggle(editModeClass);
+      item.parentNode.classList.toggle(editModeClass);
     }
 
     function moveItem(item) {
       var id = item.value,
-      itemParent = item.parentNode,
-      completed = item.checked;
+        itemParent = item.parentNode,
+        completed = item.checked;
 
       if (completed) {
         itemParent.classList.remove("incompleted");
@@ -221,14 +210,14 @@
       tasksStorage.setItemValue(id, 'completed', completed);
     }
 
-    function storage(path){
+    function storage(path) {
 
       function setItemValue(id, field, value) {
         var currentItems = readDataFromStorage();
 
-        currentItems.forEach(function (item) {
+        currentItems.forEach(function(item) {
           if (item.id === id) {
-            item[field] = value
+            item[field] = value;
           }
         });
 
@@ -242,13 +231,13 @@
       function saveItem(item) {
         var currentItems = readDataFromStorage();
         currentItems.unshift(item);
-        saveArray(currentItems)
+        saveArray(currentItems);
       }
 
       function removeItem(id) {
         var currentItems = readDataFromStorage();
         saveArray(
-          currentItems.filter(function (item) {
+          currentItems.filter(function(item) {
             return item.id !== id;
           })
         );
@@ -263,22 +252,20 @@
 
         for (var j = 0, count = 0; j < locStorLength; j++) {
           if (count < i) {
-              count++;
-            }
-          else {
+            count++;
+          } else {
             localStorage.removeItem(localStorage.key(count));
           }
-        }        
+        }
       }
 
-      function checkDisable(){
+      function checkDisable() {
         var test = 'test';
         try {
           localStorage.setItem(test, test);
           localStorage.removeItem(test);
           return true;
-        } 
-        catch(e) {
+        } catch (e) {
           return false;
         }
       }
@@ -291,18 +278,18 @@
         get: readDataFromStorage,
         check: storageCheck,
         disable: checkDisable
-      }
+      };
     }
-    
+
     return {
       init: init,
       storage: storage
-    }
+    };
   }
 
   document.addEventListener("DOMContentLoaded", function() {
-    var taskLists = document.getElementsByClassName('to-do-list')
-    
+    var taskLists = document.getElementsByClassName('to-do-list');
+
     for (var i = 0; i < taskLists.length; i++) {
       taskLists[i] = todoList(taskLists[i], i).init();
     }
