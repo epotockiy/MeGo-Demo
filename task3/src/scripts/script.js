@@ -3,7 +3,13 @@
     $('.choose-buttons').find('button').on('click', function() {
       if($(this).data('type') === 'js') {
         $('.css-slider').css('display', 'none');
-        $('.slider').css('display', 'block').Slider();
+        
+        var $slider = $('.slider');
+        $slider.css('display', 'block');
+
+        if(!$slider.data('slider')) {
+          $slider.Slider();
+        }
       }
 
       if($(this).data('type') === 'css') {
