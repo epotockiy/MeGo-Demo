@@ -132,6 +132,18 @@
 }
 
 .css-slider {
+  @mixin slider-margin($id, $margin) {
+    a#{$id}:target ~ ul {
+      margin-left: $margin;
+    }
+  }
+
+  @mixin section-margin($id, $margin) {
+    input#{$id}:checked ~ .image-title-list ul {
+       margin-top: $margin;
+     }
+  }
+
   $image-width: 400px;
   $slide-1-margin: 0;
   $slide-2-margin: -$image-width;
@@ -174,17 +186,9 @@
       }
     }
 
-    input[id='first-section']:checked ~ .image-title-list ul {
-      margin-top: 0;
-    }
-
-    input[id='second-section']:checked ~ .image-title-list ul {
-      margin-top: -190px;
-    }
-
-    input[id='third-section']:checked ~ .image-title-list ul {
-      margin-top: -380px;
-    }
+    @include section-margin('#first-section', 0);
+    @include section-margin('#second-section', -190px);
+    @include section-margin('#third-section', -380px);
 
     .image-title-list {
       float: right;
@@ -253,40 +257,14 @@
       }
     }
 
-    a[id='image0']:target ~ ul {
-      margin-left: $slide-1-margin;
-    }
-
-    a[id='image1']:target ~ ul {
-      margin-left: $slide-2-margin;
-    }
-
-    a[id='image2']:target ~ ul {
-      margin-left: $slide-3-margin;
-    }
-
-    a[id='image3']:target ~ ul {
-      margin-left: $slide-4-margin;
-    }
-
-    a[id='image4']:target ~ ul {
-      margin-left: $slide-5-margin;
-    }
-
-    a[id='image5']:target ~ ul {
-      margin-left: $slide-6-margin;
-    }
-
-    a[id='image6']:target ~ ul {
-      margin-left: $slide-7-margin;
-    }
-
-    a[id='image7']:target ~ ul {
-      margin-left: $slide-8-margin;
-    }
-
-    a[id='image8']:target ~ ul {
-      margin-left: $slide-9-margin;
-    }
+    @include slider-margin('#image0', $slide-1-margin);
+    @include slider-margin('#image1', $slide-2-margin);
+    @include slider-margin('#image2', $slide-3-margin);
+    @include slider-margin('#image3', $slide-4-margin);
+    @include slider-margin('#image4', $slide-5-margin);
+    @include slider-margin('#image5', $slide-6-margin);
+    @include slider-margin('#image6', $slide-7-margin);
+    @include slider-margin('#image7', $slide-8-margin);
+    @include slider-margin('#image8', $slide-9-margin);
   }
 }

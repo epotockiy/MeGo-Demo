@@ -510,11 +510,11 @@ template {
       .css-slider .section-switch .image-section-label:hover {
         background-color: #2d89ef;
         border: 1px solid #2d89ef; }
-    .css-slider .section-switch input[id='first-section']:checked ~ .image-title-list ul {
+    .css-slider .section-switch input#first-section:checked ~ .image-title-list ul {
       margin-top: 0; }
-    .css-slider .section-switch input[id='second-section']:checked ~ .image-title-list ul {
+    .css-slider .section-switch input#second-section:checked ~ .image-title-list ul {
       margin-top: -190px; }
-    .css-slider .section-switch input[id='third-section']:checked ~ .image-title-list ul {
+    .css-slider .section-switch input#third-section:checked ~ .image-title-list ul {
       margin-top: -380px; }
     .css-slider .section-switch .image-title-list {
       float: right;
@@ -566,21 +566,21 @@ template {
             display: block;
             width: 100%;
             padding-top: 70%; }
-    .css-slider .image-slider a[id='image0']:target ~ ul {
+    .css-slider .image-slider a#image0:target ~ ul {
       margin-left: 0; }
-    .css-slider .image-slider a[id='image1']:target ~ ul {
+    .css-slider .image-slider a#image1:target ~ ul {
       margin-left: -400px; }
-    .css-slider .image-slider a[id='image2']:target ~ ul {
+    .css-slider .image-slider a#image2:target ~ ul {
       margin-left: -800px; }
-    .css-slider .image-slider a[id='image3']:target ~ ul {
+    .css-slider .image-slider a#image3:target ~ ul {
       margin-left: -1200px; }
-    .css-slider .image-slider a[id='image4']:target ~ ul {
+    .css-slider .image-slider a#image4:target ~ ul {
       margin-left: -1600px; }
-    .css-slider .image-slider a[id='image5']:target ~ ul {
+    .css-slider .image-slider a#image5:target ~ ul {
       margin-left: -2000px; }
-    .css-slider .image-slider a[id='image6']:target ~ ul {
+    .css-slider .image-slider a#image6:target ~ ul {
       margin-left: -2400px; }
-    .css-slider .image-slider a[id='image7']:target ~ ul {
+    .css-slider .image-slider a#image7:target ~ ul {
       margin-left: -2800px; }
-    .css-slider .image-slider a[id='image8']:target ~ ul {
+    .css-slider .image-slider a#image8:target ~ ul {
       margin-left: -3200px; }
