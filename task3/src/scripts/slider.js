@@ -40,7 +40,7 @@
     this.$sectionSwitch.on('click', '.image-section', function() {
       self.$imageTitleListUl.animate({
         'margin-top': -parseInt($(this).data('section')) * self.imageTitleListItemHeight * 3
-      }, 400);
+      });
 
     });
   };
@@ -59,7 +59,7 @@
     this.$imageTitleListUl.on('click', 'li', function() {
       self.$imageSliderUl.animate({
         'margin-left': -$(this).data('number') * self.sliderImageWidth
-      }, 400);
+      });
     });
   }
 })(jQuery);

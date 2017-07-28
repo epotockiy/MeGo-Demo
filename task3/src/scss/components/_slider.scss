@@ -1,10 +1,11 @@
 .choose-buttons {
   text-align: center;
+  padding: 20px 0;
 
   button {
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    background-color: #00aba9;
+    border: 1px solid #fff;
+    color: #fff;
     cursor: pointer;
     font-size: 18px;
     margin: 0 10px;
@@ -16,72 +17,85 @@
     }
 
     &:hover {
-      background-color: deepskyblue;
-      border: 1px solid blueviolet;
-      color: #fff;
+      background-color: #2d89ef;
+      border: 1px solid #2d89ef;
     }
   }
 }
 
-.slider {
+.container {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: 40px 0;
+  padding: 20px 0;
   color: #333;
   font-family: 'Helvetica', sans-serif;
-  display: none;
 
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-    overflow: hidden;
+  p {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    padding-bottom: 20px;
   }
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  overflow: hidden;
+}
+
+.slider {
+  display: none;
 
   .section-switch {
     float: left;
+    margin: 0 0 0 15%;
 
     .image-section {
+      background-color: #00aba9;
+      border: 1px solid #fff;
+      color: #fff;
+      cursor: pointer;
       display: block;
-      width: 80px;
-      height: 80px;
       font-size: 30px;
       font-weight: bold;
       margin-bottom: 15px;
-      border: 2px solid #333;
-      cursor: pointer;
-      color: #333;
-      transition: background .4s;
-
+      padding: 25px 35px;
       text-decoration: none;
+      transition: all .4s;
+
       &:hover {
-        background: #eee;
+        background-color: #2d89ef;
+        border: 1px solid #2d89ef;
       }
     }
   }
 
   .image-title-list {
     float: left;
-    width: 300px;
-    margin: 0;
-    padding: 0 10px;
+    width: 30%;
+    margin: 0 5%;
+    background: #eff4ff;
 
     ul {
       list-style: none;
       margin: 0;
+      padding: 0;
 
-      .image-title {
-        display: inline-block;
-        padding: 15px 0;
-        width: 100%;
-        font-size: 18px;
+      li {
         cursor: pointer;
+        display: inline-block;
+        font-size: 20px;
+        padding: 20px 0;
         transition: background .4s;
+        width: 100%;
+
         &:hover {
-          background: #eee;
-          border-radius: 5px;
+          background: #2d89ef;
+          color: #fff;
         }
       }
     }
@@ -118,46 +132,45 @@
 }
 
 .css-slider {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px 0;
-  color: #333;
-  font-family: 'Helvetica', sans-serif;
-  display: none;
+  $image-width: 400px;
+  $slide-1-margin: 0;
+  $slide-2-margin: -$image-width;
+  $slide-3-margin: -2 * $image-width;
+  $slide-4-margin: -3 * $image-width;
+  $slide-5-margin: -4 * $image-width;
+  $slide-6-margin: -5 * $image-width;
+  $slide-7-margin: -6 * $image-width;
+  $slide-8-margin: -7 * $image-width;
+  $slide-9-margin: -8 * $image-width;
 
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-    overflow: hidden;
-  }
+  display: none;
 
   .section-switch {
     float: left;
-    width: 400px;
+    width: 40%;
     text-align: left;
+    margin: 0 0 0 15%;
 
     .image-section-radio {
       display: none;
     }
 
     .image-section-label {
-      text-align: center;
+      background-color: #00aba9;
+      border: 1px solid #fff;
+      color: #fff;
+      cursor: pointer;
       display: inline-block;
-      width: 80px;
-      height: 80px;
       font-size: 30px;
       font-weight: bold;
       margin-bottom: 15px;
-      border: 2px solid #333;
-      cursor: pointer;
-      color: #333;
-      transition: background .4s;
+      padding: 25px 35px;
+      text-align: center;
+      transition: all .4s;
 
       &:hover {
-        background: #eee;
+        background-color: #2d89ef;
+        border: 1px solid #2d89ef;
       }
     }
 
@@ -166,40 +179,40 @@
     }
 
     input[id='second-section']:checked ~ .image-title-list ul {
-      margin-top: -150px;
+      margin-top: -190px;
     }
 
     input[id='third-section']:checked ~ .image-title-list ul {
-      margin-top: -300px;
+      margin-top: -380px;
     }
 
     .image-title-list {
       float: right;
       text-align: center;
-      margin-top: -200px;
-      margin-right: 10px;
-      width: 300px;
-      height: 150px;
+      margin: -303px 0 0 60px;
+      width: 340px;
+      height: 190px;
       overflow-y: hidden;
 
       ul {
         padding: 0;
-        margin: 0 0 0 40px;
+        margin: 0;
         list-style: none;
         transition: margin .4s;
+        background: #eff4ff;
 
         li a {
-          padding: 15px 0;
+          padding: 20px 0;
           display: block;
-          font-size: 18px;
+          font-size: 20px;
           cursor: pointer;
           transition: background .4s;
           text-decoration: none;
           color: #333;
 
           &:hover {
-            background: #eee;
-            border-radius: 5px;
+            background: #2d89ef;
+            color: #fff;
           }
         }
       }
@@ -211,6 +224,7 @@
     padding: 0;
     width: 400px;
     overflow-x: hidden;
+    margin: 0 5%;
 
     ul {
       list-style: none;
@@ -240,39 +254,39 @@
     }
 
     a[id='image0']:target ~ ul {
-      margin-left: 0;
+      margin-left: $slide-1-margin;
     }
 
     a[id='image1']:target ~ ul {
-      margin-left: -400px;
+      margin-left: $slide-2-margin;
     }
 
     a[id='image2']:target ~ ul {
-      margin-left: -800px;
+      margin-left: $slide-3-margin;
     }
 
     a[id='image3']:target ~ ul {
-      margin-left: -1200px;
+      margin-left: $slide-4-margin;
     }
 
     a[id='image4']:target ~ ul {
-      margin-left: -1600px;
+      margin-left: $slide-5-margin;
     }
 
     a[id='image5']:target ~ ul {
-      margin-left: -2000px;
+      margin-left: $slide-6-margin;
     }
 
     a[id='image6']:target ~ ul {
-      margin-left: -2400px;
+      margin-left: $slide-7-margin;
     }
 
     a[id='image7']:target ~ ul {
-      margin-left: -2800px;
+      margin-left: $slide-8-margin;
     }
 
     a[id='image8']:target ~ ul {
-      margin-left: -3200px;
+      margin-left: $slide-9-margin;
     }
   }
 }

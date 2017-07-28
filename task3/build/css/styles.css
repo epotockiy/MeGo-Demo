@@ -390,11 +390,12 @@ template {
   display: none; }
 
 .choose-buttons {
-  text-align: center; }
+  text-align: center;
+  padding: 20px 0; }
   .choose-buttons button {
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    background-color: #00aba9;
+    border: 1px solid #fff;
+    color: #fff;
     cursor: pointer;
     font-size: 18px;
     margin: 0 10px;
@@ -403,58 +404,68 @@ template {
     .choose-buttons button:focus {
       outline: none; }
     .choose-buttons button:hover {
-      background-color: deepskyblue;
-      border: 1px solid blueviolet;
-      color: #fff; }
+      background-color: #2d89ef;
+      border: 1px solid #2d89ef; }
 
-.slider {
+.container {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: 40px 0;
+  padding: 20px 0;
   color: #333;
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Helvetica', sans-serif; }
+  .container p {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    padding-bottom: 20px; }
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  overflow: hidden; }
+
+.slider {
   display: none; }
-  .slider:after {
-    content: '';
-    display: block;
-    clear: both;
-    overflow: hidden; }
   .slider .section-switch {
-    float: left; }
+    float: left;
+    margin: 0 0 0 15%; }
     .slider .section-switch .image-section {
+      background-color: #00aba9;
+      border: 1px solid #fff;
+      color: #fff;
+      cursor: pointer;
       display: block;
-      width: 80px;
-      height: 80px;
       font-size: 30px;
       font-weight: bold;
       margin-bottom: 15px;
-      border: 2px solid #333;
-      cursor: pointer;
-      color: #333;
-      transition: background .4s;
-      text-decoration: none; }
+      padding: 25px 35px;
+      text-decoration: none;
+      transition: all .4s; }
       .slider .section-switch .image-section:hover {
-        background: #eee; }
+        background-color: #2d89ef;
+        border: 1px solid #2d89ef; }
   .slider .image-title-list {
     float: left;
-    width: 300px;
-    margin: 0;
-    padding: 0 10px; }
+    width: 30%;
+    margin: 0 5%;
+    background: #eff4ff; }
     .slider .image-title-list ul {
       list-style: none;
-      margin: 0; }
-      .slider .image-title-list ul .image-title {
-        display: inline-block;
-        padding: 15px 0;
-        width: 100%;
-        font-size: 18px;
+      margin: 0;
+      padding: 0; }
+      .slider .image-title-list ul li {
         cursor: pointer;
-        transition: background .4s; }
-        .slider .image-title-list ul .image-title:hover {
-          background: #eee;
-          border-radius: 5px; }
+        display: inline-block;
+        font-size: 20px;
+        padding: 20px 0;
+        transition: background .4s;
+        width: 100%; }
+        .slider .image-title-list ul li:hover {
+          background: #2d89ef;
+          color: #fff; }
   .slider .image-slider {
     float: left;
     position: relative;
@@ -476,75 +487,66 @@ template {
           padding-top: 70%; }
 
 .css-slider {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px 0;
-  color: #333;
-  font-family: 'Helvetica', sans-serif;
   display: none; }
-  .css-slider:after {
-    content: '';
-    display: block;
-    clear: both;
-    overflow: hidden; }
   .css-slider .section-switch {
     float: left;
-    width: 400px;
-    text-align: left; }
+    width: 40%;
+    text-align: left;
+    margin: 0 0 0 15%; }
     .css-slider .section-switch .image-section-radio {
       display: none; }
     .css-slider .section-switch .image-section-label {
-      text-align: center;
+      background-color: #00aba9;
+      border: 1px solid #fff;
+      color: #fff;
+      cursor: pointer;
       display: inline-block;
-      width: 80px;
-      height: 80px;
       font-size: 30px;
       font-weight: bold;
       margin-bottom: 15px;
-      border: 2px solid #333;
-      cursor: pointer;
-      color: #333;
-      transition: background .4s; }
+      padding: 25px 35px;
+      text-align: center;
+      transition: all .4s; }
       .css-slider .section-switch .image-section-label:hover {
-        background: #eee; }
+        background-color: #2d89ef;
+        border: 1px solid #2d89ef; }
     .css-slider .section-switch input[id='first-section']:checked ~ .image-title-list ul {
       margin-top: 0; }
     .css-slider .section-switch input[id='second-section']:checked ~ .image-title-list ul {
-      margin-top: -150px; }
+      margin-top: -190px; }
     .css-slider .section-switch input[id='third-section']:checked ~ .image-title-list ul {
-      margin-top: -300px; }
+      margin-top: -380px; }
     .css-slider .section-switch .image-title-list {
       float: right;
       text-align: center;
-      margin-top: -200px;
-      margin-right: 10px;
-      width: 300px;
-      height: 150px;
+      margin: -303px 0 0 60px;
+      width: 340px;
+      height: 190px;
       overflow-y: hidden; }
       .css-slider .section-switch .image-title-list ul {
         padding: 0;
-        margin: 0 0 0 40px;
+        margin: 0;
         list-style: none;
-        transition: margin .4s; }
+        transition: margin .4s;
+        background: #eff4ff; }
         .css-slider .section-switch .image-title-list ul li a {
-          padding: 15px 0;
+          padding: 20px 0;
           display: block;
-          font-size: 18px;
+          font-size: 20px;
           cursor: pointer;
           transition: background .4s;
           text-decoration: none;
           color: #333; }
           .css-slider .section-switch .image-title-list ul li a:hover {
-            background: #eee;
-            border-radius: 5px; }
+            background: #2d89ef;
+            color: #fff; }
   .css-slider .image-slider {
     float: left;
     position: relative;
     padding: 0;
     width: 400px;
-    overflow-x: hidden; }
+    overflow-x: hidden;
+    margin: 0 5%; }
     .css-slider .image-slider ul {
       list-style: none;
       margin: 0;
