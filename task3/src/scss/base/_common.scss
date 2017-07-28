@@ -1,0 +1,291 @@
+/*  
+	CSS Preprocessors:
+		-Advantages:
+			-variables;
+			-mixins;
+			-mathematics;
+			-nesting;
+			-joining multiple files;
+
+		-Disadvantages:
+			-maintainence('red color' variable);
+			-compilation time;
+			-large output;
+*/
+
+
+body {
+  	font-size: 100%;
+  	font-family: $font-montserrat;
+}
+
+.clearfix::after {
+  visibility: hidden;
+  display: block;
+  content: ""; /* or 'content: " "; font-size: 0;' */
+  clear: both; /*the most important thing*/
+  height: 0;
+}
+
+/* 
+	For IE6-7 support:
+	* html .clearfix             { zoom: 1; }
+	*:first-child+html .clearfix { zoom: 1; } 
+/* 
+Generally clearfix could be specified using 'overflow: hidden | auto' applying to parent div 
+
+You can write additional class '.clearfix' of just specify this properties in parent class '.parent:after'
+	.clerfix:after {
+		content: '';
+		display: table | block;         //'display: table' is commonly used for maintaining IE6-7 browsers 
+		clear: both;
+	}
+
+Also you could write additinal block after floating blocks(at the bottom of parent block) with propertie:
+	.clear {
+		clear: both;
+	}
+
+The most moder way of clearing floats is to give to parent element 'flow-root' property:
+	.parent {
+		display: flow-root;
+	}
+*/
+
+.container {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.description {
+	color: $color-light-grey;
+	font-family: $font-roboto;
+	font-size: 15px;
+	line-height: 1.59;
+	max-width: 79.5%;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+
+.title {
+	color: $color-dark-grey;
+	text-align: center;
+	padding-bottom: 38px;
+
+	&:after {
+		margin: 0 auto;
+		padding-top: 33px;
+	    height: 3px;
+	    display: block;
+	    width: 60px;
+	    border-bottom: 3px solid $color-red;
+	    content: '';
+	}
+
+	h3 {
+		font-family: $font-kaushan;
+		font-size: 24px;
+		font-weight: normal;
+		margin: 0;
+		padding-bottom: 20px;
+	}
+
+	h2 {
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 0.95;
+		margin: 0;
+		text-transform: uppercase;
+	}
+}
+
+.table {
+	display: table;
+
+	.table-cell {
+		display: table-cell;
+	}
+}
+
+.facebook-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 0 0;
+	height: 16px;
+	width: 16px;
+}
+
+.twitter-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 193px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.instagram-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 163px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.pinterest-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 134px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.google-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 103px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.youtube-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 73px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.dribble-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 43px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.tumblr-icon {
+	background: url('../images/footer/socials/socials-sprite.png') 16px 0;
+	height: 16px;
+	width: 16px;
+}
+
+.slide-wrapper {
+	margin: 0 auto;
+	max-width: 1000px;
+	width: 100%;
+
+	.slide {
+		display: inline-block;
+		padding-bottom: 63px;
+		padding-top: 70px;
+
+		&:focus {
+			outline: 0;
+		}
+
+		.slide-image {
+			width: 15%;
+			float: left;
+		}
+
+		.slide-content {
+			float: left;
+			width: 75%;
+			line-height: 1.6;	
+			padding-left: 6.4%;
+
+			p {
+				color: $color-light-grey;
+				font-family: $font-roboto;
+				font-style: italic;
+				font-size: 23px;
+				font-weight: 300; 
+				margin: 0;
+				padding-top: 1px;
+			}
+		}
+
+		.signature {
+			padding-top: 10px;
+			padding-left: 2px;
+		
+			span {
+				color: $color-dark-grey;
+				font-family: $font-kaushan;
+				font-size: 24px;
+				margin: 0;
+			
+				&::before {
+					content: '';
+				  	display: inline-block;
+					background: $color-red;
+				  	height: 3px;
+				  	margin: 0 10px 0 0;
+					width: 60px;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+
+	.slick-prev {
+		display: inline-block;	
+		left: -9%;
+
+		&:before {
+			content: url("../images/quote/arrow-left.png");
+		}
+	}
+
+	.slick-next {
+		display: inline-block;
+		right: -9%;
+
+		&:before {
+			content: url("../images/quote/arrow-right.png");
+		}	
+	}
+}
+
+
+@media screen and(max-width: 1024px) {
+	.slide-wrapper {
+		.slide {
+			.slide-content {
+				line-height: 1.5;
+
+				p {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and(max-width: 836px) {
+	.slide-wrapper {
+		.slide {
+			.slide-content {
+				line-height: 1.4;
+
+				p {
+					font-size: 18px;
+				}
+
+				.signature {
+					span {
+						font-size: 20px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and(max-width: 560px) {
+	.slide-wrapper {
+		.slide {
+			.slide-image {
+				width: 25%;
+				float: none;
+				margin: 0 auto;
+			}
+		
+			.slide-content {
+				float: none;
+				text-align: center;
+				padding-left: 0;
+				padding-top: 10px;
+				width: 100%;
+			}
+		}
+	}
+}

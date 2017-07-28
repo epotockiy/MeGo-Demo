@@ -32,8 +32,8 @@ body {
   padding: 0 10px;
   position: relative;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 
   form {
     padding: 10px;
@@ -151,8 +151,8 @@ body {
 
       * {
         -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+           -moz-box-sizing: border-box;
+                box-sizing: border-box;
       }
 
       p {
@@ -225,8 +225,8 @@ body {
     margin: 0 calc(25% - 40px);
     padding: 0 40px 40px;
     -webkit-box-shadow: 0 0 100px #333;
-    -moz-box-shadow: 0 0 100px #333;
-    box-shadow: 0 0 100px #333;
+       -moz-box-shadow: 0 0 100px #333;
+            box-shadow: 0 0 100px #333;
     z-index: 101;
 
     &.active {

@@ -8,7 +8,7 @@
     }
   };
 
-  TodoListModule = function(container, index) {
+  var TodoListModule = function(container, index) {
     this.todoContainer      = container;
     this.formBlock          = this.todoContainer.querySelector('form');
     this.formErrorMessage   = this.formBlock    .querySelector('.error-message');

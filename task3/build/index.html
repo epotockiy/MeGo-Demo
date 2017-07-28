@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pure slider</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="choose-buttons">
+    <button data-type="js">JS</button>
+    <button data-type="css">CSS</button>
+  </div>
+
+    <section class="slider">
+      <div class="section-switch">
+        <a href="#first" class="image-section">1</a>
+        <a href="#second" class="image-section">2</a>
+        <a href="#third" class="image-section">3</a>
+      </div>
+
+      <div class="image-title-list">
+        <a id="first"></a>
+        <a id="second"></a>
+        <a id="third"></a>
+        <ul>
+          <li class="image-title">image 1</li>
+          <li class="image-title">image 2</li>
+          <li class="image-title">image 3</li>
+          <li class="image-title">image 4</li>
+          <li class="image-title">image 5</li>
+          <li class="image-title">image 6</li>
+          <li class="image-title">image 7</li>
+          <li class="image-title">image 8</li>
+          <li class="image-title">image 9</li>
+        </ul>
+      </div>
+
+      <div class="image-slider">
+        <ul>
+          <li><div class="image" style="background-image: url('images/image1.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image2.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image3.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image4.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image5.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image6.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image7.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image8.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image9.jpg')"></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="css-slider">
+      <div class="section-switch">
+        <input name="section" type="radio" id="first-section" class="image-section-radio">
+        <label for="first-section" class="image-section-label">1</label><br>
+        <input name="section" type="radio" id="second-section" class="image-section-radio">
+        <label for="second-section" class="image-section-label">2</label><br>
+        <input name="section" type="radio" id="third-section" class="image-section-radio">
+        <label for="third-section" class="image-section-label">3</label>
+
+        <div class="image-title-list">
+          <ul>
+            <li class="image-title">
+              <a href="#image0">image 0</a>
+            </li>
+            <li class="image-title">
+              <a href="#image1">image 1</a>
+            </li>
+            <li class="image-title">
+              <a href="#image2">image 2</a>
+            </li>
+            <li class="image-title">
+              <a href="#image3">image 3</a>
+            </li>
+            <li class="image-title">
+              <a href="#image4">image 4</a>
+            </li>
+            <li class="image-title">
+              <a href="#image5">image 5</a>
+            </li>
+            <li class="image-title">
+              <a href="#image6">image 6</a>
+            </li>
+            <li class="image-title">
+              <a href="#image7">image 7</a>
+            </li>
+            <li class="image-title">
+              <a href="#image8">image 8</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="image-slider">
+        <a id="image0"></a>
+        <a id="image1"></a>
+        <a id="image2"></a>
+        <a id="image3"></a>
+        <a id="image4"></a>
+        <a id="image5"></a>
+        <a id="image6"></a>
+        <a id="image7"></a>
+        <a id="image8"></a>
+
+        <ul>
+          <li><div class="image" style="background-image: url('images/image1.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image2.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image3.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image4.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image5.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image6.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image7.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image8.jpg')"></div></li>
+          <li><div class="image" style="background-image: url('images/image9.jpg')"></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <script src="libs/jquery.min.js"></script>
+    <script src="scripts/scripts.js"></script>
+  </body>
+</html>
