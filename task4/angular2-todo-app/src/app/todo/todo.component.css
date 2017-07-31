@@ -127,7 +127,7 @@
   margin: 0;
   padding: 7px 10px;
   width: 71%;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 .todo-list .task .task-edit-btn {
