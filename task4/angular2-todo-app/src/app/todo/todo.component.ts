@@ -14,6 +14,7 @@ export class TodoComponent implements OnInit {
   isStorageAvailable = false;
   openEditBlock: false;
   currentTask: number;
+  currentFilter = 'all';
 
   constructor(private _formBuilder: FormBuilder) {
     this.todoForm = this._formBuilder.group({
@@ -44,7 +45,7 @@ export class TodoComponent implements OnInit {
   }
 
   addNewTask(form) {
-    this.tasksArray.push({
+    this.tasksArray.unshift({
       name: form.taskName,
       done: false
     });
@@ -81,5 +82,25 @@ export class TodoComponent implements OnInit {
     if (this.isStorageAvailable) {
       this.saveListToStorage();
     }
+  }
+
+  checkFilter(task) {
+    if (task.done) {
+      if (this.currentFilter === 'all' || this.currentFilter === 'done') {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (this.currentFilter === 'all' || this.currentFilter === 'progress') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  checkTaskForDone(task) {
+    return !!task.done;
   }
 }
