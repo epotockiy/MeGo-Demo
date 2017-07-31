@@ -1,0 +1,26 @@
+<div class="todo">
+  <form [formGroup]="todoForm" (ngSubmit)="addNewTask(todoForm.value)">
+    <input class="task-input" type="text" placeholder="Enter task name..." [formControl]="todoForm.controls['taskName']" />
+    <button type="submit" class="add-task-btn" [disabled]="!todoForm.valid">Add</button>
+  </form>
+
+  <div class="todo-list">
+    <div class="overlay" [ngClass]="openEditBlock ? 'active' : ''"></div>
+
+    <ul>
+      <li *ngFor="let task of tasksArray; let i = index" class="task clearfix" [ngClass]="task.done ? 'done' : ''">
+        <i class="material-icons task-done-icon" [ngClass]="task.done ? 'active' : ''" (click)="onDoneClick(i)">done</i>
+        <p>{{task.name}}</p>
+        <i class="material-icons task-close-icon" (click)="onRemoveTask(i)">close</i>
+        <button class="task-edit-btn" [disabled]="task.done" (click)="currentTask = i; openEditBlock = !openEditBlock">Edit</button>
+      </li>
+    </ul>
+
+    <form [formGroup]="editForm" class="edit" *ngIf="openEditBlock" [ngClass]="openEditBlock ? 'active' : ''">
+      <h4>Edit task</h4>
+      <input class="edit-input" type="text" [value]="tasksArray[currentTask].name" [formControl]="editForm.controls['newTaskName']" />
+      <button type="submit" class="save-btn" [disabled]="!editForm.valid" (click)="onSaveClick($event)">Save</button>
+      <i class="material-icons edit-close-icon" (click)="openEditBlock = !openEditBlock">close</i>
+    </form>
+  </div>
+</div>
