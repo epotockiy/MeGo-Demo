@@ -57,61 +57,28 @@
       <p>CSS slider</p>
 
       <div class="section-switch">
-        <input name="section" type="radio" id="first-section" class="image-section-radio">
-        <label for="first-section" class="image-section-label">1</label>
-        <br>
-        <input name="section" type="radio" id="second-section" class="image-section-radio">
-        <label for="second-section" class="image-section-label">2</label>
-        <br>
-        <input name="section" type="radio" id="third-section" class="image-section-radio">
-        <label for="third-section" class="image-section-label">3</label>
+        <a data-section="0" class="image-section">1</a>
+        <a data-section="1" class="image-section">2</a>
+        <a data-section="2" class="image-section">3</a>
+      </div>
 
-        <div class="image-title-list">
-          <ul>
-            <li>
-              <a href="#image0">image 1</a>
-            </li>
-            <li>
-              <a href="#image1">image 2</a>
-            </li>
-            <li>
-              <a href="#image2">image 3</a>
-            </li>
-            <li>
-              <a href="#image3">image 4</a>
-            </li>
-            <li>
-              <a href="#image4">image 5</a>
-            </li>
-            <li>
-              <a href="#image5">image 6</a>
-            </li>
-            <li>
-              <a href="#image6">image 7</a>
-            </li>
-            <li>
-              <a href="#image7">image 8</a>
-            </li>
-            <li>
-              <a href="#image8">image 9</a>
-            </li>
-          </ul>
-        </div>
+      <div class="image-title-list">
+        <ul>
+          <li>image 1</li>
+          <li>image 2</li>
+          <li>image 3</li>
+          <li>image 4</li>
+          <li>image 5</li>
+          <li>image 6</li>
+          <li>image 7</li>
+          <li>image 8</li>
+          <li>image 9</li>
+        </ul>
       </div>
 
       <div class="image-slider">
-        <a id="image0"></a>
-        <a id="image1"></a>
-        <a id="image2"></a>
-        <a id="image3"></a>
-        <a id="image4"></a>
-        <a id="image5"></a>
-        <a id="image6"></a>
-        <a id="image7"></a>
-        <a id="image8"></a>
-
         <ul>
-          <li><div class="image" style="background-image: url('images/image1.jpg')"></div></li>
+          <li><div class="image active" style="background-image: url('images/image1.jpg')"></div></li>
           <li><div class="image" style="background-image: url('images/image2.jpg')"></div></li>
           <li><div class="image" style="background-image: url('images/image3.jpg')"></div></li>
           <li><div class="image" style="background-image: url('images/image4.jpg')"></div></li>
@@ -125,6 +92,7 @@
     </section>
 
     <script src="libs/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="scripts/scripts.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css';
 
 export class Todo extends React.Component {
   isStorageAvailable = false;
@@ -32,7 +33,8 @@ export class Todo extends React.Component {
 
     this.tasksArray.unshift({
       name: this.state.taskInput,
-      done: false
+      done: false,
+      id: Math.random().toString(32).substr(2, 8)
     });
 
     if (this.isStorageAvailable) {
@@ -121,7 +123,7 @@ export class Todo extends React.Component {
             </div>
 
             <ul>
-
+              {this.tasksArray.map((task) => <li className="task clearfix" key={task.id}>{task.name}</li>)}
             </ul>
           </div>
         </div>

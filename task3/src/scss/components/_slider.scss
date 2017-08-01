@@ -111,21 +111,13 @@
       margin: 0;
       padding: 0;
 
-      li {
-        div {
-          background-position: center center;
-          background-size: cover;
-          background-repeat: no-repeat;
-          position: relative;
-          width: 400px;
-
-          &:before {
-            content: '';
-            display: block;
-            width: 100%;
-            padding-top: 70%;
-          }
-        }
+      li div {
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        width: 400px;
+        height: 300px;
       }
     }
   }
@@ -159,25 +151,19 @@
 
   .section-switch {
     float: left;
-    width: 40%;
-    text-align: left;
     margin: 0 0 0 15%;
 
-    .image-section-radio {
-      display: none;
-    }
-
-    .image-section-label {
+    .image-section {
       background-color: #00aba9;
       border: 1px solid #fff;
       color: #fff;
       cursor: pointer;
-      display: inline-block;
+      display: block;
       font-size: 30px;
       font-weight: bold;
       margin-bottom: 15px;
       padding: 25px 35px;
-      text-align: center;
+      text-decoration: none;
       transition: all .4s;
 
       &:hover {
@@ -185,60 +171,54 @@
         border: 1px solid #2d89ef;
       }
     }
+  }
 
-    @include section-margin('#first-section', 0);
-    @include section-margin('#second-section', -190px);
-    @include section-margin('#third-section', -380px);
+  .image-title-list {
+    float: left;
+    width: 30%;
+    margin: 0 5%;
+    background: #eff4ff;
 
-    .image-title-list {
-      float: right;
-      text-align: center;
-      margin: -303px 0 0 60px;
-      width: 340px;
-      height: 190px;
-      overflow-y: hidden;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      transition: margin-top .4s;
 
-      ul {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        transition: margin .4s;
-        background: #eff4ff;
+      li {
+        cursor: pointer;
+        display: inline-block;
+        font-size: 20px;
+        padding: 20px 0;
+        transition: background .4s;
+        width: 100%;
 
-        li a {
-          padding: 20px 0;
-          display: block;
-          font-size: 20px;
-          cursor: pointer;
-          transition: background .4s;
-          text-decoration: none;
-          color: #333;
-
-          &:hover {
-            background: #2d89ef;
-            color: #fff;
-          }
+        &:hover {
+          background: #2d89ef;
+          color: #fff;
         }
       }
     }
   }
+
   .image-slider {
     float: left;
     position: relative;
     padding: 0;
     width: 400px;
     overflow-x: hidden;
-    margin: 0 5%;
 
     ul {
       list-style: none;
       margin: 0;
       padding: 0;
-      width: 3600px;
+      width: 400px;
+      height: 300px;
       transition: margin .4s;
 
       li {
         float: left;
+        position: absolute;
 
         div {
           background-position: center center;
@@ -246,25 +226,23 @@
           background-repeat: no-repeat;
           position: relative;
           width: 400px;
+          height: 300px;
+          margin-left: -400px;
+          z-index: 1;
 
-          &:before {
-            content: '';
-            display: block;
-            width: 100%;
-            padding-top: 70%;
+          &.active {
+            margin-left: 0;
+            z-index: 2;
+            transition: margin .4s;
+          }
+
+          &.slide-out {
+            margin-left: 400px;
+            z-index: 2;
+            transition: margin .4s;
           }
         }
       }
     }
-
-    @include slider-margin('#image0', $slide-1-margin);
-    @include slider-margin('#image1', $slide-2-margin);
-    @include slider-margin('#image2', $slide-3-margin);
-    @include slider-margin('#image3', $slide-4-margin);
-    @include slider-margin('#image4', $slide-5-margin);
-    @include slider-margin('#image5', $slide-6-margin);
-    @include slider-margin('#image6', $slide-7-margin);
-    @include slider-margin('#image7', $slide-8-margin);
-    @include slider-margin('#image8', $slide-9-margin);
   }
 }

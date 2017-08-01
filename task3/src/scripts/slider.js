@@ -30,36 +30,75 @@
       this.$imageTitleListUl.children().eq(i).attr('data-number', i);
     }
 
+    this.sliderImageWidth = this.$imageSlider.find('div.image').width();
+
+    this.$imageSlider.css('width', this.sliderImageWidth);
+    this.$imageSlider.css('overflow-x', 'hidden');
+    this.$imageSliderUl.css('width', this.sliderImageWidth).css('height', this.sliderImageWidth);
+    this.$imageSliderUl
+      .find('li').css({
+        'float': 'left',
+        'position': 'absolute'
+      })
+      .find('div.image').css({
+        'width': this.sliderImageWidth,
+        'display': 'none'
+      })
+      .eq(0).css('display', 'block');
+
+    this.currentSlideNumber = 0;
+    this.prevSlideNumber = 0;
+
     this.bindSectionSwitch();
     this.setAndBindSliderSwitch();
   };
 
   Slider.prototype.bindSectionSwitch = function() {
-    var self = this;
+    var self = this, prevSectionNumber = 0;
 
-    this.$sectionSwitch.on('click', '.image-section', function() {
-      self.$imageTitleListUl.animate({
-        'margin-top': -parseInt($(this).data('section')) * self.imageTitleListItemHeight * 3
-      });
+    this.$sectionSwitch.on('click', '.image-section', function(event) {
+      event.preventDefault();
+      var sectionNumber = $(this).data('section');
 
+      if(sectionNumber !== prevSectionNumber) {
+        self.$imageTitleListUl.stop().animate({
+          'margin-top': -sectionNumber * self.imageTitleListItemHeight * 3
+        });
+
+        var slideImages = self.$imageSliderUl.find('li div.image');
+        self.currentSlideNumber = sectionNumber * 3;
+
+        slideImages
+            .eq(self.prevSlideNumber)
+            .hide('slide', { direction: 'right' }, 400);
+        slideImages
+            .eq(self.currentSlideNumber)
+            .show('slide', { direction: 'left' }, 400, function() {
+              self.prevSlideNumber = self.currentSlideNumber;
+            });
+
+        prevSectionNumber = sectionNumber;
+      }
     });
   };
 
   Slider.prototype.setAndBindSliderSwitch = function() {
     var self = this;
 
-    this.sliderImageWidth = this.$imageSlider.find('.image').width();
-    this.sliderContainerWidth = this.sliderImageWidth * this.$imageSliderUl.children().length;
-
-    this.$imageSlider.css('width', this.sliderImageWidth);
-    this.$imageSlider.css('overflow-x', 'hidden');
-    this.$imageSliderUl.css('width', this.sliderContainerWidth);
-    this.$imageSliderUl.find('li').css('float', 'left');
-
     this.$imageTitleListUl.on('click', 'li', function() {
-      self.$imageSliderUl.animate({
-        'margin-left': -$(this).data('number') * self.sliderImageWidth
-      });
+      var slideImages = self.$imageSliderUl.find('li div.image');
+      self.currentSlideNumber = $(this).data('number');
+
+      if(self.currentSlideNumber !== self.prevSlideNumber) {
+        slideImages
+            .eq(self.prevSlideNumber)
+            .hide('slide', { direction: 'right' }, 300);
+        slideImages
+            .eq(self.currentSlideNumber)
+            .show('slide', { direction: 'left' }, 300);
+      }
+
+      self.prevSlideNumber = self.currentSlideNumber;
     });
   }
 })(jQuery);
