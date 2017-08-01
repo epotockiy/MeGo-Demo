@@ -124,29 +124,6 @@
 }
 
 .css-slider {
-  @mixin slider-margin($id, $margin) {
-    a#{$id}:target ~ ul {
-      margin-left: $margin;
-    }
-  }
-
-  @mixin section-margin($id, $margin) {
-    input#{$id}:checked ~ .image-title-list ul {
-       margin-top: $margin;
-     }
-  }
-
-  $image-width: 400px;
-  $slide-1-margin: 0;
-  $slide-2-margin: -$image-width;
-  $slide-3-margin: -2 * $image-width;
-  $slide-4-margin: -3 * $image-width;
-  $slide-5-margin: -4 * $image-width;
-  $slide-6-margin: -5 * $image-width;
-  $slide-7-margin: -6 * $image-width;
-  $slide-8-margin: -7 * $image-width;
-  $slide-9-margin: -8 * $image-width;
-
   display: none;
 
   .section-switch {
@@ -214,13 +191,13 @@
       padding: 0;
       width: 400px;
       height: 300px;
-      transition: margin .4s;
+      transition: margin .3s;
 
       li {
         float: left;
         position: absolute;
 
-        div {
+        .image {
           background-position: center center;
           background-size: cover;
           background-repeat: no-repeat;
@@ -231,15 +208,15 @@
           z-index: 1;
 
           &.active {
+            transition: margin .4s;
             margin-left: 0;
             z-index: 2;
-            transition: margin .4s;
           }
 
           &.slide-out {
-            margin-left: 400px;
+            transition: all .4s;
+            transform: translateX(800px);
             z-index: 2;
-            transition: margin .4s;
           }
         }
       }

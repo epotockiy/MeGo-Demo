@@ -534,11 +534,11 @@ template {
       padding: 0;
       width: 400px;
       height: 300px;
-      transition: margin .4s; }
+      transition: margin .3s; }
       .css-slider .image-slider ul li {
         float: left;
         position: absolute; }
-        .css-slider .image-slider ul li div {
+        .css-slider .image-slider ul li .image {
           background-position: center center;
           background-size: cover;
           background-repeat: no-repeat;
@@ -547,11 +547,11 @@ template {
           height: 300px;
           margin-left: -400px;
           z-index: 1; }
-          .css-slider .image-slider ul li div.active {
+          .css-slider .image-slider ul li .image.active {
+            transition: margin .4s;
             margin-left: 0;
-            z-index: 2;
-            transition: margin .4s; }
-          .css-slider .image-slider ul li div.slide-out {
-            margin-left: 400px;
-            z-index: 2;
-            transition: margin .4s; }
+            z-index: 2; }
+          .css-slider .image-slider ul li .image.slide-out {
+            transition: all .4s;
+            transform: translateX(800px);
+            z-index: 2; }

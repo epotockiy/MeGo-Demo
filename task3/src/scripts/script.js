@@ -30,7 +30,7 @@
         this.imageTitleListItemHeight = this.$imageTitleListUl.height() / this.imageTitleListLength;
         this.$imageTitleList.css('height', this.imageTitleListItemHeight * 3);
         this.$imageTitleList.css('overflow-y', 'hidden');
-        this.$sliderDivs = self.$imageSliderUl.children().find('div');
+        this.$sliderDivs = self.$imageSliderUl.children().find('.image');
 
         for(var i = 0; i < this.$imageTitleListUl.children().length; ++i) {
           this.$imageTitleListUl.children().eq(i).attr('data-number', i);
@@ -40,20 +40,39 @@
           self.$imageTitleListUl.css({
             'margin-top': -$(this).data('section') * self.imageTitleListItemHeight * 3
           });
-        });
 
-        this.$imageTitleListUl.on('click', 'li', function() {
-          self.currentSlideNumber = $(this).data('number');
-
-          console.log(self.currentSlideNumber);
-          console.log(self.prevSlideNumber);
+          self.currentSlideNumber = $(this).data('section') * 3;
+          self.$sliderDivs
+              .eq(self.prevSlideNumber)
+              .removeClass('slide-out');
 
           if(self.prevSlideNumber !== self.currentSlideNumber) {
-            self.$sliderDivs.removeClass('active');
             self.$sliderDivs.removeClass('slide-out');
 
             self.$sliderDivs
                 .eq(self.prevSlideNumber)
+                .removeClass('active')
+                .addClass('slide-out');
+            self.$sliderDivs
+                .eq(self.currentSlideNumber)
+                .addClass('active');
+          }
+
+          self.prevSlideNumber = self.currentSlideNumber;
+        });
+
+        this.$imageTitleListUl.on('click', 'li', function() {
+          self.currentSlideNumber = $(this).data('number');
+          self.$sliderDivs
+              .eq(self.prevSlideNumber)
+              .removeClass('slide-out');
+
+          if(self.prevSlideNumber !== self.currentSlideNumber) {
+            self.$sliderDivs.removeClass('slide-out');
+
+            self.$sliderDivs
+                .eq(self.prevSlideNumber)
+                .removeClass('active')
                 .addClass('slide-out');
             self.$sliderDivs
                 .eq(self.currentSlideNumber)
