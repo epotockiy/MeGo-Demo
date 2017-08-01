@@ -139,6 +139,8 @@
   font-size: 18px;
   transition: color .4s;
   width: 15%;
+
+  
 }
 
 .todo-list .task .task-edit-btn:focus {
