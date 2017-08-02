@@ -18,6 +18,7 @@
       firstLevelItemHeight: this.$firstLevelSlider.height() / this.$firstLevelSlider.children().length,
       imageHeight: 400,
       imageWidth: 400,
+      transition: 300,
       sliderType: 'js'
     }, config);
 
@@ -28,12 +29,13 @@
   };
 
   Slider.prototype.init = function() {
-    this.createInitialMarkup();
+    this.setInitialMarkup();
+    this.setInitialStyles();
     this.bindSectionSwitch();
-    this.setAndBindSliderSwitch();
+    this.bindSliderSwitch();
   };
 
-  Slider.prototype.createInitialMarkup = function() {
+  Slider.prototype.setInitialMarkup = function() {
     this.$container.find('p.title').remove();
     this.$container.prepend('<p class="title">' + this.config.sliderType.toUpperCase() + 'slider</p>');
 
@@ -43,6 +45,29 @@
     if(!this.$secondLevelSlider.find('ul').length) {
       this.$secondLevelSlider.append(this.$secondLevelList);
     }
+
+    /* Creatse <li> element for every image and saves it to the imageArray. */
+    for(var i = 0; i < this.$firstLevelSlider.children().length; ++i) {
+      this.$firstLevelSlider.children().eq(i).data('image-number', i);
+      var imagePath = 'images/image' + (i + 1) + '.jpg';
+      this.$imageArray.push(
+          $('<li>' +
+              '<div class="image ' + (this.config.sliderType === 'css' ? 'image-margin' : '') +'"' +
+              ' style="background-image: url(' + imagePath + ');">' +
+              '</div>' +
+           '</li>')
+      );
+    }
+
+    for(var i = 0; i < this.$sectionSlider.children().length; ++i) {
+      this.$sectionSlider.children().eq(i).data('section-number', i);
+    }
+  };
+
+  Slider.prototype.setInitialStyles = function() {
+    this.$firstLevelSlider.css('transition', 'margin-top .' + this.config.transition + 's');
+    this.$secondLevelList.css('transition', 'margin .' + this.config.transition + 's');
+
     this.$firstLevelSlider.parent().css({
       'height': this.config.firstLevelItemHeight * this.config.numberOfSections,
       'overflow-y': 'hidden'
@@ -58,22 +83,7 @@
       'height': this.config.imageHeight
     });
 
-    for(var i = 0; i < this.$firstLevelSlider.children().length; ++i) {
-      this.$firstLevelSlider.children().eq(i).attr('data-image-number', i);
-      var imagePath = 'images/image' + (i + 1) + '.jpg';
-      this.$imageArray.push(
-          $('<li>' +
-              '<div class="image ' + (this.config.sliderType === 'css' ? 'image-margin' : '') +'"' +
-              ' style="background-image: url(' + imagePath + ');">' +
-              '</div>' +
-              '</li>')
-      );
-    }
-
-    for(var i = 0; i < this.$sectionSlider.children().length; ++i) {
-      this.$sectionSlider.children().eq(i).attr('data-section-number', i);
-    }
-    //add comments
+    /* At the start by default shows the first image. */
     this.$imageArray[0].find('.image').addClass('active');
     this.$secondLevelList.append(this.$imageArray[0]);
   };
@@ -104,28 +114,28 @@
   Slider.prototype.showNextSlideCSS = function() {
     if(this.prevSlideNumber !== this.currentSlideNumber) {
       var self = this;
+      /* Resets all image's classes to default value. */
       this.$imageArray[this.currentSlideNumber].find('.image')[0].className = 'image image-margin';
       this.$secondLevelList.append(this.$imageArray[this.currentSlideNumber]);
 
       setTimeout(function() {
         self.$secondLevelList.children().first().find('.image')
             .removeClass(self.config.activeClassName)
-            .removeClass(self.config.slideOutClassName);
-
-        self.$secondLevelList.children().first().find('.image')
-            .removeClass(self.config.activeClassName)
-            .addClass(self.config.slideOutClassName);
+            .addClass(self.config.slideOutClassName)
+            .css('transition', 'all .' + self.config.transition + 's');
 
         self.$secondLevelList.children().last().find('.image')
             .removeClass(self.config.slideOutClassName)
-            .addClass(self.config.activeClassName);
+            .addClass(self.config.activeClassName)
+            .css('transition', 'all .' + self.config.transition + 's');
       }, 1);
 
-      this.removeTimer = setTimeout(function () {
+      /* Sets up timeout till the animation is going, after that removes unnecessary images from DOM. */
+      setTimeout(function () {
         if(self.$secondLevelList.children().length > 1) {
           self.$secondLevelList.children().first().remove();
         }
-      }, 301);
+      }, self.config.transition + 1);
     }
 
     this.prevSlideNumber = this.currentSlideNumber;
@@ -136,6 +146,7 @@
 
     this.$sectionSlider.on('click', '.image-section', function(event) {
       event.preventDefault();
+
       var sectionNumber = $(this).data('section-number'),
           currentSlideMargin = -sectionNumber * self.config.firstLevelItemHeight * self.config.numberOfSections;
 
@@ -160,7 +171,7 @@
     });
   };
 
-  Slider.prototype.setAndBindSliderSwitch = function() {
+  Slider.prototype.bindSliderSwitch = function() {
     var self = this;
 
     this.$firstLevelSlider.on('click', 'li', function() {

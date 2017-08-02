@@ -13,7 +13,8 @@
             slideOutClassName: 'slide-out',
             imageHeight: 300,
             imageWidth: 400,
-            sliderType: 'js'
+            sliderType: 'js',
+            transition: 300
           });
           break;
 
@@ -24,7 +25,8 @@
             slideOutClassName: 'slide-out',
             imageHeight: 300,
             imageWidth: 400,
-            sliderType: 'css'
+            sliderType: 'css',
+            transition: 300
           });
           break;
 

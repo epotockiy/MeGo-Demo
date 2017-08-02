@@ -65,7 +65,7 @@
       margin-bottom: 15px;
       padding: 25px 35px;
       text-decoration: none;
-      transition: all .3s;
+      transition: all .4s;
 
       &:hover {
         background-color: #2d89ef;
@@ -84,14 +84,14 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      transition: margin-top .3s;
+      //transition: margin-top .3s;
 
       li {
         cursor: pointer;
         display: inline-block;
         font-size: 20px;
         padding: 20px 0;
-        transition: background .3s;
+        transition: background .4s;
         width: 100%;
 
         &:hover {
@@ -111,7 +111,7 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      transition: margin .3s;
+      //transition: margin .3s;
 
       li{
         position: absolute;
@@ -130,13 +130,11 @@
           }
 
           &.active {
-            transition: all .3s;
             margin-left: 0;
             z-index: 2;
           }
 
           &.slide-out {
-            transition: all .3s;
             margin-left: 400px;
             z-index: 2;
           }

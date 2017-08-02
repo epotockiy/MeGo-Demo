@@ -443,7 +443,7 @@ template {
       margin-bottom: 15px;
       padding: 25px 35px;
       text-decoration: none;
-      transition: all .3s; }
+      transition: all .4s; }
       .slider .section-slider-list .image-section:hover {
         background-color: #2d89ef;
         border: 1px solid #2d89ef; }
@@ -455,14 +455,13 @@ template {
     .slider .section-slider ul {
       list-style: none;
       margin: 0;
-      padding: 0;
-      transition: margin-top .3s; }
+      padding: 0; }
       .slider .section-slider ul li {
         cursor: pointer;
         display: inline-block;
         font-size: 20px;
         padding: 20px 0;
-        transition: background .3s;
+        transition: background .4s;
         width: 100%; }
         .slider .section-slider ul li:hover {
           background: #2d89ef;
@@ -474,8 +473,7 @@ template {
     .slider .image-slider ul {
       list-style: none;
       margin: 0;
-      padding: 0;
-      transition: margin .3s; }
+      padding: 0; }
       .slider .image-slider ul li {
         position: absolute;
         float: left; }
@@ -489,10 +487,8 @@ template {
           .slider .image-slider ul li .image.image-margin {
             margin-left: -400px; }
           .slider .image-slider ul li .image.active {
-            transition: all .3s;
             margin-left: 0;
             z-index: 2; }
           .slider .image-slider ul li .image.slide-out {
-            transition: all .3s;
             margin-left: 400px;
             z-index: 2; }
