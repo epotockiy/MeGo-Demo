@@ -31,7 +31,6 @@
     this.$secondLevelSlider.append(this.$secondLevelList);
     this.$imageArray = [];
 
-
     this.$firstLevelSlider.parent().css({
       'height': this.config.firstLevelItemHeight * this.config.numberOfSections,
       'overflow-y': 'hidden'
@@ -81,9 +80,9 @@
           }, 300, function() {
             self.$secondLevelList.children().first().remove();
           });
-
-      this.prevSlideNumber = this.currentSlideNumber;
     }
+
+    this.prevSlideNumber = this.currentSlideNumber;
   };
 
   Slider.prototype.bindSectionSwitch = function() {
@@ -99,9 +98,7 @@
       });
 
       self.currentSlideNumber = sectionNumber * self.config.numberOfSections;
-      if(self.currentSlideNumber !== self.prevSlideNumber) {
-        self.showNextSlide();
-      }
+      self.showNextSlide();
     });
   };
 
@@ -110,12 +107,7 @@
 
     this.$firstLevelSlider.on('click', 'li', function() {
       self.currentSlideNumber = $(this).data('image-number');
-
-      if(self.currentSlideNumber !== self.prevSlideNumber) {
-        self.showNextSlide();
-      }
-
-      self.prevSlideNumber = self.currentSlideNumber;
+      self.showNextSlide();
     });
   }
 })(jQuery);

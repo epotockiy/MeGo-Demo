@@ -551,10 +551,10 @@ template {
           margin-left: -400px;
           z-index: 1; }
           .css-slider .image-slider ul li .image.active {
-            transition: margin .4s;
+            transition: all .3s;
             margin-left: 0;
             z-index: 2; }
           .css-slider .image-slider ul li .image.slide-out {
-            transition: all .4s;
-            transform: translateX(800px);
+            transition: all .3s;
+            margin-left: 400px;
             z-index: 2; }
