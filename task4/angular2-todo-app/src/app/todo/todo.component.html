@@ -12,7 +12,7 @@
   </form>
 
   <div class="todo-list">
-    <div class="overlay" [ngClass]="openEditBlock ? 'active' : ''"></div>
+    <div class="overlay" [class.active]="openEditBlock"></div>
 
     <div class="filter-btns">
       <button class="all-filter"
@@ -37,7 +37,11 @@
           class="task clearfix"
           [class.done]="checkTaskForDone(task)"
           [class.active]="checkFilter(task)">
-        <i class="material-icons task-done-icon" [ngClass]="task.done ? 'active' : ''" (click)="onDoneClick(i)">done</i>
+        <i class="material-icons task-done-icon"
+           [class.active]="task.done"
+           (click)="onDoneClick(i)">
+          done
+        </i>
         <p>{{task.name}}</p>
         <i class="material-icons task-close-icon" (click)="onRemoveTask(i)">close</i>
         <button class="task-edit-btn"
@@ -51,7 +55,7 @@
     <form [formGroup]="editForm"
           class="edit"
           *ngIf="openEditBlock"
-          [ngClass]="openEditBlock ? 'active' : ''">
+          [class.active]="openEditBlock">
       <h4>Edit task</h4>
       <input class="edit-input"
              type="text"
