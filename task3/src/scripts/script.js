@@ -26,7 +26,9 @@
         $slider.Slider({
           numberOfSections: 3,
           activeClassName: 'active',
-          slideOutClassName: 'slide-out'
+          slideOutClassName: 'slide-out',
+          imageHeight: 300,
+          imageWidth: 400
         });
       }
     }
@@ -35,8 +37,8 @@
       var self = this;
 
       this.$container         = $('.css-slider');
-      this.$sectionSwitch     = this.$container.find('.section-switch');
-      this.$firstLevelSlider  = this.$container.find('.image-title-list ul');
+      this.$sectionSwitch     = this.$container.find('.section-slider-list');
+      this.$firstLevelSlider  = this.$container.find('.section-slider ul');
       this.$secondLevelSlider = this.$container.find('.image-slider ul');
       this.$secondLevelItems  = this.$secondLevelSlider.children().find('.image');
 
