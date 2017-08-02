@@ -1,53 +1,66 @@
 ;(function($, undefined) {
-  $.fn.Slider = function() {
+  $.fn.Slider = function(config) {
     return this.each(function(index, container) {
-      $(container).data('slider', new Slider(container));
+      $(container).data('slider', new Slider(container, config));
     });
   };
 
-  var Slider = function(container) {
+  var Slider = function(container, config) {
     this.$container        = $(container);
-    this.$sectionSwitch    = this.$container.find('.section-switch');
-    this.$imageTitleList   = this.$container.find('.image-title-list');
-    this.$imageTitleListUl = this.$imageTitleList.find('ul');
-    this.$imageSlider      = this.$container.find('.image-slider');
-    this.$imageSliderUl    = this.$imageSlider.find('ul');
+    this.$sectionSwitch     = this.$container.find('.section-switch');
+    this.$firstLevelSlider  = this.$container.find('.image-title-list ul');
+    this.$secondLevelSlider = this.$container.find('.image-slider ul');
+    this.$secondLevelItems  = this.$secondLevelSlider.children().find('.image');
+
+    this.config = $.extend({
+      numberOfSections: 3,
+      activeClassName: 'active',
+      slideOutClassName: 'slide-out',
+      firstLevelItemHeight: this.$firstLevelSlider.height() / this.$firstLevelSlider.children().length
+    }, config);
+
+    this.currentSlideNumber = 0;
+    this.prevSlideNumber = 0;
 
     this.init();
   };
 
   Slider.prototype.init = function() {
-    this.imageTitleListLength = this.$imageTitleListUl.children().length;
-    this.imageTitleListItemHeight = this.$imageTitleListUl.height() / this.imageTitleListLength;
-    this.$imageTitleList.css('height', this.imageTitleListItemHeight * 3);
-    this.$imageTitleList.css('overflow-y', 'hidden');
+    this.$firstLevelSlider.parent().css({
+      'height': this.config.firstLevelItemHeight * this.config.numberOfSections,
+      'overflow-y': 'hidden'
+    });
+
+    for(var i = 0; i < this.$firstLevelSlider.children().length; ++i) {
+      this.$firstLevelSlider.children().eq(i).attr('data-image-number', i);
+    }
 
     for(var i = 0; i < this.$sectionSwitch.children().length; ++i) {
-      this.$sectionSwitch.children().eq(i).attr('data-section', i);
+      this.$sectionSwitch.children().eq(i).attr('data-section-number', i);
     }
 
-    for(var i = 0; i < this.$imageTitleListUl.children().length; ++i) {
-      this.$imageTitleListUl.children().eq(i).attr('data-number', i);
-    }
+    this.$secondLevelSlider.parent().css({
+      'width': this.$secondLevelItems.width(),
+      'overflow-x': 'hidden'
+    });
 
-    this.sliderImageWidth = this.$imageSlider.find('div.image').width();
+    this.$secondLevelSlider.css({
+      'width': this.$secondLevelItems.width(),
+      'height': this.$secondLevelItems.height()
+    });
 
-    this.$imageSlider.css('width', this.sliderImageWidth);
-    this.$imageSlider.css('overflow-x', 'hidden');
-    this.$imageSliderUl.css('width', this.sliderImageWidth).css('height', this.sliderImageWidth);
-    this.$imageSliderUl
+    this.$secondLevelSlider
       .find('li').css({
         'float': 'left',
         'position': 'absolute'
-      })
-      .find('div.image').css({
-        'width': this.sliderImageWidth,
+      });
+
+    this.$secondLevelItems
+      .css({
         'display': 'none'
       })
-      .eq(0).css('display', 'block');
-
-    this.currentSlideNumber = 0;
-    this.prevSlideNumber = 0;
+      .eq(0)
+        .css('display', 'block');
 
     this.bindSectionSwitch();
     this.setAndBindSliderSwitch();
@@ -58,15 +71,16 @@
 
     this.$sectionSwitch.on('click', '.image-section', function(event) {
       event.preventDefault();
-      var sectionNumber = $(this).data('section');
+      var sectionNumber = $(this).data('section-number');
 
       if(sectionNumber !== prevSectionNumber) {
-        self.$imageTitleListUl.stop().animate({
-          'margin-top': -sectionNumber * self.imageTitleListItemHeight * 3
+        var currentSlideMargin = -sectionNumber * self.config.firstLevelItemHeight * self.config.numberOfSections;
+        self.$firstLevelSlider.stop().animate({
+          'margin-top': currentSlideMargin
         });
 
-        var slideImages = self.$imageSliderUl.find('li div.image');
-        self.currentSlideNumber = sectionNumber * 3;
+        var slideImages = self.$secondLevelSlider.find('li div.image');
+        self.currentSlideNumber = sectionNumber * self.config.numberOfSections;
 
         slideImages
             .eq(self.prevSlideNumber)
@@ -85,15 +99,14 @@
   Slider.prototype.setAndBindSliderSwitch = function() {
     var self = this;
 
-    this.$imageTitleListUl.on('click', 'li', function() {
-      var slideImages = self.$imageSliderUl.find('li div.image');
-      self.currentSlideNumber = $(this).data('number');
+    this.$firstLevelSlider.on('click', 'li', function() {
+      self.currentSlideNumber = $(this).data('image-number');
 
       if(self.currentSlideNumber !== self.prevSlideNumber) {
-        slideImages
+        self.$secondLevelItems
             .eq(self.prevSlideNumber)
             .hide('slide', { direction: 'right' }, 300);
-        slideImages
+        self.$secondLevelItems
             .eq(self.currentSlideNumber)
             .show('slide', { direction: 'left' }, 300);
       }

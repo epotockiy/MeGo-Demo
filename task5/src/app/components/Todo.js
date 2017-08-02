@@ -1,9 +1,12 @@
 import React from 'react';
-import './Todo.css';
+import './Todo.scss';
 
 export class Todo extends React.Component {
   isStorageAvailable = false;
-  tasksArray = [];
+  tasksArray         = [];
+  openEditBlock      = false;
+  currentTask        = 0;
+  currentFilter      = 'all';
 
   constructor() {
     super();
@@ -51,6 +54,17 @@ export class Todo extends React.Component {
       taskInput: event.target.value
     });
   }
+
+  setCurrentFilter(filter) {
+    this.currentFilter = filter;
+    console.log("set");
+  }
+
+  getCurrentFilter() {
+    return this.currentFilter;
+    console.log("heCUre");
+  }
+
   //
   // onDoneClick(index: number) {
   //   this.tasksArray[index].done = !this.tasksArray[index].done;
@@ -117,12 +131,18 @@ export class Todo extends React.Component {
             <div className="overlay"></div>
 
             <div className="filter-btns">
-              <button className="all-filter">All</button>
-              <button className="progress-filter">Progress</button>
-              <button className="done-filter">Done</button>
+              <button className="all-filter" onClick={this.setCurrentFilter('all')}>
+                All
+              </button>
+              <button className="progress-filter" onClick={this.setCurrentFilter('progress')}>
+                Progress
+              </button>
+              <button className="done-filter" onClick={this.setCurrentFilter('done')}>
+                Done
+              </button>
             </div>
 
-            <ul>
+            <ul className={this.getCurrentFilter()}>
               {this.tasksArray.map((task) => <li className="task clearfix" key={task.id}>{task.name}</li>)}
             </ul>
           </div>
