@@ -13,7 +13,7 @@ export class TodoComponent implements OnInit {
   todoForm: FormGroup;
   editForm: FormGroup;
   openEditBlock: false;
-  currentTask: number;
+  currentTask: number;x
   tasksArray = [];
   isStorageAvailable = false;
   currentFilter = 'all';

@@ -400,7 +400,7 @@ template {
     font-size: 18px;
     margin: 0 10px;
     padding: 5px 20px;
-    transition: all .4s; }
+    transition: all .3s; }
     .choose-buttons button:focus {
       outline: none; }
     .choose-buttons button:hover {
@@ -443,7 +443,7 @@ template {
       margin-bottom: 15px;
       padding: 25px 35px;
       text-decoration: none;
-      transition: all .4s; }
+      transition: all .3s; }
       .slider .section-slider-list .image-section:hover {
         background-color: #2d89ef;
         border: 1px solid #2d89ef; }
@@ -455,13 +455,14 @@ template {
     .slider .section-slider ul {
       list-style: none;
       margin: 0;
-      padding: 0; }
+      padding: 0;
+      transition: margin-top .3s; }
       .slider .section-slider ul li {
         cursor: pointer;
         display: inline-block;
         font-size: 20px;
         padding: 20px 0;
-        transition: background .4s;
+        transition: background .3s;
         width: 100%; }
         .slider .section-slider ul li:hover {
           background: #2d89ef;
@@ -473,7 +474,8 @@ template {
     .slider .image-slider ul {
       list-style: none;
       margin: 0;
-      padding: 0; }
+      padding: 0;
+      transition: margin .3s; }
       .slider .image-slider ul li {
         position: absolute;
         float: left; }
@@ -484,77 +486,13 @@ template {
           position: relative;
           width: 400px;
           height: 300px; }
-
-.css-slider {
-  display: none; }
-  .css-slider .section-slider-list {
-    float: left;
-    margin: 0 0 0 15%; }
-    .css-slider .section-slider-list .image-section {
-      background-color: #00aba9;
-      border: 1px solid #fff;
-      color: #fff;
-      cursor: pointer;
-      display: block;
-      font-size: 30px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      padding: 25px 35px;
-      text-decoration: none;
-      transition: all .4s; }
-      .css-slider .section-slider-list .image-section:hover {
-        background-color: #2d89ef;
-        border: 1px solid #2d89ef; }
-  .css-slider .section-slider {
-    float: left;
-    width: 30%;
-    margin: 0 5%;
-    background: #eff4ff; }
-    .css-slider .section-slider ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      transition: margin-top .4s; }
-      .css-slider .section-slider ul li {
-        cursor: pointer;
-        display: inline-block;
-        font-size: 20px;
-        padding: 20px 0;
-        transition: background .4s;
-        width: 100%; }
-        .css-slider .section-slider ul li:hover {
-          background: #2d89ef;
-          color: #fff; }
-  .css-slider .image-slider {
-    float: left;
-    position: relative;
-    padding: 0;
-    width: 400px;
-    overflow-x: hidden; }
-    .css-slider .image-slider ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      width: 400px;
-      height: 300px;
-      transition: margin .3s; }
-      .css-slider .image-slider ul li {
-        float: left;
-        position: absolute; }
-        .css-slider .image-slider ul li .image {
-          background-position: center center;
-          background-size: cover;
-          background-repeat: no-repeat;
-          position: relative;
-          width: 400px;
-          height: 300px;
-          margin-left: -400px;
-          z-index: 1; }
-          .css-slider .image-slider ul li .image.active {
+          .slider .image-slider ul li .image.image-margin {
+            margin-left: -400px; }
+          .slider .image-slider ul li .image.active {
             transition: all .3s;
             margin-left: 0;
             z-index: 2; }
-          .css-slider .image-slider ul li .image.slide-out {
+          .slider .image-slider ul li .image.slide-out {
             transition: all .3s;
             margin-left: 400px;
             z-index: 2; }
