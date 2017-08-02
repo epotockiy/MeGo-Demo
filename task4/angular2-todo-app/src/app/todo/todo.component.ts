@@ -1,22 +1,25 @@
 import { Component, OnInit                  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TodoService                        } from './todo.service';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css']
+  styleUrls: ['./todo.component.css'],
+  providers: [TodoService]
 })
 
 export class TodoComponent implements OnInit {
   todoForm: FormGroup;
   editForm: FormGroup;
-  tasksArray = [];
-  isStorageAvailable = false;
   openEditBlock: false;
   currentTask: number;
+  tasksArray = [];
+  isStorageAvailable = false;
   currentFilter = 'all';
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder,
+              private _todoService: TodoService) {
     this.todoForm = this._formBuilder.group({
       'taskName': [null, Validators.required]
     });
@@ -27,21 +30,20 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getListFromStorage();
-  }
+    this.checkStorage();
 
-  getListFromStorage() {
-    if (typeof localStorage !== 'undefined') {
-      this.tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
-      this.isStorageAvailable = true;
-    } else {
-      console.log('Local storage is not available.');
-      this.isStorageAvailable = false;
+    if (this.isStorageAvailable) {
+      this._todoService.getDataFromStorage('tasksArray');
+      this.tasksArray = this._todoService.getDataFromStorage('tasksArray');
     }
   }
 
-  saveListToStorage() {
-    localStorage.setItem('tasksArray', JSON.stringify(this.tasksArray));
+  checkStorage() {
+    if (typeof localStorage !== 'undefined') {
+      this.isStorageAvailable = true;
+    } else {
+      this.isStorageAvailable = false;
+    }
   }
 
   addNewTask(form) {
@@ -51,7 +53,7 @@ export class TodoComponent implements OnInit {
     });
 
     if (this.isStorageAvailable) {
-      this.saveListToStorage();
+      this._todoService.saveDataToStorage('tasksArray', this.tasksArray);
     }
 
     this.todoForm.reset();
@@ -61,7 +63,7 @@ export class TodoComponent implements OnInit {
     this.tasksArray[index].done = !this.tasksArray[index].done;
 
     if (this.isStorageAvailable) {
-      this.saveListToStorage();
+      this._todoService.saveDataToStorage('tasksArray', this.tasksArray);
     }
   }
 
@@ -69,7 +71,7 @@ export class TodoComponent implements OnInit {
     this.tasksArray.splice(index, 1);
 
     if (this.isStorageAvailable) {
-      this.saveListToStorage();
+      this._todoService.saveDataToStorage('tasksArray', this.tasksArray);
     }
   }
 
@@ -80,7 +82,7 @@ export class TodoComponent implements OnInit {
     this.openEditBlock = false;
 
     if (this.isStorageAvailable) {
-      this.saveListToStorage();
+      this._todoService.saveDataToStorage('tasksArray', this.tasksArray);
     }
   }
 
