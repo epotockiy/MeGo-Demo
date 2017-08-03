@@ -46,7 +46,7 @@
       this.$secondLevelSlider.append(this.$secondLevelList);
     }
 
-    /* Creatse <li> element for every image and saves it to the imageArray. */
+    /* Creates <li> element for every image and saves it to the imageArray. */
     for(var i = 0; i < this.$firstLevelSlider.children().length; ++i) {
       this.$firstLevelSlider.children().eq(i).data('image-number', i);
       var imagePath = 'images/image' + (i + 1) + '.jpg';

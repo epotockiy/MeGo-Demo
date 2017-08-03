@@ -1,0 +1,17 @@
+<form [formGroup]="editForm"
+      class="edit"
+      *ngIf="openEditBlock"
+      [class.active]="openEditBlock">
+  <h4>Edit task</h4>
+  <input class="edit-input"
+         type="text"
+         [value]="tasksArray[currentTask].name"
+         [formControl]="editForm.controls['newTaskName']" />
+  <button type="submit"
+          class="save-btn"
+          [disabled]="!editForm.valid"
+          (click)="onSaveClick($event)">
+    Save
+  </button>
+  <i class="material-icons edit-close-icon" (click)="openEditBlock = !openEditBlock">close</i>
+</form>

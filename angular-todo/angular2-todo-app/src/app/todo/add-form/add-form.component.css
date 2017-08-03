@@ -1,0 +1,29 @@
+.task-input {
+  padding: 12px 20px;
+  color: #1d1d1d;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 20px;
+}
+
+.task-input:focus {
+  outline: none;
+}
+
+.add-task-btn {
+  background: #2d89ef;
+  border: 1px solid #2d89ef;
+  color: #eff4ff;
+  font-size: 20px;
+  padding: 13px 40px;
+  cursor: pointer;
+  transition: background .4s;
+}
+
+.add-task-btn:hover {
+  background: #2b5797;
+}
+
+.add-task-btn:disabled {
+  background: #2d89ef;
+  cursor: not-allowed;
+}

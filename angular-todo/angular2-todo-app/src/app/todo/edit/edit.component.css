@@ -1,0 +1,78 @@
+
+.edit {
+  display: none;
+  position: absolute;
+  background: #eee;
+  border: 1px solid #aaa;
+  top: 10%;
+  width: 30%;
+  margin: 0 calc(10% - 40px);
+  padding: 0 40px 40px;
+  -webkit-box-shadow: 0 0 100px #333;
+  -moz-box-shadow: 0 0 100px #333;
+  box-shadow: 0 0 100px #333;
+  z-index: 101;
+}
+
+.edit.active {
+  display: block;
+}
+
+.edit .edit-input {
+  color: #1d1d1d;
+  font-size: 20px;
+  padding: 5px 15px;
+}
+
+.edit .edit-input:focus {
+  outline: none;
+}
+
+.edit h4 {
+  color: #1d1d1d;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.edit .save-btn {
+  background: #2d89ef;
+  border: 1px solid #2d89ef;
+  color: #eff4ff;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 6px 30px;
+  transition: background .4s;
+}
+
+.edit .save-btn:hover {
+  background: #2b5797;
+}
+
+.edit .save-btn:disabled {
+  background: #2d89ef;
+  cursor: not-allowed;
+}
+
+.edit .save-btn:disabled:hover {
+  background: #2d89ef;
+}
+
+.edit .edit-close-icon {
+  position: absolute;
+  font-size: 24px;
+  font-weight: bold;
+  color: #aaa;
+  top: 10px;
+  right: 10px;
+  border: none;
+  cursor: pointer;
+  background: none;
+  transition: color .4s;
+}
+
+.edit .edit-close-icon:hover {
+  color: #ccc;
+}

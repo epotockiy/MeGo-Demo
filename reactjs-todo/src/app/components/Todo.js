@@ -1,25 +1,30 @@
 import React from 'react';
+import { TaskList } from './TaskList';
+import { EditForm } from './EditForm';
 import './Todo.scss';
 
 export class Todo extends React.Component {
   isStorageAvailable = false;
-  tasksArray         = [];
   openEditBlock      = false;
-  currentTask        = 0;
-  currentFilter      = 'all';
+  taskToEditIndex     = 0;
 
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
       taskInput: '',
-      editInput: ''
+      editInput: '',
+      currentFilter: 'all',
+      tasksArray: [],
+      storageName: 'tasksArray' + props.id
     };
+
+    this.getTasksFromStorage(props);
   }
 
-  getTasksFromStorage() {
+  getTasksFromStorage(props) {
     if (typeof localStorage !== 'undefined') {
-      this.tasksArray = JSON.parse(localStorage.getItem('tasksArray' + this.props.id)) || [];
+      this.state.tasksArray = JSON.parse(localStorage.getItem(this.state.storageName)) || [];
       this.isStorageAvailable = true;
     } else {
       this.tasksArray = [];
@@ -28,102 +33,59 @@ export class Todo extends React.Component {
   }
 
   saveListToStorage() {
-    localStorage.setItem('tasksArray' + this.props.id, JSON.stringify(this.tasksArray));
+    localStorage.setItem(this.state.storageName, JSON.stringify(this.state.tasksArray));
   }
 
   addNewTask(event) {
     event.preventDefault();
 
-    this.tasksArray.unshift({
-      name: this.state.taskInput,
+    let tempArray = this.state.tasksArray;
+    tempArray.unshift({
+      name: this._inputName.value,
       done: false,
       id: Math.random().toString(32).substr(2, 8)
     });
 
-    if (this.isStorageAvailable) {
+    this.setState({
+      tasksArray: tempArray
+    });
+
+    this._inputName.value = '';
+
+    if(this.isStorageAvailable) {
       this.saveListToStorage();
     }
-
-    this.setState({
-      taskInput: ''
-    });
-  }
-
-  handleTaskInputChange(event) {
-    this.setState({
-      taskInput: event.target.value
-    });
   }
 
   setCurrentFilter(filter) {
-    this.currentFilter = filter;
-    console.log("set");
+    this.setState({
+      currentFilter: filter
+    });
   }
 
-  getCurrentFilter() {
-    return this.currentFilter;
-    console.log("heCUre");
+  updateTaskList(newTasksArray) {
+    this.setState({
+      tasksArray: newTasksArray
+    });
+
+    if(this.isStorageAvailable) {
+      this.saveListToStorage();
+    }
   }
 
-  //
-  // onDoneClick(index: number) {
-  //   this.tasksArray[index].done = !this.tasksArray[index].done;
-  //
-  //   if (this.isStorageAvailable) {
-  //     this.saveListToStorage();
-  //   }
-  // }
-  //
-  // onRemoveTask(index: number) {
-  //   this.tasksArray.splice(index, 1);
-  //
-  //   if (this.isStorageAvailable) {
-  //     this.saveListToStorage();
-  //   }
-  // }
-  //
-  // onSaveClick(event) {
-  //   event.preventDefault();
-  //
-  //   this.tasksArray[this.currentTask].name = this.editForm.controls['newTaskName'].value;
-  //   this.openEditBlock = false;
-  //
-  //   if (this.isStorageAvailable) {
-  //     this.saveListToStorage();
-  //   }
-  // }
-  //
-  // checkFilter(task) {
-  //   if (task.done) {
-  //     if (this.currentFilter === 'all' || this.currentFilter === 'done') {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   } else {
-  //     if (this.currentFilter === 'all' || this.currentFilter === 'progress') {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   }
-  // }
-  //
-  // checkTaskForDone(task) {
-  //   return !!task.done;
-  // }
+  handleEditClick(index, openBlock) {
+    this.taskToEditIndex = index;
+    this.openEditBlock = openBlock;
+  }
 
   render() {
-    this.getTasksFromStorage();
-
     return (
         <div className="todo">
-          <form ref="task_form" onSubmit={this.addNewTask.bind(this)}>
+          <form onSubmit={this.addNewTask.bind(this)}>
             <input type="text"
                    className="task-input"
                    placeholder="Enter task name..."
-                   value={this.state.taskInput}
-                   onChange={this.handleTaskInputChange.bind(this)}/>
+                   ref={(name) => this._inputName = name}/>
             <button type="submit" className="add-task-btn">Adds</button>
           </form>
 
@@ -131,20 +93,28 @@ export class Todo extends React.Component {
             <div className="overlay"></div>
 
             <div className="filter-btns">
-              <button className="all-filter" onClick={this.setCurrentFilter('all')}>
+              <button className={"all-filter " + (this.state.currentFilter === 'all' ? 'active' : '')}
+                      onClick={this.setCurrentFilter.bind(this, 'all')}>
                 All
               </button>
-              <button className="progress-filter" onClick={this.setCurrentFilter('progress')}>
+              <button className={"progress-filter " + (this.state.currentFilter === 'progress' ? 'active' : '')}
+                      onClick={this.setCurrentFilter.bind(this, 'progress')}>
                 Progress
               </button>
-              <button className="done-filter" onClick={this.setCurrentFilter('done')}>
+              <button className={"done-filter " + (this.state.currentFilter === 'done' ? 'active' : '')}
+                      onClick={this.setCurrentFilter.bind(this, 'done')}>
                 Done
               </button>
             </div>
 
-            <ul className={this.getCurrentFilter()}>
-              {this.tasksArray.map((task) => <li className="task clearfix" key={task.id}>{task.name}</li>)}
-            </ul>
+            <TaskList tasksArray={this.state.tasksArray}
+                      currentFilter={this.state.currentFilter}
+                      updateTaskList={this.updateTaskList.bind(this)}
+                      handleEditClick={this.handleEditClick.bind(this)}/>
+
+            <EditForm tasksArray={this.state.tasksArray}
+                      taskToEditIndex={this.taskToEditIndex}
+                      opentEditBlock={this.openEditBlock}/>
           </div>
         </div>
     );

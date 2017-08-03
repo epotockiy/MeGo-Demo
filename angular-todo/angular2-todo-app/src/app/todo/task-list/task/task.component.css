@@ -1,0 +1,100 @@
+.task {
+  background: #eff4ff;
+  display: none;
+  margin-top: 20px;
+  padding: 5px;
+  width: 100%;
+}
+
+.task > * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.task.active {
+  display: inline-block;
+}
+
+.task.done p {
+  text-decoration: line-through;
+}
+
+.task.done .task-edit-btn {
+  cursor: not-allowed;
+}
+
+.task.done .task-edit-btn:hover {
+  color: #bbb;
+}
+
+.task .task-done-icon,
+.task p {
+  float: left;
+}
+
+.task .task-edit-btn,
+.task .task-close-icon {
+  float: right;
+}
+
+.task .task-done-icon {
+  color: #bbb;
+  cursor: pointer;
+  font-size: 36px;
+  transition: color .4s;
+  width: 7%;
+}
+
+.task .task-done-icon:hover {
+  color: #2d89ef;
+}
+
+.task .task-done-icon.active {
+  color: #2d89ef;
+}
+
+.task .task-done-icon.active:hover {
+  color: #bbb;
+}
+
+.task p {
+  color: #1d1d1d;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 7px 10px;
+  width: 71%;
+  overflow-x: auto;
+}
+
+.task .task-edit-btn {
+  color: #bbb;
+  cursor: pointer;
+  padding: 8px 20px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  transition: color .4s;
+  width: 15%;
+}
+
+.task .task-edit-btn:focus {
+  outline: none;
+}
+
+.task .task-edit-btn:hover {
+  color: #2d89ef;
+}
+
+.task .task-close-icon {
+  color: #bbb;
+  cursor: pointer;
+  font-size: 36px;
+  transition: color .4s;
+  width: 7%;
+}
+
+.task .task-close-icon:hover {
+  color: #2d89ef;
+}

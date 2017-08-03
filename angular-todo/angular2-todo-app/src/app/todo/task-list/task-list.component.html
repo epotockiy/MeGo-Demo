@@ -1,0 +1,9 @@
+<div class="todo-list">
+  <div class="overlay" [class.active]="_dataService.openEditBlock"></div>
+
+  <ul [ngClass]="_dataService.currentFilter">
+    <app-task *ngFor="let task of _dataService.tasksArray; let i = index"
+              [index]="i">
+    </app-task>
+  </ul>
+</div>
