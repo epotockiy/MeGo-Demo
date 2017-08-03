@@ -17,8 +17,8 @@ export class TaskComponent {
               public _dataService: DataService) { }
 
   onEditClick() {
-    this._dataService.tasksArray[this.index].currentTask = this.index;
-    this._dataService.tasksArray[this.index].openEditBlock = !this._dataService.tasksArray[this.index].openEditBlock;
+    this._dataService.currentTask = this.index;
+    this._dataService.openEditBlock = !this._dataService.openEditBlock;
   }
 
   onDoneClick() {

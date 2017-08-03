@@ -1,11 +1,11 @@
 <form [formGroup]="editForm"
       class="edit"
-      *ngIf="openEditBlock"
-      [class.active]="openEditBlock">
+      *ngIf="_dataService.openEditBlock"
+      [class.active]="_dataService.openEditBlock">
   <h4>Edit task</h4>
   <input class="edit-input"
          type="text"
-         [value]="tasksArray[currentTask].name"
+         [value]="_dataService.tasksArray[_dataService.currentTask].name"
          [formControl]="editForm.controls['newTaskName']" />
   <button type="submit"
           class="save-btn"
@@ -13,5 +13,5 @@
           (click)="onSaveClick($event)">
     Save
   </button>
-  <i class="material-icons edit-close-icon" (click)="openEditBlock = !openEditBlock">close</i>
+  <i class="material-icons edit-close-icon" (click)="_dataService.openEditBlock = !_dataService.openEditBlock">close</i>
 </form>

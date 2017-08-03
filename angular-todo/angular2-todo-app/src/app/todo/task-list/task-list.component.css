@@ -24,3 +24,36 @@
 .todo-list .overlay.active {
   display: block;
 }
+
+.filter-btns {
+  padding-top: 20px;
+  font-size: 0;
+}
+
+.filter-btns button:focus {
+  outline: none;
+}
+
+.filter-btns button {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px 20px;
+  background: #eff4ff;
+  border: 1px solid #eff4ff;
+  color: #1d1d1d;
+  margin: 0 5px;
+  transition: all .4s;
+}
+
+.filter-btns button:hover {
+  background: #2d89ef;
+  border: 1px solid #2d89ef;
+  color: #eff4ff;
+}
+
+.filter-btns button.active {
+  background: #2d89ef;
+  border: 1px solid #2d89ef;
+  color: #eff4ff;
+}
+

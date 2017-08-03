@@ -1,6 +1,24 @@
 <div class="todo-list">
   <div class="overlay" [class.active]="_dataService.openEditBlock"></div>
 
+  <div class="filter-btns">
+    <button class="all-filter"
+            [class.active]="_dataService.currentFilter === 'all'"
+            (click)="_dataService.currentFilter = 'all'">
+      All
+    </button>
+    <button class="progress-filter"
+            [class.active]="_dataService.currentFilter === 'progress'"
+            (click)="_dataService.currentFilter = 'progress'">
+      In progress
+    </button>
+    <button class="done-filter"
+            [class.active]="_dataService.currentFilter === 'done '"
+            (click)="_dataService.currentFilter = 'done'">
+      Done
+    </button>
+  </div>
+
   <ul [ngClass]="_dataService.currentFilter">
     <app-task *ngFor="let task of _dataService.tasksArray; let i = index"
               [index]="i">
