@@ -1,5 +1,5 @@
 import React from 'react';
-import './AddForm.css';
+import './AddForm.scss';
 
 export const AddForm = (props) => {
   props = props.data;

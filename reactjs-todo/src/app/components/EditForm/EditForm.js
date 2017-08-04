@@ -1,5 +1,5 @@
 import React from 'react';
-import './EditForm.css';
+import './EditForm.scss';
 
 export const EditForm = (props) => {
   props = props.data;

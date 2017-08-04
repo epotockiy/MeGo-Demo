@@ -1,4 +1,5 @@
 import React from 'react';
+import './Task.scss';
 
 export const Task = (props) => {
   const currentIndex = props.index;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Task } from '../Task/Task';
-import './TaskList.css';
+import './TaskList.scss';
 
 export const TaskList = (props) => {
   props = props.data;
