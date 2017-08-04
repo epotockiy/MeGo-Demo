@@ -6,8 +6,14 @@ import { TaskComponent     } from './task/task.component';
 
 @NgModule({
   imports: [CommonModule],
-  exports: [TaskListComponent, TaskComponent],
-  declarations: [TaskListComponent, TaskComponent],
+  exports: [
+    TaskListComponent,
+    TaskComponent
+  ],
+  declarations: [
+    TaskListComponent,
+    TaskComponent
+  ],
   providers: []
 })
 

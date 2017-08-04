@@ -590,8 +590,14 @@ var TaskListModule = (function () {
 TaskListModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */]],
-        exports: [__WEBPACK_IMPORTED_MODULE_2__task_list_component__["a" /* TaskListComponent */], __WEBPACK_IMPORTED_MODULE_3__task_task_component__["a" /* TaskComponent */]],
-        declarations: [__WEBPACK_IMPORTED_MODULE_2__task_list_component__["a" /* TaskListComponent */], __WEBPACK_IMPORTED_MODULE_3__task_task_component__["a" /* TaskComponent */]],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__task_list_component__["a" /* TaskListComponent */],
+            __WEBPACK_IMPORTED_MODULE_3__task_task_component__["a" /* TaskComponent */]
+        ],
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__task_list_component__["a" /* TaskListComponent */],
+            __WEBPACK_IMPORTED_MODULE_3__task_task_component__["a" /* TaskComponent */]
+        ],
         providers: []
     })
 ], TaskListModule);

@@ -1,13 +1,12 @@
-import React      from 'react';
-import { render } from 'react-dom';
-import { Todo   } from './components/Todo'
+import React        from 'react';
+import { render   } from 'react-dom';
+import { Provider } from 'react-redux';
+import Todo         from './containers/Todo/Todo'
+import store        from './store';
 
-class App extends React.Component {
-  render() {
-    return (
-        <Todo id={1}/>
-    );
-  }
-}
-
-render(<App/>, document.getElementById('app'));
+render(
+    <Provider store={store}>
+      <Todo/>
+    </Provider>,
+    document.getElementById('app')
+);

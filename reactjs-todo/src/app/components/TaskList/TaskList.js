@@ -1,4 +1,5 @@
 import React from 'react';
+import './TaskList.css';
 
 export class TaskList extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ export class TaskList extends React.Component {
     this.props.handleEditClick(index, true);
   }
 
-  createTaskItem(task, index) {
+  createTaskItems(task, index) {
     const itemClassname = "task clearfix "
             + (this.checkFilter(task) ? ' active' : '')
             + (this.checkTaskForDone(task) ? ' done' : ''),
@@ -50,31 +51,45 @@ export class TaskList extends React.Component {
             + (task.done ? ' active' : '');
 
     return (
-        <li className={itemClassname} key={task.id}>
-          <i className={doneIconClassname}
-            onClick={this.onDoneClick.bind(this, index)}>
-            done
-          </i>
-          <p>{task.name}</p>
-          <i className="material-icons task-close-icon" onClick={this.onRemoveTask.bind(this, index)}>
-            close
-          </i>
-          <button className="task-edit-btn"
-            disabled={task.done}
-            onClick={this.handleEditClick.bind(this, index)}>
-            Edit
-          </button>
-        </li>
+      <Task
+        itemClassName={itemClassname}
+        taskId={task.id}
+        doneIconClassname={doneIconClassname}
+        taskName={task.name}
+        taskDone={task.done}
+        onDoneClick={this.onDoneClick.bind(this, index)}
+        onRemoveTask={this.onRemoveTask.bind(this, index)}
+        handleEditClick={this.handleEditClick.bind(this, index)}
+      />
     );
   }
 
   render() {
-    this.listItems = this.tasksArray.map(this.createTaskItem.bind(this));
+    this.listItems = this.tasksArray.map(this.createTaskItems.bind(this));
 
     return (
+      <div className="todo-list">
+        <div className="overlay"></div>
+
+        <div className="filter-btns">
+          <button className={"all-filter " + (this.state.currentFilter === 'all' ? 'active' : '')}
+                  onClick={this.setCurrentFilter.bind(this, 'all')}>
+            All
+          </button>
+          <button className={"progress-filter " + (this.state.currentFilter === 'progress' ? 'active' : '')}
+                  onClick={this.setCurrentFilter.bind(this, 'progress')}>
+            Progress
+          </button>
+          <button className={"done-filter " + (this.state.currentFilter === 'done' ? 'active' : '')}
+                  onClick={this.setCurrentFilter.bind(this, 'done')}>
+            Done
+          </button>
+        </div>
+
         <ul className={this.currentFilter}>
           {this.listItems}
         </ul>
+      </div>
     );
   }
 }
