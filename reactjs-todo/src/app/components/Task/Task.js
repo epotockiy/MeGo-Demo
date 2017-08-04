@@ -1,21 +1,67 @@
 import React from 'react';
 
 export const Task = (props) => {
+  const currentIndex = props.index;
+  props = props.data;
+
+  let checkFilter = function (task) {
+    if (task.done) {
+      return (props.data.currentFilter === 'all' || props.data.currentFilter === 'done');
+    } else {
+      return (props.data.currentFilter === 'all' || props.data.currentFilter === 'progress');
+    }
+  };
+
+  let onDoneClick = function() {
+    const tempTasksArray = props.data.tasksArray;
+    tempTasksArray[currentIndex].done = !tempTasksArray[currentIndex].done;
+
+    console.log(props);
+    props.setTasksArray(tempTasksArray);
+
+    if(props.data.isStorageAvailable) {
+      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
+    }
+  };
+
+  let onRemoveTask = function() {
+    const tempTasksArray = props.data.tasksArray;
+    tempTasksArray.splice(currentIndex, 1);
+
+    props.setTasksArray(tempTasksArray);
+
+    if(props.data.isStorageAvailable) {
+      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
+    }
+  };
+
+  let handleEditClick = function() {
+    props.data.openEditBlock = !props.data.openEditBlock;
+    props.data.currentTask = currentIndex;
+  };
+
+  const itemClassName = "task clearfix "
+      + (checkFilter(props.data.tasksArray[currentIndex]) ? 'active' : '')
+      + ((!!props.data.tasksArray[currentIndex].done) ? ' done' : '');
+
+  const doneIconClassName = "material-icons task-done-icon "
+      + ((!!props.data.tasksArray[currentIndex].done) ? 'active' : '');
+
   return (
-      <li className={props.itemClassname} key={props.taskId}>
-        <i className={props.doneIconClassname}
-           onClick={props.onDoneClick}>
-          done
-        </i>
-        <p>{props.taskName}</p>
-        <i className="material-icons task-close-icon" onClick={props.onRemoveTask}>
-          close
-        </i>
-        <button className="task-edit-btn"
-                disabled={props.taskDone}
-                onClick={props.handleEditClick}>
-          Edit
-        </button>
-      </li>
+    <li className={itemClassName}>
+      <i className={doneIconClassName}
+         onClick={onDoneClick}>
+        done
+      </i>
+      <p>{props.data.tasksArray[currentIndex].name}</p>
+      <i className="material-icons task-close-icon" onClick={onRemoveTask}>
+        close
+      </i>
+      <button className="task-edit-btn"
+              disabled={props.data.tasksArray[currentIndex].done}
+              onClick={handleEditClick}>
+        Edit
+      </button>
+    </li>
   );
 };

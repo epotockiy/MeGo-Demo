@@ -2,20 +2,46 @@ import React from 'react';
 import './EditForm.css';
 
 export const EditForm = (props) => {
-    return (
-        <form class={"edit " + (props.openEditBlock ? 'active' : '')}
-              onSubmit={props.onSaveClick}>
-          <h4>Edit task</h4>
-          <input class="edit-input"
-                 type="text"
-                 value={props.editInput}
-                 ref={(name) => props.inputName = name}/>
-          <button type="submit"
-                  class="save-btn"
-                  disabled={!props.inputName.value.length}>
-            Save
-          </button>
-          <i class="material-icons edit-close-icon" onClick={props.openEditBlock = !props.openEditBlock}>close</i>
-        </form>
-    );
-}
+  props = props.data;
+
+  let inputName = '';
+
+  let onSaveClick = function(event) {
+    event.preventDefault();
+
+    let tempArray = props.data.tasksArray;
+    tempArray[props.data.currentTask].name = inputName;
+    inputName = '';
+
+    props.data.setTasksArray(tempArray);
+
+    if(props.data.isStorageAvailable) {
+      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
+    }
+  };
+
+  let onCloseClick = function() {
+    let prevOption = props.data.openEditBlock;
+    props.data.setOpenEditBlock(!prevOption);
+
+    if(props.data.isStorageAvailable) {
+      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
+    }
+  };
+
+  return (
+    <form className={"edit " + (props.data.openEditBlock ? 'active' : '')} onSubmit={onSaveClick}>
+      <h4>Edit task</h4>
+      <input className="edit-input"
+             type="text"
+             value={inputName}
+             ref={(name) => inputName = name}/>
+      <button type="submit"
+              className="save-btn"
+              disabled={!inputName.length}>
+        Save
+      </button>
+      <i className="material-icons edit-close-icon" onClick={onCloseClick}>close</i>
+    </form>
+  );
+};

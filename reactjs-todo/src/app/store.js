@@ -1,7 +1,4 @@
 import { createStore } from 'redux';
-import dataReducer from './reducers/dataReducer';
+import dataReducer     from './reducers/dataReducer';
 
-export default createStore(
-    dataReducer,
-    {}
-)
+export default createStore(dataReducer)
