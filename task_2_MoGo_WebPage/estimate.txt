@@ -1,0 +1,45 @@
+header
+   top navbar - 3h
+   bottom nav  - 3h                
+   Other - 1h
+
+story - 4h
+
+statistic - 3h
+
+services - 3h
+
+unique-design - 4h
+
+activties 
+   Scrollspy - 4h
+   Other - 2h
+
+quote carousel - 4h
+
+team - 3h
+
+icons - 1h
+
+work - 3h
+
+rewiews - 3h
+	
+blog - 4h
+
+map - 1h
+
+footer - 6h
+
+Gulp setup, creating project structure - 4h
+
+Highlighting Common entities - 2h
+
+ - White-orange, grey gradients
+ - Quote-slider
+ - Gradient animation 
+ - Styling title text, under-title text, in sections 
+ - variable for colors, block sizes
+---------------------
+~63h
+
