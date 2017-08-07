@@ -1,47 +1,61 @@
 import React from 'react';
 import './EditForm.scss';
 
-export const EditForm = (props) => {
-  props = props.data;
+export class EditForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.currProps = props.data;
 
-  let inputName = '';
+    this.state = {
+      inputName: this.currProps.data.tasksArray[this.currProps.data.currentTask].name
+    }
+  }
 
-  let onSaveClick = function(event) {
+  onSaveClick(event) {
     event.preventDefault();
 
-    let tempArray = props.data.tasksArray;
-    tempArray[props.data.currentTask].name = inputName;
-    inputName = '';
+    let tempArray = this.currProps.data.tasksArray;
+    tempArray[this.currProps.data.currentTask].name = this.state.inputName;
 
-    props.data.setTasksArray(tempArray);
+    this.setState({
+      inputName: ''
+    });
 
-    if(props.data.isStorageAvailable) {
-      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
+    this.currProps.setTasksArray(tempArray);
+    this.currProps.setOpenEditBlock(!this.currProps.data.openEditBlock);
+
+    if(this.currProps.data.isStorageAvailable) {
+      localStorage.setItem(this.currProps.data.storageName, JSON.stringify(this.currProps.data.tasksArray));
     }
   };
 
-  let onCloseClick = function() {
-    let prevOption = props.data.openEditBlock;
-    props.data.setOpenEditBlock(!prevOption);
+  onCloseClick() {
+    this.currProps.setOpenEditBlock(!this.currProps.data.openEditBlock);
 
-    if(props.data.isStorageAvailable) {
-      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
+    if(this.currProps.data.isStorageAvailable) {
+      localStorage.setItem(this.currProps.data.storageName, JSON.stringify(this.currProps.data.tasksArray));
     }
   };
 
-  return (
-    <form className={"edit " + (props.data.openEditBlock ? 'active' : '')} onSubmit={onSaveClick}>
-      <h4>Edit task</h4>
-      <input className="edit-input"
-             type="text"
-             value={inputName}
-             ref={(name) => inputName = name}/>
-      <button type="submit"
-              className="save-btn"
-              disabled={!inputName.length}>
-        Save
-      </button>
-      <i className="material-icons edit-close-icon" onClick={onCloseClick}>close</i>
-    </form>
-  );
+  handleInputChange(event) {
+    this.setState({
+      inputName: event.target.value
+    });
+  };
+
+  render() {
+    return (
+        <form className="edit" onSubmit={this.onSaveClick.bind(this)}>
+          <h4>Edit task</h4>
+          <input className="edit-input"
+                 type="text"
+                 value={this.state.inputName}
+                 onChange={this.handleInputChange.bind(this)}/>
+          <button type="submit" className="save-btn">
+            Save
+          </button>
+          <i className="material-icons edit-close-icon" onClick={this.onCloseClick.bind(this)}>close</i>
+        </form>
+    );
+  }
 };

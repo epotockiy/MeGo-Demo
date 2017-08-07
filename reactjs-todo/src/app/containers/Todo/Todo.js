@@ -16,15 +16,14 @@ class Todo extends React.Component {
 
   getTasksFromStorage() {
     if (typeof localStorage !== 'undefined') {
-      this.props.setTasksArray(JSON.parse(localStorage.getItem(this.props.storageName)) || []);
+      this.props.setTasksArray(JSON.parse(localStorage.getItem(this.props.data.storageName)) || []);
       this.props.setIsStorageAvailable(true);
-
-      console.log(this.props);
     } else {
       this.props.setTasksArray([]);
       this.props.setIsStorageAvailable(false);
     }
   }
+
   render() {
     return (
       <div className="todo">
@@ -32,7 +31,7 @@ class Todo extends React.Component {
 
         <TaskList data={this.props} />
 
-        <EditForm data={this.props} />
+        {this.props.data.openEditBlock ? (<EditForm data={this.props} />) : ''}
       </div>
     );
   }

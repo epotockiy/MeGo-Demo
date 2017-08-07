@@ -17,7 +17,7 @@ export const Task = (props) => {
     const tempTasksArray = props.data.tasksArray;
     tempTasksArray[currentIndex].done = !tempTasksArray[currentIndex].done;
 
-    console.log(props);
+    // console.log(props);
     props.setTasksArray(tempTasksArray);
 
     if(props.data.isStorageAvailable) {
@@ -37,8 +37,13 @@ export const Task = (props) => {
   };
 
   let handleEditClick = function() {
-    props.data.openEditBlock = !props.data.openEditBlock;
-    props.data.currentTask = currentIndex;
+    let prevOption = props.data.openEditBlock;
+    props.setOpenEditBlock(!prevOption);
+    props.setCurrentTask(currentIndex);
+
+    if(props.data.isStorageAvailable) {
+      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
+    }
   };
 
   const itemClassName = "task clearfix "

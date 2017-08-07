@@ -24,9 +24,9 @@ export const AddForm = (props) => {
 
     props.setTasksArray(tempTasksArray);
 
-    console.log(props.data);
+    // console.log(props.data);
     if (props.data.isStorageAvailable) {
-      console.log(props.data.tasksArray);
+      // console.log(props.data.tasksArray);
       localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
     }
   };

@@ -56,7 +56,6 @@ const dataReducer = (
         break;
     }
 
-    console.log(state);
     return state;
   };
 
