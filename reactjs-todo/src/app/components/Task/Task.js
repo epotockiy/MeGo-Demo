@@ -17,12 +17,7 @@ export const Task = (props) => {
     const tempTasksArray = props.data.tasksArray;
     tempTasksArray[currentIndex].done = !tempTasksArray[currentIndex].done;
 
-    // console.log(props);
     props.setTasksArray(tempTasksArray);
-
-    if(props.data.isStorageAvailable) {
-      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
-    }
   };
 
   let onRemoveTask = function() {
@@ -30,20 +25,12 @@ export const Task = (props) => {
     tempTasksArray.splice(currentIndex, 1);
 
     props.setTasksArray(tempTasksArray);
-
-    if(props.data.isStorageAvailable) {
-      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
-    }
   };
 
   let handleEditClick = function() {
     let prevOption = props.data.openEditBlock;
     props.setOpenEditBlock(!prevOption);
     props.setCurrentTask(currentIndex);
-
-    if(props.data.isStorageAvailable) {
-      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
-    }
   };
 
   const itemClassName = "task clearfix "

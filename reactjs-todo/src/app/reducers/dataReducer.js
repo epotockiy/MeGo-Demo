@@ -1,10 +1,10 @@
+/* Reducers are pure functions, they do not mutate initial data!!! */
 const dataReducer = (
   state = {
     tasksArray: [],
     currentTask: 0,
     currentFilter: 'all',
     openEditBlock: false,
-    isStorageAvailable: false,
     storageName: 'tasksArray'
   },
   action) => {
@@ -34,13 +34,6 @@ const dataReducer = (
         state = {
           ...state,
           openEditBlock: action.payload
-        };
-        break;
-
-      case 'SET_IS_STORAGE_AVAILABLE':
-        state = {
-          ...state,
-          isStorageAvailable: action.payload
         };
         break;
 

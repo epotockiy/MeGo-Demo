@@ -23,12 +23,6 @@ export const AddForm = (props) => {
     inputName.value = '';
 
     props.setTasksArray(tempTasksArray);
-
-    // console.log(props.data);
-    if (props.data.isStorageAvailable) {
-      // console.log(props.data.tasksArray);
-      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
-    }
   };
 
   return (

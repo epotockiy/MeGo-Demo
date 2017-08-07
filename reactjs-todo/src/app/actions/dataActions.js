@@ -26,13 +26,6 @@ export function setOpenEditBlock(openEditBlock) {
   }
 }
 
-export function setIsStorageAvailable(isStorageAvailable) {
-  return {
-    type: 'SET_IS_STORAGE_AVAILABLE',
-    payload: isStorageAvailable
-  }
-}
-
 export function setStorageName(newStorageName) {
   return {
     type: 'SET_STORAGE_NAME',

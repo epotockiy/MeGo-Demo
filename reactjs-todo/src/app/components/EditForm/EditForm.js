@@ -23,18 +23,10 @@ export class EditForm extends React.Component {
 
     this.currProps.setTasksArray(tempArray);
     this.currProps.setOpenEditBlock(!this.currProps.data.openEditBlock);
-
-    if(this.currProps.data.isStorageAvailable) {
-      localStorage.setItem(this.currProps.data.storageName, JSON.stringify(this.currProps.data.tasksArray));
-    }
   };
 
   onCloseClick() {
     this.currProps.setOpenEditBlock(!this.currProps.data.openEditBlock);
-
-    if(this.currProps.data.isStorageAvailable) {
-      localStorage.setItem(this.currProps.data.storageName, JSON.stringify(this.currProps.data.tasksArray));
-    }
   };
 
   handleInputChange(event) {
@@ -58,4 +50,4 @@ export class EditForm extends React.Component {
         </form>
     );
   }
-};
+}

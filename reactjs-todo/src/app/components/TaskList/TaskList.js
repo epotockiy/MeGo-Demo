@@ -17,10 +17,6 @@ export const TaskList = (props) => {
 
   let updateTaskList = function(newTasksArray) {
     props.data.setTasksArray(newTasksArray);
-
-    if(props.data.isStorageAvailable) {
-      localStorage.setItem(props.data.storageName, JSON.stringify(props.data.tasksArray));
-    }
   };
 
   return (

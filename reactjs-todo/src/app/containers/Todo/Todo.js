@@ -17,10 +17,8 @@ class Todo extends React.Component {
   getTasksFromStorage() {
     if (typeof localStorage !== 'undefined') {
       this.props.setTasksArray(JSON.parse(localStorage.getItem(this.props.data.storageName)) || []);
-      this.props.setIsStorageAvailable(true);
     } else {
       this.props.setTasksArray([]);
-      this.props.setIsStorageAvailable(false);
     }
   }
 
@@ -53,9 +51,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     setCurrentTask: (currentTask) => {
       dispatch(dataActions.setCurrentTask(currentTask));
-    },
-    setIsStorageAvailable: (isStorageAvailable) => {
-      dispatch(dataActions.setIsStorageAvailable(isStorageAvailable));
     },
     setOpenEditBlock: (openEditBlock) => {
       dispatch(dataActions.setOpenEditBlock(openEditBlock));
