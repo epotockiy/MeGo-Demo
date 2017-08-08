@@ -1,0 +1,216 @@
+body {
+  font-family: 'Verdana', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  background-color: #FFFAF0;
+}
+
+.clearfix:after {
+  content: '';
+  clear: both;
+  display: table;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.btn {
+  background: #ff7256;
+  border: 1px solid #ff7256;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 auto 10px;
+  padding: 10px 15px;
+  text-align: center;
+  transition: background .3s;
+}
+
+.btn:hover {
+  background: #FF6347;
+}
+
+header {
+  background-image: url('../images/header_banner.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+header:after {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 20%;
+}
+
+header .title {
+  font-family: 'Helvetica', sans-serif;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 140px;
+  margin: 0 auto;
+  color: white;
+}
+
+header .title h1 {
+  font-size: 38px;
+  margin: 0;
+}
+
+header .title h3 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.menu {
+  background: #ff7256;
+  margin: 0;
+  padding: 0 30px;
+  list-style: none;
+  opacity: 0.92;
+}
+
+.menu > li {
+  cursor: pointer;
+  float: left;
+  font-size: 15px;
+  margin-right: 40px;
+  padding: 15px 10px;
+  position: relative;
+  text-align: left;
+}
+
+.menu > li > a {
+  cursor: pointer;
+  color: white;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  transition: color .3s, background .3s;
+}
+
+.menu > li.active > a {
+  color: #fce38a;
+}
+
+.menu > li:hover > a {
+  color: #fce38a;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  padding: 0;
+  top: 46px;
+  left: 0;
+  width: 140px;
+}
+
+.submenu > li {
+  display: block;
+}
+
+.submenu > li > a {
+  cursor: pointer;
+  display: block;
+  padding: 10px;
+  color: white;
+  background-color: #ff7256;
+  text-decoration: none;
+  transition: color .3s, background .3s;
+}
+
+.submenu > li > a:hover {
+  background: #FF6347;
+}
+
+.menu > li:hover > .submenu {
+  display: block;
+}
+
+.book-reviews {
+  background: #fff;
+  padding: 40px 0;
+}
+
+.book-reviews .review {
+  background: #FFF3F3;
+  width: 40%;
+  display: inline-block;
+  text-align: center;
+  font-size: 0;
+  vertical-align: top;
+  margin: 40px 4%;
+  padding: 20px 0;
+  transition: all .4s;
+}
+
+.book-reviews .review:hover {
+  background: #FFE9E9;
+  transform: translate(-10px, -10px);
+  box-shadow: 10px 10px 10px #999;
+}
+
+.book-reviews h2 {
+  color: #1d1d1d;
+  font-size: 26px;
+  margin: 0;
+  text-align: center;
+}
+
+.book-reviews .review .book-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  width: 60%;
+}
+
+.book-reviews .review .book-image:before {
+  content: '';
+  width: 100%;
+  display: block;
+  padding-top: 148%;
+}
+
+.book-reviews .review h3{
+  color: #1d1d1d;
+  font-size: 18px;
+  font-family: "DejaVu Serif", sans-serif;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.book-reviews .review h4{
+  color: #1d1d1d;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+  padding: 10px 20px;
+}
+
+footer{
+  text-align: center;
+  padding: 20px 0;
+  background: #eee;
+}
+
+footer p {
+  font-size: 16px;
+  font-family: Helvetica, Georgia, sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+footer p:first-child {
+  padding-bottom: 10px;
+}
