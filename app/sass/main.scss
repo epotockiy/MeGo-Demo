@@ -1,0 +1,613 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+// @import "compass/reset";
+$color : #432422;
+$yellow: rgba(252,227,138,0.8);
+$red: 	 rgba(243,129,129,0.8);
+$blue:	 #95e1d3;
+$h-color:#333333;
+$qoute-bg: #f8f8f8;
+$p-color:   #999999;
+$white:	 #ffffff;
+$gradient: linear-gradient(to top, $yellow 0%,$red 100%);
+$white-gradient:linear-gradient( rgba(255,255,255,0.85),rgba(255,255,255,0.85) );
+$white-line : 3px solid $white;
+$red-line : 3px solid $red;
+$grey: #adadad;
+
+
+.pointer{
+	width:12px;
+	height:22px;
+}
+
+.button{
+	display: inline-block;
+	border:$white-line;
+	color: $white;	
+}
+
+.dash{
+	width: 60px;
+	margin: 0 auto;
+	border-bottom: $red-line;
+}
+
+p{
+	color: $p-color;
+	font : {
+		family: 'Roboto', sans-serif;
+		size : 15px;
+	}
+}
+
+
+
+*{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	margin: 0 auto;
+	text-align: center;
+} 
+
+h1 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 10.5em;
+	color: $white;
+	text-transform: uppercase;
+	max-width: 1000px;
+	margin: 0 auto;
+	line-height: 170px;
+
+}
+
+h2{
+	font : {
+		family: 'Kaushan Script', cursive;
+		size: 72px;
+	}
+	color: $white;
+}
+
+h3{
+	font : {
+		family: 'Montserrat', sans-serif;
+		size: 30px;
+		weight: bold;
+	}
+
+	color: $h-color;
+}
+
+h4{
+	font : {
+		family: 'Kaushan Script', cursive;
+		size : 24px;
+	}
+	color: $h-color;
+}
+
+h5{
+	font : {
+		family: 'Montserrat', sans-serif;
+		size: 14px;
+	}
+	color: $white;
+	text-transform: uppercase;
+}
+
+%hover-style{
+	transform: translate(-10px, -10px);
+}
+
+
+
+
+.banner{
+
+	background-image: $gradient , url("../img/banner-bg.png") ;
+	background-size: cover;
+	text-align: center;
+
+	header{
+
+		margin: 0 auto;
+		padding-top: 23px;
+		max-width: 1200px;
+
+		&:after{
+			content:"";
+			display: block;
+			height: 0;
+			clear : both;
+			overflow: hidden;
+		}
+
+		h3{
+			    display: inline-block;
+    			color: $white;
+    			float: left;
+		}
+
+		ul{
+			text-transform: uppercase;
+			display: inline;
+			float: right;
+			
+			li{
+				margin-right: 44px;
+				display: inline;
+				&:last-child{
+					margin-right: 0px;
+				}
+
+				a{
+					font-size: 14px;
+					text-decoration: none;
+					color: $white;
+
+					&:hover {
+						border-bottom: 2px solid $yellow;
+					}
+				}
+			}
+		}
+	}
+
+
+	.content{
+
+		.dash{
+			border-bottom: $white-line;
+			margin: 50px auto;
+		}
+
+		a.banner-button{
+			display: inline-block;
+			padding: 10px 30px;
+			text-transform: uppercase;
+					
+			&:hover{
+					background: $red;
+					font-color: $white;
+			}	
+		}
+	}
+	
+
+	.bottom-navbar{
+		
+		li{
+			text-transform: uppercase;
+			display: inline-block;
+			text-align: left;
+			width: 14.58%;
+			margin-right: 30px;
+
+			&:last-child{margin-right: 0}
+		
+			.bottom-navbar-menu	{
+				width: 100%;
+				height: 3px;
+			}	
+
+			.intro{
+				background-image: linear-gradient(to right, $red, $red 25% ,  $white 1%);	
+			}
+
+			.work{
+				background-image: linear-gradient(to right, $red, $red 50% ,  $white 1%);
+			}
+
+			.about{
+				background-image: linear-gradient(to right, $red, $red 75% ,  $white 1%);
+			}
+
+			.contacts{
+				background-image: linear-gradient(to right, $red, $red 100% ,  $white 1%);
+			}
+
+
+			a{
+
+				
+				text-decoration: none;
+				color: $white;
+				display: inline-block;
+				text-align: left;
+
+				span{
+					font-size: 18px;
+					color: $white;
+					display: inline-block;
+				}
+
+			}
+		}
+		
+	}
+
+}
+
+/*/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+*/
+
+.about-us{
+	text-align: center;
+
+	
+
+	.dash {
+		border-bottom: $red-line;
+	}
+
+	p {
+		max-width: 1300px;
+		margin: 0 auto;
+		line-height: 2;
+	}
+
+
+	.content {
+		margin: 0 auto;
+		max-width: 1200px;
+		display: flex;
+		flex-direction:row;
+		justify-content: space-around;
+		flex-wrap: wrap;
+
+		.photo {
+			
+			flex-direction: row;
+			background: $blue;
+			img {
+				
+				&:hover  {
+					@extend %hover-style;
+					background-image: $gradient , url("../img/banner-bg.png");
+				}
+			}
+		}
+	}
+}
+
+
+
+/*/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+*/
+
+.facts {
+
+	width: 100%;
+	height: 270px;
+	background-color: $blue;
+	margin: 0 auto;
+	text-align: center;
+
+		.dire{
+
+			align-self: flex-start;
+		    display: flex;
+		    justify-content: space-around;
+		    flex-direction: row;
+		    max-width: 1200px;
+		    margin: 0 auto;
+		    padding-top: 60px;
+
+	
+			.fact{
+				background: $blue;
+				display: inline-block;
+				max-width: 1200px;
+
+				span {
+					display: block;
+					color: $white;
+					font-size: 72px;
+					font-weight: bold;
+				}
+
+				h5{
+					display: inline-block;
+				}
+			}
+		}
+	}
+
+/*/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+*/
+
+.service{
+	text-align: center;
+	margin: 0 auto;
+
+
+	.container{
+	
+		.service{
+			display:inline-block;
+			max-width:1200px;
+
+			img{
+				display:inline-block;
+				clear:right;
+			}
+
+			.service-information{
+				text-align:left;
+				display:inline-block;
+				max-width:340px;
+			
+				h5{
+					color: $h-color;
+				}	
+
+				p{
+					line-height:1;
+					
+				}
+			}
+		}
+	}
+}
+
+/*/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+*/
+
+
+.feature{
+	text-align:center;
+	background-image:$white-gradient, url("../img/images/feature-bg.png") ;
+	background-size: cover;
+	background-color: $white;
+
+	.iphone{
+		position: absolute;
+		margin-bottom: -25px;
+	}
+
+
+	
+}
+
+
+/*/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+*/
+
+
+.service2{
+	text-align: center;
+	max-width:1300px;
+	margin: 0 auto;	
+	
+}
+
+
+.quote{
+
+	background: $qoute-bg;
+
+	.quote-container{
+		max-width:1200px;
+		display:flex;
+		text-align: center;
+		margin: 0 auto;
+		align-items: center;
+		justify-content: space-around;
+		.quote-content {
+			img{
+				display: inline-block;
+				
+			}
+
+			.quote-mes{
+				display: inline-block;
+				p{
+					text-align: left;
+					max-width:690px;
+					color: $grey;
+				}
+
+				.dash{
+					float: left;
+				}
+				h4{
+					float: left;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+.ourteam{
+
+	p{
+		margin: 0 auto;
+		max-width: 1300px;
+	}
+	
+	.person {
+		display:inline-block;
+
+		.photo{
+			font-size: 0;
+			background: $blue;
+
+			img{
+				
+				&:hover{
+					@extend %hover-style;
+					background-image: $gradient;
+
+				}
+			}
+		}
+
+		h5{
+			color: $h-color;
+		}
+		
+	}
+}
+
+
+
+
+
+
+.logos{
+	display: flex;
+	align-items: center;
+	background: $qoute-bg;
+	height: 250px;
+
+	.logos-container{
+		width: 100%;
+		display: flex;
+		margin: 0 auto;
+		max-width: 1200px;
+		align-items: center;
+		justify-content: space-around;
+		
+	}
+}
+
+.work{
+		
+
+	p{	
+		margin: 0 auto;
+		max-width: 1300px;
+	}
+}
+
+
+.testimonial{
+	.avatar{
+			height: 200px;
+			width: 200px;
+			overflow: hidden;
+			border-radius: 50%;
+			background: url("../img/images/testimonial.png") no-repeat;
+			background-size: cover;
+			background-position: -20px -20px;			
+	}
+}
+
+
+
+.whatpeople{
+	background-image:$white-gradient, url("../img/images/whatpeoplesay-bg.png") ;
+	
+	h5{
+		color: $h-color;
+	}
+	
+	.container{
+		
+		max-width:1300px;
+		margin: 0 auto;
+		
+		
+
+		.row{
+
+			.avatar{
+				display:inline-block;	
+			}
+
+			.row-content{
+				text-align:left;
+				display:inline-block;				
+		
+
+				.dash{
+					
+					text-align:left;
+				}
+
+				p{
+					max-width:500px;
+					text-align:left;
+
+				}
+			}
+		}
+	}
+}
+
+.blog{
+
+	.articles{
+
+		.photo{
+
+		}
+
+		.date{
+			background-color: $blue;
+			p{
+				color: $white;
+			}
+		}
+
+		h5{
+			color: $h-color;
+		}
+	}
+}
+
+.map{
+	background-image: $gradient,  url("../img/images/map.png");
+	background-size: contain;
+	min-height: 400px;
+	.container{
+		margin: 0 auto;
+		text-align: center;
+
+		h5{
+			color: $red;
+		}
+	}
+}
+
+
+.footer{
+	.container{
+
+
+
+	.blogs{
+		h5{
+			color: $h-color;
+		}
+	}
+
+	}
+}
