@@ -19,30 +19,6 @@ $red-line : 3px solid $red;
 $grey: #adadad;
 
 
-.pointer{
-	width:12px;
-	height:22px;
-}
-
-.button{
-	display: inline-block;
-	border:$white-line;
-	color: $white;	
-}
-
-.dash{
-	width: 60px;
-	margin: 0 auto;
-	border-bottom: $red-line;
-}
-
-p{
-	color: $p-color;
-	font : {
-		family: 'Roboto', sans-serif;
-		size : 15px;
-	}
-}
 
 
 
@@ -105,6 +81,33 @@ h5{
 	text-transform: uppercase;
 }
 
+p{
+	color: $p-color;
+	font : {
+		family: 'Roboto', sans-serif;
+		size : 15px;
+	}
+}
+
+.pointer{
+	width:12px;
+	height:22px;
+}
+
+.button{
+	display: inline-block;
+	border:$white-line;
+	color: $white;	
+}
+
+.dash{
+	width: 60px;
+	margin: 0 auto;
+	border-bottom: $red-line;
+}
+
+
+
 %hover-style{
 	transform: translate(-10px, -10px);
 }
@@ -133,9 +136,9 @@ h5{
 		}
 
 		h3{
-			    display: inline-block;
-    			color: $white;
-    			float: left;
+		    display: inline-block;
+			color: $white;
+			float: left;
 		}
 
 		ul{
@@ -164,77 +167,75 @@ h5{
 	}
 
 
-	.content{
-
-		.dash{
-			border-bottom: $white-line;
-			margin: 50px auto;
-		}
-
-		a.banner-button{
-			display: inline-block;
-			padding: 10px 30px;
-			text-transform: uppercase;
-					
-			&:hover{
-					background: $red;
-					font-color: $white;
-			}	
-		}
-	}
 	
 
-	.bottom-navbar{
+	.dash{
+		border-bottom: $white-line;
+		margin: 50px auto;
+	}
+
+	a.banner-button{
+		display: inline-block;
+		padding: 10px 30px;
+		text-transform: uppercase;
+				
+		&:hover{
+				background: $red;
+				font-color: $white;
+		}	
+	}
+
+	
+
+	
 		
-		li{
-			text-transform: uppercase;
+	li{
+		text-transform: uppercase;
+		display: inline-block;
+		text-align: left;
+		width: 14.58%;
+		margin-right: 30px;
+
+		&:last-child{margin-right: 0}
+	
+		.bottom-navbar-menu	{
+			width: 100%;
+			height: 3px;
+		}	
+
+		.intro{
+			background-image: linear-gradient(to right, $red, $red 25% ,  $white 1%);	
+		}
+
+		.work{
+			background-image: linear-gradient(to right, $red, $red 50% ,  $white 1%);
+		}
+
+		.about{
+			background-image: linear-gradient(to right, $red, $red 75% ,  $white 1%);
+		}
+
+		.contacts{
+			background-image: linear-gradient(to right, $red, $red 100% ,  $white 1%);
+		}
+
+
+		a{
+			text-decoration: none;
+			color: $white;
 			display: inline-block;
 			text-align: left;
-			width: 14.58%;
-			margin-right: 30px;
 
-			&:last-child{margin-right: 0}
-		
-			.bottom-navbar-menu	{
-				width: 100%;
-				height: 3px;
-			}	
-
-			.intro{
-				background-image: linear-gradient(to right, $red, $red 25% ,  $white 1%);	
-			}
-
-			.work{
-				background-image: linear-gradient(to right, $red, $red 50% ,  $white 1%);
-			}
-
-			.about{
-				background-image: linear-gradient(to right, $red, $red 75% ,  $white 1%);
-			}
-
-			.contacts{
-				background-image: linear-gradient(to right, $red, $red 100% ,  $white 1%);
-			}
-
-
-			a{
-
-				
-				text-decoration: none;
+			span{
+				font-size: 18px;
 				color: $white;
 				display: inline-block;
-				text-align: left;
-
-				span{
-					font-size: 18px;
-					color: $white;
-					display: inline-block;
-				}
-
 			}
+
 		}
-		
 	}
+		
+	
 
 }
 
@@ -274,8 +275,10 @@ h5{
 			img {
 				
 				&:hover  {
+					
+					background: $gradient;
 					@extend %hover-style;
-					background-image: $gradient , url("../img/banner-bg.png");
+
 				}
 			}
 		}
