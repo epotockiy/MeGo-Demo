@@ -13,7 +13,7 @@ $qoute-bg: #f8f8f8;
 $p-color:   #999999;
 $white:	 #ffffff;
 $gradient: linear-gradient(to top, $yellow 0%,$red 100%);
-$white-gradient:linear-gradient( rgba(255,255,255,0.85),rgba(255,255,255,0.85) );
+$white-gradient:linear-gradient( rgba(255,255,255,0.9),rgba(255,255,255,0.9) );
 $white-line : 3px solid $white;
 $red-line : 3px solid $red;
 $grey: #adadad;
@@ -89,6 +89,17 @@ p{
 	}
 }
 
+.dash{
+	&:after{
+		content:"";
+		height: 3px;
+		width: 60px;
+		display: block;
+		margin: 0 auto;
+		background-color: yellow;
+	}
+}
+
 .pointer{
 	width:12px;
 	height:22px;
@@ -99,13 +110,6 @@ p{
 	border:$white-line;
 	color: $white;	
 }
-
-.dash{
-	width: 60px;
-	margin: 0 auto;
-	border-bottom: $red-line;
-}
-
 
 
 %hover-style{
@@ -119,9 +123,9 @@ p{
 
 	background-image: $gradient , url("../img/banner-bg.png") ;
 	background-size: cover;
-	text-align: center;
+	padding-bottom: 25px;
 
-	header{
+	.top-navbar{
 
 		margin: 0 auto;
 		padding-top: 23px;
@@ -139,19 +143,21 @@ p{
 		    display: inline-block;
 			color: $white;
 			float: left;
+			
 		}
 
 		ul{
 			text-transform: uppercase;
 			display: inline;
 			float: right;
-			
+			margin-top: 10px;
+
 			li{
-				margin-right: 44px;
+				margin-right: 36px;
 				display: inline;
 				&:last-child{
 					margin-right: 0px;
-				}
+				}	
 
 				a{
 					font-size: 14px;
@@ -161,80 +167,92 @@ p{
 					&:hover {
 						border-bottom: 2px solid $yellow;
 					}
-				}
+				}	
 			}
 		}
-	}
+	}	
 
 
-	
+	header.dash{
+		padding-top:150px;
+		h1{
+			padding-top: 20px;
+			line-height:1;
+		}
 
-	.dash{
-		border-bottom: $white-line;
-		margin: 50px auto;
+		&:after{
+			height: 3px;
+			width: 60px;
+			display: block;
+			margin: 49px auto;
+			background-color: $white;
+		}
 	}
 
 	a.banner-button{
 		display: inline-block;
 		padding: 10px 30px;
 		text-transform: uppercase;
-				
+		margin-bottom: 155px;		
 		&:hover{
 				background: $red;
 				font-color: $white;
 		}	
 	}
-
 	
-
-	
+	ul{	
 		
-	li{
-		text-transform: uppercase;
-		display: inline-block;
-		text-align: left;
-		width: 14.58%;
-		margin-right: 30px;
-
-		&:last-child{margin-right: 0}
-	
-		.bottom-navbar-menu	{
-			width: 100%;
-			height: 3px;
-		}	
-
-		.intro{
-			background-image: linear-gradient(to right, $red, $red 25% ,  $white 1%);	
-		}
-
-		.work{
-			background-image: linear-gradient(to right, $red, $red 50% ,  $white 1%);
-		}
-
-		.about{
-			background-image: linear-gradient(to right, $red, $red 75% ,  $white 1%);
-		}
-
-		.contacts{
-			background-image: linear-gradient(to right, $red, $red 100% ,  $white 1%);
-		}
-
-
-		a{
-			text-decoration: none;
-			color: $white;
+		li{
+			text-transform: uppercase;
 			display: inline-block;
 			text-align: left;
+			width: 14.58%;
+			margin-right: 30px;
 
-			span{
-				font-size: 18px;
-				color: $white;
-				display: inline-block;
+			&:last-child{margin-right: 0}
+		
+			.bottom-navbar-menu	{
+				width: 100%;
+				height: 3px;
+				margin-bottom:20px;
+			}	
+
+			.intro{
+				background-image: linear-gradient(to right, $red, $red 25% ,  $white 1%);	
 			}
 
+			.work{
+				background-image: linear-gradient(to right, $red, $red 50% ,  $white 1%);
+			}
+
+			.about{
+				background-image: linear-gradient(to right, $red, $red 75% ,  $white 1%);
+			}
+
+			.contacts{
+				background-image: linear-gradient(to right, $red, $red 100% ,  $white 1%);
+			}
+
+			.default{
+				background: $white;
+			}
+
+
+			a{
+				text-decoration: none;
+				color: $white;
+				display: inline-block;
+				text-align: left;
+
+				span{
+					font-size: 18px;
+					color: $white;
+					display: inline-block;
+				}
+
+			}
 		}
-	}
-		
+	}	
 	
 
 }
@@ -244,19 +262,38 @@ p{
 /////////////////////////////////////////////////////////
 */
 
+.header-box{
+	&:after{
+			content:"";
+			height: 3px;
+			width: 60px;
+			display: block;
+			margin: 0 auto;
+			background-color: $red;
+			margin: 35px auto;
+	}
+}
+
+
+.gradient-hover{
+	background-image: $gradient , url("../img/banner-bg.png") ;
+	.content{
+		hidden : true;
+	}
+}
+
 .about-us{
 	text-align: center;
+	padding-top:90px;
+	padding-bottom: 125px;
 
-	
-
-	.dash {
-		border-bottom: $red-line;
-	}
 
 	p {
+		padding-top: 14px;
+		padding-bottom: 65px;
 		max-width: 1300px;
 		margin: 0 auto;
-		line-height: 2;
+		line-height: 1.5;
 	}
 
 
@@ -265,22 +302,57 @@ p{
 		max-width: 1200px;
 		display: flex;
 		flex-direction:row;
-		justify-content: space-around;
+		justify-content: space-between;
 		flex-wrap: wrap;
+		font-size:0;
 
 		.photo {
 			
 			flex-direction: row;
 			background: $blue;
-			img {
+			width:380px;
+			height: 250px;
+			
+			a{
+				position: relative;
+				float: left;
+				background: $red;
 				
-				&:hover  {
-					
-					background: $gradient;
-					@extend %hover-style;
+				span{
+					display:none;
+					background: $gradient, url("../img/icons/") no-repeat;
+					width:380px;
+					height: 250px;
+					position:absolute;
+					left:-10px; 
+					top:-10px;
 
+
+					img{
+						position: absolute;
+						left: 50%;
+						top: 100px;
+					}
+
+					p{
+						position: absolute;
+						left: 45%;
+						top: 115px;
+						font-size:18px;
+						color:$white;
+					}				
 				}
 			}
+
+		
+
+			a:hover span{
+				display:block; 
+			}  
+
+			
+
+			
 		}
 	}
 }
@@ -301,20 +373,15 @@ p{
 	text-align: center;
 
 		.dire{
-
-			align-self: flex-start;
-		    display: flex;
-		    justify-content: space-around;
-		    flex-direction: row;
-		    max-width: 1200px;
-		    margin: 0 auto;
-		    padding-top: 60px;
-
+			height: 100%;	
+		  	max-width: 1200px;
+			margin: 0 auto;
 	
 			.fact{
-				background: $blue;
+				height: 100%;
+			    background: $blue;
 				display: inline-block;
-				max-width: 1200px;
+				border-right: 2px solid black;
 
 				span {
 					display: block;
@@ -336,32 +403,49 @@ p{
 */
 
 .service{
+	padding-top: 110px;
+	padding-bottom: 30px;
 	text-align: center;
 	margin: 0 auto;
 
 
 	.container{
-	
+		padding-top: 25px;
+		display: flex;
+		max-width: 1185px;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		justify-content: space-between;
+
+
 		.service{
+			margin: 0;
+			margin-left: 25px;
+			margin-bottom: 88px;
 			display:inline-block;
 			max-width:1200px;
+			padding:0px;
+			
 
 			img{
 				display:inline-block;
-				clear:right;
+				vertical-align: top;
+				
 			}
 
 			.service-information{
+				margin-left: 30px;
 				text-align:left;
 				display:inline-block;
-				max-width:340px;
+				max-width:290px;
 			
 				h5{
 					color: $h-color;
+					padding-bottom: 5px;
 				}	
 
 				p{
-					line-height:1;
+					line-height:2;
 					
 				}
 			}
@@ -376,10 +460,15 @@ p{
 
 
 .feature{
+	padding-top: 105px;
 	text-align:center;
 	background-image:$white-gradient, url("../img/images/feature-bg.png") ;
 	background-size: cover;
 	background-color: $white;
+
+	img{
+		margin-top:-30px;
+	}
 
 	.iphone{
 		position: absolute;
@@ -401,12 +490,14 @@ p{
 	text-align: center;
 	max-width:1300px;
 	margin: 0 auto;	
+	padding-top: 110px;
+	height: 900px;
 	
 }
 
 
 .quote{
-
+	height: 290px;
 	background: $qoute-bg;
 
 	.quote-container{
@@ -417,7 +508,8 @@ p{
 		align-items: center;
 		justify-content: space-around;
 		.quote-content {
-			img{
+
+			.message-icon{
 				display: inline-block;
 				
 			}
