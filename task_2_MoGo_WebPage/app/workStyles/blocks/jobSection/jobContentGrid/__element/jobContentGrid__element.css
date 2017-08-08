@@ -1,0 +1,18 @@
+.job-content-grid__element {
+    width:300px;
+}
+.job-content-grid__element p:nth-child(even) {
+    color: #fff;
+
+    font-size: 21px;
+    font-weight: 300;
+    padding-top: 21px;
+}
+.job-content-grid__element p:nth-child(odd) {
+    color: #6d7590;
+
+    font-size: 14px;
+    font-weight: 200;
+    padding-top: 14px;
+    padding-bottom: 50px;
+}

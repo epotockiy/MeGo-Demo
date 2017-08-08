@@ -1,0 +1,8 @@
+.job-content-grid {
+    padding-bottom: 32px; /* padding-top: 18px; */
+    width: 940px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}

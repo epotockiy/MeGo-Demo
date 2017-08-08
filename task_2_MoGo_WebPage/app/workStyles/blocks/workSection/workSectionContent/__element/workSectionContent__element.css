@@ -1,0 +1,23 @@
+.work-section-content__element {
+    width: 303px;
+
+}
+
+.work-section-content__element p:nth-child(odd) {
+    color: #464b4f;
+
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+.work-section-content__element p:nth-child(even) {
+
+    color: #929394;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+    padding-top: 19px;
+}
+

@@ -1,0 +1,20 @@
+.job-navigation-menu__element a{
+    text-align: center;
+    color: white;
+    font-size: 14px;
+
+    line-height: 36px;
+    text-decoration: none
+
+}
+.job-navigation-menu__element {
+    margin-left: 30px;
+
+    margin-right: 50px;
+}
+.job-navigation-menu__element:nth-child(1){
+    margin-left: -44px;
+}
+.job-navigation-menu__element:nth-child(5){
+    margin-right:0 ;
+}

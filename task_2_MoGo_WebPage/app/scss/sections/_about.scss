@@ -1,0 +1,41 @@
+.about{
+  padding-top:90px;
+  padding-bottom:30px;
+}
+.about-photos-grid {
+
+}
+
+.about-photo {
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 30.333%;
+  display: inline-block;
+}
+
+.about-photo img {
+
+  width: 100%;
+  height: 250px;
+
+}
+
+.about-photo:hover {
+  position: relative;
+  animation-name: about-photo-animation;
+  animation-duration: 2s;
+}
+
+@keyframes about-photo-animation {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    background: linear-gradient(to bottom, rgba(243, 129, 129, 0.9), rgba(252, 227, 138, 0.9));
+    right: 10px;
+    bottom: 10px;
+  }
+}
