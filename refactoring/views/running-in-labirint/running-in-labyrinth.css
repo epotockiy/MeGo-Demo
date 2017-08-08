@@ -1,0 +1,53 @@
+.book-description {
+  padding: 50px 0;
+}
+
+.book-description h2 {
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.book-description .book {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.book-description .book p {
+  color: #1d1d1d;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: Helvetica,sans-serif;
+  line-height: 1.4;
+  margin: 0;
+  text-indent: 30px;
+}
+
+.book-description .book .book-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  margin-right: 20px;
+  width: 30%;
+  float: left;
+}
+
+.book-description .book .book-image:before {
+  content: '';
+  width: 100%;
+  display: block;
+  padding-top: 160%;
+}
+
+.book-description .action-btns {
+  text-align: center;
+}
+
+.book-description .action-btns .btn {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+ 

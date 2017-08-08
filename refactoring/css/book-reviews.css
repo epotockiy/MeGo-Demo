@@ -59,6 +59,7 @@
   font-size: 26px;
   margin: 0;
   text-align: center;
+  padding: 0 10px;
 }
 
 .book-reviews .review .book-image {
@@ -90,4 +91,17 @@
   font-weight: normal;
   margin: 0;
   padding: 10px 20px;
+}
+
+@media screen and (max-width: 760px) {
+  .book-reviews .review {
+    width: 80%;
+    margin: 40px 10%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .book-reviews .review h4 {
+    font-size: 14px;
+  }
 }

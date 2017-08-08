@@ -33,6 +33,35 @@ header .title h3 {
   margin: 0;
 }
 
+.navbar-open {
+  display: none;
+  background: url('../images/navbar-toggler.png') 0 2px;
+  height: 30px;
+  position: absolute;
+  margin-top: 10px;
+  margin-right: 20px;
+  width: 30px;
+  right: 0;
+}
+
+.navbar-close {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #eee;
+  transition: color .3s;
+  text-decoration: none;
+}
+
+.navbar-close:hover {
+  color: #ddd;
+}
+
 .menu {
   background: #ff7256;
   margin: 0;
@@ -97,4 +126,48 @@ header .title h3 {
 
 .menu > li:hover > .submenu {
   display: block;
+}
+
+@media screen and (max-width: 1024px) {
+  .menu {
+    padding: 0 10px;
+  }
+
+  .menu > li {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .menu {
+    display: none;
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 3;
+    padding: 30px 0 0;
+    opacity: 1;
+  }
+
+  .navbar-open {
+    display: inline-block;
+  }
+
+  .navbar-close {
+    display: inline-block;
+  }
+
+  .menu .submenu {
+    position: relative;
+    top: 10px;
+  }
+
+  .menu > li:hover > .submenu {
+    display: none;
+  }
 }

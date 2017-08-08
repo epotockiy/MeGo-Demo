@@ -13,10 +13,12 @@
     <link rel="stylesheet" type="text/css" href="contacts.css">
   </head>
   <body>
-    <header>
+  <header>
+    <a href="#" class="navbar-open"></a>
+
     <ul class="menu clearfix">
       <li class="active"><a href="index.html">Главная</a></li>
-      <li>
+      <li class="expanding">
         <a href=#>Книги</a>
         <ul class="submenu">
           <li><a href="#">По названию</a></li>
@@ -26,7 +28,7 @@
           <li><a href="#">По стране издания</a></li>
         </ul>
       </li>
-      <li>
+      <li class="expanding">
         <a href=#>Газеты</a>
         <ul class="submenu">
           <li><a href="#">За 2014 год</a></li>
@@ -34,7 +36,7 @@
           <li><a href="#">За 2016 год</a></li>
         </ul>
       </li>
-      <li>
+      <li class="expanding">
         <a href=#>Наши филиалы</a>
         <ul class="submenu">
           <li><a href="#">г. Минск</a></li>
@@ -46,6 +48,8 @@
       <li><a href="#">Акции</a></li>
       <li><a href="views/contacts/contacts.html">Контакты</a></li>
       <li><a href="#">Заказать книгу</a></li>
+
+      <a href="#" class="navbar-close">X</a>
     </ul>
 
     <div class="title">
@@ -54,19 +58,21 @@
     </div>
   </header>
 
-    <section class="branches container">
+  <section class="branches container">
       <h2>Наши филиалы</h2>
 
       <p class="branch"><span>г. Минск</span> Ул. Чюрлёниса, 28, тел. 234-57-19</p>
       <p class="branch"><span>г. Гродно</span> Ул. Советская, 14, тел. 74-32-16</p>
       <p class="branch"><span>г. Витебск</span> Ул. Лазо, 54, тел. 84-12-64</p>
-      <p class="branch"><span>г. Могилев</span> Пр. Мира, 32, тел. 94-34-27</p>
-      </div>
+      <p class="branch"><span>г. Могилев</span> Пр. Мира, 32, тел. 94-34-27</p>\
     </section>
 
     <footer>
       <p>&copyВсе права защищены, 2017 г.</p>
       <p>Author.</p>
     </footer>
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../../scripts/script.js"></script>
   </body>
 </html>
