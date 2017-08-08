@@ -101,7 +101,7 @@ header .title h3 {
   display: none;
   position: absolute;
   padding: 0;
-  top: 46px;
+  top: 45px;
   left: 0;
   width: 140px;
 }
@@ -129,10 +129,6 @@ header .title h3 {
 }
 
 @media screen and (max-width: 1024px) {
-  .menu {
-    padding: 0 10px;
-  }
-
   .menu > li {
     font-size: 14px;
     margin-right: 10px;
