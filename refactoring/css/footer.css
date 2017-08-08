@@ -1,0 +1,16 @@
+footer{
+  text-align: center;
+  padding: 20px 0;
+  background: #eee;
+}
+
+footer p {
+  font-size: 16px;
+  font-family: Helvetica, Georgia, sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+footer p:first-child {
+  padding-bottom: 10px;
+}

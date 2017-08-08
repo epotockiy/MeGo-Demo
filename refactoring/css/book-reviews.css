@@ -1,0 +1,93 @@
+.book-reviews {
+  background: #fff;
+  padding: 40px 0;
+}
+
+.stars {
+  display: inline-block;
+  font-size: 0;
+}
+
+.star-icon {
+  pointer-events: none;
+  color: orange;
+  font-style: normal;
+}
+
+.star-input {
+  display: none;
+}
+
+.star-label {
+  cursor: pointer;
+  padding: 0 5px;
+  font-size: 26px;
+}
+
+.star-input:checked ~ .star-label .star-icon {
+  color: #ddd;
+}
+
+.stars:hover .star-label .star-icon {
+  color: orange;
+}
+
+.star-input:hover ~ .star-label .star-icon {
+  color: #ddd;
+}
+
+.book-reviews .review {
+  background: #FFF3F3;
+  width: 40%;
+  display: inline-block;
+  text-align: center;
+  font-size: 0;
+  vertical-align: top;
+  margin: 40px 4%;
+  padding: 20px 0;
+  transition: background .4s, transform .4s, box-shadow .4s;
+}
+
+.book-reviews .review:hover {
+  background: #FFE9E9;
+  transform: translate(-10px, -10px);
+  box-shadow: 10px 10px 10px #999;
+}
+
+.book-reviews h2 {
+  color: #1d1d1d;
+  font-size: 26px;
+  margin: 0;
+  text-align: center;
+}
+
+.book-reviews .review .book-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  width: 60%;
+}
+
+.book-reviews .review .book-image:before {
+  content: '';
+  width: 100%;
+  display: block;
+  padding-top: 148%;
+}
+
+.book-reviews .review h3{
+  color: #1d1d1d;
+  font-size: 18px;
+  font-family: "DejaVu Serif", sans-serif;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.book-reviews .review h4{
+  color: #1d1d1d;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+  padding: 10px 20px;
+}

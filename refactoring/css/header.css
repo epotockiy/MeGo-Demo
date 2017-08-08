@@ -1,0 +1,101 @@
+
+header {
+  background-image: url('../images/header_banner.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+header:after {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 20%;
+}
+
+header .title {
+  font-family: 'Helvetica', sans-serif;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 140px;
+  margin: 0 auto;
+  color: white;
+}
+
+header .title h1 {
+  font-size: 38px;
+  margin: 0;
+}
+
+header .title h3 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.menu {
+  background: #ff7256;
+  margin: 0;
+  padding: 0 30px;
+  list-style: none;
+  opacity: 0.92;
+}
+
+.menu > li {
+  cursor: pointer;
+  float: left;
+  font-size: 15px;
+  margin-right: 40px;
+  padding: 15px 10px;
+  position: relative;
+  text-align: left;
+}
+
+.menu > li > a {
+  cursor: pointer;
+  color: white;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  transition: color .3s, background .3s;
+}
+
+.menu > li.active > a {
+  color: #fce38a;
+}
+
+.menu > li:hover > a {
+  color: #fce38a;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  padding: 0;
+  top: 46px;
+  left: 0;
+  width: 140px;
+}
+
+.submenu > li {
+  display: block;
+}
+
+.submenu > li > a {
+  cursor: pointer;
+  display: block;
+  padding: 10px;
+  color: white;
+  background-color: #ff7256;
+  text-decoration: none;
+  transition: color .3s, background .3s;
+}
+
+.submenu > li > a:hover {
+  background: #FF6347;
+}
+
+.menu > li:hover > .submenu {
+  display: block;
+}

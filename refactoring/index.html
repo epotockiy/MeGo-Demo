@@ -7,7 +7,10 @@
     <title>Библиотека</title>
 
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/book-reviews.css">
   </head>
   <body>
     <header>
@@ -52,12 +55,33 @@
     </header>
 
     <section class="book-reviews">
-      <h2>Лучшее по отзывам &#9733;&#9733;&#9733;&#9733;&#9733;</h2>
+      <h2>
+        Лучшее по отзывам
+
+        <div class="stars">
+          <input disabled checked class="star-input" name="rating" type="radio">
+
+          <label title="1 star" class="star-label" for="rating-1"><i class="star-icon">&#9733;</i></label>
+          <input class="star-input" name="rating" id="rating-1" type="radio">
+
+          <label title="2 stars" class="star-label" for="rating-2"><i class="star-icon">&#9733;</i></label>
+          <input class="star-input" name="rating" id="rating-2" type="radio">
+
+          <label title="3 stars" class="star-label" for="rating-3"><i class="star-icon">&#9733;</i></label>
+          <input class="star-input" name="rating" id="rating-3" type="radio">
+
+          <label title="4 stars" class="star-label" for="rating-4"><i class="star-icon">&#9733;</i></label>
+          <input class="star-input" name="rating" id="rating-4" type="radio">
+
+          <label title="5 stars" class="star-label" for="rating-5"><i class="star-icon">&#9733;</i></label>
+          <input class="star-input" name="rating" id="rating-5" type="radio">
+        </div>
+      </h2>
 
       <div class="reviews container">
         <div class="review">
           <h3>Джеймс Дэшнер, "Бегущий в лабиринте"</h3>
-          <div style="background-image: url('images/kn1.jpg')" class="book-image"></div>
+          <div style="background-image: url('images/book1.jpg')" class="book-image"></div>
           <h4>
             Вчера они были обычными парнями - бегали за девчонками, ходили в кино... Сегодня они - пешки в чужой игре, похищенные неизвестно кем для участия в чудовищном эксперименте. Их память стерта. Их новый дом - гигантский комплекс, отгороженный от еще более огромного Лабиринта стенами. Ребята не сомневаются: если они сумеют разгадать тайну Лабиринта, то вырвутся из заточения и вернутся домой. Но кто рискнет жизнью ради общей цели? Кто пойдет практически на верную смерть? Только двое - паренек по имени Томас и его подруга - Тереза...
           </h4>
@@ -66,7 +90,7 @@
 
         <div class="review">
           <h3>Джоди Пиколт, "Ангел для сестры"</h3>
-          <div style="background-image: url('images/kn2.jpg')" class="book-image"></div>
+          <div style="background-image: url('images/book2.jpg')" class="book-image"></div>
           <h4>
             Анна не больна, но в свои тринадцать лет перенесла бесчисленное множество операций, переливаний, инъекций. И все для того, чтобы помочь сестре, больной лейкемией. Как сказали родители, для этого Анна и появилась на свет.
           Но какой могла бы стать ее жизнь, не будь она привязана к сестре?… Анна решилась на шаг, который для многих людей был бы слишком сложен, и подала в суд на родителей, присвоивших право распоряжаться ее телом.
@@ -76,7 +100,7 @@
 
         <div class="review">
           <h3>Дэн Браун, "Ангелы и демоны"</h3>
-          <div style="background-image: url('images/kn3.jpg')" class="book-image"></div>
+          <div style="background-image: url('images/book3.jpg')" class="book-image"></div>
           <h4>
             Иллюминаты. Древний, таинственный орден, прославившийся в Средние века яростной борьбой с официальной церковью. Легенда далекого прошлого? Возможно... Но - почему тогда на груди убитого при загадочных обстоятельствах ученого вырезан именно символ иллюминатов? Приглашенный из Гарварда специалист по символике и его напарница, дочь убитого, начинают собственное расследование - и вскоре приходят к невероятным результатам...
           </h4>
@@ -85,7 +109,7 @@
 
         <div class="review">
           <h3>Дианa Сеттерфилд, "Тринадцатая сказка"</h3>
-          <div style="background-image: url('images/kn4.jpg')" class="book-image"></div>
+          <div style="background-image: url('images/book4.jpg')" class="book-image"></div>
           <h4>
             Маргарет Ли работает в отцовской букинистической лавке. Современности она предпочитает Диккенса, Уилки Коллинза и сестёр Бронте. Каково же было удивление Маргарет, когда внезапно «самая знаменитая сочинительница наших дней», автор пятидесяти шести романов, таинственная отшельница Вида Винтер предложила девушке стать её биографом. Ведь ничуть не меньше, чем своими книгами, мисс Винтер знаменита тем, что ещё не сказала ни одному журналисту ни слова правды. И вот перед Маргарет, оказавшейся в стенах мрачного особняка, разворачивается готическая история сестёр-близнецов, которая странным образом перекликается с её личной историей и постепенно подводит к разгадке тайны, сводившей с ума многие поколения читателей, — тайне «тринадцатой сказки.
           </h4>
