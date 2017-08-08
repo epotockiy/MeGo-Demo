@@ -1,0 +1,32 @@
+.statistic {
+  background-color: #95e1d3;
+}
+
+.statistic-table {
+  display: table;
+}
+
+.statitstic-cell {
+  display: table-cell;
+  text-align: center;
+  width: 20%;
+  padding: 80px 45px 74px 45px;
+  border-right: 1px solid #b5eae0;
+}
+.statitstic-cell:first-child{
+  border-left: 1px solid #b5eae0;
+}
+
+
+
+.statitstic-cell h3 {
+  font-family: $montserratBold;
+  margin-bottom: 17px;
+  font-size: 72px;
+  color: #fff;
+}
+
+.statitstic-cell p {
+  font-size: 14px;
+  color: #fff;
+}

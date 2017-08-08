@@ -6,7 +6,10 @@
 @import "layout/header";
 @import "base/common";
 //Sections
-@import "sections/_about.scss";
+@import "sections/about";
+@import "sections/statistic";
+@import "sections/services";
+
 // Base
 @import "base/media";
 

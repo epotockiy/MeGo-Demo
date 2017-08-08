@@ -79,7 +79,6 @@ header {
 .header-title h1 {
   margin-top: 50px;
   font-size: 150px;
-  font-weight: 700;
   line-height: 0.93;
   font-family: $montserratBold;
   color: #fff;
@@ -119,6 +118,7 @@ header {
   font-weight: 700;
   font-size: 14px;
   text-decoration: none;
+  font-family: $montserrat;
   padding: 8px 28px;
 }
 
@@ -135,7 +135,6 @@ header {
   text-decoration: none;
   color: #faf3dc;
   display: inline-block;
-  font-weight: 400;
   font-family: $montserrat;
   padding-top: 20px;
   font-size: 18px;
