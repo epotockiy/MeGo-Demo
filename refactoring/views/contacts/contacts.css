@@ -1,133 +1,23 @@
-html{
-    font-family: Tahoma;
-    height: 100%;
-    width: 100%;
+.branches {
+  padding: 40px 0;
+  text-align: center;
 }
 
-div{
-    text-align: right;
-    margin-right: 60px;
+.branches h2 {
+  font-size: 32px;
+  margin: 0;
+  padding-bottom: 20px;
+  color: #333;
 }
-img{
-    width: 100%;
-}
-body {
-    font: 14px 'Verdana';
-    margin: 0;
-    padding: 0;
-    background-color: #FFFAF0;
-}
-.menu{
-    background-color: #FF6347;
-}
-ul {
-    display: block;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-ul:after {
-    display: block;
-    content: ' ';
-    clear: both;
-    float: none;
-}
-ul.menu > li {
-    margin-left: 30px;
-    float: left;
-    position: relative;
-    font-size: 15px;
-    text-align: left;
-}
-ul.menu > li > a {
-    display: block;
-    padding: 10px;
-    color: white;
-    background: linear-gradient(to bottom left, #8B2323, #FF4040);
-    text-decoration: none;
-    width: 100%
-}
-ul.menu > li > a:hover {
-    background-color: #FF7256;
-}
-ul.menu > li:not(.form) {
-    width: 13%
-}
-ul.submenu {
-    display: none;
-    position: absolute;
-    width: 130px;
-    top: 40px;
-    left: 0;
-    background-color: white;
-    border: 1px solid red;
-}
-ul.submenu > li {
-    display: block;
-}
-ul.submenu > li > a {
-    display: block;
-    padding: 10px;
-    color: white;
-    background-color: #FFA07A;
-    text-decoration: none;
-}
-ul.submenu > li > a:hover {
-    text-decoration: underline;
-}
-ul.menu > li:hover > ul.submenu {
-    display: block;
-}
-.form{
-float: left;
-display: inline-block;  
-}
-div.column{
-    margin-top: 30px;
-    column-count: 2;
-    column-width: 200px;
-    column-rule: 1px;
-    column-gap: 15px;
-}
-div.text1{
-    text-align: left;
-    margin-left: 170px;
-}
-div.text2{
-    text-align: left;
-    margin-left: 170px;
-    margin-top: 40px;
-}
-div.text3{
-    text-align: left;
-    margin-left: 170px;
-    margin-top: 100px;
-}
-div.text4{
-    text-align: left;
-    margin-left: 170px;
-    margin-top: 100px;
-}
-footer{
-    text-align: center;
-}
-hr{
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.content{ 
-    display: table-row; 
-    font-size: 23px;
-    text-align: left;
-} 
 
-label{ 
-display: table-cell; 
-width:500px;
-padding: 5% 20%; 
-} 
-
-span{ 
-padding-left: 0; 
+.branches .branch {
+  font-size: 22px;
+  color: #333;
+  padding: 10px;
+  margin: 0;
 }
+
+.branches .branch span {
+  font-weight: bolder;
+}
+
