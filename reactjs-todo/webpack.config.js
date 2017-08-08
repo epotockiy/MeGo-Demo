@@ -1,3 +1,4 @@
+var copyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 
 var DIST_DIR = path.resolve(__dirname, 'dist');
@@ -6,10 +7,15 @@ var SRC_DIR  = path.resolve(__dirname, 'src');
 var config = {
   entry: SRC_DIR + '/app/index.js',
   output: {
-    path: DIST_DIR + '/app/',
+    path: DIST_DIR,
     filename: 'boundle.js',
-    publicPath: '/app/'
+    publicPath: '/'
   },
+  plugins: [
+      new copyWebpackPlugin([
+        { from: SRC_DIR + '/index.html' }
+      ])
+  ],
   module: {
     loaders: [
       {
