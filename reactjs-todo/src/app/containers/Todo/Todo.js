@@ -1,5 +1,6 @@
 import React        from 'react';
 import { connect  } from 'react-redux';
+import PropTypes    from 'prop-types';
 import { TaskList } from './TaskList';
 import { EditForm } from './EditForm';
 import { AddForm  } from './AddForm';
@@ -29,7 +30,7 @@ class Todo extends React.Component {
 
   getTasksFromStorage() {
     if (typeof localStorage !== 'undefined') {
-      this.props.setTasksArray(JSON.parse(localStorage.getItem(this.props.store.storageName)) || []);
+      this.props.setTasksArray(JSON.parse(localStorage.getItem(this.props.storageName)) || []);
     } else {
       this.props.setTasksArray([]);
     }
@@ -42,7 +43,7 @@ class Todo extends React.Component {
       return;
     }
 
-    const tempTasksArray = this.props.store.tasksArray;
+    const tempTasksArray = this.props.tasksArray;
     tempTasksArray.unshift({
       name: this.state.addFormInput,
       done: false,
@@ -76,15 +77,15 @@ class Todo extends React.Component {
     });
 
     this.props.setTasksArray([
-        ...this.props.store.tasksArray.slice(0, this.props.store.currentTask),
+        ...this.props.tasksArray.slice(0, this.props.currentTask),
         {
-          id: this.props.store.tasksArray[this.props.store.currentTask].id,
+          id: this.props.tasksArray[this.props.currentTask].id,
           name: this.state.editFormInput,
-          done: this.props.store.tasksArray[this.props.store.currentTask].done
+          done: this.props.tasksArray[this.props.currentTask].done
         },
-        ...this.props.store.tasksArray.slice(this.props.store.currentTask + 1)
+        ...this.props.tasksArray.slice(this.props.currentTask + 1)
     ]);
-    this.props.setOpenEditBlock(!this.props.store.openEditBlock);
+    this.props.setOpenEditBlock(!this.props.openEditBlock);
   }
 
   closeEditBlock() {
@@ -93,20 +94,20 @@ class Todo extends React.Component {
 
   onDoneClick(index) {
     this.props.setTasksArray([
-      ...this.props.store.tasksArray.slice(0, index),
+      ...this.props.tasksArray.slice(0, index),
       {
-        id: this.props.store.tasksArray[index].id,
-        name: this.props.store.tasksArray[index].name,
-        done: !this.props.store.tasksArray[index].done
+        id: this.props.tasksArray[index].id,
+        name: this.props.tasksArray[index].name,
+        done: !this.props.tasksArray[index].done
       },
-      ...this.props.store.tasksArray.slice(index + 1)
+      ...this.props.tasksArray.slice(index + 1)
     ]);
   }
 
   onRemoveTask(index) {
     this.props.setTasksArray([
-      ...this.props.store.tasksArray.slice(0, index),
-      ...this.props.store.tasksArray.slice(index + 1)
+      ...this.props.tasksArray.slice(0, index),
+      ...this.props.tasksArray.slice(index + 1)
     ]);
   }
 
@@ -141,39 +142,45 @@ class Todo extends React.Component {
         />
 
         <TaskList
-          openEditBlock={this.props.store.openEditBlock}
-          currentFilter={this.props.store.currentFilter}
-          tasksArray={this.props.store.tasksArray}
+          openEditBlock={this.props.openEditBlock}
+          currentFilter={this.props.currentFilter}
+          tasksArray={this.props.tasksArray}
           filterActions={this.getFilterActions()}
           taskActions={this.getTaskActions()}
         />
 
         <EditForm
             inputName={this.state.editFormInput}
-            currentTaskName={this.props.store.tasksArray.length ? this.props.store.tasksArray[this.props.store.currentTask].name : ''}
+            currentTaskName={this.props.tasksArray.length ? this.props.tasksArray[this.props.currentTask].name : ''}
             handleInputChange={this.handleEditFormInput}
             onSaveClick={this.saveTask}
             onCloseClick={this.closeEditBlock}
-            isOpenBlock={this.props.store.openEditBlock}
+            isOpenBlock={this.props.openEditBlock}
         />
       </div>
     );
   }
 }
 
+Todo.propTypes = {
+  store: PropTypes.object
+};
+
 const mapStateToProps = (state) => {
   return {
-    store: state
+    openEditBlock: state.openEditBlock,
+    tasksArray: state.tasksArray,
+    currentTask: state.currentTask,
+    currentFilter: state.currentFilter,
+    storageName: state.storageName
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setTasksArray:    (tasksArray)    => dispatch(dataActions.setTasksArray(tasksArray)),
-    setCurrentFilter: (currentFilter) => dispatch(dataActions.setCurrentFilter(currentFilter)),
-    setCurrentTask:   (currentTask)   => dispatch(dataActions.setCurrentTask(currentTask)),
-    setOpenEditBlock: (openEditBlock) => dispatch(dataActions.setOpenEditBlock(openEditBlock))
-  };
+const mapDispatchToProps = {
+    setTasksArray:    dataActions.setTasksArray,
+    setCurrentFilter: dataActions.setCurrentFilter,
+    setCurrentTask:   dataActions.setCurrentTask,
+    setOpenEditBlock: dataActions.setOpenEditBlock
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todo);
