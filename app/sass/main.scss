@@ -60,7 +60,7 @@ h3{
 		size: 30px;
 		weight: bold;
 	}
-
+	text-transform: uppercase;
 	color: $h-color;
 }
 
@@ -117,6 +117,28 @@ p{
 }
 
 
+.header-box{
+	line-height: 1.5;
+	&:after{
+			content:"";
+			height: 3px;
+			width: 60px;
+			display: block;
+			margin: 0 auto;
+			background-color: $red;
+			margin: 35px auto;
+	}
+}
+
+
+.gradient-hover{
+	background-image: $gradient , url("../img/banner-bg.png") ;
+	.content{
+		hidden : true;
+	}
+}
+
+// BANNER
 
 
 .banner{
@@ -153,7 +175,7 @@ p{
 			margin-top: 10px;
 
 			li{
-				margin-right: 36px;
+				margin-right: 49px;
 				display: inline;
 				&:last-child{
 					margin-right: 0px;
@@ -257,30 +279,9 @@ p{
 
 }
 
-/*/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-*/
 
-.header-box{
-	&:after{
-			content:"";
-			height: 3px;
-			width: 60px;
-			display: block;
-			margin: 0 auto;
-			background-color: $red;
-			margin: 35px auto;
-	}
-}
+// ABOUT-US
 
-
-.gradient-hover{
-	background-image: $gradient , url("../img/banner-bg.png") ;
-	.content{
-		hidden : true;
-	}
-}
 
 .about-us{
 	text-align: center;
@@ -359,11 +360,7 @@ p{
 
 
 
-/*/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-*/
-
+// FACTS
 .facts {
 
 	width: 100%;
@@ -397,20 +394,17 @@ p{
 		}
 	}
 
-/*/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-*/
+// SERVICE
 
 .service{
-	padding-top: 110px;
+	padding-top: 100px;
 	padding-bottom: 30px;
 	text-align: center;
 	margin: 0 auto;
 
 
 	.container{
-		padding-top: 25px;
+		padding-top: 20px;
 		display: flex;
 		max-width: 1185px;
 		flex-wrap: wrap;
@@ -453,11 +447,7 @@ p{
 	}
 }
 
-/*/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-*/
-
+// FEATURE
 
 .feature{
 	padding-top: 105px;
@@ -480,20 +470,20 @@ p{
 }
 
 
-/*/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-*/
+// SERVICE2
 
 
 .service2{
 	text-align: center;
 	max-width:1300px;
 	margin: 0 auto;	
-	padding-top: 110px;
-	height: 900px;
+	// padding-top: 110px;
+	height: 890px;
 	
 }
+
+
+// QUOTE
 
 
 .quote{
@@ -507,24 +497,46 @@ p{
 		margin: 0 auto;
 		align-items: center;
 		justify-content: space-around;
+		padding-top: 70px;
+
+		
+
 		.quote-content {
+
+			margin-left:80px;
 
 			.message-icon{
 				display: inline-block;
+				border: 3px solid $blue;
+				padding: 40px;
+				margin-right: 60px;
 				
 			}
 
 			.quote-mes{
 				display: inline-block;
+				line-height:1.5;
+				
 				p{
 					text-align: left;
-					max-width:690px;
+					max-width:850px;
 					color: $grey;
+					font-size: 24px;
+					padding-bottom: 10px;
 				}
-
-				.dash{
-					float: left;
+				
+				h4:after{
+					content: "";
+				    height: 3px;
+				    width: 60px;
+				    display: block;
+				    margin: 0 auto;
+				    background-color: $red;
+				    float:left;
+				    margin-top: 15px;
+				    margin-right:10px;
 				}
+				
 				h4{
 					float: left;
 				}
@@ -537,42 +549,90 @@ p{
 
 
 
-
+// OURTEAM
 
 
 .ourteam{
+	
+	padding-top:90px;
+	padding-bottom:115px;
 
-	p{
+	p.content{
 		margin: 0 auto;
 		max-width: 1300px;
+		margin-top: 35px;
+		margin-bottom:90px;
+		line-height: 1.5;
 	}
 	
-	.person {
-		display:inline-block;
+	.ourteam-photo{
 
-		.photo{
-			font-size: 0;
-			background: $blue;
+		.person {
 
-			img{
-				
-				&:hover{
-					@extend %hover-style;
-					background-image: $gradient;
-
+			display:inline-block;
+			margin-right: 30px;
+				&:last-child{
+					margin-right: 0px;
 				}
-			}
-		}
 
-		h5{
-			color: $h-color;
+			.photo{
+				font-size: 0;
+				background: $blue;
+				width:380px;
+				height: 470px;
+				
+				a{
+					position: relative;
+					float: left;
+					background: $red;
+				
+					span{
+						width:380px;
+						height: 470px;
+						display:none;
+						background: $gradient, url("../img/icons/") no-repeat;
+						position:absolute;
+						left:-10px; 
+						top:-10px;
+					}
+				}
+
+				a:hover span{
+					display:block; 
+					img{
+						position:absolute;
+						left:20px;
+					}
+				}  
+
+
+				// img{
+					
+				// 	&:hover{
+				// 		@extend %hover-style;
+				// 		background-image: $gradient;
+
+				// 	}
+				// }
+			}
+
+			p{
+				margin: 0 auto;
+			}
+
+			h5{
+
+				padding-bottom:10px;
+				padding-top:20px;
+				color: $h-color;
+			}
+			
 		}
-		
 	}
 }
 
 
-
+// LOGOS
 
 
 
@@ -588,38 +648,96 @@ p{
 		margin: 0 auto;
 		max-width: 1200px;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: space-between;
 		
 	}
 }
 
 .work{
-		
-
+	padding-top:105px;
+	
 	p{	
 		margin: 0 auto;
 		max-width: 1300px;
 	}
+
+	img{
+		float:left;
+	}
+
+	
 }
 
 
 .testimonial{
-	.avatar{
-			height: 200px;
-			width: 200px;
-			overflow: hidden;
-			border-radius: 50%;
-			background: url("../img/images/testimonial.png") no-repeat;
-			background-size: cover;
-			background-position: -20px -20px;			
+	clear: both;
+
+	.quote-container{
+		max-width:1200px;
+		display:flex;
+		text-align: center;
+		margin: 0 auto;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 70px;
+
+		
+
+		.quote-content {
+
+			margin-left:80px;
+
+			.avatar{
+
+				margin-right: 30px;
+				display: inline-block;
+				height: 200px;
+				width: 200px;
+				overflow: hidden;
+				border-radius: 50%;
+			}
+
+			.quote-mes{
+				display: inline-block;
+				line-height:1.5;
+				vertical-align:bottom;
+				
+				p{
+					text-align: left;
+					max-width:850px;
+					color: $grey;
+					font-size: 24px;
+					padding-bottom: 10px;
+				}
+				
+				h4:after{
+					content: "";
+				    height: 3px;
+				    width: 60px;
+				    display: block;
+				    margin: 0 auto;
+				    background-color: $red;
+				    float:left;
+				    margin-top: 15px;
+				    margin-right:10px;
+				}
+				
+				h4{
+					float: left;
+				}
+			}
+		}
 	}
 }
+
+
+
+// WHATPEOPLESAY
 
 
 
 .whatpeople{
 	background-image:$white-gradient, url("../img/images/whatpeoplesay-bg.png") ;
-	
 	h5{
 		color: $h-color;
 	}
@@ -632,7 +750,9 @@ p{
 		
 
 		.row{
-
+			min-width: 630px;
+			float:left;
+			margin:0;
 			.avatar{
 				display:inline-block;	
 			}
@@ -640,25 +760,44 @@ p{
 			.row-content{
 				text-align:left;
 				display:inline-block;				
-		
 
-				.dash{
-					
+				p.position{
 					text-align:left;
+
 				}
 
-				p{
-					max-width:500px;
-					text-align:left;
+				p.review{
+					max-width:390px;
+				}
 
+				p.review:after{
+					content: "";
+				    height: 3px;
+				    width: 60px;
+				    display: block;
+				    margin: 0 auto;
+				    background-color: $red;
+				    float:left;
+				    margin-top: 15px;
+				    margin-right:10px;
 				}
 			}
 		}
 	}
+
+	.container:after{
+		content:"";
+		clear:both;
+		display:block;
+	}
 }
 
-.blog{
 
+// BLOG
+
+
+.blog{
+	clear:both;
 	.articles{
 
 		.photo{
