@@ -1,4 +1,4 @@
-import React from 'react';
+import React        from 'react';
 import { connect  } from 'react-redux';
 import { TaskList } from './TaskList';
 import { EditForm } from './EditForm';
@@ -16,10 +16,15 @@ class Todo extends React.Component {
       editFormInput: ''
     };
 
-    /* This is not working! */
-    // this.addNewTask.bind(this);
-    // this.handleAddFormInput.bind(this);
-    this.getTasksFromStorage();//get out of here!
+    this.addNewTask          = this.addNewTask.bind(this);
+    this.handleAddFormInput  = this.handleAddFormInput.bind(this);
+    this.handleEditFormInput = this.handleEditFormInput.bind(this);
+    this.saveTask            = this.saveTask.bind(this);
+    this.closeEditBlock      = this.closeEditBlock.bind(this);
+  }
+
+  componentWillMount() {
+    this.getTasksFromStorage();
   }
 
   getTasksFromStorage() {
@@ -105,7 +110,6 @@ class Todo extends React.Component {
     ]);
   }
 
-  //not working
   handleEditClick(index) {
     this.props.setOpenEditBlock(true);
     this.props.setCurrentTask(index);
@@ -121,9 +125,9 @@ class Todo extends React.Component {
 
   getTaskActions() {
     return {
-      onDoneClick:     this.onDoneClick.bind(this),
-      onRemoveTask:    this.onRemoveTask.bind(this),
-      handleEditClick: this.handleEditClick.bind(this)
+      onDoneClick:     (index) => { this.onDoneClick(index) },
+      onRemoveTask:    (index) => { this.onRemoveTask(index) },
+      handleEditClick: (index) => { this.handleEditClick(index) }
     }
   }
 
@@ -132,12 +136,12 @@ class Todo extends React.Component {
       <div className="todo">
         <AddForm
             inputName={this.state.addFormInput}
-            handleInputChange={this.handleAddFormInput.bind(this)}
-            addNewTask={this.addNewTask.bind(this)}
+            handleInputChange={this.handleAddFormInput}
+            addNewTask={this.addNewTask}
         />
 
         <TaskList
-          opendEditBlock={this.props.store.openEditBlock}
+          openEditBlock={this.props.store.openEditBlock}
           currentFilter={this.props.store.currentFilter}
           tasksArray={this.props.store.tasksArray}
           filterActions={this.getFilterActions()}
@@ -147,9 +151,9 @@ class Todo extends React.Component {
         <EditForm
             inputName={this.state.editFormInput}
             currentTaskName={this.props.store.tasksArray.length ? this.props.store.tasksArray[this.props.store.currentTask].name : ''}
-            handleInputChange={this.handleEditFormInput.bind(this)}
-            onSaveClick={this.saveTask.bind(this)}
-            onCloseClick={this.closeEditBlock.bind(this)}
+            handleInputChange={this.handleEditFormInput}
+            onSaveClick={this.saveTask}
+            onCloseClick={this.closeEditBlock}
             isOpenBlock={this.props.store.openEditBlock}
         />
       </div>
