@@ -12,10 +12,6 @@
   box-sizing: border-box;
 }
 
-.task.active {
-  display: inline-block;
-}
-
 .task.done p {
   text-decoration: line-through;
 }

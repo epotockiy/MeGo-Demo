@@ -9,6 +9,26 @@
   padding: 0;
 }
 
+.todo-list ul.all li {
+  display: inline-block;
+}
+
+.todo-list ul.progress li {
+  display: inline-block;
+}
+
+.todo-list ul.progress li.done {
+  display: none;
+}
+
+.todo-list ul.done li {
+  display: none;
+}
+
+.todo-list ul.done li.done {
+  display: inline-block;
+}
+
 .todo-list .overlay {
   position: fixed;
   width: 100%;
@@ -19,6 +39,10 @@
   background: #333;
   opacity: 0.5;
   display: none;
+}
+
+.todo-list .overlay.active {
+  display: block;
 }
 
 .todo-list .overlay.active {

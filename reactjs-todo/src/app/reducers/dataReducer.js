@@ -1,4 +1,11 @@
-/* Reducers are pure functions, they do not mutate initial data!!! */
+import {
+  setTasksArray,
+  setStorageName,
+  setOpenEditBlock,
+  setCurrentTask,
+  setCurrentFilter
+} from './dataReducerActions';
+
 const dataReducer = (
   state = {
     tasksArray: [],
@@ -10,46 +17,23 @@ const dataReducer = (
   action) => {
     switch (action.type) {
       case 'SET_TASKS_ARRAY':
-        state = {
-            ...state,
-            tasksArray: action.payload
-        };
-        break;
+        return setTasksArray(state, action.payload);
 
       case 'SET_CURRENT_TASK':
-        state = {
-          ...state,
-          currentTask: action.payload
-        };
-        break;
+        return setCurrentTask(state, action.payload);
 
       case 'SET_CURRENT_FILTER':
-        state = {
-          ...state,
-          currentFilter: action.payload
-        };
-        break;
+        return setCurrentFilter(state, action.payload);
 
       case 'SET_OPEN_EDIT_BLOCK':
-        state = {
-          ...state,
-          openEditBlock: action.payload
-        };
-        break;
+        return setOpenEditBlock(state, action.payload);
 
       case 'SET_STORAGE_NAME':
-        state = {
-          ...state,
-          storageName: action.payload
-        };
-        break;
+        return setStorageName(state, action.payload);
 
       default:
-        console.log('Wrong action type in dataReducer!');
-        break;
+        return state;
     }
-
-    return state;
   };
 
 export default dataReducer;
