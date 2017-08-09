@@ -1,4 +1,52 @@
 .services {
-  padding-top: 20px;
+  padding-top: 109px;
   padding-bottom: 20px;
+}
+
+.services-table {
+  display: table;
+  margin-top: 18px;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.services-cell {
+  vertical-align: top;
+  display: table-cell;
+  padding-top: 49px;
+  padding-bottom: 47px;
+  padding-left: 26px;
+  width: 20%;
+
+}
+
+.services-row:first-child {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.services-description h5 {
+  color: #333;
+  font-family: $montserratBold;
+  font-size: 14px;
+  margin: 0;
+}
+
+.services-description p {
+  color: #b3b3b3;
+  font-family: $robotoRegular;
+  font-size: 15px;
+  line-height: 1.58;
+  margin: 0;
+  padding-top: 14px;
+
+}
+
+.services-cell img {
+  float: left;
+  padding-right: 31px;
+}
+
+.services-description {
+  width: 74%;
+  float: left;
 }

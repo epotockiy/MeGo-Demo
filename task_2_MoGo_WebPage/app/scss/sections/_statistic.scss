@@ -19,14 +19,14 @@
 
 
 
-.statitstic-cell h3 {
+.statitstic-cell p:nth-child(2n+1) {
   font-family: $montserratBold;
   margin-bottom: 17px;
   font-size: 72px;
   color: #fff;
 }
 
-.statitstic-cell p {
+.statitstic-cell p:nth-child(2n) {
   font-size: 14px;
   color: #fff;
 }
