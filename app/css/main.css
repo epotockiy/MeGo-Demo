@@ -396,7 +396,7 @@ p {
 .feature {
   padding-top: 105px;
   text-align: center;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../img/images/feature-bg.png");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("../img/images/feature-bg.png");
   background-size: cover;
   background-color: #ffffff;
 }
@@ -630,7 +630,7 @@ p {
 
 /* line 739, ../sass/main.scss */
 .whatpeople {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../img/images/whatpeoplesay-bg.png");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("../img/images/whatpeoplesay-bg.png");
 }
 /* line 741, ../sass/main.scss */
 .whatpeople h5 {
@@ -687,36 +687,48 @@ p {
 .blog {
   clear: both;
 }
-/* line 807, ../sass/main.scss */
-.blog .articles .date {
+/* line 802, ../sass/main.scss */
+.blog .articles article {
+  float: left;
+}
+/* line 805, ../sass/main.scss */
+.blog .articles article .photo {
+  width: 380px;
+  height: 240px;
+}
+/* line 810, ../sass/main.scss */
+.blog .articles article .date {
+  width: 60px;
+  height: 70px;
   background-color: #95e1d3;
 }
-/* line 809, ../sass/main.scss */
-.blog .articles .date p {
+/* line 814, ../sass/main.scss */
+.blog .articles article .date p {
   color: #ffffff;
 }
-/* line 814, ../sass/main.scss */
-.blog .articles h5 {
+/* line 819, ../sass/main.scss */
+.blog .articles article h5 {
   color: #333333;
 }
 
-/* line 820, ../sass/main.scss */
+/* line 827, ../sass/main.scss */
 .map {
-  background-image: linear-gradient(to top, rgba(252, 227, 138, 0.8) 0%, rgba(243, 129, 129, 0.8) 100%), url("../img/images/map.png");
+  width: 100%;
+  clear: both;
+  background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("../img/images/map.png") no-repeat;
   background-size: contain;
-  min-height: 400px;
+  height: 200px;
 }
-/* line 824, ../sass/main.scss */
-.map .container {
-  margin: 0 auto;
-  text-align: center;
+/* line 834, ../sass/main.scss */
+.map .header-box {
+  padding-top: 2.86%;
 }
-/* line 828, ../sass/main.scss */
-.map .container h5 {
+/* line 835, ../sass/main.scss */
+.map .header-box h5 {
   color: rgba(243, 129, 129, 0.8);
 }
 
-/* line 841, ../sass/main.scss */
+/* line 850, ../sass/main.scss */
 .footer .container .blogs h5 {
   color: #333333;
 }

@@ -13,7 +13,7 @@ $qoute-bg: #f8f8f8;
 $p-color:   #999999;
 $white:	 #ffffff;
 $gradient: linear-gradient(to top, $yellow 0%,$red 100%);
-$white-gradient:linear-gradient( rgba(255,255,255,0.9),rgba(255,255,255,0.9) );
+$white-gradient:linear-gradient( rgba(255,255,255,0.85),rgba(255,255,255,0.85) );
 $white-line : 3px solid $white;
 $red-line : 3px solid $red;
 $grey: #adadad;
@@ -799,36 +799,45 @@ p{
 .blog{
 	clear:both;
 	.articles{
+		article{
+			float:left;
 
-		.photo{
+			.photo{
+				width: 380px;
+				height: 240px;
+			}
 
-		}
+			.date{
+				width: 60px;
+				height: 70px;
+				background-color: $blue;
+				p{
+					color: $white;
+				}
+			}
 
-		.date{
-			background-color: $blue;
-			p{
-				color: $white;
+			h5{
+				color: $h-color;
 			}
 		}
-
-		h5{
-			color: $h-color;
-		}
+		
 	}
 }
 
 .map{
-	background-image: $gradient,  url("../img/images/map.png");
+	width:100%;
+	clear:both;
+	background: $white-gradient,  url("../img/images/map.png") no-repeat;
 	background-size: contain;
-	min-height: 400px;
-	.container{
-		margin: 0 auto;
-		text-align: center;
+	height: 200px;
 
+	.header-box{
 		h5{
 			color: $red;
 		}
+		padding-top:2.86%;
 	}
+	
 }
 
 
