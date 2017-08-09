@@ -146,12 +146,13 @@ p{
 	background-image: $gradient , url("../img/banner-bg.png") ;
 	background-size: cover;
 	padding-bottom: 25px;
+	background-position: center;
 
 	.top-navbar{
 
 		margin: 0 auto;
 		padding-top: 23px;
-		max-width: 1200px;
+		max-width: 62.5%;
 
 		&:after{
 			content:"";
@@ -162,20 +163,21 @@ p{
 		}
 
 		h3{
-		    display: inline-block;
-			color: $white;
+		    color: $white;
 			float: left;
+			text-transform: none;
 			
 		}
 
 		ul{
+			display: flex;
+			width: 52.16%;
 			text-transform: uppercase;
-			display: inline;
 			float: right;
 			margin-top: 10px;
 
 			li{
-				margin-right: 49px;
+				margin-right: 6%;
 				display: inline;
 				&:last-child{
 					margin-right: 0px;
@@ -196,7 +198,7 @@ p{
 
 
 	header.dash{
-		padding-top:150px;
+		padding-top:7.81%;
 		h1{
 			padding-top: 20px;
 			line-height:1;
@@ -215,7 +217,7 @@ p{
 		display: inline-block;
 		padding: 10px 30px;
 		text-transform: uppercase;
-		margin-bottom: 155px;		
+		margin-bottom: 2.63%;		
 		&:hover{
 				background: $red;
 				font-color: $white;
@@ -229,7 +231,7 @@ p{
 			display: inline-block;
 			text-align: left;
 			width: 14.58%;
-			margin-right: 30px;
+			margin-right: 1.5625%;
 
 			&:last-child{margin-right: 0}
 		
@@ -238,26 +240,28 @@ p{
 				height: 3px;
 				margin-bottom:20px;
 			}	
-
-			.intro{
+		
+			.intro:hover{
 				background-image: linear-gradient(to right, $red, $red 25% ,  $white 1%);	
 			}
 
-			.work{
+			.work:hover{
 				background-image: linear-gradient(to right, $red, $red 50% ,  $white 1%);
 			}
 
-			.about{
+			.about:hover{
 				background-image: linear-gradient(to right, $red, $red 75% ,  $white 1%);
 			}
 
-			.contacts{
+			.contacts:hover{
 				background-image: linear-gradient(to right, $red, $red 100% ,  $white 1%);
 			}
 
 			.default{
 				background: $white;
 			}
+
+			
 
 
 			a{
@@ -285,20 +289,21 @@ p{
 
 .about-us{
 	text-align: center;
-	padding-top:90px;
-	padding-bottom: 125px;
+	padding-top:95px;
+	padding-bottom: 105px;
 
 
 	p {
-		padding-top: 14px;
-		padding-bottom: 65px;
-		max-width: 1300px;
+		
+		padding-bottom: 110px;
+		width: 51.04%;
 		margin: 0 auto;
 		line-height: 1.5;
 	}
 
 
 	.content {
+
 		margin: 0 auto;
 		max-width: 1200px;
 		display: flex;
@@ -307,11 +312,14 @@ p{
 		flex-wrap: wrap;
 		font-size:0;
 
+
 		.photo {
-			
+			font-size: 0;
+			background: $blue;
+			background-size: cover;
 			flex-direction: row;
 			background: $blue;
-			width:380px;
+			width:31.6%;
 			height: 250px;
 			
 			a{
@@ -347,7 +355,7 @@ p{
 
 		
 
-			a:hover span{
+			a:hover {
 				display:block; 
 			}  
 
@@ -355,6 +363,10 @@ p{
 
 			
 		}
+	}
+
+	.photo:hover a{
+		background-position: -20px -20px;
 	}
 }
 
@@ -371,24 +383,30 @@ p{
 
 		.dire{
 			height: 100%;	
-		  	max-width: 1200px;
+		  	width: 100%;
 			margin: 0 auto;
 	
 			.fact{
+				width: 12.5%;
+				vertical-align: top;
 				height: 100%;
 			    background: $blue;
 				display: inline-block;
-				border-right: 2px solid black;
+				border-right: 1px solid $white;
+		
+				.fact-information{
+					    position: relative;
+   						top: 26%;
+					
+					.number {
+						color: $white;
+						font-size: 72px;
+						font-weight: bold;
+					}
 
-				span {
-					display: block;
-					color: $white;
-					font-size: 72px;
-					font-weight: bold;
-				}
-
-				h5{
-					display: inline-block;
+					h5{
+						display: inline-block;
+					}
 				}
 			}
 		}
@@ -450,6 +468,7 @@ p{
 // FEATURE
 
 .feature{
+	background-position: center;
 	padding-top: 105px;
 	text-align:center;
 	background-image:$white-gradient, url("../img/images/feature-bg.png") ;
@@ -457,12 +476,12 @@ p{
 	background-color: $white;
 
 	img{
-		margin-top:-30px;
+		margin-top:-1.56%;
 	}
 
 	.iphone{
 		position: absolute;
-		margin-bottom: -25px;
+		margin-bottom: -2.08%;
 	}
 
 
