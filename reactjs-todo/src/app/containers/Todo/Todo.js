@@ -169,21 +169,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setTasksArray: (tasksArray) => {
-      dispatch(dataActions.setTasksArray(tasksArray));
-    },
-    setCurrentFilter: (currentFilter) => {
-      dispatch(dataActions.setCurrentFilter(currentFilter));
-    },
-    setCurrentTask: (currentTask) => {
-      dispatch(dataActions.setCurrentTask(currentTask));
-    },
-    setOpenEditBlock: (openEditBlock) => {
-      dispatch(dataActions.setOpenEditBlock(openEditBlock));
-    },
-    setStorageName: (storageName) => {
-      dispatch(dataActions.setStorageName(storageName));
-    }
+    setTasksArray:    (tasksArray)    => dispatch(dataActions.setTasksArray(tasksArray)),
+    setCurrentFilter: (currentFilter) => dispatch(dataActions.setCurrentFilter(currentFilter)),
+    setCurrentTask:   (currentTask)   => dispatch(dataActions.setCurrentTask(currentTask)),
+    setOpenEditBlock: (openEditBlock) => dispatch(dataActions.setOpenEditBlock(openEditBlock))
   };
 };
 

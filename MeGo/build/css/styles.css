@@ -410,7 +410,7 @@ body {
   font-size: 100%;
   font-family: "Montserrat", sans-serif; }
 
-.clearfix:after {
+.clearfix::after {
   visibility: hidden;
   display: block;
   content: "";
@@ -676,7 +676,6 @@ header {
   padding-bottom: 9px; }
 
 .header-title {
-  color: #fff;
   margin: 0 auto;
   max-width: 802px;
   color: #999;

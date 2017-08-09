@@ -1,12 +1,8 @@
 import React        from 'react';
 import { render   } from 'react-dom';
-import { Provider } from 'react-redux';
-import Todo         from './containers/Todo/Todo'
-import store        from './store';
+import { Root }     from "./containers/Todo/Root";
 
 render(
-    <Provider store={store}>
-      <Todo/>
-    </Provider>,
+    <Root />,
     document.getElementById('app')
 );

@@ -1,10 +1,16 @@
 import {
   setTasksArray,
-  setStorageName,
   setOpenEditBlock,
   setCurrentTask,
   setCurrentFilter
 } from './dataReducerActions';
+
+import {
+  SET_TASKS_ARRAY,
+  SET_CURRENT_TASK,
+  SET_CURRENT_FILTER,
+  SET_OPEN_EDIT_BLOCK
+} from '../actions/actionTypes';
 
 const dataReducer = (
   state = {
@@ -16,20 +22,17 @@ const dataReducer = (
   },
   action) => {
     switch (action.type) {
-      case 'SET_TASKS_ARRAY':
+      case SET_TASKS_ARRAY:
         return setTasksArray(state, action.payload);
 
-      case 'SET_CURRENT_TASK':
+      case SET_CURRENT_TASK:
         return setCurrentTask(state, action.payload);
 
-      case 'SET_CURRENT_FILTER':
+      case SET_CURRENT_FILTER:
         return setCurrentFilter(state, action.payload);
 
-      case 'SET_OPEN_EDIT_BLOCK':
+      case SET_OPEN_EDIT_BLOCK:
         return setOpenEditBlock(state, action.payload);
-
-      case 'SET_STORAGE_NAME':
-        return setStorageName(state, action.payload);
 
       default:
         return state;

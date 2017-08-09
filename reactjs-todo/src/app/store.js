@@ -1,6 +1,6 @@
-import { createStore } from 'redux';
-import dataReducer     from './reducers/dataReducer';
-import throttle        from 'lodash/throttle';
+import { createStore }    from 'redux';
+import dataReducer        from './reducers/dataReducer';
+import throttle           from 'lodash/throttle';
 
 let store = createStore(dataReducer);
 
