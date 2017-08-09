@@ -1,27 +1,32 @@
 .unique-design {
 
-  background-image: url(../images/unique-design/unique-design.png);
-  background-size: cover;
-  background-position: center center;
-  /*linear-gradient(to bottom, rgba(243, 129, 129, 0.9) 0%, rgba(252, 227, 138, 0.9) 100%)*/
-  padding-top: 32px;
-  padding-bottom: 30px;
+
 
 }
 
+.unique-design-container {
+  padding-top: 109px;
+  background-image: url(../images/unique-design/unique-design.png);
+  background-size: cover;
+  background-position: center center;
+}
+
 .ipad {
-  margin-top: 9px;
+  background-size: contain;
+  margin-top: 20px;
   margin-right: 51px;
-  height: 581px;
+  height: 608px;
   background-image: url(../images/unique-design/ipad.png);
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .iphone {
-  position: absolute;
-  height: 300px;
+  background-size: contain;
   background-image: url(../images/unique-design/iphone.png);
-
+  height: 471px;
+  margin-top: -381px;
+  margin-left: 462px;
   background-position: center center;
+  background-repeat: no-repeat;
 }

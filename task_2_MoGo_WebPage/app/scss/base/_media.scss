@@ -16,6 +16,7 @@
   .statistic .wrapper {
     max-width: 1200px;
   }
+
 }
 
 @media (max-width: 1024px) {
@@ -73,6 +74,17 @@
   .services-cell h5 {
     font-size: 12px;
   }
+  .ipad {
+    height: 500px;
+
+  }
+  .iphone {
+    height: 370px;
+    margin-top: -301px;
+    margin-left: 388px;
+
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -140,7 +152,16 @@
     float: none;
     text-align: center;
   }
+  .ipad {
+    height: 400px;
 
+  }
+  .iphone {
+    height: 270px;
+    margin-top: -221px;
+    margin-left: 308px;
+
+  }
 }
 
 @media (max-width: 425px) {
@@ -185,7 +206,7 @@
     border-bottom: 1px solid #e5e5e5;
   }
   .services-description {
-    float: left ;
+    float: left;
   }
   .services-cell {
     padding-left: 0;
@@ -193,6 +214,17 @@
     width: 100%;
   }
   .services-description {
-    width: 10 0%;
+    width: 100%;
   }
+  .ipad {
+    height: 260px;
+
+  }
+  .iphone {
+    height: 177px;
+    margin-top: -144px;
+    margin-left: 155px;
+
+  }
+
 }
