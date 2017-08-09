@@ -169,10 +169,10 @@ Todo.propTypes = {
 const mapStateToProps = (state) => {
   return {
     openEditBlock: state.openEditBlock,
-    tasksArray: state.tasksArray,
-    currentTask: state.currentTask,
+    tasksArray:    state.tasksArray,
+    currentTask:   state.currentTask,
     currentFilter: state.currentFilter,
-    storageName: state.storageName
+    storageName:   state.storageName
   };
 };
 

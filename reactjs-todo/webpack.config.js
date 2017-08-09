@@ -8,7 +8,7 @@ var config = {
   entry: SRC_DIR + '/app/index.js',
   output: {
     path: DIST_DIR,
-    filename: 'boundle.js',
+    filename: 'bundle.js',
     publicPath: '/'
   },
   plugins: [
