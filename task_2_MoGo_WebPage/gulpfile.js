@@ -7,10 +7,6 @@
 // // //////////////////////////////////////////////
 
 var config = {
-    jsConcatFiles: [
-        './app/js/module1.js',
-        './app/js/main.js'
-    ],
     buildFilesFoldersRemove: [
         'build/scss/',
         'build/workStyles/',
@@ -55,12 +51,11 @@ function errorlog(err) {
 // Scripts Tasks
 // ///////////////////////////////////////////////
 gulp.task('scripts', function () {
-    return gulp.src(config.jsConcatFiles)
+    return gulp.src('./app/js/main.js')
         .pipe(sourcemaps.init())
-        .pipe(concat('temp.js'))
+        .pipe(concat('app.min.js'))
         .pipe(uglify())
         .on('error', errorlog)
-        .pipe(rename('app.min.js'))
         .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest('./app/js/'))
         .pipe(reload({stream: true}));
