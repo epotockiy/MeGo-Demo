@@ -89,6 +89,10 @@ p{
 	}
 }
 
+a{
+	text-decoration: none;
+}
+
 .dash{
 	&:after{
 		content:"";
@@ -138,11 +142,26 @@ p{
 	}
 }
 
+%clearfix{
+	content:"";
+	display: block;
+	height: 0;
+	clear : both;
+	overflow: hidden;
+}
+
+
+.photo{
+	background-size: cover;
+	background-position: center;
+}
+
+
 // BANNER
 
 
 .banner{
-
+	padding:0 18.75%;
 	background-image: $gradient , url("../img/banner-bg.png") ;
 	background-size: cover;
 	padding-bottom: 25px;
@@ -150,35 +169,32 @@ p{
 
 	.top-navbar{
 
-		margin: 0 auto;
 		padding-top: 23px;
-		max-width: 62.5%;
+		
 
 		&:after{
-			content:"";
-			display: block;
-			height: 0;
-			clear : both;
-			overflow: hidden;
+			@extend %clearfix;
 		}
 
-		h3{
+		a{
+			font : {
+				family: 'Montserrat', sans-serif;
+				size: 30px;
+				weight: bold;
+			}
 		    color: $white;
 			float: left;
-			text-transform: none;
 			
 		}
 
 		ul{
-			display: flex;
-			width: 52.16%;
+			
 			text-transform: uppercase;
-			float: right;
 			margin-top: 10px;
-
+			position: relative;
+			left:  21.1%;
 			li{
-				margin-right: 6%;
-				display: inline;
+				margin-right:  4.1%;
 				&:last-child{
 					margin-right: 0px;
 				}	
@@ -196,19 +212,26 @@ p{
 		}
 	}	
 
+	ul{	
+		li{
+			text-transform: uppercase;
+			display: inline-block;			
+		}
+	}
+
 
 	header.dash{
-		padding-top:7.81%;
+		padding-top:12.91%;
 		h1{
 			padding-top: 20px;
-			line-height:1;
+    		line-height: 0.97;
 		}
 
 		&:after{
 			height: 3px;
 			width: 60px;
 			display: block;
-			margin: 49px auto;
+			margin: 52px auto;
 			background-color: $white;
 		}
 	}
@@ -217,52 +240,58 @@ p{
 		display: inline-block;
 		padding: 10px 30px;
 		text-transform: uppercase;
-		margin-bottom: 2.63%;		
+		margin-bottom: 13%;		
 		&:hover{
-				background: $red;
-				font-color: $white;
+			background: $red;
+			font-color: $white;
+			box-shadow: 5px 5px $grey;
+			transition: box-shadow 0.1s;
 		}	
 	}
 	
-	ul{	
+	ul.bottom-navbar-list{	
 		
 		li{
+			border-top: 3px solid $white;
 			text-transform: uppercase;
 			display: inline-block;
 			text-align: left;
-			width: 14.58%;
-			margin-right: 1.5625%;
+			width: 22%;
+			margin-right: 2.5%;
+			padding-top:20px;
 
 			&:last-child{margin-right: 0}
-		
-			.bottom-navbar-menu	{
+
+			&:before{
+				position: relative;
+				top:-23px;
+				content: "";
 				width: 100%;
 				height: 3px;
-				margin-bottom:20px;
-			}	
-		
-			.intro:hover{
-				background-image: linear-gradient(to right, $red, $red 25% ,  $white 1%);	
-			}
-
-			.work:hover{
-				background-image: linear-gradient(to right, $red, $red 50% ,  $white 1%);
-			}
-
-			.about:hover{
-				background-image: linear-gradient(to right, $red, $red 75% ,  $white 1%);
-			}
-
-			.contacts:hover{
-				background-image: linear-gradient(to right, $red, $red 100% ,  $white 1%);
-			}
-
-			.default{
 				background: $white;
+				display: block;
+				
 			}
 
-			
+			&.intro:hover:before{
+				background: $red;
+				width:25%;
+			}
 
+			&.work:hover:before{
+				background: $red;
+				width:50%;
+			}
+
+			&.about:hover:before{
+				background: $red;
+				width:75%;
+			}
+
+			&.contacts:hover:before{
+				background: $red;
+				width:100%;
+			}
 
 			a{
 				text-decoration: none;
@@ -278,75 +307,61 @@ p{
 
 			}
 		}
-	}	
-	
 
-}
+		
+	}
+		
+}			
+
 
 
 // ABOUT-US
 
 
 .about-us{
+	padding: 0 18.75%;
 	text-align: center;
-	padding-top:95px;
+	padding-top:85px;
 	padding-bottom: 105px;
 
-
 	p {
-		
-		padding-bottom: 110px;
-		width: 51.04%;
+		padding-bottom: 105px;
+		width: 80%;
 		margin: 0 auto;
 		line-height: 1.5;
 	}
 
 
 	.content {
-
-		margin: 0 auto;
-		max-width: 1200px;
 		display: flex;
-		flex-direction:row;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		font-size:0;
 
-
-		.photo {
-			font-size: 0;
-			background: $blue;
-			background-size: cover;
-			flex-direction: row;
-			background: $blue;
-			width:31.6%;
-			height: 250px;
+		a {
 			
-			a{
-				position: relative;
-				float: left;
-				background: $red;
+			width:31%;
+			
+			.photo{
+				width: 100%;
+				background-size: cover;		
+				height: 250px;
 				
 				span{
+					width: 100%;
+					height:100%;
 					display:none;
 					background: $gradient, url("../img/icons/") no-repeat;
-					width:380px;
-					height: 250px;
-					position:absolute;
-					left:-10px; 
-					top:-10px;
-
-
+					
 					img{
 						position: absolute;
-						left: 50%;
-						top: 100px;
+						left: 45%;
+   						top: 40%;
 					}
 
 					p{
 						position: absolute;
-						left: 45%;
-						top: 115px;
+						left: 10%;
+   						top: 50%;
 						font-size:18px;
 						color:$white;
 					}				
@@ -355,20 +370,21 @@ p{
 
 		
 
-			a:hover {
-				display:block; 
-			}  
+			&:hover  {
+				box-shadow: 10px 10px 0 $blue;
+  				transform: translateY(-10px);
+							  
+			}  	
 
-			
-
-			
+			&:hover span{
+				display: block;
+			}
 		}
 	}
-
-	.photo:hover a{
-		background-position: -20px -20px;
-	}
 }
+
+
+
 
 
 
@@ -382,32 +398,28 @@ p{
 	text-align: center;
 
 		.dire{
-			height: 100%;	
-		  	width: 100%;
-			margin: 0 auto;
+			// height: 100%;	
+		 //  	width: 100%;
+			// margin: 0 auto;
 	
 			.fact{
+				padding: 70px 0px 90px 0;
 				width: 12.5%;
-				vertical-align: top;
-				height: 100%;
-			    background: $blue;
 				display: inline-block;
 				border-right: 1px solid $white;
 		
-				.fact-information{
-					    position: relative;
-   						top: 26%;
-					
-					.number {
-						color: $white;
-						font-size: 72px;
-						font-weight: bold;
-					}
-
-					h5{
-						display: inline-block;
-					}
+							
+				p {
+					color: $white;
+					font-size: 72px;
+					font-weight: bold;
 				}
+
+				h5{
+					padding-top: 10px;
+					display: inline-block;
+				}
+				
 			}
 		}
 	}
@@ -415,16 +427,16 @@ p{
 // SERVICE
 
 .service{
-	padding-top: 100px;
+	padding: 0 18.75%;
+	padding-top: 110px;
 	padding-bottom: 30px;
 	text-align: center;
 	margin: 0 auto;
 
 
 	.container{
-		padding-top: 20px;
+		padding-top: 25px;
 		display: flex;
-		max-width: 1185px;
 		flex-wrap: wrap;
 		margin: 0 auto;
 		justify-content: space-between;
@@ -469,19 +481,19 @@ p{
 
 .feature{
 	background-position: center;
-	padding-top: 105px;
-	text-align:center;
+	padding-top: 100px;
 	background-image:$white-gradient, url("../img/images/feature-bg.png") ;
 	background-size: cover;
-	background-color: $white;
 
-	img{
-		margin-top:-1.56%;
+	.screen{
+		position: relative;
+		left: 4%;
 	}
 
 	.iphone{
-		position: absolute;
-		margin-bottom: -2.08%;
+		position: relative;
+	    top: 58px;
+	    right: 1%;
 	}
 
 
@@ -493,11 +505,88 @@ p{
 
 
 .service2{
+	padding: 0 18.75%;
 	text-align: center;
-	max-width:1300px;
 	margin: 0 auto;	
-	// padding-top: 110px;
+	padding-top: 110px;
 	height: 890px;
+
+	p.title{
+		width: 80%;
+		margin: 0 auto;
+		line-height: 1.5;
+	}
+
+	.service2-container{
+		margin-top: 95px;
+
+		.service2-image{
+			width:47.5%;
+			background-size: cover;
+			height: 380px;
+			display: inline-block;
+			margin-right: 2%
+		
+		}
+
+		#accordion{
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+
+
+			.accordion-title{
+				border: 1px solid $p-color;
+				text-align: left;
+				width: 100%;
+				margin-bottom: 10px;
+
+				img{
+					padding: 2%;
+				}
+
+				.title{
+					display:inline-block;
+					margin-top: 3%;
+					vertical-align: top;
+					text-transform: uppercase;
+				}
+
+				.pointer{
+					display: inline-block;
+				}
+
+
+				p{
+					width: 100%;
+				}
+				
+				.pointer{
+					display: inline-block;
+				}
+
+				.accordion-content{
+					padding: 10px;
+					display:none;
+					height: 160px;
+					width: 97%;
+					overflow: scroll;
+					border-top: 1px solid $p-color;
+
+					p{
+						height: 100%;
+					}
+				}
+			}
+
+
+
+
+			.accordion-title.active > .accordion-content{
+				display: block;
+			}
+		}
+	}
 	
 }
 
@@ -572,13 +661,12 @@ p{
 
 
 .ourteam{
-	
+	padding: 0 18.75%;
 	padding-top:90px;
 	padding-bottom:115px;
 
 	p.content{
 		margin: 0 auto;
-		max-width: 1300px;
 		margin-top: 35px;
 		margin-bottom:90px;
 		line-height: 1.5;
@@ -587,53 +675,43 @@ p{
 	.ourteam-photo{
 
 		.person {
+		    width: 31%;
+		    display: inline-block;
+		    margin-right: 2.5%;
+			&:last-child{
+				margin-right: 0px;
+			}
 
-			display:inline-block;
-			margin-right: 30px;
-				&:last-child{
-					margin-right: 0px;
-				}
-
-			.photo{
-				font-size: 0;
-				background: $blue;
-				width:380px;
-				height: 470px;
-				
-				a{
-					position: relative;
-					float: left;
-					background: $red;
+			a{
+				display: block;
+				width: 100%;
+				.photo{
+					font-size: 0;
+					width:100%;
+					height: 470px;
 				
 					span{
-						width:380px;
-						height: 470px;
+						width:100%;
+						height: 100%;
 						display:none;
-						background: $gradient, url("../img/icons/") no-repeat;
-						position:absolute;
-						left:-10px; 
-						top:-10px;
+						background: $gradient;
+
 					}
 				}
 
-				a:hover span{
-					display:block; 
-					img{
-						position:absolute;
-						left:20px;
-					}
-				}  
+				&:hover{
+					box-shadow: 10px 10px $blue;
+					transform: translateY(-10px);
+				}
 
+				&:hover span{
+					display:block;
 
-				// img{
-					
-				// 	&:hover{
-				// 		@extend %hover-style;
-				// 		background-image: $gradient;
+				}
 
-				// 	}
-				// }
 			}
+
+
 
 			p{
 				margin: 0 auto;
@@ -645,8 +723,22 @@ p{
 				padding-top:20px;
 				color: $h-color;
 			}
-			
 		}
+	}
+}
+
+
+.icon-container{
+	
+	img{
+		padding:5%;
+		background: $yellow;
+	}
+
+	.hover-icon{
+		height: 20px;
+		width: 20px;
+		display: inline-block;
 	}
 }
 
@@ -680,11 +772,33 @@ p{
 		max-width: 1300px;
 	}
 
-	img{
+
+	.works-left{
 		float:left;
+		width:50%;
+		font-size:0;
+		img{
+			display:inline-block;
+			width: 50%;
+		}
 	}
 
-	
+	img{
+		float: left;
+		width: 25%;
+	}
+
+	.works-right{
+		width: 25%;
+		float: left;
+		font-size:0;
+		
+		img{				
+			float:left;
+			width: 100%;
+			clear: both
+		}
+	}	
 }
 
 
@@ -843,11 +957,14 @@ p{
 	}
 }
 
+// MAP
+
 .map{
 	width:100%;
 	clear:both;
 	background: $white-gradient,  url("../img/images/map.png") no-repeat;
-	background-size: contain;
+	background-size: cover;
+	background-position: center;
 	height: 200px;
 
 	.header-box{
