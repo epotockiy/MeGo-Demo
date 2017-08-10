@@ -9,9 +9,9 @@
 
 .about-photo {
   position: relative;
-  margin-right: 15px;
-  margin-left: 15px;
-  width: 30.333%;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 31.333%;
   display: inline-block;
   background: url(../images/about/about1.png) 100% 100% no-repeat;
   background-size: cover;
@@ -26,42 +26,30 @@
   position: absolute;
 }
 
+.about-icons {
+  padding-top: 102px;
+  text-align: center;
+
+}
+
 .about-photo:hover {
-  //width: 100%;
-  //opacity: 0.25;
-  //height: 250px;
   transition: 0.5s;
   transform: translate(-10px, -10px);
   box-shadow: 10px 10px #95e1d3;
-
+  .about-icons {
+    display: block;
+  }
 }
-
-.about-effect:hover {
-  background: linear-gradient(to bottom, rgba(243, 129, 129, 0.9) 0%, rgba(252, 227, 138, 0.9) 100%);
-  transition: 0.4s;
-  //transition: 0.3s;
-  //transform: translate(-10px, -10px);
-  //box-shadow: inset -10px -10px #95e1d3;
-  //animation: about-photo-animation 1s linear infinite;
-
-}
-
-.about-effect img {
-display: none;
-}
-.about-effect p{
-  display: none;
-}
-
-.about-effect:hover * {
-  display: inline;
-  //padding: 20px 20px 20px 20px;
-}
-
 
 .about-effect p {
   font-family: $montserratBold;
   font-size: 18px;
   color: #fff;
+}
+
+.about-effect:hover {
+  background: linear-gradient(to bottom, rgba(243, 129, 129, 0.9) 0%, rgba(252, 227, 138, 0.9) 100%);
+  transition: 0.4s;
+
 }
 
