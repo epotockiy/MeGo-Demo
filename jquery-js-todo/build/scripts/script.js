@@ -31,9 +31,32 @@
   };
 
   TodoList.prototype.init = function() {
-    this.getDataFromStorage();
-    this.renderTasksList();
-    this.bindEvents();
+    var self = this;
+
+    // this.getDataFromStorage();
+    this.saveDataToServer();
+
+    this.getDataFromServer()
+      .done(function(res) {
+        self.tasksArray = res.todos;
+        self.renderTasksList();
+        self.bindEvents();
+      });
+  };
+
+  TodoList.prototype.getDataFromServer = function() {
+    return $.ajax({
+      url: '/todos'
+    });
+  };
+
+  TodoList.prototype.saveDataToServer = function() {
+    var data = JSON.stringify({ todos: this.tasksArray });
+    return $.ajax({
+      url: '/todos',
+      method: 'POST',
+      data: data
+    });
   };
 
   TodoList.prototype.bindEvents = function() {

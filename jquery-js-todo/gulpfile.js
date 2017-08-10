@@ -11,7 +11,10 @@ gulp.task('clean', function() {
 });
 
 gulp.task('libs', function() {
-  return gulp.src('node_modules/jquery/dist/jquery.min.js')
+  return gulp.src([
+      'node_modules/jquery/dist/jquery.min.js',
+      'src/todos.json'
+  ])
     .pipe(gulp.dest('build/libs'));
 });
 
@@ -34,19 +37,22 @@ gulp.task('sass', function() {
 
 gulp.task('scripts', function() {
   return gulp.src('src/scripts/**/*.js')
-    // .pipe(concat('scripts.js'))
-    // .pipe(uglify())
     .pipe(gulp.dest('build/scripts'));
 });
 
-gulp.task('watch', ['html', 'sass', 'scripts', 'images'], function() {
+gulp.task('server', function() {
+  return gulp.src('src/server.js')
+      .pipe(gulp.dest('build'));
+});
+
+gulp.task('watch', ['html', 'sass', 'scripts', 'server', 'images'], function() {
   gulp.watch('src/*.html', ['html']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/scripts/**/*.js', ['scripts']);
 });
 
 gulp.task('build', ['clean'], function() {
-  runSequence('libs','html', 'sass', 'scripts', 'images');
+  runSequence('libs','html', 'sass', 'scripts', 'server', 'images');
 });
 
 gulp.task('default', ['build', 'watch']);

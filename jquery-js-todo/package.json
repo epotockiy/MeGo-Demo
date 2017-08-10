@@ -4,7 +4,12 @@
   "main": "index.js",
   "author": "Vladislav Klochkov",
   "license": "MIT",
+  "scripts": {
+    "dev": "gulp build && node build/server.js"
+  },
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
     "jquery": "^3.2.1"
   },
   "devDependencies": {
