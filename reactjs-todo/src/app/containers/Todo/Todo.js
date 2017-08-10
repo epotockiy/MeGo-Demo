@@ -34,10 +34,6 @@ export class Todo extends React.Component {
   }
 
   componentDidMount() {
-    this.getTasksFromStorage();
-  }
-
-  getTasksFromStorage() {
     if (typeof localStorage !== 'undefined') {
       this.setLocalState('tasksArray', storage.getDataFromStorage(this.state.storageName));
       this.setLocalState('isStorageAvailable', true);
