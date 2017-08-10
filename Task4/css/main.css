@@ -48,10 +48,51 @@ body {
 	line-height: 1.4;
 }
 
+a {
+	text-decoration: none;
+}
+
 .slider {
     margin-top: 100px;
     width: 800px;
     height: 300px;
+}
+
+header {
+	padding-top: 50px;
+	width: 400px;
+	text-align: center;
+}
+
+header ul {
+	margin-top: 15px;
+	font-size: 0;
+}
+
+header li {
+	display: inline-block;
+	width: 80px;
+	margin-right: 15px;
+	padding: 5px 0;
+	font-size: 16px;
+	background: #999;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+header li:hover {
+	background: #666;
+}
+
+h2 {
+	margin-bottom: 20px;
+	font-size: 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.css-slider {
+	display: none;
 }
 
 .left-nav,
@@ -117,21 +158,23 @@ body {
 }
 
 .right-slider {
+	position: relative;
     width: 40%;
 }
 
 .right-slider ul {
-	margin-left: 0;
     height: 100%;
-    font-size: 0;
-    transition: 0.3s;
 }
 
 .right-slider li {
-    font-size: 16px;
-    display: inline-block;
-    height: 100%;
+	position: absolute;
+	display: none;
+	float: left;
     background: #666;
+}
+
+.right-slider li.active {
+	display: block;
 }
 
 .right-slider div {
@@ -139,4 +182,158 @@ body {
     color: #fff;
 }
 
+
+.left-slider::after {
+    display: table;
+    content: '';
+    clear: both;
+}
+
+.css-slider {
+    margin-top: 100px;
+    width: 800px;
+    height: 300px;
+}
+
+.left-slider,
+.css-right-slider {
+    display: inline-block;
+    height: 100%;
+    margin-right: -4px;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.left-slider {
+    width: 60%;
+    padding-right: 30px;
+}
+
+.left-slider label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 70px;
+    margin: 0 0 20px 0;
+    background: #999;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+
+.left-slider label:hover {
+    background: #666;
+}
+
+.left-slider input {
+    display: none;
+}
+
+.left-slider input#submenu-1:checked~.submenu {
+    margin-top: -270px;
+}
+
+.left-slider input#submenu-2:checked~.submenu {
+    margin-top: -570px;
+}
+
+.left-slider input#submenu-3:checked~.submenu {
+    margin-top: -870px;
+}
+
+
+.submenu {
+    float: right;
+    width: 60%;
+    margin-top: -270px;
+    padding-left: 30px;
+    transition: .3s;
+}
+
+.submenu li {
+    margin-bottom: 5px;
+    background: #999;
+    color: #fff;
+    cursor: pointer;
+}
+
+.submenu li:hover {
+    background: #666;
+}
+
+.submenu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    color: #fff;
+}
+
+.css-right-slider {
+    width: 40%;
+}
+
+.css-right-slider ul {
+    margin-left: 0;
+    width: 9999px;
+    height: 100%;
+    font-size: 0;
+    transition: 0.3s;
+}
+
+.css-right-slider li {
+    font-size: 16px;
+    display: inline-block;
+    width: 320px;
+    height: 100%;
+    background: #666;
+}
+
+.css-right-slider ul div {
+    padding: 15px;
+    color: #fff;
+}
+
+#n1:target~ul {
+    margin-left: 0;
+}
+
+#n2:target~ul {
+    margin-left: -320px;
+}
+
+#n3:target~ul {
+    margin-left: -640px;
+}
+
+#n4:target~ul {
+    margin-left: -960px;
+}
+
+#n5:target~ul {
+    margin-left: -1280px;
+}
+
+#n6:target~ul {
+    margin-left: -1600px;
+}
+
+#n7:target~ul {
+    margin-left: -1920px;
+}
+
+#n8:target~ul {
+    margin-left: -2240px;
+}
+
+#n9:target~ul {
+    margin-left: -2560px;
+}
+
+#n10:target~ul {
+    margin-left: -2880px;
+}
 
