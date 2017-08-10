@@ -1,126 +1,142 @@
 import React        from 'react';
-import { connect  } from 'react-redux';
 import PropTypes    from 'prop-types';
 import { TaskList } from './TaskList';
 import { EditForm } from './EditForm';
 import { AddForm  } from './AddForm';
 import './Todo.scss';
 
-import * as dataActions from '../../actions/dataActions';
+import * as storage from './localStorageActions';
 
-class Todo extends React.Component {
+export class Todo extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       addFormInput: '',
-      editFormInput: ''
+      tasksArray: [],
+      editFormInput: '',
+      currentTask: 0,
+      currentFilter: 'all',
+      openEditBlock: false,
+      storageName: 'tasksArray',
+      isStorageAvailable: false
     };
 
     this.addNewTask          = this.addNewTask.bind(this);
+    this.saveTask            = this.saveTask.bind(this);
     this.handleAddFormInput  = this.handleAddFormInput.bind(this);
     this.handleEditFormInput = this.handleEditFormInput.bind(this);
-    this.saveTask            = this.saveTask.bind(this);
     this.closeEditBlock      = this.closeEditBlock.bind(this);
   }
 
   componentWillMount() {
+    this.setLocalState('storageName', 'tasksArray' + this.props.id);
+  }
+
+  componentDidMount() {
     this.getTasksFromStorage();
   }
 
   getTasksFromStorage() {
     if (typeof localStorage !== 'undefined') {
-      this.props.setTasksArray(JSON.parse(localStorage.getItem(this.props.storageName)) || []);
+      this.setLocalState('tasksArray', storage.getDataFromStorage(this.state.storageName));
+      this.setLocalState('isStorageAvailable', true);
     } else {
-      this.props.setTasksArray([]);
+      this.setLocalState('tasksArray', []);
+      this.setLocalState('isStorageAvailable', false);
     }
+  }
+
+  saveTasksToStorage() {
+    if (this.state.isStorageAvailable) {
+      storage.saveDataToStorage(this.state.storageName, this.state.tasksArray)
+    }
+  }
+
+  setLocalState(field, value) {
+    this.setState({
+      [field]: value
+    }, () => {
+      if (field === 'tasksArray') {
+        this.saveTasksToStorage();
+      }
+    });
   }
 
   addNewTask(event) {
     event.preventDefault();
 
-    if (!this.state.addFormInput.length) {
-      return;
-    }
-
-    const tempTasksArray = this.props.tasksArray;
-    tempTasksArray.unshift({
-      name: this.state.addFormInput,
-      done: false,
-      id: Math.random().toString(32).substr(2, 8)
-    });
-
-    this.setState({
-      addFormInput: ''
-    });
-
-    this.props.setTasksArray(tempTasksArray);
+    this.setLocalState('addFormInput', '');
+    this.setLocalState('tasksArray', [
+      {
+        id: Math.random().toString(32).substr(2, 8),
+        name: this.state.addFormInput,
+        done: false
+      },
+      ...this.state.tasksArray
+    ]);
   }
 
   handleAddFormInput(event) {
-    this.setState({
-      addFormInput: event.target.value
-    });
+    this.setLocalState('addFormInput', event.target.value);
   }
 
   handleEditFormInput(event) {
-    this.setState({
-      editFormInput: event.target.value
-    });
+    this.setLocalState('editFormInput', event.target.value);
   }
 
   saveTask(event) {
     event.preventDefault();
 
-    this.setState({
-      editFormInput: ''
-    });
+    this.setLocalState('editFormInput', '');
 
-    this.props.setTasksArray([
-        ...this.props.tasksArray.slice(0, this.props.currentTask),
-        {
-          id: this.props.tasksArray[this.props.currentTask].id,
-          name: this.state.editFormInput,
-          done: this.props.tasksArray[this.props.currentTask].done
-        },
-        ...this.props.tasksArray.slice(this.props.currentTask + 1)
+    this.setLocalState('tasksArray', [
+      ...this.state.tasksArray.slice(0, this.state.currentTask),
+      {
+        id: this.state.tasksArray[this.state.currentTask].id,
+        name: this.state.editFormInput,
+        done: this.state.tasksArray[this.state.currentTask].done
+      },
+      ...this.state.tasksArray.slice(this.state.currentTask + 1)
     ]);
-    this.props.setOpenEditBlock(!this.props.openEditBlock);
+
+    this.setLocalState('openEditBlock', !this.state.openEditBlock);
   }
 
   closeEditBlock() {
-    this.props.setOpenEditBlock(false);
+    this.setLocalState('openEditBlock', false);
   };
 
   onDoneClick(index) {
-    this.props.setTasksArray([
-      ...this.props.tasksArray.slice(0, index),
+    this.setLocalState('tasksArray', [
+      ...this.state.tasksArray.slice(0, index),
       {
-        id: this.props.tasksArray[index].id,
-        name: this.props.tasksArray[index].name,
-        done: !this.props.tasksArray[index].done
+        id: this.state.tasksArray[index].id,
+        name: this.state.tasksArray[index].name,
+        done: !this.state.tasksArray[index].done
       },
-      ...this.props.tasksArray.slice(index + 1)
+      ...this.state.tasksArray.slice(index + 1)
     ]);
   }
 
   onRemoveTask(index) {
-    this.props.setTasksArray([
-      ...this.props.tasksArray.slice(0, index),
-      ...this.props.tasksArray.slice(index + 1)
+    this.setLocalState('tasksArray', [
+      ...this.state.tasksArray.slice(0, index),
+      ...this.state.tasksArray.slice(index + 1)
     ]);
   }
 
   handleEditClick(index) {
-    this.props.setOpenEditBlock(true);
-    this.props.setCurrentTask(index);
+    this.setLocalState('openEditBlock', true);
+    this.setLocalState('currentTask', index);
+    this.setLocalState('editFormInput', this.state.tasksArray[index].name);
   }
 
   getFilterActions() {
     return {
-      setFilterToAll:      () => { this.props.setCurrentFilter('all'); },
-      setFilterToProgress: () => { this.props.setCurrentFilter('progress'); },
-      setFilterToDone:     () => { this.props.setCurrentFilter('done'); },
+      setFilterToAll:      () => { this.setLocalState('currentFilter', 'all'); },
+      setFilterToProgress: () => { this.setLocalState('currentFilter', 'progress'); },
+      setFilterToDone:     () => { this.setLocalState('currentFilter', 'done'); },
     }
   }
 
@@ -142,20 +158,19 @@ class Todo extends React.Component {
         />
 
         <TaskList
-          openEditBlock={this.props.openEditBlock}
-          currentFilter={this.props.currentFilter}
-          tasksArray={this.props.tasksArray}
+          openEditBlock={this.state.openEditBlock}
+          currentFilter={this.state.currentFilter}
+          tasksArray={this.state.tasksArray}
           filterActions={this.getFilterActions()}
           taskActions={this.getTaskActions()}
         />
 
         <EditForm
             inputName={this.state.editFormInput}
-            currentTaskName={this.props.tasksArray.length ? this.props.tasksArray[this.props.currentTask].name : ''}
             handleInputChange={this.handleEditFormInput}
             onSaveClick={this.saveTask}
             onCloseClick={this.closeEditBlock}
-            isOpenBlock={this.props.openEditBlock}
+            isOpenBlock={this.state.openEditBlock}
         />
       </div>
     );
@@ -163,24 +178,5 @@ class Todo extends React.Component {
 }
 
 Todo.propTypes = {
-  store: PropTypes.object
+  id: PropTypes.number
 };
-
-const mapStateToProps = (state) => {
-  return {
-    openEditBlock: state.openEditBlock,
-    tasksArray:    state.tasksArray,
-    currentTask:   state.currentTask,
-    currentFilter: state.currentFilter,
-    storageName:   state.storageName
-  };
-};
-
-const mapDispatchToProps = {
-    setTasksArray:    dataActions.setTasksArray,
-    setCurrentFilter: dataActions.setCurrentFilter,
-    setCurrentTask:   dataActions.setCurrentTask,
-    setOpenEditBlock: dataActions.setOpenEditBlock
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);

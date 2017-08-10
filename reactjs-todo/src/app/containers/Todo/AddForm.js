@@ -9,7 +9,7 @@ export const AddForm = (props) => {
              placeholder="Enter task name..."
              value={props.inputName}
              onChange={props.handleInputChange}/>
-      <button type="submit" className="add-task-btn">
+      <button disabled={!props.inputName.length} type="submit" className="add-task-btn">
         Add
       </button>
     </form>

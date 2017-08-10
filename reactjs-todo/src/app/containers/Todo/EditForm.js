@@ -7,9 +7,9 @@ export const EditForm = (props) => {
       <h4>Edit task</h4>
       <input className="edit-input"
              type="text"
-             value={props.inputName || props.currentTaskName}
+             value={props.inputName}
              onChange={props.handleInputChange}/>
-      <button type="submit" className="save-btn">
+      <button disabled={!props.inputName.length} type="submit" className="save-btn">
         Save
       </button>
       <i className="material-icons edit-close-icon" onClick={props.onCloseClick}>close</i>
