@@ -9,46 +9,19 @@
   border: none;
   outline: none;
   transition: 0.4s;
-  margin-bottom:20px;
+  margin-bottom:5px;
 }
 
 .accordion-panel {
-
-  padding: 0 18px;
+  //padding: 0 18px;
   background-color: red;
-  max-height: 0;
+  height: 50px;
+  width:100%;
   overflow: hidden;
-  transition: max-height 0.2s ease-out;
-////
-
-
-  margin-bottom: 25px;
-
-  margin-top: 40px;
-
-  ////
-
   float: left;
 
-
-  margin-left: 22px;
-
-
-  overflow-y: scroll;
-
 }
-.custom-scroll {
-  min-height: 100px;
-  //background-color: green;
-}
-#style-1::-webkit-scrollbar {
-  width: 6px;
-  background-color: yellow;
-}
-#style-1::-webkit-scrollbar-thumb {
-  background-color: #000000;
-}
-#style-1::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  background-color: #F5F5F5;
-}
+//
+//#menu{
+//  margin-bottom: ;
+//}

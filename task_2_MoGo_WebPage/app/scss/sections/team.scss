@@ -1,53 +1,49 @@
-.about {
-  padding-top: 90px;
-  padding-bottom: 107px;
-}
 
-.about-photos-grid {
+.team-photos-grid {
   margin-top: 98px;
 }
 
-.about-photo {
+.team-photo {
   position: relative;
   margin-right: 10px;
   margin-left: 10px;
   width: 31.333%;
   display: inline-block;
-  background: url(../images/about/about1.png) 100% 100% no-repeat;
+  background: url(../images/team/dev.png) 100% 100% no-repeat;
   background-size: cover;
-  height: 250px;
+  height: 450px;
   //position: relative;
 
 }
 
-.about-effect {
+.team-effect {
   width: 100%;
   height: 100%;
   position: absolute;
 }
 
-.about-icons {
+.team-icons {
   padding-top: 102px;
   text-align: center;
- display: none;
+  display: none;
 }
 
-.about-photo:hover {
+.team-photo:hover {
   transition: 0.5s;
   transform: translate(-10px, -10px);
   box-shadow: 10px 10px #95e1d3;
-  .about-icons {
-    display: block;
+  .team-icons {
+    //display: block; <--- here
   }
 }
 
-.about-effect p {
+.team-effect p {
   font-family: $montserratBold;
   font-size: 18px;
   color: #fff;
 }
 
-.about-effect:hover {
+.team-effect:hover {
   background: linear-gradient(to bottom, rgba(243, 129, 129, 0.9) 0%, rgba(252, 227, 138, 0.9) 100%);
   transition: 0.4s;
 
