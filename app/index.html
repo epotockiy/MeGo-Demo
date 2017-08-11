@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>MOGO</title>
+	<title>MeGo</title>
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css">
@@ -20,7 +20,7 @@
 		
 		<div class="top-navbar">
 			<a href="#">MoGo</a>
-			<ul class="top-navbar-list">
+			<ul class="top-navbar-list ">
 				<li><a href="#">About</a></li>
 				<li><a href="#">Service</a></li>
 				<li><a href="#">Work</a></li>
@@ -348,8 +348,8 @@
 		</div>
 		<img src="img/images/work-3.png" alt="#">
 		<div class="works-right">
-			<img src="img/images/work-7.png" alt="#">
 			<img src="img/images/work-4.png" alt="#">
+			<img src="img/images/work-7.png" alt="#">
 		</div>
 		</div>
 		
@@ -358,11 +358,14 @@
 
 	<!-- TESTIMONIAL -->
 
-	<section class="testimonial">
+	<section class="testimonial quote">
 		<div class="quote-container">
 			<img class="pointer" src="img/icons/icon-pointer-right.png" alt="#">
 			<div class="quote-content">
-				<div class="avatar"><img src="img/images/testimonial.png" alt="#" /></div>
+				<div class="avatar" style="
+				    background: url('img/images/testimonial.png') no-repeat;
+				    background-position: center;
+				"></div>
 				<div class="quote-mes">
 					<p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.”</p>
 				
@@ -446,8 +449,7 @@
 
 		<div class="articles">
 			<article>
-				<div class="photo">
-					<img src="img/images/blog-image1.png" alt="#">
+				<div class="photo" style="background-image: url('./img/images/blog-image1.png');">
 				</div>
 				<div class="date">
 					<p class="day">15</p>
@@ -455,21 +457,19 @@
 				</div>	
 				<h5>Lorem ipsum dolor sit amet</h5>
 				<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				<div class="information">
-					<div class="views">
-						<img src="img/icons/icon-blog-view.png" alt="#">
-						<p>542</p>
-					</div>
-					<div class="comments">
-						<img src="img/icons/icon-blog-comments.png" alt="#">
-						<p>17</p>
-					</div>
+				<div class="views">
+					<img src="img/icons/icon-blog-view.png" alt="#">
+					<p>542</p>
 				</div>
+				<div class="comments">
+					<img src="img/icons/icon-blog-comments.png" alt="#">
+					<p>17</p>
+				</div>
+			
 				
 			</article>
 			<article>
-				<div class="photo">
-					<img src="img/images/blog-image2.png" alt="#">
+				<div class="photo" style="background-image: url('./img/images/blog-image2.png');">
 				</div>
 				<div class="date">
 					<p class="day">14</p>
@@ -477,37 +477,35 @@
 				</div>	
 				<h5>sed do eiusmod tempor</h5>
 				<p>Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				<div class="information">
-					<div class="views">
-						<img src="img/icons/icon-blog-view.png" alt="#">
-						<p>992</p>
-					</div>
-					<div class="comments">
-						<img src="img/icons/icon-blog-comments.png" alt="#">
-						<p>992</p>
-					</div>
+				<div class="views">
+					<img src="img/icons/icon-blog-view.png" alt="#">
+					<p>992</p>
 				</div>
+				<div class="comments">
+					<img src="img/icons/icon-blog-comments.png" alt="#">
+					<p>992</p>
+				</div>
+		
 				
 			</article>
 			<article>
-				<div class="photo"><img src="img/images/blog-image3.png" alt="#"></div>
+				<div class="photo" style="background-image: url('./img/images/blog-image3.png');">
+				</div>
 				<div class="date">
 					<p class="day">12</p>
 					<p class="month">Jan</p>
 				</div>	
 				<h5>incididunt ut labore et dolore</h5>
 				<p>Elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				<div class="information">
-					<div class="views">
-						<img src="img/icons/icon-blog-view.png" alt="#">
-						<p>1560</p>
-					</div>
-					<div class="comments">
-						<img src="img/icons/icon-blog-comments.png" alt="#">
-						<p>98</p>
-					</div>
+				<div class="views">
+					<img src="img/icons/icon-blog-view.png" alt="#">
+					<p>1560</p>
 				</div>
-				
+				<div class="comments">
+					<img src="img/icons/icon-blog-comments.png" alt="#">
+					<p>98</p>
+				</div>
+			
 			</article>
 		</div>
 	</section>
@@ -531,11 +529,10 @@
 		<div class="container">
 			<div class="follow-us">
 				<p class="logo">MoGo</p>
-				<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-				<div class="followers">
-					<p class="numbers">15k</p>
-					<p class="text">followers</p>
-				</div>
+				<p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<span>15k</span>
+				<p class="sign">followers</p>
+	
 				<div class="social-networks">
 					<p>Follow Us:</p>
 					<div class="socials-icons">
@@ -544,11 +541,8 @@
 				</div>
 				<div class="subscribe">
 					<input type="text" name="email" placeholder="Your Email...">
-					<div class="button-subscribe">
-						<a href="#">Subscribe</a>
-					</div>
+					<a href="#">Subscribe</a>
 				</div>
-
 			</div>
 			<div class="blogs">
 				<h5>blogs</h5>
@@ -588,8 +582,8 @@
 				<a href="#">View more photos</a>
 			</div>
 		</div>
-		<p>© 2016 MoGo free PSD template by 
-			<p class="name">Laaqiq</p>
+		<p class="footer-title">© 2016 MoGo free PSD template by 
+			<span>Laaqiq</span>
 		</p>
 	</footer>
 

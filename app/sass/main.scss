@@ -4,11 +4,12 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 // @import "compass/reset";
-$color : #432422;
+
 $yellow: rgba(252,227,138,0.8);
 $red: 	 rgba(243,129,129,0.8);
 $blue:	 #95e1d3;
 $h-color:#333333;
+$hr-color: #e5e5e5;
 $qoute-bg: #f8f8f8;
 $p-color:   #999999;
 $white:	 #ffffff;
@@ -19,7 +20,18 @@ $red-line : 3px solid $red;
 $grey: #adadad;
 
 
-
+body::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 8px 6px $red;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: $red;
+  outline: 1px solid $red;
+}
 
 
 *{
@@ -30,26 +42,23 @@ $grey: #adadad;
 
 body {
 	font-family: 'Montserrat', sans-serif;
-	font-size: 14px;
+	font-size: 0.875em;
 	margin: 0 auto;
 	text-align: center;
 } 
 
 h1 {
 	font-family: 'Montserrat', sans-serif;
-	font-size: 10.5em;
+	font-size: 9.375em;
 	color: $white;
 	text-transform: uppercase;
-	max-width: 1000px;
-	margin: 0 auto;
-	line-height: 170px;
 
 }
 
 h2{
 	font : {
 		family: 'Kaushan Script', cursive;
-		size: 72px;
+		size: 4.500em;
 	}
 	color: $white;
 }
@@ -57,7 +66,7 @@ h2{
 h3{
 	font : {
 		family: 'Montserrat', sans-serif;
-		size: 30px;
+		size: 1.875em;
 		weight: bold;
 	}
 	text-transform: uppercase;
@@ -67,7 +76,7 @@ h3{
 h4{
 	font : {
 		family: 'Kaushan Script', cursive;
-		size : 24px;
+		size : 1.500em;
 	}
 	color: $h-color;
 }
@@ -75,7 +84,7 @@ h4{
 h5{
 	font : {
 		family: 'Montserrat', sans-serif;
-		size: 14px;
+		size: 0.875em;
 	}
 	color: $white;
 	text-transform: uppercase;
@@ -85,12 +94,19 @@ p{
 	color: $p-color;
 	font : {
 		family: 'Roboto', sans-serif;
-		size : 15px;
+		size : 0.938em;
 	}
 }
 
 a{
 	text-decoration: none;
+}
+
+ul{	
+	li{
+		text-transform: uppercase;
+		display: inline-block;			
+	}
 }
 
 .dash{
@@ -122,7 +138,7 @@ a{
 
 
 .header-box{
-	line-height: 1.5;
+	line-height: 1.6;
 	&:after{
 			content:"";
 			height: 3px;
@@ -157,6 +173,9 @@ a{
 }
 
 
+
+
+
 // BANNER
 
 
@@ -168,17 +187,11 @@ a{
 	background-position: center;
 
 	.top-navbar{
-
 		padding-top: 23px;
 		
 
-		&:after{
-			@extend %clearfix;
-		}
-
 		a{
 			font : {
-				family: 'Montserrat', sans-serif;
 				size: 30px;
 				weight: bold;
 			}
@@ -188,8 +201,6 @@ a{
 		}
 
 		ul{
-			
-			text-transform: uppercase;
 			margin-top: 10px;
 			position: relative;
 			left:  21.1%;
@@ -201,7 +212,6 @@ a{
 
 				a{
 					font-size: 14px;
-					text-decoration: none;
 					color: $white;
 
 					&:hover {
@@ -212,14 +222,7 @@ a{
 		}
 	}	
 
-	ul{	
-		li{
-			text-transform: uppercase;
-			display: inline-block;			
-		}
-	}
-
-
+	
 	header.dash{
 		padding-top:12.91%;
 		h1{
@@ -253,8 +256,6 @@ a{
 		
 		li{
 			border-top: 3px solid $white;
-			text-transform: uppercase;
-			display: inline-block;
 			text-align: left;
 			width: 22%;
 			margin-right: 2.5%;
@@ -294,24 +295,17 @@ a{
 			}
 
 			a{
-				text-decoration: none;
 				color: $white;
-				display: inline-block;
 				text-align: left;
 
 				span{
 					font-size: 18px;
 					color: $white;
-					display: inline-block;
 				}
-
 			}
 		}
-
-		
-	}
-		
-}			
+	}		
+}		
 
 
 
@@ -384,45 +378,36 @@ a{
 }
 
 
-
-
-
-
 // FACTS
+
+
 .facts {
-
+	display: table;
 	width: 100%;
-	height: 270px;
 	background-color: $blue;
-	margin: 0 auto;
-	text-align: center;
 
-		.dire{
-			// height: 100%;	
-		 //  	width: 100%;
-			// margin: 0 auto;
-	
-			.fact{
-				padding: 70px 0px 90px 0;
-				width: 12.5%;
-				display: inline-block;
-				border-right: 1px solid $white;
-		
-							
-				p {
-					color: $white;
-					font-size: 72px;
-					font-weight: bold;
-				}
+	.dire{
+		margin: 0 auto;
+		width: 62.5%;
 
-				h5{
-					padding-top: 10px;
-					display: inline-block;
-				}
-				
+		.fact{
+			padding: 70px 0px 90px 0;
+			width: 12.5%;
+			display: table-cell;
+			border: 1px solid $white;
+						
+			p {
+				color: $white;
+				font-size: 72px;
+				font-weight: bold;
+			}
+
+			h5{
+				padding-top: 10px;
 			}
 		}
 	}
+}
 
 // SERVICE
 
@@ -509,7 +494,7 @@ a{
 	text-align: center;
 	margin: 0 auto;	
 	padding-top: 110px;
-	height: 890px;
+	padding-bottom: 115px;
 
 	p.title{
 		width: 80%;
@@ -536,10 +521,10 @@ a{
 
 
 			.accordion-title{
-				border: 1px solid $p-color;
+				border: 1px solid $hr-color;
 				text-align: left;
 				width: 100%;
-				margin-bottom: 10px;
+				margin-bottom: 0.9%;
 
 				img{
 					padding: 2%;
@@ -571,9 +556,12 @@ a{
 					height: 160px;
 					width: 97%;
 					overflow: scroll;
-					border-top: 1px solid $p-color;
+					border-top: 1px solid $hr-color;
 
 					p{
+						width: 95%;
+						padding: 1.1%;
+   						line-height: 1.5;
 						height: 100%;
 					}
 				}
@@ -595,20 +583,15 @@ a{
 
 
 .quote{
-	height: 290px;
+	clear: both;
+	padding: 3.7% 18.75%;
 	background: $qoute-bg;
 
 	.quote-container{
-		max-width:1200px;
 		display:flex;
-		text-align: center;
-		margin: 0 auto;
 		align-items: center;
 		justify-content: space-around;
-		padding-top: 70px;
-
 		
-
 		.quote-content {
 
 			margin-left:80px;
@@ -617,17 +600,19 @@ a{
 				display: inline-block;
 				border: 3px solid $blue;
 				padding: 40px;
-				margin-right: 60px;
+				margin-right: 6%;
 				
 			}
 
+
 			.quote-mes{
+				vertical-align: top;
 				display: inline-block;
-				line-height:1.5;
+    			width: 73%;
 				
 				p{
+   					line-height: 1.5;
 					text-align: left;
-					max-width:850px;
 					color: $grey;
 					font-size: 24px;
 					padding-bottom: 10px;
@@ -662,12 +647,13 @@ a{
 
 .ourteam{
 	padding: 0 18.75%;
-	padding-top:90px;
+	padding-top:85px;
 	padding-bottom:115px;
 
 	p.content{
+		width: 80%;
 		margin: 0 auto;
-		margin-top: 35px;
+		margin-top: 40px;
 		margin-bottom:90px;
 		line-height: 1.5;
 	}
@@ -719,8 +705,8 @@ a{
 
 			h5{
 
-				padding-bottom:10px;
-				padding-top:20px;
+				padding-bottom: 6px;
+    			padding-top: 30px;
 				color: $h-color;
 			}
 		}
@@ -749,27 +735,33 @@ a{
 
 .logos{
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	background: $qoute-bg;
 	height: 250px;
 
+	padding: 0 18.75%;
+
 	.logos-container{
 		width: 100%;
 		display: flex;
-		margin: 0 auto;
-		max-width: 1200px;
 		align-items: center;
 		justify-content: space-between;
+		img{
+			
+		}
 		
 	}
 }
 
 .work{
-	padding-top:105px;
+	padding-top:110px;
 	
 	p{	
+		line-height: 1.5;
 		margin: 0 auto;
-		max-width: 1300px;
+		width: 50%;
+		padding-bottom: 105px;
 	}
 
 
@@ -804,63 +796,23 @@ a{
 
 .testimonial{
 	clear: both;
+	padding: 5.3% 16.76% 6.3% 16.76%;
 
-	.quote-container{
-		max-width:1200px;
-		display:flex;
-		text-align: center;
-		margin: 0 auto;
-		align-items: center;
-		justify-content: space-between;
-		padding-top: 70px;
+	.quote-content{
+		margin-left: 60px;
+	
 
-		
 
-		.quote-content {
-
-			margin-left:80px;
-
-			.avatar{
-
-				margin-right: 30px;
-				display: inline-block;
-				height: 200px;
-				width: 200px;
-				overflow: hidden;
-				border-radius: 50%;
-			}
-
-			.quote-mes{
-				display: inline-block;
-				line-height:1.5;
-				vertical-align:bottom;
-				
-				p{
-					text-align: left;
-					max-width:850px;
-					color: $grey;
-					font-size: 24px;
-					padding-bottom: 10px;
-				}
-				
-				h4:after{
-					content: "";
-				    height: 3px;
-				    width: 60px;
-				    display: block;
-				    margin: 0 auto;
-				    background-color: $red;
-				    float:left;
-				    margin-top: 15px;
-				    margin-right:10px;
-				}
-				
-				h4{
-					float: left;
-				}
-			}
+		.avatar{
+					height: 210px;
+	    			width: 210px;
+					display: inline-block;
+					margin-right: 20px;
+					border-radius: 50%;
 		}
 	}
+
+	
 }
 
 
@@ -870,49 +822,56 @@ a{
 
 
 .whatpeople{
+
+	padding: 0 18.75%;
+    padding-top: 90px;
 	background-image:$white-gradient, url("../img/images/whatpeoplesay-bg.png") ;
+	
 	h5{
 		color: $h-color;
 	}
 	
 	.container{
-		
-		max-width:1300px;
 		margin: 0 auto;
-		
+		display: flex;
+		flex-wrap: wrap;
+
 		
 
 		.row{
-			min-width: 630px;
-			float:left;
-			margin:0;
+			margin: 36px 0;
+			width: 50%;
 			.avatar{
-				display:inline-block;	
+				display:inline-block;
+				vertical-align: top;	
 			}
 
 			.row-content{
+				margin-left: 25px;
+				width: 64%;
 				text-align:left;
-				display:inline-block;				
+				display:inline-block;	
+				line-height: 1.7;			
 
 				p.position{
 					text-align:left;
+					    padding-bottom: 15px;
 
 				}
 
 				p.review{
-					max-width:390px;
+					clear: both;
 				}
 
-				p.review:after{
+				p.position:after{
 					content: "";
 				    height: 3px;
 				    width: 60px;
 				    display: block;
-				    margin: 0 auto;
+		
 				    background-color: $red;
-				    float:left;
 				    margin-top: 15px;
-				    margin-right:10px;
+				    
 				}
 			}
 		}
@@ -931,16 +890,31 @@ a{
 
 .blog{
 	clear:both;
+	padding: 0 18.75%;
+
+
 	.articles{
 		article{
+			text-align: left;
+			position: relative;
+			width:31%;
 			float:left;
+			margin-right: 2.5%;
+
+			&:last-child{
+				margin-right:0px;
+			}
 
 			.photo{
-				width: 380px;
+				width:100%;
 				height: 240px;
 			}
 
 			.date{
+				text-align: center;
+				right: 20px;
+			    bottom: 90px;
+			    position: inherit;
 				width: 60px;
 				height: 70px;
 				background-color: $blue;
@@ -951,6 +925,24 @@ a{
 
 			h5{
 				color: $h-color;
+			}
+
+			p{
+
+			}
+
+			.views{
+				display: inline-block;
+				p{
+					display: inline;
+				}
+			}
+
+			.comments{
+				display: inline-block;
+				p{
+					display: inline;
+				}
 			}
 		}
 		
@@ -978,15 +970,172 @@ a{
 
 
 .footer{
+	padding: 0 18.75%;
+	text-align: left;
+
 	.container{
+		width: 100%;
+		display: flex;
+		border-bottom: 1px solid $hr-color;
 
+		.follow-us{
+			width: 39%;
+			p.logo{
+				font : {
+					family: 'Montserrat', sans-serif;
+					size: 2.875em;
+				}				
+			}
 
+			p.content{
+				width: 90%;
+			}
 
-	.blogs{
-		h5{
-			color: $h-color;
+			span{
+				font : {
+					family: 'Montserrat', sans-serif;
+					size: 1.125em;
+					weight: bold;
+				}
+
+			}
+
+			p.sign{
+				display: inline;
+				color: $h-color;
+				font : {
+					family: 'Montserrat', sans-serif;
+					size: 0.875em;
+				}	
+
+			}
+
+			.social-networks{
+				border-bottom: 1px solid $hr-color;
+			}
+
+			.subscribe{
+				input{
+				}
+
+				a{
+
+					background:$blue;
+					color:white;
+					font : {
+						family: 'Montserrat', sans-serif;
+						size: 0.875em;
+						weight: bold;
+					}	
+				}
+			}
+		}
+
+		.blogs{
+			width: 28%;
+			
+			h5{
+				color: $h-color;
+			}
+
+		}
+
+		.instagram{
+			
+			width: 22.5%;
 		}
 	}
 
+	p.footer-title{
+		margin: 0 auto;	
 	}
+}
+
+
+
+
+// MEDIA
+
+@media screen and (max-width: 1400px) {
+   .banner{
+   		padding:0 10.75%;
+   		padding-bottom: 30px;
+
+   		.top-navbar{
+   			ul{
+   				left: 10%;
+   			}
+   		}
+   }
+
+
+    .quote{
+   		padding: 3.7% 8.75%;
+    }
+	.logos{
+   		padding: 0px 4%;
+	}
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
+    .about-us{
+    	padding: 5% 10%;
+    }
+
+    .facts{
+    	.dire{
+    		width: 80%;
+    	}
+    }
+
+    .feature{
+    	.iphone{
+    		right: 5%;
+    	}
+    }
+
+    .ourteam .ourteam-photo .person{
+   			width: 90%;
+   	}
+}
+
+
+@media only screen and (max-device-width: 480px) {
+    .banner{
+    	.top-navbar-list{
+    		display: none;
+    	}
+    }
+
+    .about-us{
+    	padding: 5%;
+    	.content{
+    		justify-content: center;
+    		a{
+    			min-width: 300px;
+    		}
+
+    	}
+    }
+
+    .facts{
+    	.dire{
+    		width: 100%;
+    	}
+    }
+
+    .feature{
+    	.iphone{
+    		right: 5%;
+    	}
+    }
+
+    .quote{
+   		padding: 3.7% 1%;
+   }
+
+   .ourteam .ourteam-photo .person{
+   			width: 90%;
+   	}
+   
 }
