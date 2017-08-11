@@ -33,12 +33,18 @@
   TodoList.prototype.init = function() {
     var self = this;
 
-    // this.getDataFromStorage();
-    this.saveDataToServer();
-
     this.getDataFromServer()
       .done(function(res) {
-        self.tasksArray = res.todos;
+        for(var i = 0; i < res.todos.length; ++i) {
+          if (res.todos[i].done === 'true') {
+            res.todos[i].done = true;
+          }
+
+          if (res.todos[i].done === 'false') {
+            res.todos[i].done = false;
+          }
+        }
+        self.tasksArray = res.todos || [];
         self.renderTasksList();
         self.bindEvents();
       });
@@ -50,8 +56,7 @@
     });
   };
 
-  TodoList.prototype.saveDataToServer = function() {
-    var data = JSON.stringify({ todos: this.tasksArray });
+  TodoList.prototype.saveDataToServer = function(data) {
     return $.ajax({
       url: '/todos',
       method: 'POST',
@@ -106,27 +111,11 @@
   };
 
   TodoList.prototype.saveDataToStorage = function(data) {
-    if(typeof localStorage !== 'undefined') {
-      this.isStorageAvailable = true;
-
-      localStorage.setItem(this.localStorageName, JSON.stringify(data));
-    } else {
-      this.isStorageAvailable = false;
-      console.log('Local storage is not available in your browser.');
-    }
-  };
-
-  TodoList.prototype.getDataFromStorage = function() {
-    if(typeof localStorage !== 'undefined') {
-      this.isStorageAvailable = true;
-
-      this.tasksArray = JSON.parse(localStorage.getItem(this.localStorageName)) || [];
-    } else {
-      this.tasksArray = [];
-
-      this.isStorageAvailable = false;
-      console.log('Local storage is not available in your browser.');
-    }
+    this.saveDataToServer({
+      todos: data
+    }).done(function() {
+      console.log('Data was saved to file!');
+    })
   };
 
   TodoList.prototype.renderTasksList = function() {
@@ -199,9 +188,7 @@
         listItemParent.find('.edit-btn').removeAttr('disabled');
       }
 
-      if(self.isStorageAvailable) {
-        self.saveDataToStorage(self.tasksArray);
-      }
+      self.saveDataToStorage(self.tasksArray);
     });
   };
 
@@ -231,9 +218,7 @@
 
       this.currentItem.name = inputValue;
 
-      if (this.isStorageAvailable) {
-        this.saveDataToStorage(this.tasksArray);
-      }
+      this.saveDataToStorage(this.tasksArray);
 
       this.currentItem.children('p').text(inputValue);
 
@@ -275,9 +260,8 @@
           }
       );
 
-      if(this.isStorageAvailable) {
-        this.saveDataToStorage(this.tasksArray);
-      }
+      this.saveDataToStorage(this.tasksArray);
+
       this.$todoList.prepend(this.addItemToDOM(this.tasksArray[0]));
       this.$taskInput.val('');
     }

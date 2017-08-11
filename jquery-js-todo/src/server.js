@@ -21,8 +21,15 @@ app.get('/todos', function(req, res) {
 });
 
 app.post('/todos', function(req, res) {
+  console.log(new Date());
   console.log(req.body);
-  // fs.writeFile(path.join(__dirname + '/libs/todos.json'), req.)
+  fs.writeFile(path.join(__dirname + '/libs/todos.json'), JSON.stringify(req.body), function(error) {
+    if(error) {
+      console.log(error);
+    }
+
+    console.log('File was written successfully!\n');
+  });
 });
 
 app.listen(8888, function() {
