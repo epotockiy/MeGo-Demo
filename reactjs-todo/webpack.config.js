@@ -1,5 +1,5 @@
 var copyWebpackPlugin = require('copy-webpack-plugin');
-var path = require('path');
+var path              = require('path');
 
 var DIST_DIR = path.resolve(__dirname, 'dist');
 var SRC_DIR  = path.resolve(__dirname, 'src');
@@ -12,9 +12,9 @@ var config = {
     publicPath: '/'
   },
   plugins: [
-      new copyWebpackPlugin([
-        { from: SRC_DIR + '/index.html' }
-      ])
+    new copyWebpackPlugin([
+      { from: SRC_DIR + '/index.html' }
+    ])
   ],
   module: {
     loaders: [

@@ -51,12 +51,14 @@
 }
 
 .edit .save-btn:disabled {
-  background: #2d89ef;
+  background: #59A6FE;
+  border: 1px solid #59A6FE;
   cursor: not-allowed;
+  color: #eee;
 }
 
 .edit .save-btn:disabled:hover {
-  background: #2d89ef;
+  background: #59A6FE;
 }
 
 .edit .edit-close-icon {

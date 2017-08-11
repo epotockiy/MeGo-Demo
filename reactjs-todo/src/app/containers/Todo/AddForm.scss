@@ -13,9 +13,9 @@
   background: #2d89ef;
   border: 1px solid #2d89ef;
   color: #eff4ff;
+  cursor: pointer;
   font-size: 20px;
   padding: 13px 40px;
-  cursor: pointer;
   transition: background .4s;
 }
 
@@ -24,6 +24,8 @@
 }
 
 .add-task-btn:disabled {
-  background: #2d89ef;
+  background: #59A6FE;
+  border: 1px solid #59A6FE;
   cursor: not-allowed;
+  color: #eee;
 }
