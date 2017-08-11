@@ -132,7 +132,9 @@ function Init() {
 
     /* Initialization */
 
+    initDatePicker($(".pay-stub-list input.datetime"));
     var selectedProof = $("input[name*=ProofType]:checked");
+
     if (selectedProof.length > 0) {
         if (selectedProof.val() === "SocialSecurityStatementOfBenefits" || selectedProof.val() === "IncomeTax") {
             selectedProof = $("[data-proof=" + selectedProof.val() + "] input:checked");
@@ -183,8 +185,6 @@ function Init() {
         $(".annual-income").text(cgm.formatMoney(currentProof.getAnnualIncome()));
     }
 
-    /* Functions */
-
     function showNextStep(control) {
         var currentStep = $(control).parents(".page-step");
         if (currentStep.length > 0) {
@@ -206,8 +206,6 @@ function Init() {
             }
         }
     }
-
-    initDatePicker($(".pay-stub-list input.datetime"));
 
     function getSelectedIncomeProofType(selector) {
         return $(selector).attr("data-proof-income");
@@ -256,7 +254,8 @@ function Init() {
 
         $("[data-proof=" + selectedProof + "]").show();
 
-        if (selectedProof === "PayStubs" || selectedProof === "FederalOrTribalNoticeLetterOfParticipationInGeneralAssistance") {
+        if (selectedProof === "PayStubs" ||
+            selectedProof === "FederalOrTribalNoticeLetterOfParticipationInGeneralAssistance") {
             visibleHelpButton(selectedProof);
             addPayStub();
         }
@@ -501,7 +500,7 @@ function clickProgram() {
 }
 
 function addFilter() {
-    $(".regular").slick("slickFilter", function (index) {
+    $(".regular").slick("slickFilter", function () {
         return !($(this).hasClass("tribalProgram"));
     });
 }
