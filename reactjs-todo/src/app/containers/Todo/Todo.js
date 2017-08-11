@@ -1,6 +1,7 @@
 import React        from 'react';
 import PropTypes    from 'prop-types';
 import { TaskList } from './TaskList';
+import { Task     } from './Task';
 import { EditForm } from './EditForm';
 import { AddForm  } from './AddForm';
 import './Todo.scss';
@@ -8,6 +9,9 @@ import './Todo.scss';
 import * as storage from './localStorageActions';
 
 export class Todo extends React.Component {
+  isStoreAvailable = false;
+  currentTask      = 0;
+
   constructor(props) {
     super(props);
 
@@ -15,11 +19,9 @@ export class Todo extends React.Component {
       addFormInput: '',
       tasksArray: [],
       editFormInput: '',
-      currentTask: 0,
       currentFilter: 'all',
       openEditBlock: false,
-      storageName: 'tasksArray',
-      isStorageAvailable: false
+      storageName: 'tasksArray'
     };
 
     this.addNewTask          = this.addNewTask.bind(this);
@@ -27,6 +29,7 @@ export class Todo extends React.Component {
     this.handleAddFormInput  = this.handleAddFormInput.bind(this);
     this.handleEditFormInput = this.handleEditFormInput.bind(this);
     this.closeEditBlock      = this.closeEditBlock.bind(this);
+    this.setLocalState       = this.setLocalState.bind(this);
   }
 
   componentWillMount() {
@@ -36,15 +39,15 @@ export class Todo extends React.Component {
   componentDidMount() {
     if (typeof localStorage !== 'undefined') {
       this.setLocalState('tasksArray', storage.getDataFromStorage(this.state.storageName));
-      this.setLocalState('isStorageAvailable', true);
+      this.isStoreAvailable = true;
     } else {
       this.setLocalState('tasksArray', []);
-      this.setLocalState('isStorageAvailable', false);
+      this.isStoreAvailable = false;
     }
   }
 
   saveTasksToStorage() {
-    if (this.state.isStorageAvailable) {
+    if (this.isStoreAvailable) {
       storage.saveDataToStorage(this.state.storageName, this.state.tasksArray)
     }
   }
@@ -84,19 +87,17 @@ export class Todo extends React.Component {
   saveTask(event) {
     event.preventDefault();
 
-    this.setLocalState('editFormInput', '');
-
     this.setLocalState('tasksArray', [
-      ...this.state.tasksArray.slice(0, this.state.currentTask),
+      ...this.state.tasksArray.slice(0, this.currentTask),
       {
-        id: this.state.tasksArray[this.state.currentTask].id,
+        id: this.state.tasksArray[this.currentTask].id,
         name: this.state.editFormInput,
-        done: this.state.tasksArray[this.state.currentTask].done
+        done: this.state.tasksArray[this.currentTask].done
       },
-      ...this.state.tasksArray.slice(this.state.currentTask + 1)
+      ...this.state.tasksArray.slice(this.currentTask + 1)
     ]);
 
-    this.setLocalState('openEditBlock', !this.state.openEditBlock);
+    this.closeEditBlock();
   }
 
   closeEditBlock() {
@@ -124,49 +125,47 @@ export class Todo extends React.Component {
 
   handleEditClick(index) {
     this.setLocalState('openEditBlock', true);
-    this.setLocalState('currentTask', index);
+    this.currentTask = index;
     this.setLocalState('editFormInput', this.state.tasksArray[index].name);
-  }
-
-  getFilterActions() {
-    return {
-      setFilterToAll:      () => { this.setLocalState('currentFilter', 'all'); },
-      setFilterToProgress: () => { this.setLocalState('currentFilter', 'progress'); },
-      setFilterToDone:     () => { this.setLocalState('currentFilter', 'done'); },
-    }
-  }
-
-  getTaskActions() {
-    return {
-      onDoneClick:     (index) => { this.onDoneClick(index) },
-      onRemoveTask:    (index) => { this.onRemoveTask(index) },
-      handleEditClick: (index) => { this.handleEditClick(index) }
-    }
   }
 
   render() {
     return (
       <div className="todo">
         <AddForm
-            inputName={this.state.addFormInput}
-            handleInputChange={this.handleAddFormInput}
-            addNewTask={this.addNewTask}
+          inputName={this.state.addFormInput}
+          handleInputChange={this.handleAddFormInput}
+          addNewTask={this.addNewTask}
         />
 
         <TaskList
           openEditBlock={this.state.openEditBlock}
           currentFilter={this.state.currentFilter}
           tasksArray={this.state.tasksArray}
-          filterActions={this.getFilterActions()}
-          taskActions={this.getTaskActions()}
-        />
+          updateFilter={this.setLocalState}
+        >
+          <ul className={this.state.currentFilter}>
+            {this.state.tasksArray.map((task, index) => {
+              return (
+                <Task
+                  key={task.id}
+                  onDoneClick={this.onDoneClick.bind(this, index)}
+                  onRemoveTask={this.onRemoveTask.bind(this, index)}
+                  handleEditClick={this.handleEditClick.bind(this, index)}
+                  task={task}
+                  index={index}
+                />
+              );
+            })}
+          </ul>
+        </TaskList>
 
         <EditForm
-            inputName={this.state.editFormInput}
-            handleInputChange={this.handleEditFormInput}
-            onSaveClick={this.saveTask}
-            onCloseClick={this.closeEditBlock}
-            isOpenBlock={this.state.openEditBlock}
+          inputName={this.state.editFormInput}
+          handleInputChange={this.handleEditFormInput}
+          onSaveClick={this.saveTask}
+          onCloseClick={this.closeEditBlock}
+          isOpenBlock={this.state.openEditBlock}
         />
       </div>
     );

@@ -24,6 +24,14 @@
   color: #bbb;
 }
 
+.task.done .task-done-icon {
+  color: #2d89ef;
+}
+
+.task.done .task-done-icon:hover {
+  color: #bbb;
+}
+
 .task .task-done-icon,
 .task p {
   float: left;
@@ -44,14 +52,6 @@
 
 .task .task-done-icon:hover {
   color: #2d89ef;
-}
-
-.task .task-done-icon.active {
-  color: #2d89ef;
-}
-
-.task .task-done-icon.active:hover {
-  color: #bbb;
 }
 
 .task p {

@@ -1,4 +1,5 @@
-import React from 'react';
+import React     from 'react';
+import PropTypes from 'prop-types';
 import './EditForm.scss';
 
 export const EditForm = (props) => {
@@ -15,4 +16,12 @@ export const EditForm = (props) => {
       <i className="material-icons edit-close-icon" onClick={props.onCloseClick}>close</i>
     </form>
   );
+};
+
+EditForm.propTypes = {
+  isOpenBlock: PropTypes.bool,
+  onSaveClick: PropTypes.func,
+  inputName: PropTypes.string,
+  handleInputChange: PropTypes.func,
+  inCloseClick: PropTypes.func
 };
