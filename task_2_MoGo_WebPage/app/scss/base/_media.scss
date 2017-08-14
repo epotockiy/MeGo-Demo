@@ -3,6 +3,7 @@
   .wrapper {
     max-width: 1024px;
   }
+
   header nav {
     position: relative;
   }
@@ -179,6 +180,7 @@ padding-left: 30px;
     position: absolute;
 
   }
+
   .header-submenu li {
     width: 47%;
     margin-left: 0;
@@ -264,6 +266,10 @@ padding-left: 30px;
     //margin:0 auto;
 
     width: 29%;
+  }
+  .work-column {
+    font-size: 0;
+    width: 50%;
   }
 }
 

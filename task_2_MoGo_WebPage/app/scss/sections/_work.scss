@@ -1,0 +1,92 @@
+
+.work {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.work .wrapper {
+  max-width: none;
+}
+
+.work-photos-grid {
+  //display: flex;
+  //justify-content:center;
+}
+
+.work-column {
+  font-size: 0;
+  display: inline-block;
+  width: 25%;
+}
+
+.work-photo {
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  transition: .4s;
+  display: inline-block;
+  position: relative;
+  //position: relative;
+
+}
+
+.work-icons {
+  display: none;
+}
+
+.work-photo:before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 65%;
+  //position: relative;
+}
+
+.long:before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-top: 130%;
+}
+
+.work-effect {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  //display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.work-effect:hover {
+  background: linear-gradient(to bottom, rgba(243, 129, 129, 0.9) 0%, rgba(252, 227, 138, 0.9) 100%);
+  transition: 0.4s;
+  .work-icons {
+    display: block;
+  }
+}
+
+.work-icons p:nth-child(even) {
+  color: #fff;
+  font-family: $montserrat;
+  font-size: 14px;
+  margin-top: 19px;
+
+}
+
+.work-icons p:nth-child(odd) {
+
+  color: #fff;
+  font-family:$robotoLightItalic;
+  font-size: 15px;
+  margin-top: 17px;
+}
