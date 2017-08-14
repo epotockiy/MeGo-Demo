@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MeGo</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300i" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css">
@@ -20,7 +21,10 @@
 		
 		<div class="top-navbar">
 			<a href="#">MoGo</a>
-			<ul class="top-navbar-list ">
+			<a class="mobile-menu">
+				<img src="img/icons/icon-navbar-menu.png" alt="Menu-button">
+			</a>
+			<ul class="top-navbar-list mobile-active">
 				<li><a href="#">About</a></li>
 				<li><a href="#">Service</a></li>
 				<li><a href="#">Work</a></li>
@@ -29,6 +33,7 @@
 				<li><a href="#"><img src="img/icons/banner-pack.png"></a></li>
 				<li><a href="#"><img src="img/icons/banner-search.png"></a></li>
 			</ul>
+			
 		</div>
 
 		<header class="dash">
@@ -123,21 +128,21 @@
 			<h3>Amazing Services</h3>
 		</header>
 		<div class="container">
-			<div class="service">
+			<div class="service-item">
 				<img src="img/icons/icon-photography.png" alt="#">
 				<div class="service-information">
 					<h5>Photography</h5>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
 				</div>
 			</div>
-			<div class="service">
+			<div class="service-item">
 				<img src="img/icons/icon-webdesign.png" alt="#">
 				<div class="service-information">
 					<h5>Web Design</h5>
 					<p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
 				</div>
 			</div>
-			<div class="service">
+			<div class="service-item">
 				<img src="img/icons/icon-creativity.png" alt="#">
 				<div class="service-information">
 					<h5>Creativity</h5>
@@ -145,21 +150,21 @@
 				</div>
 			</div>
 			<hr>
-			<div class="service">
+			<div class="service-item">
 				<img src="img/icons/icon-seo.png" alt="#">
 				<div class="service-information">
 					<h5>seo</h5>
 					<p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
 				</div>
 			</div>
-			<div class="service">
+			<div class="service-item">
 				<img src="img/icons/icon-htmlcss.png" alt="#">
 				<div class="service-information">
 					<h5>Css/Html</h5>
 					<p>Lorem dolor sit amet, consectetur adipiscing elit, sed do tempor.</p>
 				</div>
 			</div>
-			<div class="service">
+			<div class="service-item">
 				<img src="img/icons/icon-digital.png" alt="#">
 				<div class="service-information">
 					<h5>digital</h5>
@@ -205,7 +210,7 @@
 				<div class="accordion-title active">
 					<img src="img/icons/icon-service2-photography.png" alt="#"/>
 					<div  class="title">photography</div>
-					<div class="pointer"></div>
+					<div class="pointer"><img src="img/icons/icon-pointer-left.png"></div>
 					<div class="accordion-content">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					</div>
@@ -216,7 +221,7 @@
 				<div class="accordion-title">
 					<img src="img/icons/icon-service2-creativity.png" alt="#">
 					<div  class="title">creativity</div>
-					<div class="pointer"></div>		
+					<div class="pointer"><img src="img/icons/icon-pointer-left.png"></div>		
 					<div class="accordion-content">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					</div>
@@ -227,7 +232,7 @@
 				<div class="accordion-title">
 					<img src="img/icons/icon-service2-webdesign.png" alt="#">
 					<div  class="title">webdesign</div>
-					<div class="pointer"></div>
+					<div class="pointer"><img src="img/icons/icon-pointer-left.png"></div>
 					<div class="accordion-content">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					</div>
@@ -273,7 +278,7 @@
 
 			<div class="person" >
 				<a href="#32">
-					<div class="photo" style="background-image: url('./img/images/team-dix.png');">
+					<div class="photo" style="background-image: url('./img/images/team-dix.png');     background-position: inherit;">
 					<span></span>
 					</div>
 				</a>
@@ -340,17 +345,13 @@
 		</header>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		<div class="container">
-		<div class="works-left">
-			<img src="img/images/work-1.png" alt="#">
-			<img src="img/images/work-2.png" alt="#">
-			<img src="img/images/work-5.png" alt="#">
-			<img src="img/images/work-6.png" alt="#">
-		</div>
-		<img src="img/images/work-3.png" alt="#">
-		<div class="works-right">
-			<img src="img/images/work-4.png" alt="#">
-			<img src="img/images/work-7.png" alt="#">
-		</div>
+			<a href="#"><img src="img/images/work-1.png" alt="#"><span></span></a>
+			<a href="#"><img src="img/images/work-2.png" alt="#"><span></span></a>
+			<a href="#"><img src="img/images/work-3.png" alt="#"><span></span></a>
+			<a href="#"><img src="img/images/work-4.png" alt="#"><span></span></a>
+			<a href="#"><img src="img/images/work-5.png" alt="#"><span></span></a>
+			<a href="#"><img src="img/images/work-6.png" alt="#"><span></span></a>
+			<a href="#"><img src="img/images/work-7.png" alt="#"><span></span></a>
 		</div>
 		
 	</section>
@@ -455,8 +456,10 @@
 					<p class="day">15</p>
 					<p class="month">Jan</p>
 				</div>	
-				<h5>Lorem ipsum dolor sit amet</h5>
-				<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<div class="article-content">
+					<h5>Lorem ipsum dolor sit amet</h5>
+					<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
 				<div class="views">
 					<img src="img/icons/icon-blog-view.png" alt="#">
 					<p>542</p>
@@ -475,8 +478,10 @@
 					<p class="day">14</p>
 					<p class="month">Jan</p>
 				</div>	
-				<h5>sed do eiusmod tempor</h5>
-				<p>Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<div class="article-content">
+					<h5>sed do eiusmod tempor</h5>
+					<p>Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
 				<div class="views">
 					<img src="img/icons/icon-blog-view.png" alt="#">
 					<p>992</p>
@@ -495,8 +500,10 @@
 					<p class="day">12</p>
 					<p class="month">Jan</p>
 				</div>	
-				<h5>incididunt ut labore et dolore</h5>
-				<p>Elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<div class="article-content">
+					<h5>incididunt ut labore et dolore</h5>
+					<p>Elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
 				<div class="views">
 					<img src="img/icons/icon-blog-view.png" alt="#">
 					<p>1560</p>
@@ -536,7 +543,14 @@
 				<div class="social-networks">
 					<p>Follow Us:</p>
 					<div class="socials-icons">
-						
+						<a href="#" class="facebook"></a>
+						<a href="#" class="twitter"></a>
+						<a href="#" class="instagram"></a>
+						<a href="#" class="pinterest"></a>
+						<a href="#" class="google"></a>
+						<a href="#" class="youtube"></a>
+						<a href="#" class="dribble"></a>
+						<a href="#" class="twitter-t"></a>
 					</div>
 				</div>
 				<div class="subscribe">
@@ -548,21 +562,27 @@
 				<h5>blogs</h5>
 				<div class="article">
 					<img src="img/images/footer-img1.png" alt="#">
-					<h6>Lorem ipsum dolor sit amet, 
-					consectetur adipiscing</h6>
-					<p class="date">Jan 9, 2016</p>
+					<div class="article-title">
+						<h6>Lorem ipsum dolor sit amet, 
+						consectetur adipiscing</h6>
+						<p class="date">Jan 9, 2016</p>
+					</div>
 				</div>
 				<div class="article">
 					<img src="img/images/footer-img2.png" alt="#">
-					<h6>Consectetur adipiscing elit, 
-					sed do eiusmod tempor</h6>
-					<p class="date">Jan 9, 2016</p>
+					<div class="article-title">
+						<h6>Consectetur adipiscing elit, 
+						sed do eiusmod tempor</h6>
+						<p class="date">Jan 9, 2016</p>
+					</div>
 				</div>
 				<div class="article">
 					<img src="img/images/footer-img3.png" alt="#">
-					<h6>sed do eiusmod tempor 
-					incididunt ut labore</h6>
-					<p class="date">Jan 9, 2016</p>
+					<div class="article-title">
+						<h6>sed do eiusmod tempor 
+						incididunt ut labore</h6>
+						<p class="date">Jan 9, 2016</p>
+					</div>
 				</div>
 			</div>	
 			<div class="instagram">
@@ -582,9 +602,9 @@
 				<a href="#">View more photos</a>
 			</div>
 		</div>
-		<p class="footer-title">© 2016 MoGo free PSD template by 
+		<h5 >© 2016 MoGo free PSD template by 
 			<span>Laaqiq</span>
-		</p>
+		</h5>
 	</footer>
 
 

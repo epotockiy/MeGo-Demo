@@ -42,7 +42,7 @@ body::-webkit-scrollbar-thumb {
 
 body {
 	font-family: 'Montserrat', sans-serif;
-	font-size: 0.875em;
+	font-size: 1em;
 	margin: 0 auto;
 	text-align: center;
 } 
@@ -52,6 +52,7 @@ h1 {
 	font-size: 9.375em;
 	color: $white;
 	text-transform: uppercase;
+	margin: 0 auto;
 
 }
 
@@ -120,13 +121,23 @@ ul{
 	}
 }
 
+
+.roboto-light{
+	font:{
+		family: 'Roboto', sans-serif;
+		size: 14px;
+		style: italic;
+		weight: 300;
+	}
+	color: $p-color;
+}
+
 .pointer{
 	width:12px;
 	height:22px;
 }
 
 .button{
-	display: inline-block;
 	border:$white-line;
 	color: $white;	
 }
@@ -146,7 +157,7 @@ ul{
 			display: block;
 			margin: 0 auto;
 			background-color: $red;
-			margin: 35px auto;
+			margin: 30px auto;
 	}
 }
 
@@ -196,8 +207,7 @@ ul{
 				weight: bold;
 			}
 		    color: $white;
-			float: left;
-			
+			float: left;	
 		}
 
 		ul{
@@ -220,12 +230,17 @@ ul{
 				}	
 			}
 		}
+
+		.mobile-menu{
+			display: none;
+		}
 	}	
 
 	
 	header.dash{
 		padding-top:12.91%;
 		h1{
+			width: 80%;
 			padding-top: 20px;
     		line-height: 0.97;
 		}
@@ -243,7 +258,12 @@ ul{
 		display: inline-block;
 		padding: 10px 30px;
 		text-transform: uppercase;
-		margin-bottom: 13%;		
+		margin-bottom: 12.5%;	
+		font : {
+			family: 'Montserrat', sans-serif;
+			size: 0.875em;
+			weight: bold;
+		}	
 		&:hover{
 			background: $red;
 			font-color: $white;
@@ -299,7 +319,8 @@ ul{
 				text-align: left;
 
 				span{
-					font-size: 18px;
+					margin-right: 5px;
+					font-size: 1.125em;
 					color: $white;
 				}
 			}
@@ -316,10 +337,11 @@ ul{
 	padding: 0 18.75%;
 	text-align: center;
 	padding-top:85px;
-	padding-bottom: 105px;
+	padding-bottom: 110px;
 
 	p {
-		padding-bottom: 105px;
+		padding-bottom: 100px;
+		padding-top: 10px;
 		width: 80%;
 		margin: 0 auto;
 		line-height: 1.5;
@@ -348,14 +370,14 @@ ul{
 					
 					img{
 						position: absolute;
-						left: 45%;
-   						top: 40%;
+						left: 47%;
+    					top: 37%;
 					}
 
 					p{
 						position: absolute;
 						left: 10%;
-   						top: 50%;
+   						top: 47%;
 						font-size:18px;
 						color:$white;
 					}				
@@ -413,21 +435,21 @@ ul{
 
 .service{
 	padding: 0 18.75%;
-	padding-top: 110px;
+	padding-top: 100px;
 	padding-bottom: 30px;
 	text-align: center;
 	margin: 0 auto;
 
 
 	.container{
-		padding-top: 25px;
+		padding-top: 30px;
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0 auto;
 		justify-content: space-between;
 
 
-		.service{
+		.service-item{
 			margin: 0;
 			margin-left: 25px;
 			margin-bottom: 88px;
@@ -490,13 +512,10 @@ ul{
 
 
 .service2{
-	padding: 0 18.75%;
-	text-align: center;
-	margin: 0 auto;	
-	padding-top: 110px;
-	padding-bottom: 115px;
+	padding: 115px 18.75%;
 
 	p.title{
+		padding-top: 10px;
 		width: 80%;
 		margin: 0 auto;
 		line-height: 1.5;
@@ -510,7 +529,8 @@ ul{
 			background-size: cover;
 			height: 380px;
 			display: inline-block;
-			margin-right: 2%
+			margin-right: 2%;
+			margin-bottom: 30px;
 		
 		}
 
@@ -525,12 +545,14 @@ ul{
 				text-align: left;
 				width: 100%;
 				margin-bottom: 0.9%;
+				position: relative;
 
 				img{
 					padding: 2%;
 				}
 
 				.title{
+					font-size: 0.875em;
 					display:inline-block;
 					margin-top: 3%;
 					vertical-align: top;
@@ -539,6 +561,12 @@ ul{
 
 				.pointer{
 					display: inline-block;
+					left: 94%;
+   					top: 7%;
+   					position: absolute;
+   					
+   					transform: rotate(90deg);
+   					
 				}
 
 
@@ -546,9 +574,6 @@ ul{
 					width: 100%;
 				}
 				
-				.pointer{
-					display: inline-block;
-				}
 
 				.accordion-content{
 					padding: 10px;
@@ -573,6 +598,9 @@ ul{
 			.accordion-title.active > .accordion-content{
 				display: block;
 			}
+			.accordion-title.active > .pointer{
+				transform: rotate(-90deg);
+			}
 		}
 	}
 	
@@ -594,7 +622,7 @@ ul{
 		
 		.quote-content {
 
-			margin-left:80px;
+			margin-left:50px;
 
 			.message-icon{
 				display: inline-block;
@@ -626,7 +654,7 @@ ul{
 				    margin: 0 auto;
 				    background-color: $red;
 				    float:left;
-				    margin-top: 15px;
+				    margin-top: 17px;
 				    margin-right:10px;
 				}
 				
@@ -647,13 +675,13 @@ ul{
 
 .ourteam{
 	padding: 0 18.75%;
-	padding-top:85px;
-	padding-bottom:115px;
+	padding-top:90px;
+	padding-bottom:80px;
 
 	p.content{
 		width: 80%;
 		margin: 0 auto;
-		margin-top: 40px;
+		margin-top: 45px;
 		margin-bottom:90px;
 		line-height: 1.5;
 	}
@@ -662,6 +690,7 @@ ul{
 
 		.person {
 		    width: 31%;
+		    padding-bottom: 30px;
 		    display: inline-block;
 		    margin-right: 2.5%;
 			&:last-child{
@@ -739,7 +768,6 @@ ul{
 	align-items: center;
 	background: $qoute-bg;
 	height: 250px;
-
 	padding: 0 18.75%;
 
 	.logos-container{
@@ -747,12 +775,11 @@ ul{
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		img{
-			
-		}
-		
 	}
 }
+
+
+// WORK
 
 .work{
 	padding-top:110px;
@@ -761,36 +788,40 @@ ul{
 		line-height: 1.5;
 		margin: 0 auto;
 		width: 50%;
-		padding-bottom: 105px;
+		padding-top: 10px;
+    	padding-bottom: 105px;
+	}
+	
+	.container{
+		display: table;
 	}
 
+	// .works-left{
+	// 	float:left;
+	// 	width:50%;
+	// 	font-size:0;
+	// 	img{
+	// 		display:inline-block;
+	// 		width: 50%;
+	// 	}
+	// }
 
-	.works-left{
-		float:left;
-		width:50%;
-		font-size:0;
-		img{
-			display:inline-block;
-			width: 50%;
-		}
-	}
+	// img{
+	// 	float: left;
+	// 	width: 25%;
+	// }
 
-	img{
-		float: left;
-		width: 25%;
-	}
-
-	.works-right{
-		width: 25%;
-		float: left;
-		font-size:0;
+	// .works-right{
+	// 	width: 25%;
+	// 	float: left;
+	// 	font-size:0;
 		
-		img{				
-			float:left;
-			width: 100%;
-			clear: both
-		}
-	}	
+	// 	img{				
+	// 		float:left;
+	// 		width: 100%;
+	// 		clear: both
+	// 	}
+	// }	
 }
 
 
@@ -826,7 +857,8 @@ ul{
 	padding: 0 18.75%;
     padding-top: 90px;
 	background-image:$white-gradient, url("../img/images/whatpeoplesay-bg.png") ;
-	
+	background-size: cover;
+
 	h5{
 		color: $h-color;
 	}
@@ -922,16 +954,19 @@ ul{
 					color: $white;
 				}
 			}
+			.article-content{
+				border-bottom: 1px solid $hr-color;
+				h5{
+					color: $h-color;
+				}
 
-			h5{
-				color: $h-color;
-			}
-
-			p{
-
+				p{
+					width: 95%;
+				}
 			}
 
 			.views{
+
 				display: inline-block;
 				p{
 					display: inline;
@@ -987,10 +1022,6 @@ ul{
 				}				
 			}
 
-			p.content{
-				width: 90%;
-			}
-
 			span{
 				font : {
 					family: 'Montserrat', sans-serif;
@@ -1012,14 +1043,96 @@ ul{
 
 			.social-networks{
 				border-bottom: 1px solid $hr-color;
+				border-top: 1px solid $hr-color;
+
+				p{
+					display: inline-block;
+					@extend .roboto-light;
+            	}
+
+				.socials-icons{
+					display: inline-block;
+					a{
+						background: url("../img/icons/icon-social-newtworks.png") no-repeat;
+						display: inline-block;
+						width:20px;
+						height:20px;
+						margin-right:0px;
+						
+						&.facebook{
+							background-position: 0px 0;
+						}
+						&.twitter{
+							background-position: -25px 0;
+						}
+						&.instagram{
+							background-position: -55px 0;
+						}
+						&.pinterest{
+							background-position: -86px 0;
+						}
+						&.google{
+							background-position: -115px 0;
+						}
+						&.youtube{
+							background-position: -143px 0;
+						}
+						&.dribble{
+							background-position: -175px 0;
+						}
+						&.twitter-t{
+							background-position: -207px 0;
+						}
+					}
+				}
 			}
 
 			.subscribe{
 				input{
+					padding: 14px;
+					@extend .roboto-light;
 				}
 
-				a{
+				::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+				  	font:{
+						family: 'Roboto', sans-serif;
+						size: 14px;
+						style: italic;
+						weight: 300;
+					}
+					color: $p-color;
+								}
+				::-moz-placeholder { /* Firefox 19+ */
+				  	font:{
+						family: 'Roboto', sans-serif;
+						size: 14px;
+						style: italic;
+						weight: 300;
+					}
+					color: $p-color;
+								}
+				:-ms-input-placeholder { /* IE 10+ */
+					 font:{
+						family: 'Roboto', sans-serif;
+						size: 14px;
+						style: italic;
+						weight: 300;
+					}
+					color: $p-color;
+					}
+				:-moz-placeholder { /* Firefox 18- */
+				  font:{
+						family: 'Roboto', sans-serif;
+						size: 14px;
+						style: italic;
+						weight: 300;
+					}
+					color: $p-color;
+				}
 
+
+				a{
+					padding: 15px 35px;
 					background:$blue;
 					color:white;
 					font : {
@@ -1038,7 +1151,29 @@ ul{
 				color: $h-color;
 			}
 
+			.article{
+				img{
+					display: inline-block;
+				}
+
+
+				.article-title{
+					vertical-align: top;
+					width: 53%;
+					display:inline-block;
+					h6{
+						text-transform: uppercase;
+						display: inline-block;
+						vertical-align: top;
+					}
+					p.date{
+						@extend .roboto-light;
+						font-size: 13px;
+					}
+				}	
+			}
 		}
+	
 
 		.instagram{
 			
@@ -1046,8 +1181,14 @@ ul{
 		}
 	}
 
-	p.footer-title{
+	h5{
 		margin: 0 auto;	
+		text-align: center;
+		color: $h-color;
+
+		span{
+			color: $red;
+		}
 	}
 }
 
@@ -1066,25 +1207,48 @@ ul{
    				left: 10%;
    			}
    		}
-   }
 
+   		header.dash h1 {
+    		font-size: 7.375em;
+    	}
+   }
+	
+	.about-us{
+		padding: 0 10%;
+		padding-top: 85px;
+    	padding-bottom: 110px;
+	}
+	
+
+	.feature{
+		.iphone{
+			right: 6%;
+    	}
+    }
 
     .quote{
-   		padding: 3.7% 8.75%;
+   		padding: 3.7% 6.75%;
     }
 	.logos{
    		padding: 0px 4%;
 	}
+
+	.service2 {
+	    padding: 100px 8.75%;
+	}
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
+
+
+
     .about-us{
-    	padding: 5% 10%;
+    	padding: 5% ;
     }
 
     .facts{
     	.dire{
-    		width: 80%;
+    		width: 90%;
     	}
     }
 
@@ -1094,27 +1258,85 @@ ul{
     	}
     }
 
-    .ourteam .ourteam-photo .person{
-   			width: 90%;
+
+	.service2 {
+	    padding: 100px 1%;
+	}
+
+    .ourteam  {
+    	padding: 5% 8%;
+	     .ourteam-photo .person{
+	   			width: 90%;
+	   	}
    	}
+
+   	.quote{
+   		padding: 3.7% 3.75%;
+    }
+
+    .blog .articles article{
+    		width:90%;
+    		padding-bottom: 50px;
+    }
+    
 }
 
 
 @media only screen and (max-device-width: 480px) {
-    .banner{
-    	.top-navbar-list{
-    		display: none;
-    	}
+    body{
+    	font-size:120%;
     }
+    .banner{
+    	.mobile-active{
+    		width: 200px;
+    		height: 50px;
+    		background-color: $red;
+			display: inline-block;
+			ul{
+				position: absolute;
+				opacity:0;
+				 -webkit-transition:0.9s linear opacity;
+				li{
+					display: block;
+					
+					a{
+						display: block;
+						font-size: 14px;
+						color: $white;
+					}	
+				}
+			}
+		}
+
+	
+
+		
+		.top-navbar .mobile-menu{
+			display: block;
+			float: right;
+			margin-top: 2%;
+			margin-left: 80%;	
+			img{
+				width: 35px;
+			}
+		}
+
+		ul.bottom-navbar-list li {
+			width : 20%;
+		}
+	}	
+
 
     .about-us{
-    	padding: 5%;
+    	padding: 5% 1%;
     	.content{
+    		flex-direction: column;
+    		align-items: center;
     		justify-content: center;
     		a{
-    			min-width: 300px;
+    			min-width: 360px;
+    			padding-bottom: 20px;
     		}
-
     	}
     }
 
@@ -1131,11 +1353,31 @@ ul{
     }
 
     .quote{
-   		padding: 3.7% 1%;
+   		padding: 3.7% 3%;
    }
 
-   .ourteam .ourteam-photo .person{
-   			width: 90%;
+    .ourteam  {
+    	padding: 5% 8%;
+	     .ourteam-photo .person{
+	   			width: 90%;
+	   	}
    	}
+
+   	.service2 {
+	    padding: 100px 1%;
+	    .service2-container{
+	    	.service2-image{
+	    		width:100%;
+	    	} 
+	    	#accordion{
+	    		width:100%;
+	    	}
+	    }
+
+	}
    
+   .blog .articles article{
+    		width:90%;
+    		padding-bottom: 50px;
+    }
 }
