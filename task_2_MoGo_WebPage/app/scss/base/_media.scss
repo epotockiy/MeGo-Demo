@@ -3,29 +3,37 @@
   .wrapper {
     max-width: 1024px;
   }
+  header nav {
+    padding: 0px 10px 0px 10px
+  }
   .header-submenu li {
     //width: 23.35%;
-    margin-left: 10px;
+    margin-left: 18px;
   }
   .header-title h2 {
     font-size: 67px;
   }
   .header-title h1 {
-    font-size: 140px;
+    font-size: 120px;
   }
   .statistic .wrapper {
     max-width: 1200px;
   }
   .about-photo {
-    margin-right: 10px;
-    margin-left: 11px;
-    width: 30%;
-    height: 250px;
+
+    width: 31%;
+
+  }
+  .accordion-panel {
+    //padding: 0 18px;
+
+    height: 72px;
   }
 
 }
 
 @media (max-width: 1024px) {
+
   .wrapper {
     max-width: 768px;
   }
@@ -38,15 +46,35 @@
   }
   .header-title h2 {
     font-size: 60px;
+    margin-top: 105px;
   }
   .header-title h1 {
     font-size: 120px;
+    margin-top: 70px;
   }
   .header-submenu span {
     font-size: 18px;
   }
+  .header-submenu {
+    margin-top: 120px;
+  }
+  .header-submenu li {
+    margin-left: 47px;
+    width: 20%;
+  }
   .header-submenu a {
     font-size: 18px;
+  }
+  .about{
+    padding-top: 40px;
+    padding-bottom: 70px;
+  }
+  .about-photos-grid {
+    margin-top: 60px;
+  }
+  .about-photo {
+
+    width: 31%;
   }
   .statitstic-cell {
     padding: 65px 30px 55px 30px;
@@ -64,9 +92,12 @@
   .statistic .wrapper {
     max-width: 1200px;
   }
-  //.services .wrapper {
-  //  max-width: 1200px;
-  //}
+  .services .wrapper {
+    max-width: 1200px;
+  }
+  .about .wrapper {
+    max-width: 1200px;
+  }
   .services-description {
     width: 62%;
   }
@@ -90,6 +121,16 @@
     margin-left: 388px;
 
   }
+  .about-photo {
+
+    width: 30%;
+  }
+  .activity-image {
+    width: 100%
+  }
+  .accordion {
+    width: 100%;
+  }
 
 }
 
@@ -105,14 +146,28 @@
     display: block
   }
   .header-submenu li {
-    width: 23.9%;
-    margin-left: 2px;
+    width: 47%;
+    margin-left: 0;
+    margin-right: 10px;
+  }
+  //.header-submenu li:nth-child(even){
+  //  margin-left: 10px;
+  //}
+  .header-submenu a {
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .header-title h1 {
-    font-size: 78px;
+    font-size: 66px;
+    margin-top: 15px;
   }
   .header-title h2 {
-    font-size: 45px;
+    font-size: 52px;
+    margin-top: 75px;
+
+  }
+  .header-submenu {
+    margin-top: 67px;
   }
   .header-submenu span {
     font-size: 14px;
@@ -169,11 +224,49 @@
 
   }
   .about-photo {
-    margin-right: 5px;
-    margin-left: 5px;
+    //margin-right: 5px;
+    //margin-left: 5px;
+    //margin:0 auto;
+
     width: 29%;
-    height: 183px;
   }
+}
+
+@media (max-width: 630px) {
+  .about-photo {
+    width: 70%;
+  }
+  .about-photo {
+    width:90%;
+  }
+  .services-cell img {
+    float: left;
+    padding-right: 27px;
+    //display: block;
+    /* margin: auto; */
+    /* text-align: center; */
+  }
+  //.services-description {
+  //  float: left;
+  //  text-align: right
+  //}
+  .services-cell {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .services-description {
+    float: left;
+    text-align: left;
+  }
+  .services-cell {
+    padding-left: 15px;
+    display: block;
+    width: 100%;
+
+  }
+  .services-description {
+    width: 80%;
+  }
+
 }
 
 @media (max-width: 425px) {
@@ -185,12 +278,14 @@
     margin-bottom: 15px;
   }
   .header-title h1 {
-    font-size: 60px;
+    font-size: 50px;
+  }
+  .header-title h2 {
+    font-size: 45px;
+    margin-top: 40px
   }
   .about-photo {
-    margin-top: 20px;
-    width: 100%;
-    height: 180px;
+
   }
   .statitstic-cell {
     padding: 50px 11px 35px 11px;
@@ -212,6 +307,9 @@
   .statistic-table {
     display: block;
   }
+  .services-cell {
+    //    width: 85%;
+  }
   //.services-cell img {
   //
   //
@@ -219,20 +317,7 @@
   //  /* margin: auto; */
   //  /* text-align: center; */
   //}
-  .services-cell {
-    border-bottom: 1px solid #e5e5e5;
-  }
-  .services-description {
-    float: left;
-  }
-  .services-cell {
-    padding-left: 0;
-    display: block;
-    width: 100%;
-  }
-  .services-description {
-    width: 100%;
-  }
+
   .ipad {
     height: 260px;
 

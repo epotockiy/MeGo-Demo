@@ -1,0 +1,46 @@
+.quote-slider {
+  background: #f8f8f8;
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+.quote-image{
+  background: url(../images/slider/quote.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin-right: 60px;
+}
+.quote-text{
+  float: left;
+  max-width: 70%;
+}
+.quote-text p:first-child{
+
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: $robotoLightItalic;
+    color: #999;
+    line-height: 36px;
+
+}
+.quote-text p:last-child{
+  font-size: 24px;
+  color: #333;
+  font-family: $kaushan;
+}
+.quote-text p:last-child:before{
+  content: '';
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  width: 60px;
+  height: 3px;
+  background: #f38181;
+}
+.quote-wrapper {
+  width:68%
+}

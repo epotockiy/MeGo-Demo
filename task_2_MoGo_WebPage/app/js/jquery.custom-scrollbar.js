@@ -1,7 +1,7 @@
 (function ($) {
 
     $.fn.customScrollbar = function (options, args) {
-        console.log("scroll");
+
         var defaultOptions = {
             skin: undefined,
             hScroll: true,

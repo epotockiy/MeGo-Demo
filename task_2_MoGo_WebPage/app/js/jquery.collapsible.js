@@ -34,28 +34,38 @@
             var $thisOdd = $(this).children(':odd');
             var accord = 'accordion-active';
             $(this).children(':nth-child(even)').css('display', 'none');
-
+            // $(this).toggleClass('special');
             if (settings.accordion === true) {
                 if (settings.contentOpen !== null) {
-                    $($thisEven[settings.contentOpen]).children(':first-child').toggleClass(settings.arrowRclass + ' ' + settings.arrowDclass);
+                    console.log(1);
+
                     $($thisOdd[settings.contentOpen]).show().addClass(accord);
+
+                    $(this).children(':first-child').toggleClass('special');
+                    // $(this).children(':first-child').css("margin-bottom", "0px");
+
                 }
                 $($thisEven).click(function () {
                     if ($(this).next().attr('class') === (accord)) {
                         $(this).next().slideUp(settings.accordionUpSpeed).removeClass(accord);
-                        $(this).children(':first-child').toggleClass(settings.arrowRclass + ' ' + settings.arrowDclass);
 
+                        console.log(2);
+
+                        $(this).toggleClass('special');
+                        // $(".panel-head").css("margin-bottom", "10px");
                     } else {
-                        $($thisEven).children().removeClass(settings.arrowDclass).addClass(settings.arrowRclass);
+                        // $(".panel-head").css("margin-bottom", "10px");
+                        // $(this).css("margin-bottom", "0px");
+                        $(".panel-head").removeClass('special');
                         $($thisOdd).slideUp(settings.accordionUpSpeed).removeClass(accord);
+                        console.log(3);
+                        console.log($(this));
+
+
                         $(this).next().slideDown(settings.accordionDownSpeed).addClass(accord);
-                        $(this).children(':first-child').toggleClass(settings.arrowRclass + ' ' + settings.arrowDclass);
-                        // if( $(this).children(':first-child').attr('class')==='arrow-r'){
-                        //     $(this).children(':first-child').attr('src', './images/activites/up.png');
-                        // }
-                        // else{
-                        //     $(this).children(':first-child').attr('src', './images/activites/down.png');
-                        // }
+                        $(this).toggleClass('special');
+
+
                     }
                 });
             } else {
@@ -63,16 +73,19 @@
                     if (Array.isArray(settings.contentOpen)) {
                         for (var i = 0; i < settings.contentOpen.length; i++) {
                             var index = settings.contentOpen[i];
-                            $($thisEven[index]).children(':first-child').toggleClass(settings.arrowRclass + ' ' + settings.arrowDclass);
+                            // $($thisEven[index]).children(':first-child').toggleClass(settings.arrowRclass + ' ' + settings.arrowDclass);
+                            console.log(4);
                             $($thisOdd[index]).show();
                         }
                     } else {
-                        $($thisEven[settings.contentOpen]).children(':first-child').toggleClass(settings.arrowRclass + ' ' + settings.arrowDclass);
+                        // $($thisEven[settings.contentOpen]).children(':first-child').toggleClass(settings.arrowRclass + ' ' + settings.arrowDclass);
                         $($thisOdd[settings.contentOpen]).show();
                     }
                 }
                 $($thisEven).click(function () {
-                    $(this).children(':first-child').toggleClass(settings.arrowRclass + ' ' + settings.arrowDclass);
+                    console.log(5);
+                    // $(this).children(':first-child').toggleClass(settings.arrowRclass + ' ' + settings.arrowDclass);
+
                     $(this).next().slideToggle(settings.collapseSpeed);
                 });
             }
