@@ -210,8 +210,7 @@
   };
 
   TodoList.prototype.updateItemHandler = function() {
-    var inputValue = this.$editInput.val(),
-        self = this;
+    var inputValue = this.$editInput.val();
 
     if(!inputValue) {
       this.$editErrorMessage.css('display', 'block');
@@ -248,8 +247,7 @@
   };
 
   TodoList.prototype.addItemHandler = function() {
-    var inputValue = this.$taskInput.val(),
-        self = this;
+    var inputValue = this.$taskInput.val();
 
     if(!inputValue) {
       this.$formErrorMessage.css('display', 'block');
@@ -266,8 +264,8 @@
 
       this.postDataToServer(this.tasksArray);
 
-      self.$todoList.prepend(self.addItemToDOM(self.tasksArray[0]));
-      self.$taskInput.val('');
+      this.$todoList.prepend(this.addItemToDOM(this.tasksArray[0]));
+      this.$taskInput.val('');
     }
   };
 })(jQuery);
