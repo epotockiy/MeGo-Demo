@@ -4,7 +4,7 @@
     max-width: 1024px;
   }
   header nav {
-    padding: 0px 10px 0px 10px
+    position: relative;
   }
   .header-submenu li {
     //width: 23.35%;
@@ -41,9 +41,45 @@
     display: none;
   }
   a.icon-menu {
-    float: right;
+
     display: block;
   }
+  .responsive {
+    background-color: #e4c77f;
+    top: 45px;
+
+  }
+  .responsive li {
+    display: block;
+    text-align: left;
+    margin-left: 0;
+    padding: 10px 10px;
+cursor: pointer;
+    border-bottom: 1px solid orange;
+  }
+  .responsive li:first-child {
+    border-top: 1px solid orange;
+
+  }
+
+  .responsive a {
+    display: block;
+    margin: 0;
+  }
+  .responsive {
+    float: none;
+    position: absolute;
+    width: 100%;
+  }
+  .responsive a:not([class*="icon"]):hover {
+    color: #fff;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .responsive .icon-search .icon-search {
+padding-left: 30px;
+  }
+
   .header-title h2 {
     font-size: 60px;
     margin-top: 105px;
@@ -65,7 +101,7 @@
   .header-submenu a {
     font-size: 18px;
   }
-  .about{
+  .about {
     padding-top: 40px;
     padding-bottom: 70px;
   }
@@ -138,12 +174,10 @@
   .wrapper {
     max-width: 425px;
   }
-  .menu a {
-    display: none;
-  }
-  a.icon-menu {
-    float: right;
-    display: block
+  .responsive {
+    float: none;
+    position: absolute;
+
   }
   .header-submenu li {
     width: 47%;
@@ -168,6 +202,7 @@
   }
   .header-submenu {
     margin-top: 67px;
+    margin: 67px 20px 0 20px;
   }
   .header-submenu span {
     font-size: 14px;
@@ -237,7 +272,7 @@
     width: 70%;
   }
   .about-photo {
-    width:90%;
+    width: 90%;
   }
   .services-cell img {
     float: left;

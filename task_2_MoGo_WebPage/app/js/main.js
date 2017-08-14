@@ -37,10 +37,12 @@ $(function () {
     // var icon_menu = $('.icon-menu');
     // console.log(icon_menu);
     $('.icon-menu').click(function () {
+
         toggleResponsiveMenu();
     });
     function toggleResponsiveMenu() {
         $('.menu').toggleClass('responsive');
+
         // var icon_menu = document.getElementsByClassName('icon-menu')[0];
         // if (icon_menu.className === "topnav") {
         //     icon_menu.className += " responsive";

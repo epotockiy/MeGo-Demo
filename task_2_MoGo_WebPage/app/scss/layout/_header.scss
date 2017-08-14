@@ -2,7 +2,7 @@ header {
 
   background-size: cover;
   background:linear-gradient(to bottom, rgba(243, 129, 129, 0.9) 0%, rgba(252, 227, 138, 0.9) 100%),url(../images/header/backround.png) no-repeat center;
-  padding-top: 32px;
+  padding-top: 26px;
   padding-bottom: 30px;
 }
 
@@ -13,7 +13,9 @@ header {
   color: #fff;
   font-size: 30px;
 }
-
+.menu-icons{
+  //float:left;
+}
 .menu {
   float: right;
 }
@@ -38,6 +40,7 @@ header {
 
 .icon-menu {
   background: url(../images/header/menu-icon.png);
+  background-position-y: bottom;
   display: none;
   width: 30px;
   height: 40px;
@@ -45,7 +48,7 @@ header {
   float: right;
 }
 
-.menu li a:not([class*="icon"]):hover {
+.menu a:not([class*="icon"]):hover {
   color: #fce38a;
   border-bottom: 3px solid #fce38a;
   padding-bottom: 9px;
