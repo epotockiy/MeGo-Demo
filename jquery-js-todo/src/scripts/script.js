@@ -35,16 +35,22 @@
 
     this.getDataFromServer()
       .done(function(res) {
-        for(var i = 0; i < res.todos.length; ++i) {
-          if (res.todos[i].done === 'true') {
-            res.todos[i].done = true;
+        if(res.todos) {
+          for(var i = 0; i < res.todos.length; ++i) {
+            if (res.todos[i].done === 'true') {
+              res.todos[i].done = true;
+            }
+
+            if (res.todos[i].done === 'false') {
+              res.todos[i].done = false;
+            }
           }
 
-          if (res.todos[i].done === 'false') {
-            res.todos[i].done = false;
-          }
+          self.tasksArray = res.todos || [];
+        } else {
+          self.tasksArray = [];
         }
-        self.tasksArray = res.todos || [];
+
         self.renderTasksList();
         self.bindEvents();
       });
@@ -53,14 +59,6 @@
   TodoList.prototype.getDataFromServer = function() {
     return $.ajax({
       url: '/todos'
-    });
-  };
-
-  TodoList.prototype.saveDataToServer = function(data) {
-    return $.ajax({
-      url: '/todos',
-      method: 'POST',
-      data: data
     });
   };
 
@@ -110,12 +108,14 @@
     });
   };
 
-  TodoList.prototype.saveDataToStorage = function(data) {
-    this.saveDataToServer({
-      todos: data
+  TodoList.prototype.postDataToServer = function(data) {
+    $.ajax({
+      url: '/todos',
+      method: 'POST',
+      data: { todos: data }
     }).done(function() {
       console.log('Data was saved to file!');
-    })
+    });
   };
 
   TodoList.prototype.renderTasksList = function() {
@@ -174,7 +174,7 @@
     this.$todoList.on('click', 'div.done-icon', function() {
       var listItem  = $(this),
           listItemParent = listItem.parent(),
-          doneItemIndex = self.findCurrentIndex(self.tasksArray, listItemParent[0].getAttribute('data-id'));
+          doneItemIndex = self.findCurrentIndex(self.tasksArray, listItemParent.data('id'));
 
       if(!self.tasksArray[doneItemIndex].done) {
         self.tasksArray[doneItemIndex].done = true;
@@ -188,28 +188,30 @@
         listItemParent.find('.edit-btn').removeAttr('disabled');
       }
 
-      self.saveDataToStorage(self.tasksArray);
+      self.postDataToServer(self.tasksArray);
     });
   };
 
   TodoList.prototype.removeItem = function(id)  {
-    var itemToRemoveIndex = this.findCurrentIndex(this.tasksArray, id);
+    var itemToRemoveIndex = this.findCurrentIndex(this.tasksArray, id),
+        self = this;
 
     if(this.tasksArray.length === 1) {
       this.tasksArray = [];
-      this.saveDataToStorage(this.tasksArray);
+      this.postDataToServer(this.tasksArray);
       this.$todoList.children()
           .first()
           .remove();
     } else {
       this.tasksArray.splice(itemToRemoveIndex, 1);
-      this.saveDataToStorage(this.tasksArray);
-      this.$todoList.find('[data-id="' + id + '"]').remove();
+      this.postDataToServer(this.tasksArray);
+      self.$todoList.find('[data-id="' + id + '"]').remove();
     }
   };
 
   TodoList.prototype.updateItemHandler = function() {
-    var inputValue = this.$editInput.val();
+    var inputValue = this.$editInput.val(),
+        self = this;
 
     if(!inputValue) {
       this.$editErrorMessage.css('display', 'block');
@@ -217,8 +219,9 @@
       this.$editErrorMessage.css('display', 'none');
 
       this.currentItem.name = inputValue;
+      this.tasksArray[this.findCurrentIndex(this.tasksArray, this.currentItem.data('id'))].name = inputValue;
 
-      this.saveDataToStorage(this.tasksArray);
+      this.postDataToServer(this.tasksArray);
 
       this.currentItem.children('p').text(inputValue);
 
@@ -245,7 +248,8 @@
   };
 
   TodoList.prototype.addItemHandler = function() {
-    var inputValue = this.$taskInput.val();
+    var inputValue = this.$taskInput.val(),
+        self = this;
 
     if(!inputValue) {
       this.$formErrorMessage.css('display', 'block');
@@ -253,17 +257,17 @@
       this.$formErrorMessage.css('display', 'none');
 
       this.tasksArray.unshift(
-          {
-            name: inputValue,
-            id: Math.random().toString(36).substr(2, 10),
-            done: false
-          }
+        {
+          name: inputValue,
+          id: Math.random().toString(36).substr(2, 10),
+          done: false
+        }
       );
 
-      this.saveDataToStorage(this.tasksArray);
+      this.postDataToServer(this.tasksArray);
 
-      this.$todoList.prepend(this.addItemToDOM(this.tasksArray[0]));
-      this.$taskInput.val('');
+      self.$todoList.prepend(self.addItemToDOM(self.tasksArray[0]));
+      self.$taskInput.val('');
     }
   };
 })(jQuery);

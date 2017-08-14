@@ -9,8 +9,8 @@ app.use('/libs', express.static(__dirname + '/libs'));
 app.use('/scripts', express.static(__dirname + '/scripts'));
 app.use('/images', express.static(__dirname + '/images'));
 
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
