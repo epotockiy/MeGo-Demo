@@ -410,24 +410,24 @@ body {
     font-size: 0;
     display: inline-block; }
     .container form .task-input {
-      color: #333;
-      padding: 10px 20px;
-      font-size: 24px;
-      vertical-align: top; }
+      padding: 12px 20px;
+      color: #1d1d1d;
+      font-family: 'Helvetica', sans-serif;
+      font-size: 20px; }
       .container form .task-input:focus {
         outline: none; }
     .container form .add-btn {
-      color: white;
-      border: 1px solid lightblue;
-      background: #5882FA;
+      background: #2d89ef;
+      border: 1px solid #2d89ef;
+      color: #eff4ff;
       font-size: 20px;
-      transition: background .4s;
-      padding: 13px 40px; }
+      padding: 13px 40px;
+      cursor: pointer;
+      transition: background .4s; }
       .container form .add-btn:focus {
         outline: none; }
       .container form .add-btn:hover {
-        cursor: pointer;
-        background: #819FF7; }
+        background: #2b5797; }
   .container .error-message {
     font-size: 20px;
     font-weight: normal;
@@ -436,22 +436,27 @@ body {
     color: orangered;
     display: none; }
   .container .filter-btns {
-    padding-top: 20px; }
+    padding-top: 20px;
+    font-size: 0; }
     .container .filter-btns button {
-      color: white;
-      border: 1px solid lightblue;
-      background: #5882FA;
+      cursor: pointer;
       font-size: 20px;
-      transition: background .4s;
-      padding: 10px 20px; }
+      padding: 10px 20px;
+      background: #eff4ff;
+      border: 1px solid #eff4ff;
+      color: #1d1d1d;
+      margin: 0 5px;
+      transition: all .4s; }
       .container .filter-btns button:focus {
         outline: none; }
       .container .filter-btns button:hover {
-        cursor: pointer;
-        background: #819FF7; }
+        background: #2d89ef;
+        border: 1px solid #2d89ef;
+        color: #eff4ff; }
       .container .filter-btns button.active {
-        background: #819FF7;
-        text-decoration: underline; }
+        background: #2d89ef;
+        border: 1px solid #2d89ef;
+        color: #eff4ff; }
   .container .todo-list {
     position: relative; }
     .container .todo-list.all .task.done-task,
@@ -463,7 +468,7 @@ body {
       display: block; }
     .container .todo-list .task {
       margin: 20px auto 0;
-      background: #F2F2F2;
+      background: #eff4ff;
       padding: 10px;
       overflow: hidden;
       width: 60%;
@@ -472,7 +477,7 @@ body {
         text-decoration: none; }
       .container .todo-list .task.progress-task .edit-btn {
         cursor: pointer;
-        color: #A4A4A4; }
+        color: #bbb; }
         .container .todo-list .task.progress-task .edit-btn:hover {
           color: #5882FA; }
       .container .todo-list .task.progress-task .done-icon {

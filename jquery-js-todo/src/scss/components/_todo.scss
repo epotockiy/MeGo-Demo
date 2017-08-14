@@ -41,10 +41,10 @@ body {
     display: inline-block;
 
     .task-input {
-      color: #333 ;
-      padding: 10px 20px;
-      font-size: 24px;
-      vertical-align: top;
+      padding: 12px 20px;
+      color: #1d1d1d;
+      font-family: 'Helvetica', sans-serif;
+      font-size: 20px;
 
       &:focus {
         outline: none;
@@ -52,8 +52,21 @@ body {
     }
 
     .add-btn {
-      @include btn;
+      background: #2d89ef;
+      border: 1px solid #2d89ef;
+      color: #eff4ff;
+      font-size: 20px;
       padding: 13px 40px;
+      cursor: pointer;
+      transition: background .4s;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        background: #2b5797;
+      }
     }
   }
 
@@ -68,14 +81,32 @@ body {
 
   .filter-btns {
     padding-top: 20px;
+    font-size: 0;
 
     button {
-      @include btn;
+      cursor: pointer;
+      font-size: 20px;
       padding: 10px 20px;
+      background: #eff4ff;
+      border: 1px solid #eff4ff;
+      color: #1d1d1d;
+      margin: 0 5px;
+      transition: all .4s;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        background: #2d89ef;
+        border: 1px solid #2d89ef;
+        color: #eff4ff;
+      }
 
       &.active {
-        background: #819FF7;
-        text-decoration: underline;
+        background: #2d89ef;
+        border: 1px solid #2d89ef;
+        color: #eff4ff;
       }
     }
   }
@@ -98,7 +129,7 @@ body {
 
     .task {
       margin: 20px auto 0;
-      background: #F2F2F2;
+      background: #eff4ff;
       padding: 10px;
       overflow: hidden;
       width: 60%;
@@ -111,7 +142,7 @@ body {
 
         .edit-btn {
           cursor: pointer;
-          color: #A4A4A4;
+          color: #bbb;
 
           &:hover {
             color: #5882FA;
