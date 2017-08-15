@@ -1,5 +1,5 @@
 
-window.onload = function () {
+
 	var mobile_icon = document.getElementsByClassName('mobile-menu');
 	var mobile_menu_list = document.getElementsByClassName('top-navbar-list');
 	
@@ -15,7 +15,7 @@ window.onload = function () {
 			}
 		})
 	})
-}
+
 
 
 

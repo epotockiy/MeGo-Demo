@@ -1,5 +1,5 @@
 
-window.onload = function () {
+
 	var left_pointer = document.getElementById('left-pointer');
 	var right_pointer = document.getElementById('right-pointer');
 	var qoutes = document.getElementsByClassName('quote-content');
@@ -27,7 +27,7 @@ window.onload = function () {
 			}
 		}
 	})	
-}
+
 
 
 

@@ -1,5 +1,5 @@
 
-window.onload = function () {
+
 	var left_testimonial = document.getElementById('left-testimonial');
 	var right_testimonial = document.getElementById('right-testimonial');
 	var testimonial = document.getElementsByClassName('testimonial-content');
@@ -27,7 +27,7 @@ window.onload = function () {
 			}
 		}
 	})	
-}
+
 
 
 

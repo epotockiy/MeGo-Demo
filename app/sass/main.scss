@@ -202,9 +202,7 @@ ul{
 	background-position: center;
 
 	.top-navbar{
-		padding-top: 23px;
-		
-
+		padding-top: 30px;
 		a{
 			font : {
 				size: 30px;
@@ -213,28 +211,35 @@ ul{
 		    color: $white;
 			float: left;	
 		}
-
 		ul{
-			margin-top: 10px;
-			position: relative;
-			left:  21.1%;
+		    display: flex;
+		    justify-content: flex-end;
+		    margin-top: 10px;
 			li{
+				padding-bottom: 10px;
 				margin-right:  4.1%;
 				&:last-child{
 					margin-right: 0px;
+					
 				}	
+				&:hover {
+					border-bottom: 3px solid $yellow;
+					transition: border-bottom 0.4s;
+				}
 
+				&:last-child:hover{
+					border:none;
+				}
+
+				&:nth-child(6):hover{
+					border:none;
+				}
 				a{
 					font-size: 14px;
 					color: $white;
-
-					&:hover {
-						border-bottom: 2px solid $yellow;
-					}
 				}	
 			}
 		}
-
 		.mobile-menu{
 			display: none;
 		}
@@ -248,7 +253,6 @@ ul{
 			padding-top: 20px;
     		line-height: 0.97;
 		}
-
 		&:after{
 			height: 3px;
 			width: 60px;
@@ -272,12 +276,11 @@ ul{
 			background: $red;
 			font-color: $white;
 			box-shadow: 5px 5px $grey;
-			transition: box-shadow 0.1s;
+			transition: background 0.9s ;
 		}	
 	}
 	
 	ul.bottom-navbar-list{	
-		
 		li{
 			border-top: 3px solid $white;
 			text-align: left;
@@ -301,22 +304,25 @@ ul{
 			&.intro:hover:before{
 				background: $red;
 				width:25%;
+				transition: background 0.4s;
 			}
 
 			&.work:hover:before{
 				background: $red;
 				width:50%;
+				transition: background 0.4s;
 			}
 
 			&.about:hover:before{
 				background: $red;
 				width:75%;
+				transition: background 0.4s;
 			}
 
 			&.contacts:hover:before{
 				background: $red;
 				width:100%;
-			}
+				transition: background 0.4s;			}
 
 			a{
 				color: $white;
@@ -324,8 +330,9 @@ ul{
 
 				span{
 					margin-right: 5px;
-					font-size: 1.125em;
+					font-size: 1.5em;
 					color: $white;
+					font-weight: bold;
 				}
 			}
 		}
@@ -338,10 +345,10 @@ ul{
 
 
 .about-us{
-	padding: 0 18.75%;
-	text-align: center;
-	padding-top:85px;
-	padding-bottom: 110px;
+	max-width: 1200px;
+    padding-top: 85px;
+    padding-bottom: 110px;
+    margin: 0 auto;
 
 	p {
 		padding-bottom: 100px;
@@ -379,10 +386,15 @@ ul{
 					}
 
 					p{
+						font : {
+							family: 'Montserrat', sans-serif;
+							size: 1.125em;
+							weight: bold;
+						}
+						text-transform: uppercase;
 						position: absolute;
 						left: 10%;
    						top: 47%;
-						font-size:18px;
 						color:$white;
 					}				
 				}
@@ -414,7 +426,7 @@ ul{
 
 	.dire{
 		margin: 0 auto;
-		width: 62.5%;
+		max-width: 1200px;
 
 		.fact{
 			padding: 70px 0px 90px 0;
@@ -438,7 +450,7 @@ ul{
 // SERVICE
 
 .service{
-	padding: 0 18.75%;
+	max-width: 1200px;
 	padding-top: 100px;
 	padding-bottom: 30px;
 	text-align: center;
@@ -465,6 +477,7 @@ ul{
 			img{
 				display:inline-block;
 				vertical-align: top;
+				margin-top: 20px;
 				
 			}
 
@@ -516,9 +529,11 @@ ul{
 
 
 .service2{
-	padding: 115px 18.75%;
+	padding: 115px 0;
+    max-width: 1200px;
+    margin: 0 auto;
 
-	p.title{
+	p.information{
 		padding-top: 10px;
 		width: 80%;
 		margin: 0 auto;
@@ -584,14 +599,17 @@ ul{
 					display:none;
 					height: 160px;
 					width: 97%;
-					overflow: scroll;
+					overflow-y: scroll;
 					border-top: 1px solid $hr-color;
+
 
 					p{
 						width: 95%;
 						padding: 1.1%;
    						line-height: 1.5;
 						height: 100%;
+						@extend .roboto-light;
+						font-size: 15px;
 					}
 				}
 			}
@@ -620,7 +638,7 @@ ul{
 
 .quote{
 	clear: both;
-	padding: 3.7% 18.75%;
+	padding: 0.7% 18.75%;
 	background: $qoute-bg;
 
 	.quote-container{
@@ -631,6 +649,9 @@ ul{
 		.quote-pointer{
 			height: 230px;
     		width: 100px;
+    		&:hover{
+    			background: $hr-color;
+    		}
     		img{
 				position: relative;
 	    		top: 50%;
@@ -664,6 +685,7 @@ ul{
 					color: $grey;
 					font-size: 24px;
 					padding-bottom: 10px;
+					@extend .roboto-light;
 				}
 				
 				h4:after{
@@ -767,6 +789,8 @@ ul{
 
 			p{
 				margin: 0 auto;
+				@extend .roboto-light;
+				font-size: 15px;
 			}
 
 			h5{
@@ -801,17 +825,17 @@ ul{
 
 .logos{
 	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	background: $qoute-bg;
-	height: 250px;
-	padding: 0 18.75%;
+    background: #f8f8f8;
+    height: 250px;
 
 	.logos-container{
 		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    flex-wrap: wrap;
+	    margin: 0 auto;
+	    max-width: 1200px;
 	}
 }
 
@@ -1161,6 +1185,7 @@ ul{
 		width: 100%;
 		display: flex;
 		border-bottom: 1px solid $hr-color;
+		margin-bottom: 35px;
 
 		.follow-us{
 			width: 436px;
@@ -1380,7 +1405,7 @@ ul{
    		}
 
    		header.dash h1 {
-    		font-size: 7.375em;
+    		font-size: 5.375em;
     	}
    }
 	
@@ -1390,6 +1415,9 @@ ul{
     	padding-bottom: 110px;
 	}
 	
+	.service{
+		padding: 0 10%;
+	}
 
 	.feature{
 		.iphone{
@@ -1402,6 +1430,7 @@ ul{
     }
 	.logos{
    		padding: 0px 4%;
+   		height: 400px;
 	}
 
 	.service2 {
@@ -1431,7 +1460,7 @@ ul{
 
     .facts{
     	.dire{
-    		width: 90%;
+    		width: 100%;
     	}
     }
 
@@ -1482,9 +1511,7 @@ ul{
 
 
 @media only screen and (max-device-width: 480px) {
-    body{
-    	
-    }
+   
     .banner{
     	.mobile-active{
     		width: 200px;
@@ -1493,11 +1520,22 @@ ul{
 			display: inline-block;
 		}
 
+		header.dash {
+			padding-top: 30%;
+			h2{
+				font-size:1.5em;
+			}
+			h1{
+				font-size: 2.375em;
+			}
+		}
+
+		
 		ul.top-navbar-list{
 			display: none;
 			position: absolute;
-		    left: 77%;
-		    top: 5%;
+		    left: 33%;
+		    top: 10%;
 		    height: 380px;
 			
 			li{
@@ -1510,15 +1548,11 @@ ul{
 			}
 		}
 		
-
-		
 		.top-navbar .mobile-menu{
 			display: block;
-			float: right;
-			margin-top: 2%;
-			margin-left: 80%;	
+			margin-left: 50%;	
 			img{
-				width: 35px;
+				width: 25px;
 			}
 		}
 
@@ -1531,36 +1565,100 @@ ul{
 		}
 
 		ul.bottom-navbar-list li{
-			width: 20%;
+			width: 90%;
+			border: none;
+
+			&:before{
+				top:40px;
+			}
 		}
 				
 	}	
 
 
     .about-us{
-    	padding: 5% 1%;
+    	padding: 0;
+    	padding-top: 20px;
+    	p{
+    		width: 100%;
+    	}
     	.content{
     		flex-direction: column;
     		align-items: center;
     		justify-content: center;
     		a{
     			min-width: 360px;
-    			padding-bottom: 20px;
+    			.photo span p {
+    				left: 0;
+    			}
     		}
     	}
     }
 
-    .facts{
-    	.dire{
-    		width: 100%;
+	.service{
+		padding:20px 0;
+		margin: 0;
+		width: 100%;
+		.container .service-item {
+			margin:0;
+		    display: flex;
+		    align-items: center;
+		    padding: 0px 16px;
+		    .service-information {
+			    margin: 30px;
+			    text-align: left;
+			}
+		}
+	}
+
+
+    .facts .dire {
+    	width: 100%;
+    	.fact {
+	    padding: 5px 0px 15px 0;
+	    width: 100%;
+	    display: block;
+	    border: 1px solid #ffffff;
+		
+		    p{
+		    	font-size: 48px;
+		    }
+		}
+	}
+
+    .feature{
+    	height: 460px;
+    	.screen{
+    		width:240px;
+    		left:0;
+    	}
+
+    	.iphone{
+    		position: relative;
+		    width: 100px;
+		    right: -25%;
+		    top: -170px;
     	}
     }
 
-    .feature{
-    	.iphone{
-    		right: 5%;
-    	}
-    }
+	.service2 {
+	    padding: 30px 1%;
+	    .service2-container{
+	    	margin-top:50px;
+	    	.service2-image{
+	    		width:100%;
+	    	} 
+	    	#accordion{
+	    		width:100%;
+	    	}
+	    }
+
+	}
+
+	.logos{
+   		padding: 0px 4%;
+   		height: 400px;
+	}
 
     .quote{
    		padding: 3.7% 3%;
@@ -1579,18 +1677,17 @@ ul{
 	   	}
    	}
 
-   	.service2 {
-	    padding: 100px 1%;
-	    .service2-container{
-	    	.service2-image{
-	    		width:100%;
-	    	} 
-	    	#accordion{
-	    		width:100%;
-	    	}
-	    }
 
+   	.whatpeople {
+   		padding:30px 0;
+   		.container .row {
+		    margin: 30px 0;
+		    width: 100%;
+		}
 	}
+
+
+   	
    
    .blog .articles article{
     		width:90%;

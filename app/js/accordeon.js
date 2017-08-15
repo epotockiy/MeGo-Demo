@@ -1,5 +1,5 @@
 
-window.onload = function () {
+
 	var title = document.getElementsByClassName('accordion-title');
 	var content = document.getElementsByClassName('accordion-content');
 	var b = 0;
@@ -15,7 +15,7 @@ window.onload = function () {
 			}
 		})
 	}
-}
+
 
 
 
