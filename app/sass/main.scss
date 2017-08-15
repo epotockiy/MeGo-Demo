@@ -91,6 +91,10 @@ h5{
 	text-transform: uppercase;
 }
 
+h6{
+	font-size: 0.750em;
+}
+
 p{
 	color: $p-color;
 	font : {
@@ -597,6 +601,10 @@ ul{
 
 			.accordion-title.active > .accordion-content{
 				display: block;
+				-webkit-animation-name: fadeIn;
+			    -webkit-animation-duration: 1s;
+			    animation-name: fadeIn;
+			    animation-duration: 1s;
 			}
 			.accordion-title.active > .pointer{
 				transform: rotate(-90deg);
@@ -620,6 +628,19 @@ ul{
 		align-items: center;
 		justify-content: space-around;
 		
+		.quote-pointer{
+			height: 230px;
+    		width: 100px;
+    		img{
+				position: relative;
+	    		top: 50%;
+	    		width: 12px;
+  				height: 22px
+	    	}
+		}
+
+		
+
 		.quote-content {
 
 			margin-left:50px;
@@ -628,8 +649,7 @@ ul{
 				display: inline-block;
 				border: 3px solid $blue;
 				padding: 40px;
-				margin-right: 6%;
-				
+				margin-right: 6%;	
 			}
 
 
@@ -662,6 +682,15 @@ ul{
 					float: left;
 				}
 			}
+			display:none;
+			
+		}
+		.quote-content.active{
+				display: block;
+				-webkit-animation-name: fadeIn;
+			    -webkit-animation-duration: 1s;
+			    animation-name: fadeIn;
+			    animation-duration: 1s;
 		}
 	}
 }
@@ -710,6 +739,14 @@ ul{
 						height: 100%;
 						display:none;
 						background: $gradient;
+						.icon-container{
+							position: relative;
+    						top: 32%;
+							img:hover{
+								background: $red;
+							}
+						}
+
 
 					}
 				}
@@ -793,60 +830,146 @@ ul{
 	}
 	
 	.container{
-		display: table;
-	}
-
-	// .works-left{
-	// 	float:left;
-	// 	width:50%;
-	// 	font-size:0;
-	// 	img{
-	// 		display:inline-block;
-	// 		width: 50%;
-	// 	}
-	// }
-
-	// img{
-	// 	float: left;
-	// 	width: 25%;
-	// }
-
-	// .works-right{
-	// 	width: 25%;
-	// 	float: left;
-	// 	font-size:0;
 		
-	// 	img{				
-	// 		float:left;
-	// 		width: 100%;
-	// 		clear: both
-	// 	}
-	// }	
-}
+		.table{
+		    display: table;
+		    width: 100%;
+		    height: 250px;    
+		}
+		.table-item{
+		    display: table-cell;
+		    width: 25%;
+		}
 
+		.table-row{
+			display: table-row;
+		}
+	
+		a{
+			display: block;
+			width: 100%;
+					
+			.container-hover{
+				width:100%;
+				height: 100%;
+				display:none;
+				background: $gradient;
+			}
+		
+
+			&:hover{
+				box-shadow: 10px 10px $blue;
+				transform: translateY(-10px);
+			}
+
+			&:hover.container-hover{
+				display:block;
+			}
+		}
+	}	
+}
 
 .testimonial{
 	clear: both;
 	padding: 5.3% 16.76% 6.3% 16.76%;
+	background: $qoute-bg;
+	margin-top: 170px;
 
-	.quote-content{
-		margin-left: 60px;
-	
+	.testimonial-container{
+		display:flex;
+		align-items: center;
+		justify-content: space-around;
+		
+		.testimonial-pointer{
+			height: 230px;
+    		width: 100px;
+    		img{
+				position: relative;
+	    		top: 50%;
+	    		width: 12px;
+  				height: 22px
+	    	}
+		}
+
+		
+
+		.testimonial-content {
+			
+			margin-left: 60px;
+
+			.avatar{
+				background-size: cover;
+				height: 210px;
+				width: 210px;
+				display: inline-block;
+				margin-right: 20px;
+				border-radius: 50%;
+			}
 
 
-		.avatar{
-					height: 210px;
-	    			width: 210px;
-					display: inline-block;
-					margin-right: 20px;
-					border-radius: 50%;
+			.testimonial-mes{
+				vertical-align: top;
+				display: inline-block;
+    			width: 73%;
+				
+				p{
+   					line-height: 1.5;
+					text-align: left;
+					color: $grey;
+					font-size: 24px;
+					padding-bottom: 10px;
+				}
+				
+				h4:after{
+					content: "";
+				    height: 3px;
+				    width: 60px;
+				    display: block;
+				    margin: 0 auto;
+				    background-color: $red;
+				    float:left;
+				    margin-top: 17px;
+				    margin-right:10px;
+				}
+				
+				h4{
+					float: left;
+				}
+			}
+			display:none;
+			
+		}
+		.testimonial-content.active{
+				display: block;
+				-webkit-animation-name: fadeIn;
+			    -webkit-animation-duration: 1s;
+			    animation-name: fadeIn;
+			    animation-duration: 1s;
+
 		}
 	}
+}
 
-	
+@-webkit-keyframes fadeIn { 
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  40% { opacity: 0.3; }
+  60% { opacity: 0.5; }
+  80% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  40% { opacity: 0.3; }
+  60% { opacity: 0.5; }
+  80% { opacity: 0.9; }
+  100% { opacity: 1; }
 }
 
 
+	
 
 // WHATPEOPLESAY
 
@@ -855,7 +978,7 @@ ul{
 .whatpeople{
 
 	padding: 0 18.75%;
-    padding-top: 90px;
+    padding-top: 110px;
 	background-image:$white-gradient, url("../img/images/whatpeoplesay-bg.png") ;
 	background-size: cover;
 
@@ -867,6 +990,8 @@ ul{
 		margin: 0 auto;
 		display: flex;
 		flex-wrap: wrap;
+		padding-top: 30px;
+		padding-bottom: 90px;
 
 		
 
@@ -923,10 +1048,15 @@ ul{
 .blog{
 	clear:both;
 	padding: 0 18.75%;
+	padding-top: 110px;
 
 
 	.articles{
+
+		padding-top: 15px;
 		article{
+			
+			padding-bottom: 60px;
 			text-align: left;
 			position: relative;
 			width:31%;
@@ -944,8 +1074,8 @@ ul{
 
 			.date{
 				text-align: center;
-				right: 20px;
-			    bottom: 90px;
+				right: 10px;
+    			bottom: 80px;
 			    position: inherit;
 				width: 60px;
 				height: 70px;
@@ -953,34 +1083,50 @@ ul{
 				p{
 					color: $white;
 				}
-			}
-			.article-content{
-				border-bottom: 1px solid $hr-color;
-				h5{
-					color: $h-color;
+
+				p.day{
+					padding-top: 5px;
+					font : {
+						family: 'Montserrat', sans-serif;
+						size: 1.875em;
+						weight:bold;
+					}	
 				}
 
-				p{
-					width: 95%;
-				}
-			}
+				p.month{
 
-			.views{
-
-				display: inline-block;
-				p{
-					display: inline;
 				}
 			}
 
-			.comments{
-				display: inline-block;
-				p{
-					display: inline;
+			.article-inf{
+			    position: relative;
+				bottom: 50px;
+				.article-content{
+					padding-bottom: 20px;
+					border-bottom: 1px solid $hr-color;
+					h5{
+						color: $h-color;
+						padding-bottom: 5px;
+					}
+
+					p{
+						line-height: 1.5;
+						width: 95%;
+					}
+				}
+				.blog-icon{
+					padding-top:20px;
+					display: inline-block;
+					img{
+						padding-right: 5px;
+					}
+					p{
+						padding-right: 5px;
+						display: inline;
+					}
 				}
 			}
-		}
-		
+		}	
 	}
 }
 
@@ -997,6 +1143,7 @@ ul{
 	.header-box{
 		h5{
 			color: $red;
+			font-size: 1.5em;
 		}
 		padding-top:2.86%;
 	}
@@ -1005,16 +1152,18 @@ ul{
 
 
 .footer{
+	
 	padding: 0 18.75%;
 	text-align: left;
-
+	padding-top: 75px;
 	.container{
+		flex-wrap: wrap-reverse;
 		width: 100%;
 		display: flex;
 		border-bottom: 1px solid $hr-color;
 
 		.follow-us{
-			width: 39%;
+			width: 436px;
 			p.logo{
 				font : {
 					family: 'Montserrat', sans-serif;
@@ -1022,13 +1171,18 @@ ul{
 				}				
 			}
 
+			p.content{
+				width: 90%;
+			    padding-top: 20px;
+				line-height: 1.5;
+				padding-bottom: 50px;				
+			}
 			span{
 				font : {
 					family: 'Montserrat', sans-serif;
 					size: 1.125em;
 					weight: bold;
 				}
-
 			}
 
 			p.sign{
@@ -1042,8 +1196,8 @@ ul{
 			}
 
 			.social-networks{
-				border-bottom: 1px solid $hr-color;
 				border-top: 1px solid $hr-color;
+				padding-top: 20px;
 
 				p{
 					display: inline-block;
@@ -1051,13 +1205,16 @@ ul{
             	}
 
 				.socials-icons{
+					position: relative;
+				    top: 10px;
+				    left: 8px;
 					display: inline-block;
 					a{
 						background: url("../img/icons/icon-social-newtworks.png") no-repeat;
 						display: inline-block;
 						width:20px;
 						height:20px;
-						margin-right:0px;
+						margin-right:7px;
 						
 						&.facebook{
 							background-position: 0px 0;
@@ -1088,7 +1245,9 @@ ul{
 			}
 
 			.subscribe{
+				padding-top: 40px;
 				input{
+					margin-right: 40px;
 					padding: 14px;
 					@extend .roboto-light;
 				}
@@ -1132,7 +1291,7 @@ ul{
 
 
 				a{
-					padding: 15px 35px;
+					padding: 10px 35px;
 					background:$blue;
 					color:white;
 					font : {
@@ -1145,19 +1304,26 @@ ul{
 		}
 
 		.blogs{
-			width: 28%;
+			padding-top: 15px;
+			width: 408px;
 			
 			h5{
+				text-align: left;
 				color: $h-color;
+				padding-bottom: 15px;
 			}
 
 			.article{
+				padding: 15px 0;
 				img{
 					display: inline-block;
 				}
 
 
 				.article-title{
+					padding-left: 10px;
+   					padding-top: 20px;
+				    line-height: 1.5;
 					vertical-align: top;
 					width: 53%;
 					display:inline-block;
@@ -1176,18 +1342,23 @@ ul{
 	
 
 		.instagram{
-			
-			width: 22.5%;
+			h5{
+				padding-top: 15px;
+    			padding-bottom: 30px;
+				text-align: left;
+			}
+			width: 282px;
 		}
 	}
+	.footer-title{
+		h5{
+			margin: 0 auto;	
+			text-align: center;
+			color: $h-color;
 
-	h5{
-		margin: 0 auto;	
-		text-align: center;
-		color: $h-color;
-
-		span{
-			color: $red;
+			span{
+				color: $red;
+			}
 		}
 	}
 }
@@ -1236,6 +1407,18 @@ ul{
 	.service2 {
 	    padding: 100px 8.75%;
 	}
+
+	.footer{
+	
+		padding: 0 14.75%;
+		text-align: left;
+		padding-top: 75px;
+		.container{
+			width: 100%;
+			display: flex;
+			border-bottom: 1px solid $hr-color;
+		}
+	}
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
@@ -1278,13 +1461,29 @@ ul{
     		width:90%;
     		padding-bottom: 50px;
     }
+
+    .footer{
+	
+	padding: 6%;
+	text-align: left;
+	padding-top: 75px;
+		.container{
+			width: 100%;
+			display: flex;
+			border-bottom: 1px solid $hr-color;
+
+			.follow-us{
+				width: 100%;
+			}
+		}
+	}
     
 }
 
 
 @media only screen and (max-device-width: 480px) {
     body{
-    	font-size:120%;
+    	
     }
     .banner{
     	.mobile-active{
@@ -1292,23 +1491,25 @@ ul{
     		height: 50px;
     		background-color: $red;
 			display: inline-block;
-			ul{
-				position: absolute;
-				opacity:0;
-				 -webkit-transition:0.9s linear opacity;
-				li{
-					display: block;
-					
-					a{
-						display: block;
-						font-size: 14px;
-						color: $white;
-					}	
-				}
-			}
 		}
 
-	
+		ul.top-navbar-list{
+			display: none;
+			position: absolute;
+		    left: 77%;
+		    top: 5%;
+		    height: 380px;
+			
+			li{
+				display: grid;
+				margin: 20px 0;
+						
+				a{			
+					font-size: 1.2em;
+				}	
+			}
+		}
+		
 
 		
 		.top-navbar .mobile-menu{
@@ -1321,9 +1522,18 @@ ul{
 			}
 		}
 
-		ul.bottom-navbar-list li {
-			width : 20%;
+		.top-navbar-list.mobile-active{
+			display: block;
+			-webkit-animation-name: fadeIn;
+			-webkit-animation-duration: 1s;
+			animation-name: fadeIn;
+			animation-duration: 1s;
 		}
+
+		ul.bottom-navbar-list li{
+			width: 20%;
+		}
+				
 	}	
 
 
@@ -1356,6 +1566,12 @@ ul{
    		padding: 3.7% 3%;
    }
 
+
+	.testimonial .testimonial-container .testimonial-content .avatar {
+	    height: 115px;
+	    width: 115px;
+	}
+
     .ourteam  {
     	padding: 5% 8%;
 	     .ourteam-photo .person{
@@ -1380,4 +1596,19 @@ ul{
     		width:90%;
     		padding-bottom: 50px;
     }
+
+    .footer{
+	
+	padding: 2%;
+	text-align: left;
+		.container{
+			width: 100%;
+			display: flex;
+			border-bottom: 1px solid $hr-color;
+			.follow-us{
+				width: 100%;
+				padding-bottom: 40px;
+			}
+		}
+	}
 }
