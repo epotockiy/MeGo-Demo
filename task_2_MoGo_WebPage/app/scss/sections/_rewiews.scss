@@ -1,0 +1,71 @@
+.rewiews {
+  padding-top: 109px;
+  padding-bottom: 20px;
+  background-size: cover;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%), url(../images/rewiews/background.png) no-repeat center;
+
+}
+
+.clients-grid {
+  display: flex;
+
+  flex-wrap: wrap
+}
+
+.client-rewiew {
+  width: 50%;
+}
+
+.client-photo {
+  width: 20%;
+
+  float: left;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.client-photo:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+  width: 100%;
+}
+
+.client-info {
+  float: right;
+  width: 70%;
+}
+
+.client-info h4 {
+
+  font-family: $montserrat;
+  font-size: 14px;
+  margin-top: 9px;
+  margin-bottom: 11px;
+  color: #333;
+
+}
+
+.client-info p:nth-child(even) {
+  font-size: 15px;
+
+  font-family: $robotoLightItalic;
+  color: #333;
+  margin-bottom: 17px;
+}
+.client-info p:nth-child(even):after{
+  content: '';
+  display: block;
+  width: 60px;
+  border-top: 3px solid #f38181;
+  margin-bottom: 20px;
+}
+.client-info p:nth-child(odd) {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #999;
+  font-family: $robotoRegular;
+}

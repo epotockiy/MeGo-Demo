@@ -4,6 +4,7 @@
 @import "base/normalize";
 // LAYOUT
 @import "layout/header";
+@import "layout/footer";
 @import "base/common";
 //Sections
 @import "sections/about";
@@ -14,6 +15,8 @@
 @import "sections/slider";
 @import "sections/team";
 @import "sections/work";
+@import "sections/rewiews";
+@import "sections/blog";
 
 // Base
 @import "base/media";
