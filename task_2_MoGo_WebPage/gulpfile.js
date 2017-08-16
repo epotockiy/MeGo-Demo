@@ -7,6 +7,12 @@
 // // //////////////////////////////////////////////
 
 var config = {
+    jsConcatFiles: [
+    './app/js/jquery.bxslider.js',
+        './app/js/jquery.collapsible.js',
+        './app/js/jquery.custom-scrollbar.js',
+        './app/js/main.js'
+],
     buildFilesFoldersRemove: [
         'build/scss/',
         'build/workStyles/',
@@ -51,7 +57,7 @@ function errorlog(err) {
 // Scripts Tasks
 // ///////////////////////////////////////////////
 gulp.task('scripts', function () {
-    return gulp.src('./app/js/main.js')
+    return gulp.src(config.jsConcatFiles)
         .pipe(sourcemaps.init())
         .pipe(concat('app.min.js'))
         .pipe(uglify())
