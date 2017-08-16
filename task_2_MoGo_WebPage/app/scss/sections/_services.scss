@@ -20,10 +20,15 @@
 
 }
 .services-row{
-  border: 1px solid #e5e5e5;
+
+  border-style:solid;
+  border-color: #e5e5e5;
 }
-.services-row {
+.services-row:nth-child(odd) {
   border-width: 0 0 1px 0;
+}
+.services-row:nth-child(even) {
+  border-width: 0.5px 0 0 0;
 }
 
 .services-description h5 {
