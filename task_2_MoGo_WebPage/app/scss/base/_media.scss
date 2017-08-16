@@ -1,15 +1,20 @@
 @media (max-width: 1200px) {
 
-  .wrapper {
-    max-width: 1024px;
-  }
-
   header nav {
     position: relative;
   }
-  .header-submenu li {
-    //width: 23.35%;
-    margin-left: 18px;
+  .quote-image {
+
+    width: 18%;
+    //margin-right: 39px;
+  }
+  .quote-wrapper {
+
+    width: 64.6%;
+
+  }
+  .quote-text {
+    width: 76%;
   }
   .header-title h2 {
     font-size: 67px;
@@ -17,28 +22,146 @@
   .header-title h1 {
     font-size: 120px;
   }
+  .header-submenu {
+
+    padding: 0 10px 0;
+  }
+  .team-photos-grid {
+    padding: 0 20px 0px;
+  }
   .statistic .wrapper {
     max-width: 1200px;
   }
-  .about-photo {
 
-    width: 31%;
+  .about-photos-grid {
 
+    padding: 0 10px 0;
   }
   .accordion-panel {
     //padding: 0 18px;
-
-    height: 72px;
+    padding: 5px 0px 6px 10px;
+    height: 119px;
   }
+  .activity-container {
+    padding: 0 10px 0;
+  }
+  .scroll-bar.vertical {
 
+    height: 120px;
+  }
+  .scrollable .viewport .overview {
+
+    padding: 0px 40px 20px 0px;
+  }
+  .scroll-bar.vertical {
+
+    height: 120px;
+  }
+  .quote-person-image {
+
+    width: 22%;
+    float: left;
+    margin-right: 30px;
+  }
+  .quote-person-text {
+    float: left;
+    width: 70%;
+  }
+  .quote-person-text p:first-child {
+
+    margin-top: 33px;
+
+  }
+  .quote-person-image {
+    width: 21%;
+    margin-right: 30px;
+  }
+  .quote-person-text {
+    float: left;
+    width: 74%;
+  }
+  .quote-person-text p:first-child {
+    margin-top: 9px;
+
+  }
+  .bx-wrapper .bx-controls-direction a {
+    top: 22%;
+  }
 }
 
 @media (max-width: 1024px) {
-
-  .wrapper {
-    max-width: 768px;
+  .work {
+    padding-top: 45px;
   }
-  .menu a {
+  .work-photos-grid {
+
+    padding-top: 50px;
+  }
+  .brends-grid div img {
+    width: 72%
+  }
+  .team-photos-grid {
+    margin-top: 50px;
+
+  }
+  .team {
+    padding-top: 51px;
+    padding-bottom: 30px;
+
+  }
+  .quote-image {
+
+    width: 15%;
+
+  }
+  .quote-slider {
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .quote-wrapper {
+
+    width: 60%;
+
+  }
+  .quote-text p:first-child {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 18px;
+
+  }
+
+  .quote-text p:last-child {
+    font-size: 20px;
+
+  }
+  .bx-wrapper .bx-controls-direction a {
+    position: absolute;
+    top: 33%;
+  }
+  .quote-text {
+
+    width: 76%;
+  }
+  .activites {
+    padding-bottom: 60px;
+    padding-top: 19px;
+  }
+  .activity-container {
+    margin: 50px 0px 0px 0px;
+  }
+  .services {
+    padding-top: 38px;
+    padding-bottom: 0;
+
+  }
+
+  .section-info {
+
+    margin-top: 33px;
+    width: 95%;
+  }
+  .menu {
     display: none;
   }
   a.icon-menu {
@@ -46,83 +169,98 @@
     display: block;
   }
   .responsive {
-    background-color: #e4c77f;
+    background-color: #e98683;
     top: 45px;
+    right: 0px;
+    display: block;
+    float: none;
+    position: absolute;
+    width: 100%;
 
   }
   .responsive li {
     display: block;
     text-align: left;
     margin-left: 0;
-    padding: 10px 10px;
-cursor: pointer;
+    padding: 12px 13px;
+    cursor: pointer;
     border-bottom: 1px solid orange;
   }
   .responsive li:first-child {
     border-top: 1px solid orange;
+  }
+  .responsive li:nth-child(6) {
 
+    width: 50%;
+    text-align: center;
+    float: left;
   }
 
-  .responsive a {
-    display: block;
-    margin: 0;
+  .responsive li:nth-child(7) {
+    width: 50%;
+    text-align: center;
+    float: right;
   }
-  .responsive {
-    float: none;
-    position: absolute;
-    width: 100%;
-  }
+
   .responsive a:not([class*="icon"]):hover {
     color: #fff;
     border-bottom: none;
     padding-bottom: 0;
   }
   .responsive .icon-search .icon-search {
-padding-left: 30px;
+    padding-left: 30px;
   }
 
   .header-title h2 {
     font-size: 60px;
-    margin-top: 105px;
+    margin-top: 30px;
+
   }
   .header-title h1 {
-    font-size: 120px;
-    margin-top: 70px;
+    font-size: 100px;
+    margin-top: 35px;
   }
   .header-submenu span {
     font-size: 18px;
   }
   .header-submenu {
-    margin-top: 120px;
+
+    margin-top: 50px;
   }
-  .header-submenu li {
-    margin-left: 47px;
-    width: 20%;
+  .header-title:after {
+    margin-top: 30px;
   }
   .header-submenu a {
     font-size: 18px;
   }
   .about {
     padding-top: 40px;
-    padding-bottom: 70px;
+    padding-bottom: 40px;
   }
   .about-photos-grid {
-    margin-top: 60px;
+    margin-top: 30px;
   }
-  .about-photo {
+  .section-title h4 {
+    font-size: 20px;
+  }
+  .section-title h3 {
+    font-size: 25px;
+  }
+  .section-title h3:after {
 
-    width: 31%;
+    padding-top: 17px;
+
   }
   .statitstic-cell {
-    padding: 65px 30px 55px 30px;
+    padding: 40px 30px 40px 30px;
   }
   .statitstic-cell p:nth-child(2n+1) {
 
-    margin-bottom: 17px;
-    font-size: 50px;
+    margin-bottom: 13px;
+    font-size: 44px;
   }
 
-  .statitstic-cell p:nth-child(2n ) {
+  .statitstic-cell p:nth-child(2n) {
     font-size: 12px;
 
   }
@@ -148,6 +286,9 @@ padding-left: 30px;
   .services-cell h5 {
     font-size: 12px;
   }
+  .unique-design-container {
+    padding-top: 47px;
+  }
   .ipad {
     height: 500px;
 
@@ -158,22 +299,74 @@ padding-left: 30px;
     margin-left: 388px;
 
   }
-  .about-photo {
-
-    width: 30%;
-  }
-  .activity-image {
-    width: 100%
-  }
-  .accordion {
-    width: 100%;
-  }
 
 }
 
+@media (max-width: 1000px) {
+  .activity-image {
+
+    float: none;
+    width: 90%;
+  }
+  .accordion {
+    margin-top: 30px;
+    float: none;
+    width: 90%;
+  }
+}
+
 @media (max-width: 768px) {
-  .wrapper {
-    max-width: 425px;
+  .quote-text p:first-child {
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+    font-size: 15px;
+
+    line-height: 20px;
+  }
+  .team-icons a {
+    border-right: none;
+
+  }
+  .quote-text p:last-child{
+    font-size: 16px;
+    color: #333;
+    font-family: $kaushan;
+  }
+  .brends {
+    padding: 20px 0px;
+  }
+  .brends-grid div {
+    padding: 10px;
+    width: 33.33%
+  }
+  .brends-grid div img {
+    width: 40%
+  }
+  .brends-grid div:nth-child(n+3)
+  .team-photos-grid {
+    margin-top: 30px;
+
+  }
+  .team {
+    padding-top: 30px;
+    padding-bottom: 10px;
+  }
+  .services-cell {
+    padding-left: 0;
+    padding-top: 30px;
+    padding-bottom: 28px;
+
+  }
+  .accordion-panel {
+    padding: 5px 0px 6px 10px;
+    height: 170px;
+  }
+  .panel-head {
+    padding: 7px 14px 7px 14px;
+  }
+  header {
+    padding-bottom: 5px;
   }
   .responsive {
     float: none;
@@ -182,29 +375,31 @@ padding-left: 30px;
   }
 
   .header-submenu li {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 10px;
+    width: 47%;
+
   }
-  //.header-submenu li:nth-child(even){
-  //  margin-left: 10px;
-  //}
+  .header-submenu li:first-child {
+    margin-left: 2%;
+  }
   .header-submenu a {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   .header-title h1 {
     font-size: 66px;
-    margin-top: 15px;
-  }
-  .header-title h2 {
-    font-size: 52px;
-    margin-top: 75px;
 
   }
-  .header-submenu {
-    margin-top: 67px;
-    margin: 67px 20px 0 20px;
+  .header-title h2 {
+    font-size: 50px;
+
+  }
+  .header-button {
+
+    margin-top: 40px;
+  }
+  .header-button a {
+    padding: 9px 18px;
+    font-size: 10px;
   }
   .header-submenu span {
     font-size: 14px;
@@ -222,12 +417,11 @@ padding-left: 30px;
     font-size: 12px;
   }
   .statitstic-cell {
-    padding: 50px 11px 35px 11px;
+    padding: 32px 11px 33px 11px;
   }
   .statitstic-cell p:nth-child(2n+1) {
-    margin-bottom: 15px;
-    font-size: 45px;
-
+    margin-bottom: 7px;
+    font-size: 30px;
   }
   .statitstic-cell p:nth-child(2n) {
     font-size: 11px;
@@ -260,26 +454,24 @@ padding-left: 30px;
     margin-left: 308px;
 
   }
-  .about-photo {
-    //margin-right: 5px;
-    //margin-left: 5px;
-    //margin:0 auto;
 
-    width: 29%;
-  }
   .work-column {
 
     width: 50%;
   }
+  .quote-text {
+    text-align: center;
+    float: none;
+    width: 100%;
+  }
+  .quote-image {
+    float: none;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 630px) {
-  .about-photo {
-    width: 70%;
-  }
-  .about-photo {
-    width: 90%;
-  }
+
   .services-cell img {
     float: left;
     padding-right: 27px;
@@ -293,6 +485,10 @@ padding-left: 30px;
   //}
   .services-cell {
     border-bottom: 1px solid #e5e5e5;
+
+  }
+  .services-cell:last-child {
+    border-bottom: none;
   }
   .services-description {
     float: left;
@@ -307,29 +503,77 @@ padding-left: 30px;
   .services-description {
     width: 80%;
   }
+  .bx-wrapper .bx-prev {
+    left: -80px;
+  }
+
+  .quote-slider {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 
 }
 
 @media (max-width: 425px) {
-  .wrapper {
-    max-width: 320px;
+  .brends-grid div {
+    //padding: 10px;
+    width: 50%;
+  }
+  .brends {
+    padding: 10px 0px;
+  }
+  .team-card {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
+  .bx-wrapper .bx-prev {
+    left: -53px;
+  }
+  .bx-wrapper .bx-next {
+    right: -70px;
+  }
+  .activites {
+    padding-bottom: 30px;
+    padding-top: 19px;
+  }
+  .activity-container {
+    margin: 30px 0px 0px 0px;
+  }
+  //.wrapper {
+  //  max-width: 320px;
+  //}
+  .about-photo {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 0;
   }
   .header-submenu li {
     width: 100%;
-    margin-bottom: 15px;
+
+    margin-left: 0;
+  }
+  .header-submenu li:first-child {
+    margin-left: 0;
   }
   .header-title h1 {
-    font-size: 50px;
+    font-size: 46px;
   }
   .header-title h2 {
-    font-size: 45px;
-    margin-top: 40px
+    font-size: 36px;
+    margin-top: 15px;
   }
-  .about-photo {
-
+  .header-submenu {
+    margin-top: 30px;
+  }
+  .section-title h3 {
+    font-size: 20px;
+  }
+  .section-info {
+    margin-top: 25px;
   }
   .statitstic-cell {
-    padding: 50px 11px 35px 11px;
+    padding: 23px 11px 23px 11px;
   }
   .statitstic-cell:first-child {
     border: none;
@@ -348,15 +592,8 @@ padding-left: 30px;
   .statistic-table {
     display: block;
   }
-  .services-cell {
-    //    width: 85%;
-  }
-  //.services-cell img {
-  //
-  //
-  //  display: inline;
-  //  /* margin: auto; */
-  //  /* text-align: center; */
+  //.services-cell {
+  //  //    width: 85%;
   //}
 
   .ipad {
@@ -369,5 +606,12 @@ padding-left: 30px;
     margin-left: 155px;
 
   }
+  .statitstic-cell p:nth-child(2n+1) {
 
+    font-size: 25px;
+  }
+  .work-photos-grid {
+
+    padding-top: 30px;
+  }
 }

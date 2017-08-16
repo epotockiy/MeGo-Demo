@@ -1,34 +1,41 @@
+.quote-person{
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
 .quote-slider {
   background: #f8f8f8;
-  padding-top: 50px;
+  padding-top: 79px;
+  padding-bottom: 69px;
+
   //padding-bottom: 1px;
 }
+.quote-person{
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
+.bx-wrapper img{
+  display:block;
+  max-width: 100%;
+}
 .quote-image{
-  background: url(../images/slider/quote.png);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+
   float: left;
-  width: 150px;
-  height: 150px;
-  margin-right: 60px;
+  margin-right: 39px;
 }
 .quote-text{
   float: left;
-  max-width: 70%;
+  width: 80.6%;
 }
 .quote-text p:first-child{
-
-    margin-bottom: 12px;
-    font-size: 24px;
-    font-weight: 300;
-    font-style: $robotoLightItalic;
-    color: #999;
-    line-height: 36px;
+  margin-bottom: 15px;
+  font-size: 23px;
+  font-family: "RobotoLightItalic",sans-serif;
+  color: #999;
+  line-height: 37px;
 
 }
 .quote-text p:last-child{
-  font-size: 24px;
+  font-size: 26px;
   color: #333;
   font-family: $kaushan;
 }
@@ -43,4 +50,20 @@
 }
 .quote-wrapper {
   width:68%
+}
+.quote-person-image{
+    border-radius: 50%;
+
+  width: 22%;
+  float: left;
+  margin-right: 30px;
+}
+.quote-person-text{
+  float: left;
+  width: 74%;
+}
+.quote-person-text p:first-child {
+
+  margin-top: 33px;
+
 }

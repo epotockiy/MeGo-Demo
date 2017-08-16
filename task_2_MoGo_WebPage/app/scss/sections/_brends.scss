@@ -1,0 +1,18 @@
+.brends{
+  padding: 62px 0 63px;
+  background-color:#f8f8f8 ;
+
+}
+.brends-grid{
+  font-size: 0;
+  text-align: center;
+}
+.brends-grid div{
+  vertical-align: baseline;
+ display: inline-block;
+ width: 16.66%
+}
+
+.brends-grid :first-child{
+  margin-left: 0;
+}

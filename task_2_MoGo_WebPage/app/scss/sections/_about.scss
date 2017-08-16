@@ -5,35 +5,32 @@
 
 .about-photos-grid {
   margin-top: 98px;
-  text-align: center;
+  font-size: 0;
 
 }
 
 .about-photo {
-
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   width: 31.6%;
-  transition: .4s;
   display: inline-block;
   position: relative;
 
-  margin-left: 8px;
-  margin-right:8px;
-  //position: relative;
-
+  margin-left: 2.5%;
+  transition: 0.4s;
 
 }
-//.about-photo:first-child {
-//  margin-left: 0;
-//}
+
+.about-photo:first-child {
+  margin-left: 0;
+}
 
 .about-photo:before {
   content: '';
   display: block;
   width: 100%;
-  padding-top: 65%;
+  padding-top: 66%;
   //position: relative;
 }
 
@@ -45,12 +42,11 @@
   right: 0;
   top: 0;
   bottom: 0;
-
-  //display: none;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  opacity: 0;
+  //transition:opacity 0.2s linear;
 }
 
 .about-icons {
@@ -59,7 +55,7 @@
 }
 
 .about-photo:hover {
-  transition: 0.5s;
+  //transition: 0.5s;
   transform: translate(-10px, -10px);
   box-shadow: 10px 10px #95e1d3;
   .about-icons {
@@ -71,16 +67,14 @@
   font-family: $montserratBold;
   font-size: 18px;
   color: #fff;
-  margin-top:10px;
+  margin-top: 10px;
 
 }
 
-
-
 .about-effect:hover {
   background: linear-gradient(to bottom, rgba(243, 129, 129, 0.9) 0%, rgba(252, 227, 138, 0.9) 100%);
-  transition: 0.4s;
-  //transition: opacity(2);
+  //transition: 0.4s;
+  opacity: 1;
 
 }
 

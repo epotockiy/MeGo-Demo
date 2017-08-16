@@ -2,8 +2,8 @@ header {
 
   background-size: cover;
   background:linear-gradient(to bottom, rgba(243, 129, 129, 0.9) 0%, rgba(252, 227, 138, 0.9) 100%),url(../images/header/backround.png) no-repeat center;
-  padding-top: 26px;
-  padding-bottom: 30px;
+  padding-top: 32px;
+  padding-bottom: 25px;
 }
 
 
@@ -11,9 +11,11 @@ header {
   float: left;
   font-family: 'MontserratBold', sans-serif;
   color: #fff;
-  font-size: 30px;
+  margin-left: -10px;
+  font-size: 29px;
 }
 .menu-icons{
+  padding:0 10px 0;
   //float:left;
 }
 .menu {
@@ -37,7 +39,9 @@ header {
   margin-left: 48px;
 
 }
-
+nav{
+  padding:0 10px 0;
+}
 .icon-menu {
   background: url(../images/header/menu-icon.png);
   background-position-y: bottom;
@@ -72,14 +76,14 @@ header {
 .header-title h2 {
   color: #fff;
   margin-top: 165px;
-  margin-bottom: 37px;
+
   font-size: 72px;
   font-family: $kaushan;
 
 }
 
 .header-title h1 {
-  margin-top: 50px;
+  margin-top: 45px;
   font-size: 150px;
   line-height: 0.93;
   font-family: $montserratBold;
@@ -91,7 +95,7 @@ header {
   width: 85%;
   margin-right: auto;
   margin-left: auto;
-  padding: 0px 10px 0px 10px
+
 
 
 }
@@ -105,7 +109,7 @@ header {
   width: 60px;
   border-bottom: 3px solid #fff;
   background: transparent;
-  padding-top: 49px;
+  margin-top: 52px;
 }
 
 .clearfix:after {
@@ -128,11 +132,13 @@ header {
 
 .header-button {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 52px;
 }
 
 .header-submenu {
   margin-top: 160px;
+
+  font-size: 0;
 }
 
 .header-submenu a {
@@ -147,8 +153,8 @@ header {
 .header-submenu li {
   cursor: pointer;
   display: inline-block;
-  width: 23.35%;
-  margin-left: 22px;
+  width: 23%;
+  margin-left: 2.6%;
   position: relative;
 
 }

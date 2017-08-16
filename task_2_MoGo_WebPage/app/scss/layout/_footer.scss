@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-around;
   //align-items:flex-end;
+  flex-wrap: wrap-reverse;
 }
 
 .footer-blog-photo {
@@ -156,7 +157,52 @@
 }
 .instagram-footer {
   background: url(../images/footer/socials-sprite.png);
-  background-position: 193px 0;
+  background-position: 163px 0;
   height: 16px;
   width: 18px;
+}
+.pinterest-footer{
+  background: url(../images/footer/socials-sprite.png);
+  background-position: 103px 0;
+  height: 16px;
+  width: 16px;
+}
+.google-footer{
+  background: url(../images/footer/socials-sprite.png);
+  background-position: 134px 0;
+  height: 16px;
+  width: 16px;
+}
+.youtube-footer {
+  background: url(../images/footer/socials-sprite.png);
+  background-position: 73px 0;
+  height: 16px;
+  width: 16px;
+}
+.ball-footer{
+  background: url(../images/footer/socials-sprite.png);
+  background-position: 43px 0;
+  height: 16px;
+  width: 16px;
+}
+.tymbler-footer{
+  background: url(../images/footer/socials-sprite.png);
+  background-position: 16px 0;
+  height: 16px;
+  width: 16px;
+}
+.email-input {
+  border: 1px solid #e7e7e7;
+  font-size: 15px;
+  font-family: $robotoLightItalic;
+  padding: 10.5px 12px 10.5px 11px;
+}
+.email-button {
+  background-color: #95e1d3;
+  border: none;
+  color: #fff;
+  font-family:$robotoRegular;
+  font-size: 14px;
+  line-height: 1.19;
+  padding: 12px 38px;
 }

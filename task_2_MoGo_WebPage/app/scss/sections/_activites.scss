@@ -1,6 +1,6 @@
 .activites {
-  padding-bottom: 20px;
-  padding-top: 40px
+  padding-bottom: 112px;
+  padding-top: 19px
 }
 
 .accordion {
@@ -16,19 +16,19 @@
 }
 
 .activity-container {
-  margin: 94px 10px 10px 10px;
+  margin: 91px 0px 0px 0px;
 
 }
 
 .accordion-panel {
   //padding: 0 18px;
-  height: 125px;
+  height: 181px;
   overflow: hidden;
   color: #a6a6a6;
   font-family: $robotoLightItalic;
   font-size: 15px;
   line-height: 1.6;
-  padding: 20px 0px 20px 20px;
+  padding: 16px 0px 20px 20px;
   border: 1px solid #e5e5e5;
   border-top: none;
   //margin-bottom: 20px;
@@ -62,7 +62,7 @@
   content: url(../images/activites/down.png);
   //transform: rotate(180deg);
   float: right;
-  margin-top: 10px;
+  margin-top: 7px;
   //margin-top: 8px;
   //margin-right: 6px;
 }
@@ -73,7 +73,6 @@
 
 
 .activity-image {
-  background: url(../images/activites/justPhoto.png);;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -85,5 +84,9 @@
   content: '';
   display: block;
   width: 100%;
-  padding-top: 65%;
+  padding-top: 66.7%;
+}
+.scrollable .viewport .overview {
+
+  padding: 0px 45px 20px 0px;
 }
