@@ -94,6 +94,10 @@
 }
 
 @media (max-width: 1024px) {
+  .blog {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
   .footer-grid {
     padding: 0 10px;
   }
@@ -397,7 +401,13 @@
 }
 
 @media (max-width: 768px) {
-
+footer{
+  padding-top:20px;
+}
+  .footer-instagram {
+    text-align: center;
+    margin-bottom: 30px;
+  }
   .email-input {
     padding: 7px 10px 11px 8px;
   }
@@ -675,6 +685,19 @@
 }
 
 @media (max-width: 425px) {
+  .footer-media h3 {
+
+    font-size: 26px;
+
+  }
+  .footer-media p:first-of-type {
+
+    margin-bottom: 20px;
+  }
+  .blog {
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
   .client-rewiew {
     width: 100%;
   }
