@@ -1,6 +1,6 @@
 
 
-	var title = document.getElementsByClassName('accordion-title');
+	var title = document.getElementsByClassName('accordion-block');
 	var content = document.getElementsByClassName('accordion-content');
 	var b = 0;
 	for( var i=0; i < title.length; i++) {
