@@ -1,10 +1,11 @@
 .rewiews {
   padding-top: 109px;
   padding-bottom: 59px;
-  background-size: cover;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%), url(../images/rewiews/background.png) no-repeat center;
 
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%), url(../images/rewiews/background.png) no-repeat center;
+  background-size: cover;
 }
+
 
 .clients-grid {
   display: flex;
@@ -20,6 +21,7 @@
 
 .client-photo {
   width: 21%;
+
   float: left;
   border-radius: 50%;
   background-repeat: no-repeat;
@@ -39,7 +41,7 @@
   width: 70%;
 }
 
-.top-info h4 {
+.client-info h4 {
 
   font-family: $montserrat;
   font-size: 14px;
@@ -49,14 +51,15 @@
 
 }
 
-.top-info p {
+.client-info p:nth-child(even) {
   font-size: 15px;
+
   font-family: $robotoLightItalic;
   color: #333;
   margin-bottom: 17px;
 }
 
-.top-info p:after {
+.client-info p:nth-child(even):after {
   content: '';
   display: block;
   width: 60px;
@@ -65,7 +68,7 @@
 
 }
 
-.bottom-info {
+.client-info p:nth-child(odd) {
   margin-top: 20px;
   font-size: 15px;
   line-height: 24px;

@@ -1,15 +1,22 @@
 .blog {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 108px;
+
+  padding-bottom: 112px;
 }
 
 .blogs-grid {
+  font-size: 0;
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .blog-item {
-  width: 30%;
+  width: 31.6%;
+}
+.blog-item:nth-child(2){
+  margin-left: 2.5%;
+  margin-right: 2.5%;
 }
 
 .blog-image {
@@ -28,13 +35,14 @@
 
 .blog-data {
   position: absolute;
-  width: 30px;
-  top: 66.666%;
-  left: -2.631%;
+  width: 60px;
+  top: 67%;
+  left: -3.6%;
   background: #95e1d3;
-  padding: 11px 15px 23px;
+  padding: 12px 15px 28px;
   color: white;
 }
+
 
 .blog-data p:nth-child(odd) {
   font-family: $montserrat;
@@ -49,14 +57,16 @@
 }
 
 .blog-item h4 {
-  margin-top: 17px;
+  margin-top: 18px;
   font-family: $montserrat;
   font-size: 14px;
   color: #333;
 }
 
 .blog-popularity {
-  margin-top: 11px;
+  margin-top: 16px;
+  padding: 14px 0 0 0;
+  /* margin-bottom: 6px; */
   font-size: 15px;
   color: #999;
   line-height: 24px;
@@ -68,11 +78,14 @@
   font-family: $robotoLightItalic;
   font-size: 15px;
   line-height: 1.6;
-  margin: 0;
-  margin-top: 11px;
-}
+  margin: 13px 0 0;
 
+}
+.blog-popularity span:first-child{
+  margin-right: 10px;
+}
 .blog-popularity span:first-child:before {
+
   content: '';
   display: inline-block;
   margin-right: 7px;

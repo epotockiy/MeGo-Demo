@@ -1,0 +1,32 @@
+.map{
+
+    padding-top: 58px;
+
+    padding-bottom: 57px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%), url(../images/map/map.png) no-repeat center;
+    background-size: cover;
+}
+.map h4:after {
+    content: '';
+    display: block;
+    width: 60px;
+    border-top: 3px solid #f38181;
+    margin: 18px auto 0;
+}
+.map h4:before {
+    content: '';
+    display: block;
+    background: url(../images/map/pointer.png);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 30px;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+.map h4{
+    text-align: center;
+    font-family: "MontserratBold",sans-serif;
+    font-size: 24px;
+    color: #f38181;
+
+}
