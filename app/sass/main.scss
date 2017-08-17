@@ -335,11 +335,21 @@ ul{
 		justify-content: space-between;
 		flex-wrap: wrap;
 		a {
+			:before{
+				content:"";
+			}
 			width:31%;
+
 			.photo{
+				&:before{
+					display:block;
+					content:"";
+					padding-top: 65%;
+					width: 100%;
+				}	
 				width: 100%;
 				background-size: cover;		
-				height: 250px;
+			
 				span{
 					width: 100%;
 					height:100%;
@@ -390,6 +400,7 @@ ul{
 			display: table-cell;
 			border: 1px solid $white;		
 			p {
+				font-family: 'Montserrat', sans-serif;
 				color: $white;
 				font-size: 72px;
 				font-weight: bold;
@@ -490,10 +501,15 @@ ul{
 		.service2-image{
 			width:47.5%;
 			background-size: cover;
-			height: 380px;
 			display: inline-block;
 			margin-right: 2%;
 			margin-bottom: 30px;
+			&:before{
+				content: "";
+				display: block;
+				width:100%;
+				padding-top:63%;
+			}
 		}
 		#accordion{
 			display: inline-block;
@@ -511,7 +527,7 @@ ul{
 				font-size:0;
 				.accordion-title{
 					cursor: pointer;
-					background: url("../img/icons/icon-pointer-left.png") no-repeat 95%;
+					background: url("../img/icons/icon-pointer-top.png") no-repeat 95%;
 					
 					img{
 						padding: 2%;
@@ -556,8 +572,11 @@ ul{
 			    animation-name: fadeIn;
 			    animation-duration: 1s;
 			}
-			.accordion-block.active > .pointer{
-				transform: rotate(-90deg);
+
+
+			.accordion-block.active > .accordion-title{
+				background: url("../img/icons/icon-pointer-bottom.png") no-repeat 95%;
+				
 			}
 		}
 	}	
@@ -661,7 +680,12 @@ ul{
 			.photo{
 				font-size: 0;
 				width:100%;
-				height: 470px;
+				&:before{
+					display:block;
+					content:"";
+					padding-top: 123%;
+					width: 100%;
+				}	
 				span{
 					width:100%;
 					height: 100%;
@@ -670,14 +694,13 @@ ul{
 					.icon-container{
 						position: relative;
 						top: 45%;
-						height:200px;
+						
 						span.icon{
 							background: $red;
 							width:56px;
 							height:56px;
 							display:inline-block;
 							a{
-								padding:20px;
 								width:100%;
 								height:100%;
 								display:inline-block;
@@ -701,7 +724,7 @@ ul{
 							}	
 
 							&:hover a{
-								background: url("../img/icons/icon-sprite-hover.png") no-repeat;
+								background-image: url("../img/icons/icon-sprite-hover.png") ;
 							}					
 						}
 					}
@@ -775,43 +798,56 @@ ul{
 		padding-top: 10px;
     	padding-bottom: 105px;
 	}
-
 	.container{	
 		display:flex;
+		flex-wrap: wrap;
 		.img{
-			height:300px;
-			width:300px;
-		}
-		
-		.left-container{
+			width:50%;
+			&:before{
+				content:"";
+				display:block;
+				width:50%;
+				padding-top:80%;
+			}
+		}	
+
+		.common-container{
+			display:flex;
+			flex-wrap: wrap;
+			align-items: end;
 			width: 50%;
 			height:100%;
-		    display: flex;
-		    flex-wrap: wrap;
 		    .img{
-				width:480px;
-				height:390px;
+		    	width:50%;
+									
 		    }
-		}
-
-		.right-container{
-			display: flex;
-		    width: 50%;
-		    flex-wrap: wrap;
-		    .img{
-				width:480px;
-				height:390px;
-		    }
-		    .img.high{
-				width:480px;
-				height:780px;
-		    }
-		}
+		}	
+	
 			
+	    .img.high{
+	    	&:before{
+				content:"";
+				display:block;
+				width:50%;
+				padding-top:160%;
+			}
+	    }
+					
 		span{
 			display: none;
 			width: 100%;
-			height:100%;			
+			height:100%;
+			img{
+				
+			}	
+
+			h5{
+
+			}	
+
+			p{
+
+			}	
 		}
 
 		.img:hover span{
@@ -1002,7 +1038,13 @@ ul{
 			}
 			.photo{
 				width:100%;
-				height: 240px;
+				
+				&:before{
+					content:"";
+					width:100%;
+					padding-top:63%;
+					display: block;
+				}
 			}
 			.date{
 				text-align: center;
@@ -1073,8 +1115,7 @@ ul{
 			font-size: 1.5em;
 		}
 		padding-top:2.86%;
-	}
-	
+	}	
 }
 
 
@@ -1229,6 +1270,7 @@ ul{
 				padding-top: 15px;
     			padding-bottom: 30px;
 				text-align: left;
+				color: $h-color;
 			}
 			width: 282px;
 		}
@@ -1248,41 +1290,50 @@ ul{
 
 
 
-// MEDIA
+///////////////////////// MEDIA /////////////////////
+
 
 @media screen and (max-width: 1400px) {
+   
+
+	// BANNER
    .banner{
    		padding:0 10.75%;
    		padding-bottom: 30px;
-
    		.top-navbar{
    			ul{
    				left: 10%;
    			}
    		}
-
    		header.dash h1 {
     		font-size: 5.375em;
     	}
-   }
-	
+    }
+
+
+    // ABOTUS	
 	.about-us{
 		padding: 0 10%;
 		padding-top: 85px;
     	padding-bottom: 110px;
-	}
-	
+	}	
+
+
+	// SERVICE
 	.service{
-		padding: 0 10%;
-		padding-top:100px;
+		padding: 5% 10%;
 		hr{
 			display:none;
-		}
-		.container .service-item{
-			margin:0px;
-			padding:20px 40px;
-		}
+		}	
+		.container{
+			.service-item{
+				&:nth-child(n){
+					margin-top:40px;
+				}
+			}
+		}				
 	}
+
 
 	.feature{
 		.iphone{
@@ -1304,6 +1355,32 @@ ul{
 	    	padding-bottom: 1%;
 	    }
 	}
+
+	.work{
+		padding-top:110px;
+		p{	
+			line-height: 1.5;
+			margin: 0 auto;
+			width: 50%;
+			padding-top: 10px;
+	    	padding-bottom: 105px;
+		}
+		.container{	
+			.common-container{
+				display:flex;
+				flex-wrap: wrap;
+				align-items: end;
+				width: 100%;
+				height:100%;
+			    .img{
+			    	width:50%;									
+			    }
+			}	
+		}
+	}
+	
+			
+	  
 
 	.footer{
 	
@@ -1387,7 +1464,13 @@ ul{
 
 
 @media only screen and (max-device-width: 480px) {
-   
+   body{
+   	padding: 0 5%;
+   }
+
+	.header-box:after { margin: 20px auto;}
+
+
     .banner{
     	.mobile-active{
     		width: 200px;
@@ -1397,23 +1480,27 @@ ul{
 		}
 
 		header.dash {
-			padding-top: 30%;
-			h2{
-				font-size:1.5em;
-			}
-			h1{
-				font-size: 2.375em;
-			}
-		}
-
-		
+			padding-top: 20%;
+			h2{	font-size:1.5em;}
+			h1{	font-size: 2em;	}
+			&:after{margin: 30px auto;}
+		}		
 		ul.top-navbar-list{
-			display: none;
-			position: absolute;
-		    left: 33%;
-		    top: 10%;
-		    height: 380px;
-			
+			display: block;
+			height: 380px;
+		    width: 80%;
+		    margin-top: 45px;
+		    position: absolute;
+    		top: -85%;
+    		-webkit-transition-property: top;
+		    -moz-transition-property: top;
+		    -o-transition-property: top;
+		    transition-property: top;
+		    -webkit-transition-duration: 0.5s;
+		    -moz-transition-duration: 0.5s;
+		    -o-transition-duration: 0.5s;
+		    transition-duration: 0.5s;
+	
 			li{
 				display: grid;
 				margin: 20px 0;
@@ -1423,35 +1510,27 @@ ul{
 				}	
 			}
 		}
-		
+		.top-navbar-list.mobile-active{
+			top: 5%;	    			
+		}
 		.top-navbar .mobile-menu{
 			display: block;
-			margin-left: 50%;	
+			float:right;	
 			img{
 				width: 25px;
 			}
 		}
-
-		.top-navbar-list.mobile-active{
-			display: block;
-			-webkit-animation-name: fadeIn;
-			-webkit-animation-duration: 1s;
-			animation-name: fadeIn;
-			animation-duration: 1s;
-		}
-
 		ul.bottom-navbar-list li{
 			width: 90%;
 			border: none;
-
 			&:before{
 				top:40px;
 			}
-		}
-				
-	}	
+		}				
+	}
 
 
+	// ABOTUS
     .about-us{
     	padding: 0;
     	padding-top: 20px;
@@ -1465,13 +1544,17 @@ ul{
     		justify-content: center;
     		a{
     			min-width: 300px;
-    			.photo span p {
-    				left: 0;
+    			.photo {
+    				margin: 10px auto;
+    				span p {
+    					left: 0;
+    				}
     			}
     		}
     	}
     }
 
+    // SERVICE
 	.service{
 		padding:20px 0;
 		margin: 0;
@@ -1486,8 +1569,11 @@ ul{
 			    display: flex;
 			    align-items: center;
 			    padding: 0px 16px;
+			    &:nth-child(n){
+					margin-top:10px;
+				}
 			    .service-information {
-				    margin: 30px;
+				    margin: 20px;
 				    text-align: left;
 				}
 			}
@@ -1495,6 +1581,9 @@ ul{
 	}
 
 
+
+
+	// FACTS
     .facts .dire {
     	width: 100%;
     	.fact {
@@ -1509,23 +1598,30 @@ ul{
 		}
 	}
 
+
+	// FEATURE
     .feature{
+    	padding-top:20px;
+    	position: relative;
     	height: 460px;
     	.screen{
     		width:240px;
     		left:0;
+    		bottom: -18px;
     	}
 
     	.iphone{
-    		position: relative;
+    		position: absolute;
 		    width: 100px;
-		    right: -25%;
-		    top: -170px;
+		    right: 10%;
+		    top: 61%;
     	}
     }
 
+
+	// SERVICE2
 	.service2 {
-	    padding: 30px 1%;
+	    padding: 30px 0;
 	    .service2-container{
 	    	margin-top:50px;
 	    	.service2-image{
@@ -1541,11 +1637,15 @@ ul{
 
 	}
 
+
+	// LOGOS
 	.logos{
    		padding: 0px 4%;
    		height: 400px;
 	}
 
+
+	// QOUTE
     .quote .quote-container .quote-content {
     	.message-icon{
 	    	padding: 16px;
@@ -1572,9 +1672,10 @@ ul{
 	}
 
     .ourteam  {
-    	padding: 10% 8%;
+    	padding: 5% 0;
     	p.content{
     		width:100%;
+    		margin: 45px 0;
     	}
 	    .ourteam-photo .person{
 	   			width: 90%;
@@ -1584,9 +1685,12 @@ ul{
 	
    	.whatpeople {
    		padding:30px 0;
-   		.container .row {
-		    margin: 30px 0;
-		    width: 100%;
+   		.container {
+   			padding:0px;
+   			.row {
+			    margin: 30px 0;
+			    width: 100%;
+			}
 		}
 	}
 
@@ -1598,19 +1702,37 @@ ul{
 			width:85%;
 			padding-bottom:20px;
 		}
+		.container {
+			.left-container {
+				width:100%;
+				.img{
+					width:100%;
+				}
+			}
+			.right-container{
+				width: 100%;
+				.img{
+					width:100%;
+				}
+			}
+		}
 	}
+
 
 	.testimonial{
 		margin:0;
 		padding:0;
 		padding-top:50px;
-		.testimonial-container .testimonial-content .testimonial-mes{
-			p{
-				font-size: 15px;
-			}
-			h4{
-				font-size: 17px;
-    			padding-bottom: 50px;
+		.testimonial-container .testimonial-content {
+			margin:0;
+			.testimonial-mes{
+				p{
+					font-size: 15px;
+				}
+				h4{
+					font-size: 17px;
+	    			padding-bottom: 50px;
+				}
 			}
 		}
 	}
@@ -1619,17 +1741,20 @@ ul{
 	    padding-top: 15%;
 	}
 
-   	
    
-   .blog .articles article{
-		width:90%;
-		padding: 0px;
+   
+   .blog {
+   		padding:0;
+   		padding-top:30px;
+	   	.articles article{
+			width:90%;
+			padding: 0px;
+		}
     }
 
-    .footer{
-	
-	padding: 2%;
-	text-align: left;
+    .footer{	
+		padding: 2%;
+		text-align: left;
 		.container{
 			width: 100%;
 			display: flex;
@@ -1638,6 +1763,11 @@ ul{
 				width: 100%;
 				padding-bottom: 40px;
 			}
+		}
+
+		input{
+			margin-bottom: 20px;
+			width: 80%;
 		}
 	}
 }
