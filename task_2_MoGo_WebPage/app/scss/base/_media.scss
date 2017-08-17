@@ -123,19 +123,13 @@
   }
 
 
-  .blog-data {
-    width: 55px;
-    top: 60%;
-    left: -4.1%;
-    padding: 12px 16px 26px;
 
-  }
-  .blog-data p:nth-child(odd) {
+  .blog-number {
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
   }
-  .blog-data p:nth-child(even) {
-    position: absolute;
+  .blog-month {
+
     font-family: "RobotoLightItalic", sans-serif;
     font-size: 15px;
   }
@@ -429,19 +423,13 @@
 
     margin-left: 10px;
   }
-  .blog-data {
-    width: 42px;
-    top: 63%;
-    left: -5.1%;
-    padding: 6px 11px 21px;
 
-  }
-  .blog-data p:nth-child(odd) {
+  .blog-number {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
   }
-  .blog-data p:nth-child(even) {
-    position: absolute;
+  .blog-month {
+
     font-family: "RobotoLightItalic", sans-serif;
     font-size: 13px;
   }
@@ -596,8 +584,12 @@
   .quote-person-image {
     width: 30%;
   }
+  .blog-data {
 
+    width: 40px;
+    padding: 6px 0 6px;}
 }
+
 
 @media (max-width: 630px) {
 
@@ -685,16 +677,14 @@
   }
   .blog-data {
     width: 60px;
-    top: 55%;
-
     left: -2.6%;
-    padding: 12px 17px 28px;
+
   }
-  .blog-data p:nth-child(odd) {
+  .blog-number {
 
     font-size: 25px;
   }
-  .blog-data p:nth-child(even) {
+  .blog-month {
 
     font-size: 17px;
   }

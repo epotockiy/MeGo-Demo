@@ -35,22 +35,24 @@
 
 .blog-data {
   position: absolute;
+  bottom: 4%;
   width: 60px;
-  top: 67%;
-  left: -3.6%;
+  left: -3%;
   background: #95e1d3;
-  padding: 12px 15px 12px;
+  padding: 12px 0 12px;
   color: white;
 }
 
 
-.blog-data p:nth-child(odd) {
+.blog-number {
+  text-align: center;
   font-family: $montserrat;
   font-size: 30px;
 
 }
 
-.blog-data p:nth-child(even) {
+.blog-month {
+  text-align: center;
   font-family: $robotoLightItalic;
   font-size: 15px;
 }
