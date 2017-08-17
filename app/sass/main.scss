@@ -80,9 +80,11 @@ h5{
 	font : {
 		family: 'Montserrat', sans-serif;
 		size: 0.875em;
+		weight: 300;
 	}
 	color: $white;
 	text-transform: uppercase;
+
 }
 
 h6{
@@ -186,14 +188,17 @@ ul{
 
 // BANNER
 .banner{
-	padding:0 18.75%;
+	
+	padding:0 5%;
 	background-image: $gradient , url("../img/banner-bg.png") ;
 	background-size: cover;
 	padding-bottom: 25px;
 	background-position: center;
 	.top-navbar{
+	    max-width: 1200px;
 		padding-top: 30px;
-		a{
+		margin: 0 auto;
+		a.logo{
 			font : {
 				size: 30px;
 				weight: bold;
@@ -206,6 +211,7 @@ ul{
 		    justify-content: flex-end;
 		    margin-top: 10px;
 			li{
+				border: 3px solid transparent;
 				padding-bottom: 6px;
 				margin-right:  4.1%;
 				&:last-child{
@@ -232,7 +238,9 @@ ul{
 		}
 	}	
 	header.dash{
-		padding-top:12.91%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding-top:7.91%;
 		h1{
 			width: 80%;
 			padding-top: 20px;
@@ -250,7 +258,7 @@ ul{
 		display: inline-block;
 		padding: 10px 30px;
 		text-transform: uppercase;
-		margin-bottom: 12.5%;	
+		margin-bottom: 8.5%;	
 		font : {
 			family: 'Montserrat', sans-serif;
 			size: 0.875em;
@@ -264,6 +272,8 @@ ul{
 		}	
 	}	
 	ul.bottom-navbar-list{	
+		max-width: 1200px;
+		margin: 0 auto;
 		li{
 			cursor: pointer;
 			border-top: 3px solid $white;
@@ -320,6 +330,7 @@ ul{
 // ABOUT-US
 .about-us{
 	max-width: 1200px;
+	padding: 0 5%;
     padding-top: 70px;
     padding-bottom: 110px;
     margin: 0 auto;
@@ -334,12 +345,9 @@ ul{
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
+		background-size: cover;
 		a {
-			:before{
-				content:"";
-			}
 			width:31%;
-
 			.photo{
 				&:before{
 					display:block;
@@ -350,7 +358,9 @@ ul{
 				width: 100%;
 				background-size: cover;		
 			
-				span{
+				.aboutus-hover{
+					position: absolute;
+					top:0;
 					width: 100%;
 					height:100%;
 					display:none;
@@ -377,7 +387,7 @@ ul{
 			&:hover  {
 				@extend %hover-style;				  
 			}  
-			&:hover span{
+			&:hover .aboutus-hover{
 				display: block;
 			}
 		}
@@ -398,7 +408,11 @@ ul{
 			padding: 70px 0px 90px 0;
 			width: 12.5%;
 			display: table-cell;
-			border: 1px solid $white;		
+			border-right: 1px solid $white;
+			&:first-child{
+				border-left:1px solid $white;
+			}
+					
 			p {
 				font-family: 'Montserrat', sans-serif;
 				color: $white;
@@ -417,6 +431,7 @@ ul{
 // SERVICE
 .service{
 	max-width: 1200px;
+	padding: 0 5%;
 	padding-top: 100px;
 	padding-bottom: 75px;
 	text-align: center;
@@ -424,25 +439,25 @@ ul{
 	.container{
 		hr{
 			width: 100%;
-   			height: 2px;
+   			height: 1px;
    			background-color: $hr-color;
 		}
 		padding-top: 30px;
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0 auto;
-		justify-content: space-between;
+		justify-content: space-around;
 		.service-item{
 			&:nth-child(-n+3){
 				margin-top:0px;
 			}
 			margin: 0;
-			margin-left:10px;
-			margin-bottom: 45px;
+			margin-left:10px;			
 			margin-top:40px;
 			display:inline-block;
 			max-width:1200px;
 			padding:0px;
+			padding-bottom: 45px;
 			img{
 				display:inline-block;
 				vertical-align: top;
@@ -458,7 +473,7 @@ ul{
 					padding-bottom: 5px;
 				}
 				p{
-					line-height:2;
+					line-height:1.6;
 				}
 			}
 		}	
@@ -494,7 +509,7 @@ ul{
 		padding-top: 10px;
 		width: 80%;
 		margin: 0 auto;
-		line-height: 1.5;
+		line-height: 1.7;
 	}
 	.service2-container{
 		margin-top: 95px;
@@ -515,6 +530,7 @@ ul{
 			display: inline-block;
 			width: 50%;
 			vertical-align: top;
+
 			.accordion-block{
 				&:last-child{
 					margin-bottom:0;
@@ -536,7 +552,7 @@ ul{
 					.title{
 						font-size: 14px;
 						display:inline-block;
-						margin-top: 4%;
+						margin-top: 5%;
 						vertical-align: top;
 						text-transform: uppercase;
 					}
@@ -586,11 +602,13 @@ ul{
 
 // QUOTE
 .quote{
-	clear: both;
-	padding: 0 18.75%;
+	clear: both;	
+	padding: 0 5%;	
 	background: $qoute-bg;
 	.quote-container{
+		max-width: 1200px;
 		display:flex;
+		margin: 0 auto;
 		align-items: center;
 		justify-content: space-around;
 		.quote-pointer{
@@ -658,10 +676,11 @@ ul{
 
 // OURTEAM
 .ourteam{
-	padding: 0 18.75%;
+	padding: 0 5;
 	padding-top:120px;
 	padding-bottom:80px;
 	p.content{
+		max-width: 1000px;
 		width: 80%;
 		margin: 0 auto;
 		margin-top: 45px;
@@ -669,6 +688,8 @@ ul{
 		line-height: 1.5;
 	}	
 	.ourteam-photo{
+		max-width: 1200px;
+		margin: 0 auto;
 		.person {
 		    width: 31%;
 		    padding-bottom: 30px;
@@ -678,6 +699,7 @@ ul{
 				margin-right: 0px;
 			}			
 			.photo{
+				background-position: inherit;
 				font-size: 0;
 				width:100%;
 				&:before{
@@ -686,11 +708,13 @@ ul{
 					padding-top: 123%;
 					width: 100%;
 				}	
-				span{
+				.ourteam-hover{
 					width:100%;
 					height: 100%;
 					display:none;
 					background: $gradient;
+					position: absolute;
+					top:0;
 					.icon-container{
 						position: relative;
 						top: 45%;
@@ -716,13 +740,11 @@ ul{
 								}
 								&.instagram{
 									background-position:-140px 16px;							
-								}
-								
+								}								
 							}
 							&:hover{
 								background:$yellow;	
 							}	
-
 							&:hover a{
 								background-image: url("../img/icons/icon-sprite-hover.png") ;
 							}					
@@ -732,7 +754,7 @@ ul{
 				&:hover{
 					@extend %hover-style;
 				}
-				&:hover span{
+				&:hover .ourteam-hover{
 					display:block;
 				}
 			}		
@@ -801,7 +823,9 @@ ul{
 	.container{	
 		display:flex;
 		flex-wrap: wrap;
+
 		.img{
+			background-size: cover;
 			width:50%;
 			&:before{
 				content:"";
@@ -809,34 +833,53 @@ ul{
 				width:50%;
 				padding-top:80%;
 			}
-		}	
+			&:hover{
+				@extend %hover-style;
+			}
+			&:hover .work-hover{
+				display:block;	
+			  	transition-property: background;
+			  	transition-duration: 0.9s ;			
+			}
+		}			
 
-		.common-container{
+		.right-container{
 			display:flex;
 			flex-wrap: wrap;
 			align-items: end;
-			width: 50%;
+			width: 25%;
 			height:100%;
 		    .img{
-		    	width:50%;
-									
+		    	width:100%;									
 		    }
 		}	
-	
+		
+		.left-container{
+			display:flex;
+			align-items: end;
+			width: 50%;
+			height:100%;		  
+		}
 			
-	    .img.high{
+	    .center-container{
+	    	background-size: cover;
+	    	width: 25%;
 	    	&:before{
 				content:"";
 				display:block;
-				width:50%;
+				width:100%;
 				padding-top:160%;
 			}
 	    }
 					
-		span{
+		.work-hover{
+			position: absolute;
+			top: 0%;
 			display: none;
 			width: 100%;
 			height:100%;
+			background: $gradient, url("../img/icons/") no-repeat;
+
 			img{
 				
 			}	
@@ -849,14 +892,6 @@ ul{
 
 			}	
 		}
-
-		.img:hover span{
-			display:block;	
-			background: $gradient;
-		  	transition-property: background;
-		  	transition-duration: 0.9s ;			
-			
-		}
 	}	
 }
 
@@ -865,10 +900,13 @@ ul{
 
 .testimonial{
 	clear: both;
-	padding: 5.3% 16.76% 6.3% 16.76%;
+	padding: 5%;
+	
 	background: $qoute-bg;
 	margin-top: 170px;
 	.testimonial-container{
+		margin: 0 auto;
+		max-width: 1200px;
 		display:flex;
 		align-items: center;
 		justify-content: space-around;
@@ -889,7 +927,8 @@ ul{
 		.testimonial-content {			
 			margin-left: 60px;
 			.avatar{
-				background-size: cover;
+				background-position: center;
+   				background-size: cover;
 				height: 210px;
 				width: 210px;
 				display: inline-block;
@@ -961,8 +1000,8 @@ ul{
 
 
 // WHATPEOPLESAY
-.whatpeople{
-	padding: 0 18.75%;
+.whatpeople{	
+	padding: 0 5%;
     padding-top: 110px;
 	background-image:$white-gradient, url("../img/images/whatpeoplesay-bg.png") ;
 	background-size: cover;
@@ -970,6 +1009,7 @@ ul{
 		color: $h-color;
 	}	
 	.container{
+		max-width:1200px;
 		margin: 0 auto;
 		display: flex;
 		flex-wrap: wrap;
@@ -1022,10 +1062,12 @@ ul{
 // BLOG
 .blog{
 	clear:both;
-	padding: 0 18.75%;
+	padding: 0 5%;
 	padding-top: 110px;
 	.articles{
+		max-width: 1200px;
 		padding-top: 15px;
+		margin: 0 auto;
 		article{			
 			padding-bottom: 60px;
 			text-align: left;
@@ -1209,6 +1251,7 @@ ul{
 				input{
 					margin-right: 40px;
 					padding: 14px;
+					border: 1px solid $hr-color;
 					@extend .roboto-light;
 				}
 				::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -1291,42 +1334,40 @@ ul{
 
 
 ///////////////////////// MEDIA /////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+
 
 
 @media screen and (max-width: 1400px) {
    
 
 	// BANNER
-   .banner{
-   		padding:0 10.75%;
-   		padding-bottom: 30px;
-   		.top-navbar{
-   			ul{
-   				left: 10%;
-   			}
-   		}
+   .banner{  
    		header.dash h1 {
     		font-size: 5.375em;
     	}
     }
 
-
     // ABOTUS	
-	.about-us{
-		padding: 0 10%;
+	.about-us{	
 		padding-top: 85px;
     	padding-bottom: 110px;
 	}	
 
 
 	// SERVICE
-	.service{
-		padding: 5% 10%;
+	.service{		
 		hr{
 			display:none;
 		}	
 		.container{
 			.service-item{
+				border-bottom: 1px solid $hr-color;
 				&:nth-child(n){
 					margin-top:40px;
 				}
@@ -1341,12 +1382,8 @@ ul{
     	}
     }
 
-    .quote{
-   		padding: 3.7% 6.75%;
-    }
 	.logos{
-   		padding: 0px 4%;
-   		height: 400px;
+   		padding: 0px 5%;
 	}
 
 	.service2 {
@@ -1377,9 +1414,7 @@ ul{
 			    }
 			}	
 		}
-	}
-	
-			
+	}		
 	  
 
 	.footer{
@@ -1397,8 +1432,6 @@ ul{
 
 @media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
 
-
-
     .about-us{
     	padding: 5% ;
     }
@@ -1409,8 +1442,7 @@ ul{
     	}
     }
 
-    .feature{
-    	height: 460px;
+    .feature{    	
     	.screen{
     		width:240px;
     		left:0;
@@ -1430,15 +1462,25 @@ ul{
 	}
 
     .ourteam  {
-    	padding: 5% 8%;
+    	
+    	
 	     .ourteam-photo .person{
 	   			width: 90%;
 	   	}
    	}
 
-   	.quote{
-   		padding: 3.7% 3.75%;
-    }
+    .quote {
+    	padding:5%;
+    	.quote-container .quote-content .quote-mes{
+	    	p{
+	    		text-align: center;
+	    	}
+
+	    	h4{
+	    		float: right;
+	    	}
+	    }
+	}
 
     .blog .articles article{
     		width:90%;
@@ -1464,21 +1506,19 @@ ul{
 
 
 @media only screen and (max-device-width: 480px) {
-   body{
-   	padding: 0 5%;
-   }
+   
 
 	.header-box:after { margin: 20px auto;}
 
 
     .banner{
     	.mobile-active{
+    		z-index: 1;
     		width: 200px;
     		height: 50px;
     		background-color: $red;
 			display: inline-block;
 		}
-
 		header.dash {
 			padding-top: 20%;
 			h2{	font-size:1.5em;}
@@ -1488,7 +1528,7 @@ ul{
 		ul.top-navbar-list{
 			display: block;
 			height: 380px;
-		    width: 80%;
+		    width: 90%;
 		    margin-top: 45px;
 		    position: absolute;
     		top: -85%;
@@ -1500,18 +1540,24 @@ ul{
 		    -moz-transition-duration: 0.5s;
 		    -o-transition-duration: 0.5s;
 		    transition-duration: 0.5s;
-	
 			li{
 				display: grid;
-				margin: 20px 0;
-						
+				margin: 20px 0;	
+				&:nth-child(6){
+					display:inline;
+				}
+				&:nth-child(7){
+					display:inline;
+				}									
 				a{			
 					font-size: 1.2em;
 				}	
 			}
 		}
 		.top-navbar-list.mobile-active{
-			top: 5%;	    			
+			top: 5%;
+			background:rgba(203, 109, 129, 1);
+
 		}
 		.top-navbar .mobile-menu{
 			display: block;
@@ -1556,7 +1602,7 @@ ul{
 
     // SERVICE
 	.service{
-		padding:20px 0;
+		padding:20px 0 0 0;
 		margin: 0;
 		width: 100%;
 		.container {
@@ -1607,7 +1653,7 @@ ul{
     	.screen{
     		width:240px;
     		left:0;
-    		bottom: -18px;
+    		bottom: -40px;
     	}
 
     	.iphone{
@@ -1641,7 +1687,7 @@ ul{
 	// LOGOS
 	.logos{
    		padding: 0px 4%;
-   		height: 400px;
+   		
 	}
 
 
@@ -1673,12 +1719,17 @@ ul{
 
     .ourteam  {
     	padding: 5% 0;
+    	padding-top:15%;
     	p.content{
     		width:100%;
-    		margin: 45px 0;
+    		margin: 25px 0;
     	}
 	    .ourteam-photo .person{
+	    		padding-bottom: 40px;
 	   			width: 90%;
+	   			h5{
+	   				padding-top: 10px;
+	   			}
 	   	}
    	}
 	
@@ -1690,6 +1741,19 @@ ul{
    			.row {
 			    margin: 30px 0;
 			    width: 100%;
+			    .row-content{
+			    	margin-left: 5%;
+			    	width:80%;
+			    	h5{
+			    		text-align: center;
+			    	}
+			    	p.position{
+			    		text-align: center;
+			    		&:after{
+			    			margin: 10px auto;
+			    		}
+			    	}
+			    }
 			}
 		}
 	}
@@ -1744,11 +1808,11 @@ ul{
    
    
    .blog {
-   		padding:0;
+   		padding:0 5%;
    		padding-top:30px;
 	   	.articles article{
-			width:90%;
-			padding: 0px;
+			width:100%;
+			padding-bottom:0px;
 		}
     }
 
