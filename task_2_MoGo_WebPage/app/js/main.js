@@ -53,7 +53,7 @@ $(function () {
 
     $(document).ready(function () {
         $('.bxslider').bxSlider({
-            pager: false
+            pager: false,
         });
     });
     $(".accordion-panel").customScrollbar({});
@@ -61,7 +61,8 @@ $(function () {
     $('.accordion').collapsible({
         accordion: true,
         contentOpen: 0,
-        animate: false
+        animate: false,
+        slideMargin:50
         // accordionUpSpeed: 150,
         // accordionDownSpeed: 400,
         //

@@ -4,13 +4,17 @@
 
 .statistic-table {
   display: table;
+  width: 100%;
+  table-layout: fixed;
+
 }
 
 .statitstic-cell {
   display: table-cell;
   text-align: center;
-  width: 20%;
-  padding: 80px 38px 87px 38px;
+  //width: 25%;
+
+  padding: 83px 0px 89px 0px;
   border-right: 1px solid #b5eae0;
 }
 .statitstic-cell:first-child{
@@ -19,14 +23,14 @@
 
 
 
-.statitstic-cell p:nth-child(2n+1) {
+.statistic-number {
   font-family: $montserratBold;
-  margin-bottom: 17px;
+  margin-bottom: 14px;
   font-size: 72px;
   color: #fff;
 }
 
-.statitstic-cell p:nth-child(2n) {
+.statistic-name {
   font-size: 14px;
   color: #fff;
 }

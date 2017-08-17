@@ -100,8 +100,8 @@ ul.bxslider {
 }
 .bx-wrapper .bx-controls-direction a {
   position: absolute;
-  top: 43%;
-
+  top: 50%;
+  margin-top: -16px;
   outline: 0;
   width: 32px;
   height: 32px;

@@ -3,14 +3,10 @@
   padding-top: 110px;
 
 }
-
-.work .wrapper {
-  max-width: none;
-}
-
 .work-photos-grid {
   font-size: 0;
  padding-top:99px;
+  max-width: none;
 }
 
 .work-column {
@@ -25,7 +21,6 @@
   background-position: center center;
   background-repeat: no-repeat;
   width: 100%;
-
   display: inline-block;
   position: relative;
   //position: relative;
@@ -69,10 +64,10 @@
 
 .work-effect:hover {
   background: linear-gradient(to bottom, rgba(243, 129, 129, 0.9) 0%, rgba(252, 227, 138, 0.9) 100%);
-  opacity: 1;
   .work-icons {
     display: block;
   }
+  opacity: 1;
 }
 
 .work-icons p:nth-child(even) {

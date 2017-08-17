@@ -1,9 +1,8 @@
 header {
-
-  background-size: cover;
   background:linear-gradient(to bottom, rgba(243, 129, 129, 0.9) 0%, rgba(252, 227, 138, 0.9) 100%),url(../images/header/backround.png) no-repeat center;
   padding-top: 32px;
   padding-bottom: 25px;
+  background-size: cover;
 }
 
 
@@ -36,8 +35,12 @@ header {
 
 .menu li {
   display: inline-block;
-  margin-left: 48px;
+  margin-left: 55px;
 
+}
+.menu li:last-child {
+
+  margin-left: 40px;
 }
 nav{
   padding:0 10px 0;
@@ -69,8 +72,11 @@ nav{
 .icon-search {
   display: inline-block;
   background: url(../images/header/search-sprite.png);
+  background-repeat: no-repeat;
+  vertical-align: bottom;
   width: 18px;
-  height: 18px;
+  height: 21px;
+
 }
 
 .header-title h2 {

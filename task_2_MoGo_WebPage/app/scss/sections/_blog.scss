@@ -39,7 +39,7 @@
   top: 67%;
   left: -3.6%;
   background: #95e1d3;
-  padding: 12px 15px 28px;
+  padding: 12px 15px 12px;
   color: white;
 }
 
@@ -51,7 +51,6 @@
 }
 
 .blog-data p:nth-child(even) {
-  position: absolute;
   font-family: $robotoLightItalic;
   font-size: 15px;
 }
