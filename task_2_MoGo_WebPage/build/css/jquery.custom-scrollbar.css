@@ -25,7 +25,7 @@
 .scrollable .scroll-bar.vertical {
 
     position: absolute;
-    right: 22px;
+    right: 26px;
     height: 100%;
 }
 
@@ -36,6 +36,8 @@
 
 .scrollable .scroll-bar .thumb {
     position: absolute;
+    border-radius: 20px;
+
 }
 
 .scrollable .scroll-bar.vertical .thumb {
@@ -107,6 +109,7 @@
 .scrollable.gray-skin .scroll-bar.vertical {
     width: 5px;
     height:120px;
+    border-radius: 20px;
 }
 
 .scrollable.gray-skin .scroll-bar.horizontal {
