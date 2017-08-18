@@ -331,7 +331,7 @@ ul{
 .about-us{
 	max-width: 1200px;
 	padding: 0 5%;
-    padding-top: 70px;
+    padding-top: 90px;
     padding-bottom: 110px;
     margin: 0 auto;
 	p {
@@ -442,7 +442,7 @@ ul{
    			height: 1px;
    			background-color: $hr-color;
 		}
-		padding-top: 30px;
+		padding-top: 40px;
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0 auto;
@@ -484,7 +484,7 @@ ul{
 // FEATURE
 .feature{
 	background-position: center;
-	padding-top: 100px;
+	padding-top: 120px;
 	background-image:$white-gradient, url("../img/images/feature-bg.png") ;
 	background-size: cover;
 	.screen{

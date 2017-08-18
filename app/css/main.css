@@ -336,7 +336,7 @@ ul li {
 .about-us {
   max-width: 1200px;
   padding: 0 5%;
-  padding-top: 70px;
+  padding-top: 90px;
   padding-bottom: 110px;
   margin: 0 auto;
 }
@@ -447,7 +447,7 @@ ul li {
 }
 /* line 439, ../sass/main.scss */
 .service .container {
-  padding-top: 30px;
+  padding-top: 40px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -499,7 +499,7 @@ ul li {
 /* line 485, ../sass/main.scss */
 .feature {
   background-position: center;
-  padding-top: 100px;
+  padding-top: 120px;
   background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("../img/images/feature-bg.png");
   background-size: cover;
 }
