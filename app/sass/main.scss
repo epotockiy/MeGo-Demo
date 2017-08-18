@@ -1,6 +1,7 @@
 
 $yellow: rgba(252,227,138,0.8);
 $red: 	 rgba(243,129,129,0.8);
+$border-color: rgba(255,255,255,0.3);
 $blue:	 #95e1d3;
 $h-color:#333333;
 $hr-color: #e5e5e5;
@@ -89,6 +90,8 @@ h5{
 
 h6{
 	font-size: 0.750em;
+	font-weight:normal;
+	color:$h-color;
 }
 
 p{
@@ -176,7 +179,7 @@ ul{
 %placeholder{
 	font:{
 		family: 'Roboto', sans-serif;
-		size: 14px;
+		size: 15px;
 		style: italic;
 		weight: 300;
 	}
@@ -211,7 +214,7 @@ ul{
 		    justify-content: flex-end;
 		    margin-top: 10px;
 			li{
-				border: 3px solid transparent;
+				border-bottom: 3px solid transparent;
 				padding-bottom: 6px;
 				margin-right:  4.1%;
 				&:last-child{
@@ -408,9 +411,9 @@ ul{
 			padding: 70px 0px 90px 0;
 			width: 12.5%;
 			display: table-cell;
-			border-right: 1px solid $white;
+			border-right: 1px solid $border-color;
 			&:first-child{
-				border-left:1px solid $white;
+				border-left:1px solid $border-color;
 			}
 					
 			p {
@@ -502,7 +505,7 @@ ul{
 
 // SERVICE2
 .service2{
-	padding: 115px 0;
+	padding: 115px 5%;
     max-width: 1200px;
     margin: 0 auto;
 	p.information{
@@ -531,59 +534,106 @@ ul{
 			display: flex;
 		    flex-direction: column;
 		    justify-content: space-between;
-			
-			.accordion-block{
+		    position: relative;
+			.container-accordion{
+				display: flex;
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+			    bottom: 0;
+			    right: 0;
+			    flex-direction: column;
+			    justify-content: space-between;
+				.accordion-block{
+					height: 61%;
+					&:last-child{
+						margin-bottom:0;
+					}
+					border: 1px solid $hr-color;
+					text-align: left;
+					width: 100%;
+					position: relative;
+					font-size:0;
+					padding-bottom:10px;
+					.accordion-title{
+						cursor: pointer;
+						background: url("../img/icons/icon-pointer-top.png") no-repeat 95%;
+						
+						img{
+							padding: 2%;
+							width:6%;
+							vertical-align: middle;
+						}
+						.title{
+							font-size: 14px;
+							display:inline-block;
+							vertical-align: middle;
+							text-transform: uppercase;
+						}
+						.pointer{
+							display: inline-block;
+							left: 94%;
+		   					top: 7%;
+		   					position: absolute;
+		   					transform: rotate(90deg);
+						}
+					}	
 
-				&:last-child{
-					margin-bottom:0;
+					.accordion-content{
+						height: 57%;
+						padding: 10px 20px;
+						display:none;
+						width: 92%;
+						border-top: 1px solid $hr-color;
+						.accordion-scrollbar{						
+						    height: 100%;
+						    overflow-y: scroll;
+						    width: 100%;
+							p{
+								width: 95%;
+								line-height: 1.5;
+								height: 100%;
+								@extend .roboto-light;
+								font-size: 15px;
+							}
+						}
+					}
+											
+					.accordion-scrollbar::-webkit-scrollbar {
+					  width: 5px;
+					  height: 5px;
+					  margin-left:20px;
+					}
+					.accordion-scrollbar::-webkit-scrollbar-button {
+					  width: 20px;
+					  height: 20px;
+					}
+					.accordion-scrollbar::-webkit-scrollbar-thumb {
+					  background: #95ffd3;
+					  border: 7px none #020202;
+					  border-radius: 50px;
+					}
+					.accordion-scrollbar::-webkit-scrollbar-thumb:hover {
+					  background: #00a6a6;
+					}
+					.accordion-scrollbar::-webkit-scrollbar-thumb:active {
+					  background: #00a6a6;
+					}
+					.accordion-scrollbar::-webkit-scrollbar-track {
+					  background: #f5f5f5;
+					  border: 78px none #ffffff;
+					  border-radius: 64px;
+					}
+					.accordion-scrollbar::-webkit-scrollbar-track:hover {
+					  background: #ffffff;
+					}
+					.accordion-scrollbar::-webkit-scrollbar-track:active {
+					  background: #ffffff;
+					}
+					.accordion-scrollbar::-webkit-scrollbar-corner {
+					  background: transparent;
+					}
 				}
-				border: 1px solid $hr-color;
-				text-align: left;
-				width: 100%;
-				margin-bottom: 2%;
-				position: relative;
-				font-size:0;
-				.accordion-title{
-					cursor: pointer;
-					background: url("../img/icons/icon-pointer-top.png") no-repeat 95%;
-					
-					img{
-						padding: 2%;
-						width:35px;
-					}
-					.title{
-						font-size: 14px;
-						display:inline-block;
-						margin-top: 5%;
-						vertical-align: top;
-						text-transform: uppercase;
-					}
-					.pointer{
-						display: inline-block;
-						left: 94%;
-	   					top: 7%;
-	   					position: absolute;
-	   					transform: rotate(90deg);
-					}
-				}				
-				.accordion-content{
-					padding: 10px;
-					display:none;
-					height: 160px;
-					width: 97%;
-					overflow-y: scroll;
-					border-top: 1px solid $hr-color;
-					p{
-						width: 95%;
-						padding: 1.1%;
-   						line-height: 1.5;
-						height: 100%;
-						@extend .roboto-light;
-						font-size: 15px;
-					}
-				}
-
-
 			}
 
 			&:before{
@@ -622,7 +672,7 @@ ul{
 		margin: 0 auto;
 		align-items: center;
 		justify-content: space-around;
-		padding: 30px 0;
+		padding: 55px 0;
 
 		.quote-pointer{
 			height: 230px;
@@ -669,7 +719,10 @@ ul{
 				    margin-top: 17px;
 				    margin-right:10px;
 				}			
-				h4{float: left;	}
+				h4{
+					float: left;
+					font-weight: normal;
+				}
 			}
 			display:none;			
 		}
@@ -689,8 +742,8 @@ ul{
 
 // OURTEAM
 .ourteam{
-	padding: 0 5;
-	padding-top:120px;
+	padding: 0 5%;
+	padding-top:60px;
 	padding-bottom:80px;
 	p.content{
 		max-width: 1000px;
@@ -733,17 +786,19 @@ ul{
 						top: 45%;
 						
 						span.icon{
-							background: $red;
+							background: $yellow;
 							width:56px;
 							height:56px;
 							display:inline-block;
+							margin-right:1px;
 							a{
+								margin-right:1px;
 								width:100%;
 								height:100%;
 								display:inline-block;
-								background: url("../img/icons/icon-sprite.png") no-repeat;
+								background: url("../img/icons/icon-sprite-hover.png") no-repeat;
 								&.facebook{
-									background-position:26px 15px;							
+									background-position:23px 15px;							
 								}
 								&.pinterest{
 									background-position:-87px 16px;							
@@ -752,14 +807,14 @@ ul{
 									background-position:-31px 16px;							
 								}
 								&.instagram{
-									background-position:-140px 16px;							
+									background-position:-143px 16px;							
 								}								
 							}
 							&:hover{
-								background:$yellow;	
+								background:$red;	
 							}	
 							&:hover a{
-								background-image: url("../img/icons/icon-sprite-hover.png") ;
+								background-image: url("../img/icons/icon-sprite.png") ;
 							}					
 						}
 					}
@@ -812,7 +867,7 @@ ul{
 		width: 100%;
 	    display: flex;
 	    align-items: center;
-	    justify-content: space-between;
+	    justify-content: space-around;
 	    flex-wrap: wrap;
 	    margin: 0 auto;
 	    max-width: 1200px;
@@ -825,7 +880,7 @@ ul{
 
 // WORK
 .work{
-	padding-top:110px;
+	padding-top:125px;
 	p{	
 		line-height: 1.5;
 		margin: 0 auto;
@@ -930,7 +985,6 @@ ul{
 	padding: 5%;
 	
 	background: $qoute-bg;
-	margin-top: 170px;
 	.testimonial-container{
 		margin: 0 auto;
 		max-width: 1200px;
@@ -966,9 +1020,9 @@ ul{
 				vertical-align: top;
 				display: inline-block;
     			width: 73%;
-				@extend .roboto-light;
 				font-size: 24px;
 				p{
+					@extend .roboto-light;
    					line-height: 1.5;
 					text-align: left;
 					color: $grey;
@@ -987,6 +1041,7 @@ ul{
 				    margin-right:10px;
 				}				
 				h4{
+					font-weight: normal;
 					float: left;
 				}
 			}
@@ -1029,7 +1084,7 @@ ul{
 // WHATPEOPLESAY
 .whatpeople{	
 	padding: 0 5%;
-    padding-top: 110px;
+    padding-top: 130px;
 	background-image:$white-gradient, url("../img/images/whatpeoplesay-bg.png") ;
 	background-size: cover;
 	h5{
@@ -1135,6 +1190,8 @@ ul{
 					}	
 				}
 				p.month{
+					@extend .roboto-light;
+					color: $white;
 
 				}
 			}
@@ -1198,7 +1255,7 @@ ul{
 		margin: 0 auto;
 		display: flex;
 		border-bottom: 1px solid $hr-color;
-		margin-bottom: 35px;
+		padding-bottom: 50px;
 		.follow-us{
 			width: 40%;
 			margin: 0 auto;
@@ -1206,6 +1263,7 @@ ul{
 				font : {
 					family: 'Montserrat', sans-serif;
 					size: 2.875em;
+					weight:bold;
 				}				
 			}
 			p.content{
@@ -1231,7 +1289,7 @@ ul{
 			}
 			.social-networks{
 				border-top: 1px solid $hr-color;
-				padding-top: 20px;
+				padding-top: 10px;
 				p{
 					display: inline-block;
 					@extend .roboto-light;
@@ -1249,22 +1307,22 @@ ul{
 						margin-right:7px;
 						
 						&.facebook{
-							background-position: 0px 0;
+							background-position: 9px -1px;
 						}
 						&.twitter{
 							background-position: -25px 0;
 						}
 						&.instagram{
-							background-position: -55px 0;
+							background-position: -55px 1px;
 						}
 						&.pinterest{
-							background-position: -86px 0;
+							background-position: -84px 0;
 						}
 						&.google{
 							background-position: -115px 0;
 						}
 						&.youtube{
-							background-position: -143px 0;
+							background-position: -146px 0;
 						}
 						&.dribble{
 							background-position: -175px 0;
@@ -1278,7 +1336,7 @@ ul{
 			.subscribe{
 				padding-top: 40px;
 				input{
-					margin-right: 40px;
+					width:35%;
 					padding: 14px;
 					border: 1px solid $hr-color;
 					@extend .roboto-light;
@@ -1293,7 +1351,7 @@ ul{
 				  	@extend %placeholder;}
 		
 				a{
-					padding: 10px 35px;
+					padding: 10px 40px;
 					background:$blue;
 					color:white;
 					font : {
@@ -1306,8 +1364,7 @@ ul{
 		}
 
 		.blogs{
-			padding-top: 15px;
-		    width: 30%;
+			width: 30%;
 		    min-width: 300px;
 		    margin: 0 auto;
 			h5{
@@ -1322,39 +1379,54 @@ ul{
 				}
 				.article-title{
 					padding-left: 10px;
-   					padding-top: 20px;
+   					padding-top: 10px;
 				    line-height: 1.5;
 					vertical-align: top;
-					width: 53%;
+					width: 60%;
 					display:inline-block;
 					h6{
 						text-transform: uppercase;
 						display: inline-block;
 						vertical-align: top;
+						color:$h-color;
 					}
 					p.date{
 						@extend .roboto-light;
 						font-size: 13px;
+						color: $p-color;
 					}
 				}	
 			}
 		}
-		.instagram{
+		.instagram-block{
 		    width: 23%;
 		    width: 275px;
 		    margin: 0 auto;
-
+		    
+			.photos{
+				margin-bottom:20px;
+			}
 			h5{
-				padding-top: 15px;
-    			padding-bottom: 30px;
+				padding-bottom: 30px;
 				text-align: left;
 				color: $h-color;
-			}			
+			}	
+
+			a{
+				padding-top:20px;
+				color: $h-color;
+				font : {
+					family: 'Roboto', sans-serif;
+					size : 13px;
+					style: italic;
+				}
+			}		
 		}
 	}
 	.footer-title{
-		padding: 25px 0;
+		padding: 30px 0;
 		h5{
+			text-transform: none;
 			margin: 0 auto;	
 			text-align: center;
 			color: $h-color;
@@ -1421,12 +1493,7 @@ ul{
    		padding: 0px 5%;
 	}
 
-	.service2 {
-	    padding: 100px 8.75%;
-	    .service2-container #accordion .accordion-block{
-	    	padding-bottom: 1%;
-	    }
-	}
+	
 
 	.work{
 		padding-top:110px;
@@ -1580,8 +1647,14 @@ ul{
 @media only screen and (max-device-width: 480px) {
    
 
-	.header-box:after { margin: 20px auto;}
+	.header-box:after { 
+		margin: 20px auto;
+	}
 
+	.header-box{
+		margin-top:20px;
+		padding: 0 20px;
+	}
 
     .banner{
     	.mobile-active{
@@ -1599,7 +1672,7 @@ ul{
 		}		
 		ul.top-navbar-list{
 			display: block;
-			height: 380px;
+			height: 330px;
 		    width: 90%;
 		    margin-top: 45px;
 		    position: absolute;
@@ -1617,6 +1690,7 @@ ul{
 				margin: 20px 0;	
 				&:nth-child(6){
 					display:inline;
+					margin-right:50px;
 				}
 				&:nth-child(7){
 					display:inline;
@@ -1634,6 +1708,7 @@ ul{
 		.top-navbar .mobile-menu{
 			display: block;
 			float:right;	
+			margin-top:10px;
 			img{
 				width: 25px;
 			}
@@ -1650,13 +1725,14 @@ ul{
 
 	// ABOTUS
     .about-us{
-    	padding: 0;
-    	padding-top: 20px;
+    	padding: 0;    	
     	p{
     		padding-bottom:20px;
-    		width: 100%;
+    		width: 80%;
+    		margin: 0 auto;
     	}
     	.content{
+    		padding: 0px 20px;
     		flex-direction: column;
     		align-items: center;
     		justify-content: center;
@@ -1677,8 +1753,8 @@ ul{
 
     // SERVICE
 	.service{
-		padding:20px 0 0 0;
-		margin: 0;
+		padding:0;
+		margin: 0 auto;
 		width: 100%;
 		.container {
 			hr{
@@ -1689,7 +1765,7 @@ ul{
 				margin:0;
 			    display: flex;
 			    align-items: center;
-			    padding: 0px 16px;
+			    padding: 0px 20px;
 			    &:nth-child(n){
 					margin-top:10px;
 				}
@@ -1729,9 +1805,8 @@ ul{
     	.screen{
     		width:240px;
     		left:0;
-    		bottom: -40px;
+    		bottom: -20px;
     	}
-
     	.iphone{
     		position: absolute;
 		    width: 100px;
@@ -1743,61 +1818,67 @@ ul{
 
 	// SERVICE2
 	.service2 {
-	    padding: 30px 0;
+	    padding:0;
 	    .service2-container{
 	    	margin-top:50px;
 	    	.service2-image{
 	    		width:100%;
-	    	} 
-	    	#accordion{
-	    		width:100%;
-	    		img{
-	    			width:30px;
-	    		}
-	    	}
+	    	}    	
 	    }
-
+	}
+	.service2 .service2-container {
+		#accordion {
+			width:100%;
+			.container-accordion .accordion-block {
+				.accordion-title {
+					padding-top:10px;
+				}
+				.accordion-content{
+					width: 86%;
+				}
+			}
+		}
 	}
 
 
 	// LOGOS
 	.logos{
-   		padding: 30px 4%;
-   		height:100%;
-   		
+   		padding: 30px 20px;
+   		height:100%;   
+   		img{
+   			padding:5px;
+   		}		
 	}
 
 
 	// QOUTE
-    .quote .quote-container .quote-content {
-    	.message-icon{
-	    	padding: 16px;
-	   	    margin: 20px 0;
-	   	    img{
-	   	    	width:30px;
-	   	    }
-	   	}
-	   	.quote-mes{
-	   		padding-bottom: 30px;
-	   		width: 80%;
-	   		p{
-	   			font-size: 15px;
-	   		}
-	   		h4{
-	   			font-size: 20px;
-	   		}
-	   	}
-    }
-
-
-	.testimonial .testimonial-container .testimonial-content .avatar {
-	    height: 115px;
-	    width: 115px;
+    .quote {
+    	margin-top:20%;
+    	padding:0;
+    	padding:  20px;
+	    .quote-container .quote-content {
+	    	.message-icon{
+		    	padding: 16px;
+		   	    margin: 20px 0;
+		   	    img{
+		   	    	width:30px;
+		   	    }
+		   	}
+		   	.quote-mes{
+		   		padding-bottom: 30px;
+		   		width: 80%;
+		   		p{
+		   			font-size: 15px;
+		   		}
+		   		h4{
+		   			font-size: 20px;
+		   		}
+		   	}
+	    }
 	}
 
-    .ourteam  {
-    	padding: 5% 0;
-    	padding-top:15%;
+	.ourteam  {
+        padding: 0 20px;
     	p.content{
     		width:100%;
     		margin: 25px 0;
@@ -1810,6 +1891,28 @@ ul{
 	   			}
 	   	}
    	}
+
+	.testimonial{
+		padding: 40px 20px 0 20px;
+		.testimonial-container .testimonial-content{
+			margin:0;
+			.avatar {
+			    height: 115px;
+			    width: 115px;
+			}
+			.testimonial-mes{
+				p{
+					font-size: 15px;
+				}
+				h4{
+					font-size: 17px;
+	    			padding-bottom: 50px;
+				}
+			}
+		}
+	}
+
+  
 	
 	
    	.whatpeople {
@@ -1839,8 +1942,9 @@ ul{
 
 
 	.work{
-		padding-top:50px;
+		padding: 0 ;
 		p{
+			padding: 0 20px;
 			width:85%;
 			padding-bottom:20px;
 		}
@@ -1883,23 +1987,7 @@ ul{
 	}
 
 
-	.testimonial{
-		margin:0;
-		padding:0;
-		padding-top:50px;
-		.testimonial-container .testimonial-content {
-			margin:0;
-			.testimonial-mes{
-				p{
-					font-size: 15px;
-				}
-				h4{
-					font-size: 17px;
-	    			padding-bottom: 50px;
-				}
-			}
-		}
-	}
+	
 
 	.map .header-box {
 	    padding-top: 15%;
@@ -1930,8 +2018,17 @@ ul{
 				p{
 					text-align: center;
 				}
+				.subscribe {
+					a{
+						position: relative;
+    					right: -27%;
+					}
+					input{
+						width:90%
+					}
+				}
 			}
-			.instagram{
+			.instagram-block{
 				padding: 8% 0;
 				h5{
 					text-align: center;
@@ -1941,6 +2038,10 @@ ul{
 				padding-bottom: 9%;
 				h5{
 					text-align: center;
+				}
+
+				.article .article-title{
+					width: 52%;
 				}
 			}
 		}
