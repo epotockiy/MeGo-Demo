@@ -516,7 +516,7 @@ ul{
 		.service2-image{
 			width:47.5%;
 			background-size: cover;
-			display: inline-block;
+			float: left;
 			margin-right: 2%;
 			margin-bottom: 30px;
 			&:before{
@@ -527,11 +527,13 @@ ul{
 			}
 		}
 		#accordion{
-			display: inline-block;
 			width: 50%;
-			vertical-align: top;
-
+			display: flex;
+		    flex-direction: column;
+		    justify-content: space-between;
+			
 			.accordion-block{
+
 				&:last-child{
 					margin-bottom:0;
 				}
@@ -580,6 +582,15 @@ ul{
 						font-size: 15px;
 					}
 				}
+
+
+			}
+
+			&:before{
+				content:"";
+				display:block;
+				width: 100%;
+				padding-top: 60%;
 			}
 			.accordion-block.active > .accordion-content{
 				display: block;
@@ -611,6 +622,8 @@ ul{
 		margin: 0 auto;
 		align-items: center;
 		justify-content: space-around;
+		padding: 30px 0;
+
 		.quote-pointer{
 			height: 230px;
     		width: 100px;
@@ -857,6 +870,7 @@ ul{
 		.left-container{
 			display:flex;
 			align-items: end;
+			flex-wrap: wrap;
 			width: 50%;
 			height:100%;		  
 		}
@@ -881,15 +895,28 @@ ul{
 			background: $gradient, url("../img/icons/") no-repeat;
 
 			img{
-				
+				position: absolute;
+			    top: 41%;
+			    width: 7%;
+			    left: 46%;
 			}	
 
 			h5{
-
+				text-align: center;
+				color: white;
+			    position: absolute;
+			    top: 55%;
+			    left: 32%;
 			}	
 
 			p{
 
+				position: absolute;
+			    top: 60%;
+			    color: white;
+			    left: 25%;
+			    @extend .roboto-light;
+			    font-size: 15px;
 			}	
 		}
 	}	
@@ -927,13 +954,13 @@ ul{
 		.testimonial-content {			
 			margin-left: 60px;
 			.avatar{
-				background-position: center;
-   				background-size: cover;
 				height: 210px;
 				width: 210px;
 				display: inline-block;
 				margin-right: 20px;
 				border-radius: 50%;
+				background-position: center;
+    			background-size: cover;
 			}
 			.testimonial-mes{
 				vertical-align: top;
@@ -1162,17 +1189,19 @@ ul{
 
 
 .footer{	
-	padding: 0 18.75%;
+	padding: 0 5%;
 	text-align: left;
 	padding-top: 75px;
 	.container{
 		flex-wrap: wrap-reverse;
-		width: 100%;
+		max-width:1200px;
+		margin: 0 auto;
 		display: flex;
 		border-bottom: 1px solid $hr-color;
 		margin-bottom: 35px;
 		.follow-us{
-			width: 436px;
+			width: 40%;
+			margin: 0 auto;
 			p.logo{
 				font : {
 					family: 'Montserrat', sans-serif;
@@ -1278,7 +1307,9 @@ ul{
 
 		.blogs{
 			padding-top: 15px;
-			width: 408px;
+		    width: 30%;
+		    min-width: 300px;
+		    margin: 0 auto;
 			h5{
 				text-align: left;
 				color: $h-color;
@@ -1309,16 +1340,20 @@ ul{
 			}
 		}
 		.instagram{
+		    width: 23%;
+		    width: 275px;
+		    margin: 0 auto;
+
 			h5{
 				padding-top: 15px;
     			padding-bottom: 30px;
 				text-align: left;
 				color: $h-color;
-			}
-			width: 282px;
+			}			
 		}
 	}
 	.footer-title{
+		padding: 25px 0;
 		h5{
 			margin: 0 auto;	
 			text-align: center;
@@ -1412,14 +1447,51 @@ ul{
 			    .img{
 			    	width:50%;									
 			    }
+			}
+
+			.right-container{			
+				width: 50%;
 			}	
+			
+			.left-container{
+				width: 100%;
+						  
+			}
+				
+		    .center-container{
+		    	width: 50%;
+		    }	
+
+		    .work-hover{
+
+				img{	
+					width:6%;				
+				    top: 45%;				    
+				    left: 49%;
+				}	
+
+				h5{
+				    top: 58%;
+				    left: 37%;
+				}	
+
+				p{					
+				    top: 62%;				    
+				    left: 26%;	
+				    font-size: 15px;			   
+				}	
+			}
 		}
 	}		
+
+
+
+		
 	  
 
 	.footer{
 	
-		padding: 0 14.75%;
+		padding: 5%;
 		text-align: left;
 		padding-top: 75px;
 		.container{
@@ -1591,6 +1663,9 @@ ul{
     		a{
     			min-width: 300px;
     			.photo {
+    				.aboutus-hover p{
+    					left:0;
+    				}
     				margin: 10px auto;
     				span p {
     					left: 0;
@@ -1620,6 +1695,7 @@ ul{
 				}
 			    .service-information {
 				    margin: 20px;
+				    margin-right: 0;
 				    text-align: left;
 				}
 			}
@@ -1686,7 +1762,8 @@ ul{
 
 	// LOGOS
 	.logos{
-   		padding: 0px 4%;
+   		padding: 30px 4%;
+   		height:100%;
    		
 	}
 
@@ -1702,6 +1779,7 @@ ul{
 	   	}
 	   	.quote-mes{
 	   		padding-bottom: 30px;
+	   		width: 80%;
 	   		p{
 	   			font-size: 15px;
 	   		}
@@ -1779,6 +1857,28 @@ ul{
 					width:100%;
 				}
 			}
+			.center-container{
+				width:100%;
+			}
+			 .work-hover{
+
+				img{	
+					width:10%;				
+				    top: 35%;				    
+				    left: 46%;
+				}	
+
+				h5{
+				    top: 52%;
+				    left: 29%;
+				}	
+
+				p{	
+					top: 55%;				    
+				    left: 10%;
+				    font-size: 15px;				   
+				}	
+			}
 		}
 	}
 
@@ -1823,9 +1923,25 @@ ul{
 			width: 100%;
 			display: flex;
 			border-bottom: 1px solid $hr-color;
+			margin-bottom:0;
 			.follow-us{
 				width: 100%;
 				padding-bottom: 40px;
+				p{
+					text-align: center;
+				}
+			}
+			.instagram{
+				padding: 8% 0;
+				h5{
+					text-align: center;
+				}
+			}
+			.blogs{
+				padding-bottom: 9%;
+				h5{
+					text-align: center;
+				}
 			}
 		}
 
