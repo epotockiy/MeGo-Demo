@@ -1,6 +1,7 @@
 function TodoList() {
     var self = this;
-    var allTodos = [];
+    var allTodos=[];
+    var allTodosHtmlElement = document.getElementsByClassName('todos-list')[0];
     var allTodosLength = 0;
     this.addNewTodo = function () {
         var todoText = document.getElementsByClassName('task-input')[0].value;
@@ -12,40 +13,33 @@ function TodoList() {
                 checked: false
             });
             allTodosLength++;
-            getHtmlElementTodoList().appendChild(listItemGenerator(todoText, false));
+            allTodosHtmlElement.appendChild(listItemGenerator(todoText, false));
         }
-        allTodos = getHtmlElementTodoList();
-        console.log(allTodos.className);
-        if (allTodos.classList.contains('completed-tasks')) {
-            hideListItems(allTodos, false);
-        }
-        else if (allTodos.classList.contains('uncompleted-tasks')) {
-            hideListItems(allTodos, true);
-        }
-        // this.showTodosList();
     };
     this.showTodosList = function () {
         var localStorage = new LocalstorageService();
         allTodos = localStorage.getAllTodos();
+        allTodosHtmlElement.classList.remove('uncompleted-tasks');
+        allTodosHtmlElement.classList.remove('completed-tasks');
         buildTodosList(allTodos);
     };
     this.hideUncompletedTodos = function () {
-        allTodos = getHtmlElementTodoList();
-        allTodos.classList.remove('uncompleted-tasks');
-        allTodos.classList.add('completed-tasks');
-        hideListItems(allTodos, false);
+
+        allTodosHtmlElement.classList.remove('uncompleted-tasks');
+        allTodosHtmlElement.classList.add('completed-tasks');
+        // hideListItems(allTodos, false);
     };
     this.hideCompletedTodosList = function () {
-        allTodos = getHtmlElementTodoList();
-        allTodos.classList.remove('completed-tasks');
-        allTodos.classList.add('uncompleted-tasks');
-        hideListItems(allTodos, true);
+
+        allTodosHtmlElement.classList.remove('completed-tasks');
+        allTodosHtmlElement.classList.add('uncompleted-tasks');
+        // hideListItems(allTodos, true);
     };
     function buildTodosList(allTodos) {
         var localStorage = new LocalstorageService();
         allTodos = localStorage.getAllTodos();
-        var allTodosListHtmlElement = getHtmlElementTodoList();
-        allTodosListHtmlElement.innerHTML = '';
+
+        allTodosHtmlElement.innerHTML = '';
         var DOMFragment = document.createDocumentFragment();
         // var listItem, checkBox, label, editInput, editButton, deleteButton;
         for (let key in allTodos) {
@@ -53,7 +47,7 @@ function TodoList() {
             DOMFragment.appendChild(listItemGenerator(allTodos[allTodosLength].todoText, allTodos[allTodosLength].checked));
         }
 
-        allTodosListHtmlElement.appendChild(DOMFragment);
+        allTodosHtmlElement.appendChild(DOMFragment);
     }
 
     function removeTodo() {
@@ -97,9 +91,12 @@ function TodoList() {
         var localStorage = new LocalstorageService();
         if (this.checked) {
             this.nextSibling.style.textDecoration = 'line-through';
+            this.parentNode.classList.add('completed-task');
+
             localStorage.editStatusTodo(this.parentNode.id, true);
         }
         else {
+            this.parentNode.classList.remove('completed-task');
             this.nextSibling.style.textDecoration = 'none';
             localStorage.editStatusTodo(this.parentNode.id, false);
         }
@@ -135,6 +132,7 @@ function TodoList() {
         listItem.appendChild(editButton);
         listItem.appendChild(deleteButton);
         if (todoChecked === true) {
+            listItem.classList.add('completed-task');
             checkBox.checked = true;
             // checkBox.nextSibling.style.textDecoration = 'line-through';
         }
@@ -144,28 +142,11 @@ function TodoList() {
         }
         return listItem;
     }
-
-    function getHtmlElementTodoList() {
-        allTodos = document.getElementsByClassName('todos-list')[0];
-        return allTodos;
-    }
-
     function validateTextInput(inputText) {
         if (inputText === '') {
             alert('enter some text');
             return false;
         }
         return true;
-    }
-    function hideListItems(allTodos, completed){
-
-        for (var i = 0; i < allTodos.childNodes.length; i++) {
-            if (allTodos.childNodes[i].firstChild.checked === completed) {
-                allTodos.childNodes[i].classList.add('hide-task');
-            }
-            else {
-                allTodos.childNodes[i].classList.remove('hide-task');
-            }
-        }
     }
 }

@@ -86,10 +86,10 @@ input[type=checkbox]:checked + label {
   font-style: normal;
   text-decoration: line-through;
 }
-.all-tasks-btn:active, .completed-tasks-btn:active, .uncompleted-tasks-btn:active{
+
+.all-tasks-btn:active, .completed-tasks-btn:active, .uncompleted-tasks-btn:active {
   background-color: bisque;
 }
-
 
 //.completed-tasks li input[type=checkbox]:checked {
 //  display: block;
@@ -107,15 +107,28 @@ input[type=checkbox]:checked + label {
 //  display: none;
 //}
 
-.completed-tasks .hide-task {
+//li {
+//  display: none;
+//}
+.completed-tasks li {
+  display: none;
+}
+.completed-tasks .completed-task {
+  display: block;
+}
+
+
+
+.uncompleted-tasks li {
+  display: block;
+}
+
+.uncompleted-tasks .completed-task {
   display: none;
 }
 
-.uncompleted-tasks .hide-task {
-  display: none;
-}
+.todos-list {
 
-.hide-task {
   display: block;
 }
 
