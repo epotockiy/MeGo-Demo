@@ -1,0 +1,122 @@
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+  display: block;
+
+}
+
+input[type="text"] {
+  margin: 0;
+  font-size: 18px;
+  line-height: 18px;
+  height: 18px;
+  padding: 0px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  font-family: Lato, sans-serif;
+  color: #888;
+}
+
+//input[type="text"]:focus {
+//  color: #333;
+//}
+
+/* New Task */
+//label[for='new-task'] {
+//  display: block;
+//  margin: 0 0 0px;
+//}
+//input#new-task {
+//  float: left;
+//  width: 318px;
+//}
+//p > button:hover {
+//  color: #0FC57C;
+//}
+
+/* Task list */
+li * {
+
+}
+
+li {
+
+  padding: 0px 0;
+
+}
+
+//li > input[type="checkbox"] {
+//  margin: 0 10px;
+//  position: relative;
+//  top: 15px;
+//}
+li > label {
+  font-size: 18px;
+  line-height: 40px;
+  width: 237px;
+  padding: 0 0 0 0px;
+}
+
+li > input[type="text"] {
+  width: 222px;
+}
+
+/* Edit Task */
+ul li input[type=text] {
+  display: none;
+}
+
+ul li.editMode input[type=text] {
+  display: block;
+
+}
+
+ul li.editMode label {
+  display: none;
+}
+
+input[type=checkbox] + label {
+  text-decoration: none;
+}
+
+input[type=checkbox]:checked + label {
+  color: #f00;
+  font-style: normal;
+  text-decoration: line-through;
+}
+.all-tasks-btn:active, .completed-tasks-btn:active, .uncompleted-tasks-btn:active{
+  background-color: bisque;
+}
+
+
+//.completed-tasks li input[type=checkbox]:checked {
+//  display: block;
+//}
+//
+//.completed-tasks li input[type=checkbox] {
+//  display: none;
+//}
+//
+//.uncompleted-tasks {
+//  display: block;
+//}
+//
+//.uncompleted-tasks li input[type=checkbox]:checked {
+//  display: none;
+//}
+
+.completed-tasks .hide-task {
+  display: none;
+}
+
+.uncompleted-tasks .hide-task {
+  display: none;
+}
+
+.hide-task {
+  display: block;
+}
+
+
