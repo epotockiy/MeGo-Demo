@@ -42,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/task_2_MoGo_WebPage/app/scss/sections/_blog.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-872">
-              <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+              <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -153,6 +153,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/task-2/node_modules" />
     <handled-path value="$PROJECT_DIR$/task_2_MoGo_WebPage/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
@@ -468,7 +469,7 @@
     <entry file="file://$PROJECT_DIR$/task_2_MoGo_WebPage/app/scss/sections/_blog.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-872">
-          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
           <folding />
         </state>
       </provider>
