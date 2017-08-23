@@ -1,0 +1,15 @@
+React address list
+
+Estimated hours:
+
+- investigate Leaflet api: 4h;
+- set up workflow environment(create react app, include neccessary libs): 3h;
+- set up redux reducers with localstorage: 3h;
+- implement accordion component: 4h;
+- implement address component: 6h;
+- implement map component: 6h;
+- implement communication between acordion and map compnents: 4h;
+
+=============================================================================
+
+Total: 30h. 
