@@ -10,6 +10,8 @@
     "build:prod": "webpack -p"
   },
   "dependencies": {
+    "geosearch": "^0.3.0",
+    "leaflet-geosearch": "^2.5.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-addons-transition-group": "^15.6.0",
