@@ -1,6 +1,6 @@
-import React     from 'react';
-import Accordion from './components/Accordion';
-import { Map   } from './components/Map';
+import React      from 'react';
+import Accordion  from './components/Accordion';
+import AddressMap from './components/AddressMap';
 
 export const Root = () => {
   return (
@@ -9,8 +9,8 @@ export const Root = () => {
         <div className='col-md-5 col-sm-12'>
           <Accordion />
         </div>
-        <div className='col-md-7 col-sm-12'>
-          <Map />
+        <div className='col-md-7 col-sm-12' style={{position: 'absolute', height: '100%', right: 0}}>
+          <AddressMap />
         </div>
       </div>
     </div>
