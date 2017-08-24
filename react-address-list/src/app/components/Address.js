@@ -24,6 +24,8 @@ class Address extends React.Component {
         || props.addresses[props.index].address.hamlet
         || props.addresses[props.index].address.town
         || props.addresses[props.index].address.residential
+        || props.addresses[props.index].address.city_district
+        || props.addresses[props.index].address.village
         || 'No city added',
       streetInput: props.addresses[props.index].address.road
         || 'No street added',
@@ -67,6 +69,8 @@ class Address extends React.Component {
             || this.props.addresses[index].address.hamlet
             || this.props.addresses[index].address.town
             || this.props.addresses[index].address.residential
+            || this.props.addresses[index].address.city_district
+            || this.props.addresses[index].address.village
             || 'No city added',
           streetInput: this.props.addresses[this.props.index].address.road
             || 'No street added',

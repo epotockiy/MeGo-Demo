@@ -3,7 +3,9 @@ import {
   SET_ADDRESSES,
   SET_ADDRESS,
   SET_POSSIBLE_ADDRESSES,
-  REQUEST_DATA, SET_IS_ADDRESS_OPEN
+  SET_COORDINATE_SEARCH_ADDRESS,
+  SET_IS_ADDRESS_OPEN,
+  REQUEST_DATA
 } from '../constants/actionTypes';
 
 export function requestData() {
@@ -53,6 +55,23 @@ export function getAddressesByName(type, query) {
     return fetch('http://nominatim.openstreetmap.org/search?format=json&' + type + '=' + query + '&limit=10&addressdetails=1')
       .then(result => result.json())
       .then(addresses => dispatch(setPossibleAddresses(addresses)));
+  };
+}
+
+function _setCoordinateSearchAddress(address) {
+  return {
+    type: SET_COORDINATE_SEARCH_ADDRESS,
+    payload: address
+  };
+}
+
+export function getAddressByCoordinates(lat, lon) {
+  return (dispatch) => {
+    dispatch(requestData());
+
+    return fetch('http://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lon + '&zoom=10&addressdetails=1')
+      .then(result => result.json())
+      .then(address => dispatch(_setCoordinateSearchAddress(address)));
   };
 }
 

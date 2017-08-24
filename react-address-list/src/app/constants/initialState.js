@@ -1,8 +1,9 @@
 export const initialState = {
   isFetching: false,
   currentAddress: 0,
-  isAddressOpen: [false, false, false],
+  isAddressOpen: [true, false, false],
   possibleAddresses: [],
+  coordinateSearchAddress: {},
   addresses: [
     {
       address: {

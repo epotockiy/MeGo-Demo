@@ -11,11 +11,21 @@ class AddressMap extends React.Component {
     console.log(props);
   }
 
+  getNewAddress(event) {
+    console.log(event);
+
+    this.props.getAddressByCoordinates(event.target.options.position[0], event.target.options.position[1])
+      .then(() => {
+        console.log(this.props.coordinateSearchAddress);
+        this.props.setAddress(this.props.coordinateSearchAddress, this.props.currentAddress);
+      });
+  }
+
   render() {
     return (
       <Map
         style={{width: '100%', height: '100%'}}
-        zoom={13}
+        zoom={14}
         center={[
           parseFloat(this.props.addresses[this.props.currentAddress].lat),
           parseFloat(this.props.addresses[this.props.currentAddress].lon)
@@ -26,18 +36,25 @@ class AddressMap extends React.Component {
           attribution='&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors'
         />
 
-        <Marker position={[
-          parseFloat(this.props.addresses[this.props.currentAddress].lat),
-          parseFloat(this.props.addresses[this.props.currentAddress].lon)
-        ]}/>
+        <Marker
+          position={[
+            parseFloat(this.props.addresses[this.props.currentAddress].lat),
+            parseFloat(this.props.addresses[this.props.currentAddress].lon)
+          ]}
+          draggable={true}
+          ondragend={(e) => this.getNewAddress(e)}
+        />
       </Map>
     );
   }
 }
 
 AddressMap.propTypes = {
-  addresses:      PropTypes.array,
-  currentAddress: PropTypes.number
+  addresses:               PropTypes.array,
+  currentAddress:          PropTypes.number,
+  coordinateSearchAddress: PropTypes.object,
+  getAddressByCoordinates: PropTypes.func.isRequired,
+  setAddress:              PropTypes.func.isRequired
 };
 
 AddressMap.defaultProps = {
@@ -47,12 +64,15 @@ AddressMap.defaultProps = {
 
 const mapStateToProps = (state) => {
   return {
-    addresses:      state.Reducer.addresses,
-    currentAddress: state.Reducer.currentAddress
+    addresses:               state.Reducer.addresses,
+    currentAddress:          state.Reducer.currentAddress,
+    coordinateSearchAddress: state.Reducer.coordinateSearchAddress
   };
 };
 
 const mapDispatchToProps = {
+  getAddressByCoordinates: reducerActions.getAddressByCoordinates,
+  setAddress:              reducerActions.setAddress
 };
 
-export default connect(mapStateToProps)(AddressMap);
+export default connect(mapStateToProps, mapDispatchToProps)(AddressMap);

@@ -4,6 +4,7 @@ import {
   SET_ADDRESS,
   SET_POSSIBLE_ADDRESSES,
   SET_IS_ADDRESS_OPEN,
+  SET_COORDINATE_SEARCH_ADDRESS,
   REQUEST_DATA
 } from '../constants/actionTypes';
 import { initialState } from '../constants/initialState';
@@ -54,6 +55,12 @@ const Reducer = (state = initialState, action) => {
         action.payload,
         ...state.isAddressOpen.slice(action.index + 1, state.isAddressOpen.length)
       ]
+    };
+
+  case SET_COORDINATE_SEARCH_ADDRESS:
+    return {
+      ...state,
+      coordinateSearchAddress: action.payload
     };
 
   default:
