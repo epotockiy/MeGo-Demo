@@ -1,35 +1,63 @@
 import {
-  SET_CURRENT_ADDRESS
+  SET_CURRENT_ADDRESS,
+  SET_ADDRESSES,
+  SET_ADDRESS,
+  SET_POSSIBLE_ADDRESSES,
+  SET_IS_ADDRESS_OPEN,
+  REQUEST_DATA
 } from '../constants/actionTypes';
+import { initialState } from '../constants/initialState';
 
-const initialState = {
-  currentAddress: 0,
-  addresses: [
-    {
-      x: 53.915089,                      // lon,
-      y: 27.483773,                      // lat,
-      label: 'улица Матусевича 13',      // formatted address
-      bounds: [
-        [53, 54],             // s, w - lat, lon
-        [27, 28],             // n, e - lat, lon
-      ],
-      raw: {}
-    }
-  ]
-};
-
-const Reducer = (
-  state = initialState,
-  action) => {
+const Reducer = (state = initialState, action) => {
   switch(action.type) {
-    case SET_CURRENT_ADDRESS:
-      return {
-        ...state,
-        currentAddress: action.payload
-      };
 
-    default:
-      return state;
+  case REQUEST_DATA:
+    return {
+      ...state,
+      isFetching: true
+    };
+
+  case SET_CURRENT_ADDRESS:
+    return {
+      ...state,
+      currentAddress: action.payload
+    };
+
+  case SET_ADDRESSES:
+    return {
+      ...state,
+      addresses: action.payload,
+      isFetching: false
+    };
+
+  case SET_ADDRESS:
+    return {
+      ...state,
+      addresses: [
+        ...state.addresses.slice(0, action.index),
+        action.payload,
+        ...state.addresses.slice(action.index + 1, state.addresses.length)
+      ]
+    };
+
+  case SET_POSSIBLE_ADDRESSES:
+    return {
+      ...state,
+      possibleAddresses: action.payload
+    };
+
+  case SET_IS_ADDRESS_OPEN:
+    return {
+      ...state,
+      isAddressOpen: [
+        ...state.isAddressOpen.slice(0, action.index),
+        action.payload,
+        ...state.isAddressOpen.slice(action.index + 1, state.isAddressOpen.length)
+      ]
+    };
+
+  default:
+    return state;
   }
 };
 

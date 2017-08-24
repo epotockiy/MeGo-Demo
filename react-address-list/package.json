@@ -33,6 +33,7 @@
     "eslint": "^4.4.1",
     "eslint-plugin-react": "^7.2.1",
     "node-sass": "^4.5.3",
+    "react-autocomplete": "^1.7.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.4.1",
