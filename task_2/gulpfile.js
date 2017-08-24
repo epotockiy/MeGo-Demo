@@ -9,9 +9,9 @@
 var config = {
     jsConcatFiles: [
 
-        './app/js/LocalStorageService.js',
-        './app/js/TodoList.js',
-        './app/js/Main.js'
+
+        './app/js/TodoList.js'
+
 
     ], buildFilesFoldersRemove: [
         'build/scss/',

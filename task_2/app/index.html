@@ -9,14 +9,14 @@
 <body>
 <div class="wrapper">
     <h1>Todo list app</h1>
-    <div>
+    <div class="todo-manager">
         <form>
             <input class="task-input" type="text" name="task" placeholder="New task"/>
-            <input class="add-button" type="button" value="Add"/>
+            <input class="add-button" data-action="addNewTodo" type="button" value="Add"/>
         </form>
-        <input class="all-tasks-btn" type="button" value="All">
-        <input class="completed-tasks-btn" type="button" value="completed tasks" >
-        <input class="uncompleted-tasks-btn" type="button" value="uncompleted-tasks">
+        <input class="all-tasks-btn" type="button" data-action="showTodosList" value="All">
+        <input class="completed-tasks-btn" type="button"  data-action="hideUncompletedTodos" value="completed tasks" >
+        <input class="uncompleted-tasks-btn" type="button" data-action="hideCompletedTodos" value="uncompleted-tasks">
     </div>
     <ul class="todos-list">
 
