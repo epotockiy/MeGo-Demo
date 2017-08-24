@@ -6,10 +6,10 @@ export const Root = () => {
   return (
     <div className='container-fluid'>
       <div className='row'>
-        <div className='col-md-4 col-sm-12'>
+        <div className='col-md-5 col-sm-12'>
           <Accordion />
         </div>
-        <div className='col-md-8 col-sm-12'>
+        <div className='col-md-7 col-sm-12'>
           <Map />
         </div>
       </div>

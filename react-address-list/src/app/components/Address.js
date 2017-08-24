@@ -19,9 +19,16 @@ class Address extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
 
     this.state = {
-      cityInput: props.addresses[props.index].address.city || 'No city available',
-      streetInput: props.addresses[props.index].address.road || 'No street available',
-      zipInput: props.addresses[props.index].address.postcode || 'No zip code available'
+      cityInput: props.addresses[props.index].address.city
+        || props.addresses[props.index].address.suburb
+        || props.addresses[props.index].address.hamlet
+        || props.addresses[props.index].address.town
+        || props.addresses[props.index].address.residential
+        || 'No city added',
+      streetInput: props.addresses[props.index].address.road
+        || 'No street added',
+      zipInput: props.addresses[props.index].address.postcode
+        || 'No zip code added'
     };
   }
 
@@ -50,14 +57,23 @@ class Address extends React.Component {
     this.callSearch(event, field);
   }
 
-  onSelectPossible(address) {
-    this.props.setAddress(address, this.props.index);
-    console.log(this.props.addresses);
-    this.setState({
-      cityInput: this.props.addresses[this.props.index].address.city || 'No city available',
-      streetInput: this.props.addresses[this.props.index].address.road || 'No street available',
-      zipInput: this.props.addresses[this.props.index].address.postcode || 'No zip code available'
-    });
+  onSelectAddress(address, index) {
+    this.props.setAddress(address, index)
+      .then(() => {
+        console.log(this.props.addresses);
+        this.setState({
+          cityInput: this.props.addresses[index].address.city
+            || this.props.addresses[index].address.suburb
+            || this.props.addresses[index].address.hamlet
+            || this.props.addresses[index].address.town
+            || this.props.addresses[index].address.residential
+            || 'No city added',
+          streetInput: this.props.addresses[this.props.index].address.road
+            || 'No street added',
+          zipInput: this.props.addresses[this.props.index].address.postcode
+            || 'No zip code added'
+        });
+      });
   }
 
   render() {
@@ -69,57 +85,69 @@ class Address extends React.Component {
             selectOnBlur={true}
             getItemValue={(item) => item.display_name}
             items={this.props.possibleAddresses}
-            renderItem={(item) =>
-              <a href="#" className="list-group-item list-group-item-action">{item.display_name}</a>
-            }
             value={this.state.cityInput}
+            onSelect={(value, state) => this.onSelectAddress(state, this.props.index) }
             onChange={(event) => this.handleInputChange(event, 'cityInput')}
+            renderItem={(item) =>
+              <a href="#" className="list-group-item list-group-item-action">
+                {item.display_name}
+              </a>
+            }
             inputProps={{
               className: 'form-control',
               id: 'city'
             }}
-            wrapperStyle={{'width': '100%'}}
-            renderMenu={(items, value) => (
-              <div className="list-group">
-                {value === '' ? (
-                  <div className="alert alert-warning">Enter city name</div>
-                ) : items.length === 0 ? null : (
-                  <div className='list-group'>
-                    {this.props.possibleAddresses.map((address, index) => {
-                      return (
-                        <a
-                          key={index}
-                          href="#"
-                          onClick={() => this.onSelectPossible(address)}
-                          className="list-group-item list-group-item-action">
-                          {address.display_name}
-                        </a>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            )}
+            wrapperStyle={{
+              overflow: 'hidden'
+            }}
           />
         </FormGroup>
+
         <FormGroup>
           <Label for='street'>Street</Label>
-          <Input
-            id='street'
-            type='text'
-            placeholder='Enter  street...'
+          <Autocomplete
+            selectOnBlur={true}
+            getItemValue={(item) => item.display_name}
+            items={this.props.possibleAddresses}
             value={this.state.streetInput}
+            onSelect={(value, state) => this.onSelectAddress(state, this.props.index) }
             onChange={(event) => this.handleInputChange(event, 'streetInput')}
+            renderItem={(item) =>
+              <a href="#" className="list-group-item list-group-item-action">
+                {item.display_name}
+              </a>
+            }
+            inputProps={{
+              className: 'form-control',
+              id: 'street'
+            }}
+            wrapperStyle={{
+              overflow: 'hidden'
+            }}
           />
         </FormGroup>
+
         <FormGroup>
           <Label for='zip'>ZIP</Label>
-          <Input
-            id='zip'
-            type='text'
-            placeholder='Enter  street...'
+          <Autocomplete
+            selectOnBlur={true}
+            getItemValue={(item) => item.display_name}
+            items={this.props.possibleAddresses}
             value={this.state.zipInput}
+            onSelect={(value, state) => this.onSelectAddress(state, this.props.index) }
             onChange={(event) => this.handleInputChange(event, 'zipInput')}
+            renderItem={(item) =>
+              <a href="#" className="list-group-item list-group-item-action">
+                {item.display_name}
+              </a>
+            }
+            inputProps={{
+              className: 'form-control',
+              id: 'zip'
+            }}
+            wrapperStyle={{
+              overflow: 'hidden'
+            }}
           />
         </FormGroup>
       </Form>
@@ -137,7 +165,6 @@ Address.propTypes = {
 
 Address.defaultProps = {
   index: 0,
-  isFetching: false,
   addresses: [],
   possibleAddresses: []
 };

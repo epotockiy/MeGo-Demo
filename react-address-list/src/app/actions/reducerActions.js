@@ -27,10 +27,15 @@ export function setAddresses(addresses) {
 }
 
 export function setAddress(address, index) {
-  return {
-    type: SET_ADDRESS,
-    payload: address,
-    index: index
+  return (dispatch) => {
+    return new Promise((resolve, reject) => {
+      dispatch({
+        type: SET_ADDRESS,
+        payload: address,
+        index: index
+      });
+      resolve();
+    });
   };
 }
 

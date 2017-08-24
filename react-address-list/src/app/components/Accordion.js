@@ -1,49 +1,41 @@
-import React   from 'react';
-import Address from './Address';
+import React               from 'react';
+import PropTypes           from 'prop-types';
+import Address             from './Address';
+import { connect         } from 'react-redux';
+import * as reducerActions from './../actions/reducerActions';
 import {
   Button,
   Collapse
 } from 'reactstrap';
-import * as reducerActions from './../actions/reducerActions';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
-class Accordion extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  onCollapseButtonClick(index) {
-    this.props.setIsAddressOpen(this.props.currentAddress, false);
-    this.props.setIsAddressOpen(index, !this.props.isAddressOpen[index]);
-    this.props.setCurrentAddress(index);
-  }
-
-  render() {
-    return (
-      <div className='container'>
-        {this.props.addresses.map((address, index) => {
-          return (
-            <div key={index} className='mt-3 mb-2'>
-              <Button block color="info" onClick={() => this.onCollapseButtonClick(index)}>
-                {address.address.city ? address.address.city + ', ' : null}
-                {address.address.state ? address.address.state + ', ' : null}
-                {address.address.country ? address.address.country : null}
-              </Button>
-              <Collapse
-                isOpen={this.props.isAddressOpen[index]}
-                onOpened={() => this.props.setIsAddressOpen(index, true)}
-                onClosed={() => this.props.setIsAddressOpen(index, false)}
-              >
-                <Address index={index} />
-              </Collapse>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
-}
+const Accordion = (props) => {
+  return (
+    <div className='container'>
+      {props.addresses.map((address, index) => {
+        return (
+          <div key={index} className='mt-3 mb-2'>
+            <Button block color="info" onClick={() => {
+              props.setIsAddressOpen(props.currentAddress, false);
+              props.setIsAddressOpen(index, !props.isAddressOpen[index]);
+              props.setCurrentAddress(index);
+            }}>
+              {address.address.city ? address.address.city + ', ' : null}
+              {address.address.state ? address.address.state + ', ' : null}
+              {address.address.country ? address.address.country : null}
+            </Button>
+            <Collapse
+              isOpen={props.isAddressOpen[index]}
+              onOpened={() => props.setIsAddressOpen(index, true)}
+              onClosed={() => props.setIsAddressOpen(index, false)}
+            >
+              <Address index={index} />
+            </Collapse>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 Accordion.propTypes = {
   currentAddress:    PropTypes.number,
