@@ -9,7 +9,7 @@ export const Root = () => {
         <div className='col-md-5 col-sm-12'>
           <Accordion />
         </div>
-        <div className='col-md-7 col-sm-12' style={{position: 'absolute', height: '100%', right: 0}}>
+        <div className='col-md-7 col-sm-12'>
           <AddressMap />
         </div>
       </div>

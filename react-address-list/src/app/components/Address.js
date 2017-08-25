@@ -22,7 +22,8 @@ class Address extends React.Component {
     this.state = this.getCurrentFormState(props);
   }
 
-  getCurrentFormState(props) {
+  getCurrentFormState(props, isEditing = false) {
+    console.log(props.addresses[props.index].address);
     return {
       cityInput: props.addresses[props.index].address.city
       || props.addresses[props.index].address.suburb
@@ -32,17 +33,21 @@ class Address extends React.Component {
       || props.addresses[props.index].address.city_district
       || props.addresses[props.index].address.village
       || 'No city added',
-      streetInput: props.addresses[props.index].address.road
-      || 'No street added',
+      addressInput:
+        ((props.addresses[props.index].address.address29 ? (props.addresses[props.index].address.address29) : '')
+      + (props.addresses[props.index].address.road ? (props.addresses[props.index].address.road) : '')
+      + (props.addresses[props.index].address.house_number ? (', ' + props.addresses[props.index].address.house_number) : '')
+      + (props.addresses[props.index].address.neighbourhood ? (', ' + props.addresses[props.index].address.neighbourhood) : ''))
+        || 'No address added',
       zipInput: props.addresses[props.index].address.postcode
       || 'No zip code added',
-      isEditing: false
+      isEditing: isEditing
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.addresses[this.props.index].display_name !== nextProps.addresses[nextProps.index].display_name) {
-      this.setState(this.getCurrentFormState(nextProps));
+      this.setState(this.getCurrentFormState(nextProps, true));
     }
   }
 
@@ -55,7 +60,7 @@ class Address extends React.Component {
           });
       }
 
-      if (field === 'streetInput') {
+      if (field === 'addressInput') {
         this.props.getAddressesByName('street', event.target.value);
       }
 
@@ -77,7 +82,7 @@ class Address extends React.Component {
   onSelectAddress(address, index) {
     this.props.setAddress(address, index)
       .then(() => {
-        this.setState(this.getCurrentFormState(this.props));
+        this.setState(this.getCurrentFormState(this.props, true));
       });
   }
 
@@ -97,7 +102,7 @@ class Address extends React.Component {
           </Button>
         </FormGroup>
         <FormGroup>
-          <Label for='city'>City: </Label>
+          <Label for='city'>City</Label>
           <Autocomplete
             selectOnBlur={true}
             getItemValue={(item) => item.display_name}
@@ -129,14 +134,14 @@ class Address extends React.Component {
         </FormGroup>
 
         <FormGroup>
-          <Label for='street'>Street</Label>
+          <Label for='address'>Address</Label>
           <Autocomplete
             selectOnBlur={true}
             getItemValue={(item) => item.display_name}
             items={this.props.possibleAddresses}
-            value={this.state.streetInput}
+            value={this.state.addressInput}
             onSelect={(value, state) => this.onSelectAddress(state, this.props.index) }
-            onChange={(event) => this.handleInputChange(event, 'streetInput')}
+            onChange={(event) => this.handleInputChange(event, 'addressInput')}
             renderItem={(item) =>
               <a href="#" className="list-group-item list-group-item-action">
                 {item.display_name}
@@ -144,7 +149,7 @@ class Address extends React.Component {
             }
             inputProps={{
               className: 'form-control',
-              id: 'street',
+              id: 'address',
               disabled: !this.state.isEditing
             }}
             wrapperStyle={{
@@ -200,8 +205,10 @@ Address.propTypes = {
   index:              PropTypes.number,
   addresses:          PropTypes.array,
   possibleAddresses:  PropTypes.array,
+  coordinateSearchAddress: PropTypes.object,
   getAddressesByName: PropTypes.func.isRequired,
-  setAddress:         PropTypes.func.isRequired
+  setAddress:         PropTypes.func.isRequired,
+  getAddressByCoordinates: PropTypes.func.isRequired
 };
 
 Address.defaultProps = {
@@ -213,13 +220,15 @@ Address.defaultProps = {
 const mapStateToProps = (state) => {
   return {
     addresses:         state.Reducer.addresses,
-    possibleAddresses: state.Reducer.possibleAddresses
+    possibleAddresses: state.Reducer.possibleAddresses,
+    coordinateSearchAddress: state.Reducer.coordinateSearchAddress
   };
 };
 
 const mapDispatchToProps = {
   getAddressesByName: reducerActions.getAddressesByName,
-  setAddress:         reducerActions.setAddress
+  setAddress:         reducerActions.setAddress,
+  getAddressByCoordinates: reducerActions.getAddressByCoordinates
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Address);

@@ -35,10 +35,23 @@ export function setPossibleAddresses(addresses) {
 
 export function getAddressesByName(type, query) {
   return (dispatch) => {
-    // return fetch('http://nominatim.openstreetmap.org/search?format=json&' + type + '=' + query + '&limit=10&addressdetails=1')
-    return fetch('http://nominatim.openstreetmap.org/search/' + query + '?format=json&addressdetails=1&limit=10&polygon_svg=1')
+    return fetch('http://nominatim.openstreetmap.org/search?format=json&' + type + '=' + query + '&limit=10&addressdetails=1')
       .then(result => result.json())
-      .then(addresses => dispatch(setPossibleAddresses(addresses)));
+      .then((addresses) => {
+        for (let i = 0; i < addresses.length; ++i) {
+          fetch('http://nominatim.openstreetmap.org/reverse?format=json&lat=' + addresses[i].lat + '&lon=' + addresses[i].lon + '&zoom=18&addressdetails=1')
+            .then((result) => result.json())
+            .then((newAddress) => {
+              addresses = [
+                ...addresses.slice(0, i),
+                newAddress,
+                ...addresses.slice(i, addresses.length)
+              ];
+              console.log(addresses);
+            });
+        }
+        dispatch(setPossibleAddresses(addresses));
+      });
   };
 }
 
