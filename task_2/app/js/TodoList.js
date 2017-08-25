@@ -11,7 +11,6 @@
             this.targetElement;
             this.action;
         }
-
         TodoList.prototype.initelizeTodosListEvents = function (htmlElement) {
             var self = this;
 
@@ -35,7 +34,6 @@
         TodoList.prototype.cencelEditing = function (htmlElement) {
             var listItem = htmlElement.parentNode;
             listItem.classList.toggle("editMode");
-
         };
         TodoList.prototype.removeTodo = function (htmlElement) {
             var id = htmlElement.parentNode.getAttribute('id');
@@ -50,7 +48,6 @@
             var label = listItem.querySelector("label");
             var containsClass = listItem.classList.contains("editMode");
             var temp = '';
-
             if (checkbox.checked !== true) {
                 temp = editInput.value;
                 if (containsClass) {
