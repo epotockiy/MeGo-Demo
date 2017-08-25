@@ -8,7 +8,8 @@ import {
   Form,
   FormGroup,
   Label,
-  Input
+  Input,
+  Button
 } from 'reactstrap';
 
 class Address extends React.Component {
@@ -34,7 +35,8 @@ class Address extends React.Component {
       streetInput: props.addresses[props.index].address.road
       || 'No street added',
       zipInput: props.addresses[props.index].address.postcode
-      || 'No zip code added'
+      || 'No zip code added',
+      isEditing: false
     };
   }
 
@@ -47,7 +49,10 @@ class Address extends React.Component {
   callSearch(event, field) {
     if (event.target.value.length > 2) {
       if (field === 'cityInput') {
-        this.props.getAddressesByName('city', event.target.value);
+        this.props.getAddressesByName('city', event.target.value)
+          .then(() => {
+            console.log(this.props.possibleAddresses);
+          });
       }
 
       if (field === 'streetInput') {
@@ -79,6 +84,18 @@ class Address extends React.Component {
   render() {
     return (
       <Form className='mt-3'>
+        <FormGroup className='d-flex justify-content-end'>
+          <Button
+            color='info'
+            onClick={() => {
+              this.setState({
+                isEditing: !this.state.isEditing
+              });
+            }}
+          >
+            Edit
+          </Button>
+        </FormGroup>
         <FormGroup>
           <Label for='city'>City: </Label>
           <Autocomplete
@@ -95,7 +112,8 @@ class Address extends React.Component {
             }
             inputProps={{
               className: 'form-control',
-              id: 'city'
+              id: 'city',
+              disabled: !this.state.isEditing
             }}
             wrapperStyle={{
               overflow: 'hidden'
@@ -126,7 +144,8 @@ class Address extends React.Component {
             }
             inputProps={{
               className: 'form-control',
-              id: 'street'
+              id: 'street',
+              disabled: !this.state.isEditing
             }}
             wrapperStyle={{
               overflow: 'hidden'
@@ -157,7 +176,8 @@ class Address extends React.Component {
             }
             inputProps={{
               className: 'form-control',
-              id: 'zip'
+              id: 'zip',
+              disabled: !this.state.isEditing
             }}
             wrapperStyle={{
               overflow: 'hidden'
