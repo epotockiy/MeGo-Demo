@@ -43,7 +43,7 @@
             htmlElement.parentNode.remove();
         };
         TodoList.prototype.editTodo = function (htmlElement) {
-          //  console.log(htmlElement);
+            //  console.log(htmlElement);
             var listItem = htmlElement.parentNode;
             var editInput = listItem.querySelector("input[type=text]");
             var checkbox = listItem.querySelector("input[type=checkbox]");
@@ -71,7 +71,6 @@
             if (htmlElement.checked) {
                 htmlElement.nextSibling.style.textDecoration = 'line-through';
                 htmlElement.parentNode.classList.add('completed-task');
-
                 this.localStorageService.editStatusTodo(htmlElement.parentNode.id, true);
             }
             else {
@@ -141,7 +140,7 @@
         };
 
         TodoList.prototype.listItemGenerator = function (todoText, todoChecked, newId) {
-            var listItem, checkBox, label, editInput, editButton, deleteButton,cancelButton;
+            var listItem, checkBox, label, editInput, editButton, deleteButton, cancelButton;
             listItem = document.createElement("li");
             checkBox = document.createElement("input");
             //label
@@ -150,7 +149,7 @@
             editInput = document.createElement("input");
             //button.edit
             editButton = document.createElement("button");
-            cancelButton=document.createElement("button");
+            cancelButton = document.createElement("button");
             //button.delete
             deleteButton = document.createElement("button");
             checkBox.type = "checkbox";
@@ -249,10 +248,11 @@
         };
         LocalStorageService.prototype.editStatusTodo = function (id, status) {
             this.allTodos = this.getAllTodos();
-
             this.allTodos.forEach(function (obj) {
                 if (obj.id === id) {
+
                     obj.checked = status;
+                    console.log(obj.checked);
                     return;
                 }
             });
