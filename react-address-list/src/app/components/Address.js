@@ -10,7 +10,6 @@ import {
   Label,
   Input
 } from 'reactstrap';
-import { equals } from '../constants/objectEquals';
 
 class Address extends React.Component {
   constructor(props) {
@@ -19,38 +18,29 @@ class Address extends React.Component {
     this.callSearch = debounce(this.callSearch, 400);
     this.handleInputChange = this.handleInputChange.bind(this);
 
-    this.state = {
+    this.state = this.getCurrentFormState(props);
+  }
+
+  getCurrentFormState(props) {
+    return {
       cityInput: props.addresses[props.index].address.city
-        || props.addresses[props.index].address.suburb
-        || props.addresses[props.index].address.hamlet
-        || props.addresses[props.index].address.town
-        || props.addresses[props.index].address.residential
-        || props.addresses[props.index].address.city_district
-        || props.addresses[props.index].address.village
-        || 'No city added',
+      || props.addresses[props.index].address.suburb
+      || props.addresses[props.index].address.hamlet
+      || props.addresses[props.index].address.town
+      || props.addresses[props.index].address.residential
+      || props.addresses[props.index].address.city_district
+      || props.addresses[props.index].address.village
+      || 'No city added',
       streetInput: props.addresses[props.index].address.road
-        || 'No street added',
+      || 'No street added',
       zipInput: props.addresses[props.index].address.postcode
-        || 'No zip code added'
+      || 'No zip code added'
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.addresses[this.props.index].display_name !== nextProps.addresses[nextProps.index].display_name) {
-      this.setState({
-        cityInput: nextProps.addresses[nextProps.index].address.city
-        || nextProps.addresses[nextProps.index].address.suburb
-        || nextProps.addresses[nextProps.index].address.hamlet
-        || nextProps.addresses[nextProps.index].address.town
-        || nextProps.addresses[nextProps.index].address.residential
-        || nextProps.addresses[nextProps.index].address.city_district
-        || nextProps.addresses[nextProps.index].address.village
-        || 'No city added',
-        streetInput: nextProps.addresses[nextProps.index].address.road
-        || 'No street added',
-        zipInput: nextProps.addresses[nextProps.index].address.postcode
-        || 'No zip code added'
-      });
+      this.setState(this.getCurrentFormState(nextProps));
     }
   }
 
@@ -82,20 +72,7 @@ class Address extends React.Component {
   onSelectAddress(address, index) {
     this.props.setAddress(address, index)
       .then(() => {
-        this.setState({
-          cityInput: this.props.addresses[index].address.city
-            || this.props.addresses[index].address.suburb
-            || this.props.addresses[index].address.hamlet
-            || this.props.addresses[index].address.town
-            || this.props.addresses[index].address.residential
-            || this.props.addresses[index].address.city_district
-            || this.props.addresses[index].address.village
-            || 'No city added',
-          streetInput: this.props.addresses[this.props.index].address.road
-            || 'No street added',
-          zipInput: this.props.addresses[this.props.index].address.postcode
-            || 'No zip code added'
-        });
+        this.setState(this.getCurrentFormState(this.props));
       });
   }
 
