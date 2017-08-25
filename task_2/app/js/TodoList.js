@@ -27,7 +27,15 @@
                 else if (self.targetElement.getAttribute('class') === 'delete') {
                     self.removeTodo(self.targetElement);
                 }
+                else if (self.targetElement.getAttribute('class') === 'cancel') {
+                    self.cencelEditing(self.targetElement);
+                }
             })
+        };
+        TodoList.prototype.cencelEditing = function (htmlElement) {
+            var listItem = htmlElement.parentNode;
+            listItem.classList.toggle("editMode");
+
         };
         TodoList.prototype.removeTodo = function (htmlElement) {
             var id = htmlElement.parentNode.getAttribute('id');
@@ -35,34 +43,27 @@
             htmlElement.parentNode.remove();
         };
         TodoList.prototype.editTodo = function (htmlElement) {
+          //  console.log(htmlElement);
             var listItem = htmlElement.parentNode;
             var editInput = listItem.querySelector("input[type=text]");
             var checkbox = listItem.querySelector("input[type=checkbox]");
             var label = listItem.querySelector("label");
             var editButton = listItem.querySelector('button[class=edit]');
-
-            console.log(editButton);
             var containsClass = listItem.classList.contains("editMode");
             if (checkbox.checked !== true) {
                 if (containsClass) {
                     label.innerText = editInput.value;
-
                     if (validateTextInput(label.innerText)) {
-                        checkbox.disabled = false;
-                        this.localStorageService.editTextTodo(editInput.value, listItem.id);
+                        console.log();
+                        this.localStorageService.editTextTodo(label.innerText, listItem.id);
                     }
                     else {
                         return;
                     }
                 } else {
-
-                    checkbox.disabled = true;
                     editInput.value = label.innerText;
-
                 }
-
                 listItem.classList.toggle("editMode");
-
             }
         };
         TodoList.prototype.changeStatusTodo = function (htmlElement) {
@@ -140,7 +141,7 @@
         };
 
         TodoList.prototype.listItemGenerator = function (todoText, todoChecked, newId) {
-            var listItem, checkBox, label, editInput, editButton, deleteButton;
+            var listItem, checkBox, label, editInput, editButton, deleteButton,cancelButton;
             listItem = document.createElement("li");
             checkBox = document.createElement("input");
             //label
@@ -149,6 +150,7 @@
             editInput = document.createElement("input");
             //button.edit
             editButton = document.createElement("button");
+            cancelButton=document.createElement("button");
             //button.delete
             deleteButton = document.createElement("button");
             checkBox.type = "checkbox";
@@ -157,13 +159,17 @@
             editButton.className = "edit";
             deleteButton.innerText = "Delete";
             deleteButton.className = "delete";
+            cancelButton.innerText = "Cancel";
+            cancelButton.className = "cancel";
             label.innerText = todoText;
             listItem.id = newId;
             listItem.appendChild(checkBox);
             listItem.appendChild(label);
             listItem.appendChild(editInput);
             listItem.appendChild(editButton);
+            listItem.appendChild(cancelButton);
             listItem.appendChild(deleteButton);
+
             if (todoChecked === true) {
                 listItem.classList.add('completed-task');
                 checkBox.checked = true;

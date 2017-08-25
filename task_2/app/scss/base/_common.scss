@@ -112,18 +112,24 @@ input[type=checkbox]:checked + label {
 //}
 .editMode .edit{
   color:transparent;
-  position:relative //carefull
+  //position:relative //carefull
 
 }
-.editMode .edit:after{
-  content: "Confirm";
-  position: absolute;
-  padding-right:5px;
-  display: block;
-  color: black;
-  top: 1px;
-  left: 1px;
+.editMode .edit:before{
+   content: "Confirm";
+   padding-right:5px;
+   display: inline-block;
+   color: black;
+   top: 1px;
+   left: 1px;
+ }
+.cancel {
+  display:none;
 }
+.editMode .cancel{
+  display:inline-block ;
+}
+
 .editMode .delete {
   display:none;
 }
@@ -134,8 +140,9 @@ input[type=checkbox]:checked + label {
 .completed-tasks .completed-task {
   display: block;
 }
-
-
+.editMode input[type=checkbox]{
+  display:none;
+}
 
 .uncompleted-tasks li {
   display: block;
@@ -149,5 +156,31 @@ input[type=checkbox]:checked + label {
 
   display: block;
 }
+/*
+.editMode .edit {
+  color: transparent;
+  //position: relative //carefull
+
+}
+
+.editMode .edit:before {
+  content: "Confirm";
+
+  padding-right: 5px;
+  display: inline-block;
+  color: black;
+  top: 1px;
+  left: 1px;
+}
+
+.editMode .edit:after {
+  content: "Cencel";
+
+  right: 250px;
+  display: inline-block;
+  color: black;
+  top: 1px;
+  left: 1px;
+}*/
 
 
