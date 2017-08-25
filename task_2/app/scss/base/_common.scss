@@ -110,6 +110,24 @@ input[type=checkbox]:checked + label {
 //li {
 //  display: none;
 //}
+.editMode .edit{
+  color:transparent;
+  position:relative //carefull
+
+}
+.editMode .edit:after{
+  content: "Confirm";
+  position: absolute;
+  padding-right:5px;
+  display: block;
+  color: black;
+  top: 1px;
+  left: 1px;
+}
+.editMode .delete {
+  display:none;
+}
+
 .completed-tasks li {
   display: none;
 }
