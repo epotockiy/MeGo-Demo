@@ -11,6 +11,7 @@
             this.targetElement;
             this.action;
         }
+
         TodoList.prototype.initelizeTodosListEvents = function (htmlElement) {
             var self = this;
 
@@ -49,12 +50,14 @@
             var label = listItem.querySelector("label");
             var containsClass = listItem.classList.contains("editMode");
             var temp = '';
+
             if (checkbox.checked !== true) {
                 temp = editInput.value;
                 if (containsClass) {
-                    label.innerText = temp;
                     if (label.innerText !== temp) {
+                        label.innerText = temp;
                         if (validateTextInput(temp)) {
+
                             this.localStorageService.editTextTodo(temp, listItem.id);
                         }
                         else {
@@ -65,8 +68,9 @@
                 else {
                     editInput.value = label.innerText;
                 }
+                listItem.classList.toggle("editMode");
             }
-            listItem.classList.toggle("editMode");
+
         };
         TodoList.prototype.changeStatusTodo = function (htmlElement) {
 
@@ -93,14 +97,15 @@
         };
         TodoList.prototype.addNewTodo = function () {
             var todoText = this.taskInputHtmlElement.value;
+            var newId = getNewId();
             this.taskInputHtmlElement.value = '';
             if (validateTextInput(todoText)) {
                 this.localStorageService.addNewTodo({
                     todoText: todoText,
                     checked: false,
-                    id: getNewId()
+                    id: newId
                 });
-                this.allTodosHtmlElement.appendChild(this.listItemGenerator(todoText, false));
+                this.allTodosHtmlElement.appendChild(this.listItemGenerator(todoText, false, newId));
             }
         };
         function validateTextInput(inputText) {
@@ -166,7 +171,6 @@
             listItem.appendChild(editButton);
             listItem.appendChild(cancelButton);
             listItem.appendChild(deleteButton);
-
             if (todoChecked === true) {
                 listItem.classList.add('completed-task');
                 checkBox.checked = true;
@@ -235,6 +239,7 @@
         };
         LocalStorageService.prototype.editTextTodo = function (editedTodoText, id) {
             this.allTodos = this.getAllTodos();
+            console.log(editedTodoText);
             this.allTodos.forEach(function (obj) {
                 if (obj.id === id) {
                     obj.todoText = editedTodoText;
@@ -248,13 +253,13 @@
             this.allTodos = this.getAllTodos();
             this.allTodos.forEach(function (obj) {
                 if (obj.id === id) {
-
                     obj.checked = status;
                     // console.log(obj.checked);
                     return;
                 }
             });
-
+            // };
+            // this.executeFunction();
             this.writeDataToLocalStorage(this.allTodos);
         };
         function validateLocalStorage() {
