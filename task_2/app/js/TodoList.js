@@ -11,7 +11,6 @@
             this.targetElement;
             this.action;
         }
-
         TodoList.prototype.initelizeTodosListEvents = function (htmlElement) {
             var self = this;
 
@@ -48,23 +47,26 @@
             var editInput = listItem.querySelector("input[type=text]");
             var checkbox = listItem.querySelector("input[type=checkbox]");
             var label = listItem.querySelector("label");
-            var editButton = listItem.querySelector('button[class=edit]');
             var containsClass = listItem.classList.contains("editMode");
+            var temp = '';
             if (checkbox.checked !== true) {
+                temp = editInput.value;
                 if (containsClass) {
-                    label.innerText = editInput.value;
-                    if (validateTextInput(label.innerText)) {
-                        console.log();
-                        this.localStorageService.editTextTodo(label.innerText, listItem.id);
+                    label.innerText = temp;
+                    if (label.innerText !== temp) {
+                        if (validateTextInput(temp)) {
+                            this.localStorageService.editTextTodo(temp, listItem.id);
+                        }
+                        else {
+                            return;
+                        }
                     }
-                    else {
-                        return;
-                    }
-                } else {
+                }
+                else {
                     editInput.value = label.innerText;
                 }
-                listItem.classList.toggle("editMode");
             }
+            listItem.classList.toggle("editMode");
         };
         TodoList.prototype.changeStatusTodo = function (htmlElement) {
 
@@ -78,7 +80,6 @@
                 htmlElement.nextSibling.style.textDecoration = 'none';
                 this.localStorageService.editStatusTodo(htmlElement.parentNode.id, false);
             }
-
         };
         TodoList.prototype.initelizeManagerComponentEvents = function (htmlElement) {
             var self = this;
@@ -109,9 +110,7 @@
             }
             return true;
         };
-
         TodoList.prototype.hideUncompletedTodos = function () {
-
             this.allTodosHtmlElement.classList.remove('uncompleted-tasks');
             this.allTodosHtmlElement.classList.add('completed-tasks');
             // hideListItems(allTodos, false);
@@ -122,23 +121,22 @@
             // hideListItems(allTodos, true);
         };
         TodoList.prototype.showTodosList = function () {
-
             this.allTodos = this.localStorageService.getAllTodos();
             this.allTodosHtmlElement.classList.remove('uncompleted-tasks');
             this.allTodosHtmlElement.classList.remove('completed-tasks');
-            this.buildTodosList(this.allTodos);
+            // this.buildTodosList(this.allTodos);
         };
-        TodoList.prototype.buildTodosList = function (allTodos) {
+        TodoList.prototype.buildTodosList = function () {
+
             this.allTodos = this.localStorageService.getAllTodos();
             // this.allTodosHtmlElement.innerHTML = '';
             var DOMFragment = document.createDocumentFragment();
             for (let key in this.allTodos) {
                 // x = key;
-                DOMFragment.appendChild(this.listItemGenerator(allTodos[key].todoText, allTodos[key].checked, allTodos[key].id));
+                DOMFragment.appendChild(this.listItemGenerator(this.allTodos[key].todoText, this.allTodos[key].checked, this.allTodos[key].id));
             }
             this.allTodosHtmlElement.appendChild(DOMFragment);
         };
-
         TodoList.prototype.listItemGenerator = function (todoText, todoChecked, newId) {
             var listItem, checkBox, label, editInput, editButton, deleteButton, cancelButton;
             listItem = document.createElement("li");
@@ -252,7 +250,7 @@
                 if (obj.id === id) {
 
                     obj.checked = status;
-                    console.log(obj.checked);
+                    // console.log(obj.checked);
                     return;
                 }
             });
@@ -280,5 +278,5 @@
 
     var todoList = new TodoList();
 
-    todoList.showTodosList();
+    todoList.buildTodosList();
 })();
