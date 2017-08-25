@@ -154,6 +154,13 @@ class Address extends React.Component {
             wrapperStyle={{
               overflow: 'hidden'
             }}
+            menuStyle={{
+              zIndex: 401,
+              position: 'absolute',
+              width: '90%',
+              minWidth: 'none',
+              overflowX: 'hidden'
+            }}
           />
         </FormGroup>
 
@@ -177,6 +184,13 @@ class Address extends React.Component {
             }}
             wrapperStyle={{
               overflow: 'hidden'
+            }}
+            menuStyle={{
+              zIndex: 401,
+              position: 'absolute',
+              width: '90%',
+              minWidth: 'none',
+              overflowX: 'hidden'
             }}
           />
         </FormGroup>
