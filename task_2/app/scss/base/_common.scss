@@ -11,22 +11,25 @@ input[type="text"] {
   background: #fff;
   color: #888;
 }
-
+input[type="checkbox"]{
+  display:inline-block;
+}
 /* Task list */
 li {
-  width: 100%;
-  overflow: hidden;
 
 }
 
 li > label {
   font-size: 15px;
-  line-height: 40px;
-  width: 237px;
+
+  display: inline-block;
+  width: 68.2%;
+
+  overflow: auto;
 }
 
 li > input[type="text"] {
-  width: 222px;
+  width: 100%;
 }
 
 /* Edit Task */
@@ -103,8 +106,6 @@ font-size: 15px;
 }
 .todo-manager  {
   margin-bottom:7px;
-
-  //font-size: 15px;
 }
 .todo-manager form {
   text-align: center;
@@ -119,4 +120,7 @@ font-size: 15px;
 .todo-manager >input{
   margin-left: 3px;
   font-size: 14px;
+}
+.edit{
+  display: inline-block;
 }
