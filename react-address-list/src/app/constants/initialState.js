@@ -1,5 +1,4 @@
 export const initialState = {
-  isFetching: false,
   currentAddress: 0,
   isAddressOpen: [true, false, false],
   possibleAddresses: [],

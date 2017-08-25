@@ -1,22 +1,23 @@
 import React               from 'react';
 import PropTypes           from 'prop-types';
-import { Map, TileLayer, Marker, Popup  } from 'react-leaflet';
 import { connect         } from 'react-redux';
 import * as reducerActions from './../actions/reducerActions';
+import {
+  Map,
+  TileLayer,
+  Marker
+} from 'react-leaflet';
 
 class AddressMap extends React.Component {
   constructor(props) {
     super(props);
-
-    console.log(props);
   }
 
   getNewAddress(event) {
-    console.log(event);
-
-    this.props.getAddressByCoordinates(event.target.options.position[0], event.target.options.position[1])
+    this.props.addresses[this.props.currentAddress].lat = event.target.getLatLng().lat;
+    this.props.addresses[this.props.currentAddress].lon = event.target.getLatLng().lng;
+    this.props.getAddressByCoordinates(event.target.getLatLng().lat, event.target.getLatLng().lng)
       .then(() => {
-        console.log(this.props.coordinateSearchAddress);
         this.props.setAddress(this.props.coordinateSearchAddress, this.props.currentAddress);
       });
   }
@@ -25,10 +26,15 @@ class AddressMap extends React.Component {
     return (
       <Map
         style={{width: '100%', height: '100%'}}
-        zoom={14}
-        center={[
-          parseFloat(this.props.addresses[this.props.currentAddress].lat),
-          parseFloat(this.props.addresses[this.props.currentAddress].lon)
+        bounds={[
+          [
+            parseFloat(this.props.addresses[this.props.currentAddress].boundingbox[0]),
+            parseFloat(this.props.addresses[this.props.currentAddress].boundingbox[2])
+          ],
+          [
+            parseFloat(this.props.addresses[this.props.currentAddress].boundingbox[1]),
+            parseFloat(this.props.addresses[this.props.currentAddress].boundingbox[3])
+          ]
         ]}
       >
         <TileLayer
@@ -59,7 +65,8 @@ AddressMap.propTypes = {
 
 AddressMap.defaultProps = {
   addresses: [],
-  currentAddress: 0
+  currentAddress: 0,
+  isFetching: false
 };
 
 const mapStateToProps = (state) => {

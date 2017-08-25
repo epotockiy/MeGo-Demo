@@ -1,12 +1,9 @@
-import React               from 'react';
-import PropTypes           from 'prop-types';
-import Address             from './Address';
-import { connect         } from 'react-redux';
-import * as reducerActions from './../actions/reducerActions';
-import {
-  Button,
-  Collapse
-} from 'reactstrap';
+import React                from 'react';
+import PropTypes            from 'prop-types';
+import Address              from './Address';
+import { connect          } from 'react-redux';
+import { Button, Collapse } from 'reactstrap';
+import * as reducerActions  from './../actions/reducerActions';
 
 const Accordion = (props) => {
   return (
@@ -28,7 +25,7 @@ const Accordion = (props) => {
               onOpened={() => props.setIsAddressOpen(index, true)}
               onClosed={() => props.setIsAddressOpen(index, false)}
             >
-              <Address index={index} />
+              <Address address={address} index={index} />
             </Collapse>
           </div>
         );
@@ -38,7 +35,7 @@ const Accordion = (props) => {
 };
 
 Accordion.propTypes = {
-  currentAddress:    PropTypes.number,
+  currentAddress:    PropTypes.number,/*Why eslint shows error here?*/
   addresses:         PropTypes.array,
   isAddressOpen:     PropTypes.array,
   setIsAddressOpen:  PropTypes.func.isRequired,

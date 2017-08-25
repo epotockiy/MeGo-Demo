@@ -10,6 +10,7 @@ import {
   Label,
   Input
 } from 'reactstrap';
+import { equals } from '../constants/objectEquals';
 
 class Address extends React.Component {
   constructor(props) {
@@ -32,6 +33,25 @@ class Address extends React.Component {
       zipInput: props.addresses[props.index].address.postcode
         || 'No zip code added'
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.addresses[this.props.index].display_name !== nextProps.addresses[nextProps.index].display_name) {
+      this.setState({
+        cityInput: nextProps.addresses[nextProps.index].address.city
+        || nextProps.addresses[nextProps.index].address.suburb
+        || nextProps.addresses[nextProps.index].address.hamlet
+        || nextProps.addresses[nextProps.index].address.town
+        || nextProps.addresses[nextProps.index].address.residential
+        || nextProps.addresses[nextProps.index].address.city_district
+        || nextProps.addresses[nextProps.index].address.village
+        || 'No city added',
+        streetInput: nextProps.addresses[nextProps.index].address.road
+        || 'No street added',
+        zipInput: nextProps.addresses[nextProps.index].address.postcode
+        || 'No zip code added'
+      });
+    }
   }
 
   callSearch(event, field) {
@@ -62,7 +82,6 @@ class Address extends React.Component {
   onSelectAddress(address, index) {
     this.props.setAddress(address, index)
       .then(() => {
-        console.log(this.props.addresses);
         this.setState({
           cityInput: this.props.addresses[index].address.city
             || this.props.addresses[index].address.suburb
@@ -103,6 +122,13 @@ class Address extends React.Component {
             }}
             wrapperStyle={{
               overflow: 'hidden'
+            }}
+            menuStyle={{
+              zIndex: 401,
+              position: 'absolute',
+              width: '90%',
+              minWidth: 'none',
+              overflowX: 'hidden'
             }}
           />
         </FormGroup>
