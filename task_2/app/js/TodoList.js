@@ -4,6 +4,9 @@
             this.allTodosHtmlElement = baseHtmlElement.getElementsByClassName('todos-list')[0];
             this.taskInputHtmlElement = baseHtmlElement.getElementsByClassName('task-input')[0];
             this.todoManagerHtmlElement = baseHtmlElement.getElementsByClassName('todo-manager')[0];
+            this.allTaskButton = baseHtmlElement.getElementsByClassName('all-tasks-btn')[0];
+            this.completedTaskButton = baseHtmlElement.getElementsByClassName('completed-tasks-btn')[0];
+            this.unCompletedTaskButton = baseHtmlElement.getElementsByClassName('uncompleted-tasks-btn')[0];
             this.allTodos = baseHtmlElement.getElementsByClassName('todo-manager')[0];
             this.localStorageService = new LocalStorageService(pluginNumber);
             this.targetElement = null;
@@ -85,6 +88,7 @@
             if (htmlElement.checked) {
                 // htmlElement.nextSibling.style.textDecoration = 'line-through';//change this with css
                 htmlElement.parentNode.classList.add('completed-task');
+
                 this.localStorageService.editStatusTodo(htmlElement.parentNode.id, true);
             }
             else {
@@ -127,13 +131,22 @@
             return true;
         };
         TodoList.prototype.applyUncompletedTaskFilter = function () {
+            this.allTaskButton.classList.remove('active-filter');
+            this.completedTaskButton.classList.remove('active-filter');
+            this.unCompletedTaskButton.classList.add('active-filter');
             removeEditModeClass(this.allTodosHtmlElement.childNodes);
             this.hideCompletedTodos();
 
         };
         TodoList.prototype.applyCompletedTaskFilter = function () {
+            this.allTaskButton.classList.remove('active-filter');
+            //if()
+            this.unCompletedTaskButton.classList.remove('active-filter');
+            console.log(this.unCompletedTaskButton);
+            this.completedTaskButton.classList.add('active-filter');
             this.allTodosHtmlElement.classList.remove('uncompleted-tasks');
             this.allTodosHtmlElement.classList.add('completed-tasks');
+
 
             // hideListItems(allTodos, false);
         };
@@ -143,6 +156,15 @@
             // hideListItems(allTodos, true);
         };
         TodoList.prototype.showTodosList = function () {
+            this.allTaskButton.classList.add('active-filter');
+            // if(this.CompletedTaskButton.classList.contains(active-filter){
+            //     this.CompletedTaskButton.classList.remove('active-filter');
+            // }
+            // if(this.unCompletedTaskButton.classList.contains(active-filter){
+            //     this.unCompletedTaskButton.classList.remove('active-filter');
+            // }
+            this.completedTaskButton.classList.remove('active-filter');
+            this.unCompletedTaskButton.classList.remove('active-filter');
             this.allTodos = this.localStorageService.getAllTodos();
             this.allTodosHtmlElement.classList.remove('uncompleted-tasks');
             this.allTodosHtmlElement.classList.remove('completed-tasks');
@@ -219,8 +241,8 @@
 
         function LocalStorageService(pluginNumber) {
             this.allTodos = [];
-            this.pluginNumber=pluginNumber;
-            this.dataBaseName='allTodos'+pluginNumber;
+            this.pluginNumber = pluginNumber;
+            this.dataBaseName = 'allTodos' + pluginNumber;
 
         }
 
@@ -300,6 +322,7 @@
                 return false;
             }
         }
+
         if (validateLocalStorage()) {
             return LocalStorageService;
         }
@@ -308,8 +331,7 @@
         }
     })();
     var pluginsCollection = document.getElementsByClassName('todo-plugin');
-    var i=0;
-    Array.prototype.forEach.call(pluginsCollection, function(element) {
-           new TodoList(element,i++);
+    Array.prototype.forEach.call(pluginsCollection, function (element, i) {
+        new TodoList(element, i);
     });
 })();

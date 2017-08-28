@@ -70,12 +70,8 @@ input[type=checkbox]:checked + label {
   text-decoration: line-through;
 }
 
-.all-tasks-btn:focus, .completed-tasks-btn:focus, .uncompleted-tasks-btn:focus {
-  background-color: bisque;
-  .all-tasks-btn {
-    background-color: bisque;
-  }
-}
+
+
 
 .edit-mode .edit {
   color: transparent;
@@ -143,12 +139,13 @@ background-color: bisque;
 .add-button {
   font-size: 15px;
   padding: 5px 22px;
+    background-color: bisque;
 
 }
-.add-button:active{
-  background-color: bisque;
-}
+
+
 .todo-manager > input {
+  background-color: bisque;
   padding: 8px;
   margin: 0 5px;
   font-size: 15px;
@@ -171,4 +168,7 @@ background-color: bisque;
 
 li * {
   font-size: 15px;
+}
+.todo-manager .active-filter{
+  background-color: #b79976;
 }

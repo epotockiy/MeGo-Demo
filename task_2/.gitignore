@@ -34,5 +34,5 @@ node_modules/
 bower_components/
 .sass-cache
 *.css.map
-
+js/todoListJquery.js
 maps/
