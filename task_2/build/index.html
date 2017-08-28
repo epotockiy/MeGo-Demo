@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="./css/style.css">
-
 </head>
 <body>
 <div class="wrapper">
-
-    <div class="todo-manager">
-        <form>
-            <input class="task-input" type="text" name="task" placeholder="New task"/>
-            <input class="add-button" data-action="addNewTodo" type="button" value="Add"/>
-        </form>
-        <input class="all-tasks-btn" type="button" data-action="showTodosList" value="All">
-        <input class="completed-tasks-btn" type="button"  data-action="hideUncompletedTodos" value="completed tasks" >
-        <input class="uncompleted-tasks-btn" type="button" data-action="hideCompletedTodos" value="uncompleted-tasks">
+    <div class="todo-plugin">
+        <!--manager component-->
+        <div class="todo-manager">
+            <form>
+                <input class="task-input" type="text" name="task" placeholder="New task"/>
+                <input class="add-button" data-action="addNewTodo" type="button" value="Add"/>
+            </form>
+            <input class="all-tasks-btn active" type="button" data-action="showTodosList" value="All">
+            <input class="completed-tasks-btn" type="button" data-action="applyCompletedTaskFilter" value="completed tasks">
+            <input class="uncompleted-tasks-btn" type="button" data-action="applyUncompletedTaskFilter" value="uncompleted-tasks">
+        </div>
+        <!--allTodosList component-->
+        <ul class="todos-list">
+        </ul>
     </div>
-    <ul class="todos-list">
 
-    </ul>
 </div>
-
-
 <script src="./js/app.min.js"></script>
 </body>
 </html>
