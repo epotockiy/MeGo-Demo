@@ -1,24 +1,39 @@
 ;(function () {
     var TodoList = (function () {
-        function TodoList() {
-            this.allTodosHtmlElement = document.getElementsByClassName('todos-list')[0];
-            this.taskInputHtmlElement = document.getElementsByClassName('task-input')[0];
-            this.todoManagerHtmlElement = document.getElementsByClassName('todo-manager')[0];
-            this.allTodos = document.getElementsByClassName('todo-manager')[0];
-            this.initelizeManagerComponentEvents(this.todoManagerHtmlElement);
-            this.initelizeTodosListEvents(this.allTodosHtmlElement);
-            this.localStorageService = new LocalStorageService();
-            this.targetElement;
-            this.action;
+        function TodoList(baseHtmlElement, pluginNumber) {
+            this.allTodosHtmlElement = baseHtmlElement.getElementsByClassName('todos-list')[0];
+            this.taskInputHtmlElement = baseHtmlElement.getElementsByClassName('task-input')[0];
+            this.todoManagerHtmlElement = baseHtmlElement.getElementsByClassName('todo-manager')[0];
+            this.allTodos = baseHtmlElement.getElementsByClassName('todo-manager')[0];
+            this.localStorageService = new LocalStorageService(pluginNumber);
+            this.targetElement = null;
+            this.action = null;
+            //eventinitializers
+            this.buildTodosList();
+            this.initializeTodoManagerEvents();
+            this.initializeTodosListEvents();
         }
-        TodoList.prototype.initelizeTodosListEvents = function (htmlElement) {
+
+        TodoList.prototype.initializeTodosListEvents = function () {
             var self = this;
-
-            htmlElement.addEventListener('click', function (event) {
+            this.allTodosHtmlElement.addEventListener('click', function (event) {
                 self.targetElement = event.target;
-
+                // switch (JSON.stringify(self.targetElement.getAttribute('type'))) {
+                //     case 'checkbox':
+                //         self.switchStatusTodo(self.targetElement);
+                //         break;
+                //     case 'edit':
+                //         self.editTodo(self.targetElement);
+                //         break;
+                //     case 'delete':
+                //         self.removeTodo(self.targetElement);
+                //         break;
+                //     case 'cancel':
+                //         self.cancelEditing(self.targetElement);
+                //         break;
+                // }
                 if (self.targetElement.getAttribute('type') === 'checkbox') {
-                    self.changeStatusTodo(self.targetElement);
+                    self.switchStatusTodo(self.targetElement);
                 }
                 else if (self.targetElement.getAttribute('class') === 'edit') {
                     self.editTodo(self.targetElement);
@@ -27,34 +42,32 @@
                     self.removeTodo(self.targetElement);
                 }
                 else if (self.targetElement.getAttribute('class') === 'cancel') {
-                    self.cencelEditing(self.targetElement);
+                    self.cancelEditing(self.targetElement);
                 }
             })
         };
-        TodoList.prototype.cencelEditing = function (htmlElement) {
+        TodoList.prototype.cancelEditing = function (htmlElement) {
             var listItem = htmlElement.parentNode;
-            listItem.classList.toggle("editMode");
+            listItem.classList.remove("edit-mode");
         };
         TodoList.prototype.removeTodo = function (htmlElement) {
             var id = htmlElement.parentNode.getAttribute('id');
             this.localStorageService.removeById(id);
             htmlElement.parentNode.remove();
         };
-        TodoList.prototype.editTodo = function (htmlElement) {
-            //  console.log(htmlElement);
-            var listItem = htmlElement.parentNode;
+        TodoList.prototype.editTodo = function (editedHtmlElement) {
+            var listItem = editedHtmlElement.parentNode;
             var editInput = listItem.querySelector("input[type=text]");
             var checkbox = listItem.querySelector("input[type=checkbox]");
             var label = listItem.querySelector("label");
-            var containsClass = listItem.classList.contains("editMode");
+            var containsClass = listItem.classList.contains("edit-mode");
             var temp = '';
             if (checkbox.checked !== true) {
                 temp = editInput.value;
                 if (containsClass) {
                     if (label.innerText !== temp) {
-                        label.innerText = temp;
                         if (validateTextInput(temp)) {
-
+                            label.innerText = temp;
                             this.localStorageService.editTextTodo(temp, listItem.id);
                         }
                         else {
@@ -65,33 +78,34 @@
                 else {
                     editInput.value = label.innerText;
                 }
-                listItem.classList.toggle("editMode");
+                listItem.classList.toggle("edit-mode");
             }
-
         };
-        TodoList.prototype.changeStatusTodo = function (htmlElement) {
-
+        TodoList.prototype.switchStatusTodo = function (htmlElement) {
             if (htmlElement.checked) {
-                htmlElement.nextSibling.style.textDecoration = 'line-through';
+                // htmlElement.nextSibling.style.textDecoration = 'line-through';//change this with css
                 htmlElement.parentNode.classList.add('completed-task');
                 this.localStorageService.editStatusTodo(htmlElement.parentNode.id, true);
             }
             else {
                 htmlElement.parentNode.classList.remove('completed-task');
-                htmlElement.nextSibling.style.textDecoration = 'none';
+                // htmlElement.nextSibling.style.textDecoration = 'none';
                 this.localStorageService.editStatusTodo(htmlElement.parentNode.id, false);
             }
         };
-        TodoList.prototype.initelizeManagerComponentEvents = function (htmlElement) {
+        TodoList.prototype.initializeTodoManagerEvents = function () {
             var self = this;
-            htmlElement.addEventListener('click', function (event) {
+
+            this.todoManagerHtmlElement.addEventListener('click', function (event) {
                 self.targetElement = event.target;
                 self.action = self.targetElement.getAttribute('data-action');
                 if (self.action) {
-                    self[self.action]();//call definite function for definet button in manager component
+                    self[self.action]();
+                    //call definite function for definet button in manager component
                 }
             })
         };
+
         TodoList.prototype.addNewTodo = function () {
             var todoText = this.taskInputHtmlElement.value;
             var newId = getNewId();
@@ -112,9 +126,15 @@
             }
             return true;
         };
-        TodoList.prototype.hideUncompletedTodos = function () {
+        TodoList.prototype.applyUncompletedTaskFilter = function () {
+            removeEditModeClass(this.allTodosHtmlElement.childNodes);
+            this.hideCompletedTodos();
+
+        };
+        TodoList.prototype.applyCompletedTaskFilter = function () {
             this.allTodosHtmlElement.classList.remove('uncompleted-tasks');
             this.allTodosHtmlElement.classList.add('completed-tasks');
+
             // hideListItems(allTodos, false);
         };
         TodoList.prototype.hideCompletedTodos = function () {
@@ -126,10 +146,10 @@
             this.allTodos = this.localStorageService.getAllTodos();
             this.allTodosHtmlElement.classList.remove('uncompleted-tasks');
             this.allTodosHtmlElement.classList.remove('completed-tasks');
+            removeEditModeClass(this.allTodosHtmlElement.childNodes);
             // this.buildTodosList(this.allTodos);
         };
         TodoList.prototype.buildTodosList = function () {
-
             this.allTodos = this.localStorageService.getAllTodos();
             // this.allTodosHtmlElement.innerHTML = '';
             var DOMFragment = document.createDocumentFragment();
@@ -171,14 +191,22 @@
             if (todoChecked === true) {
                 listItem.classList.add('completed-task');
                 checkBox.checked = true;
-                // checkBox.nextSibling.style.textDecoration = 'line-through';
             }
             else {
                 checkBox.checked = false;
-                // checkBox.nextSibling.style.textDecoration = 'none';
+
             }
             return listItem;
         };
+        function removeEditModeClass(allTodosChildNodes) {
+
+            for (var i = 0; i < allTodosChildNodes.length; i++) {
+                if (allTodosChildNodes[i].className === 'edit-mode') {
+                    allTodosChildNodes[i].classList.remove('edit-mode')
+                }
+            }
+        }
+
         function getNewId() {
 
             return '_' + Math.random().toString(36).substr(2, 9);
@@ -189,16 +217,19 @@
 
     var LocalStorageService = (function () {
 
-        function LocalStorageService() {
+        function LocalStorageService(pluginNumber) {
             this.allTodos = [];
+            this.pluginNumber=pluginNumber;
+            this.dataBaseName='allTodos'+pluginNumber;
 
         }
 
         LocalStorageService.prototype.writeDataToLocalStorage = function (newTodoList) {
-            localStorage.setItem('allTodos', JSON.stringify(newTodoList));
+
+            localStorage.setItem(this.dataBaseName, JSON.stringify(newTodoList));
         };
         LocalStorageService.prototype.getAllTodos = function () {
-            var allTodosStringFormat = localStorage.getItem('allTodos');
+            var allTodosStringFormat = localStorage.getItem(this.dataBaseName);
             if (allTodosStringFormat !== null) {
                 this.allTodos = JSON.parse(allTodosStringFormat);
             }
@@ -269,7 +300,6 @@
                 return false;
             }
         }
-
         if (validateLocalStorage()) {
             return LocalStorageService;
         }
@@ -277,8 +307,9 @@
             return new Error('localStorage is not available')
         }
     })();
-
-    var todoList = new TodoList();
-
-    todoList.buildTodosList();
+    var pluginsCollection = document.getElementsByClassName('todo-plugin');
+    var i=0;
+    Array.prototype.forEach.call(pluginsCollection, function(element) {
+           new TodoList(element,i++);
+    });
 })();

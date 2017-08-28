@@ -1,35 +1,40 @@
 .wrapper {
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  width: 400px;
   display: block;
 }
 
-input[type="text"] {
-  height: 18px;
-  border: 1px solid #ddd;
-  background: #fff;
-  color: #888;
+::-webkit-input-placeholder {
+  color: #000000;
 }
-input[type="checkbox"]{
-  display:inline-block;
-}
-/* Task list */
-li {
 
+input[type="text"] {
+  border: 1px solid #ddd;
+
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+}
+
+/* Task list */
+li input[type='text'] {
+  font-size: 15px;
 }
 
 li > label {
-  font-size: 15px;
-
   display: inline-block;
-  width: 68.2%;
+  margin-left: 5px;
+  vertical-align: bottom;
+  margin-bottom: 5px;
+  width: 247px;
 
   overflow: auto;
 }
 
 li > input[type="text"] {
-  width: 100%;
+  width: 99%;
 }
 
 /* Edit Task */
@@ -37,12 +42,22 @@ ul li input[type=text] {
   display: none;
 }
 
-ul li.editMode input[type=text] {
+ul li.edit-mode input[type=text] {
   display: block;
 
 }
 
-ul li.editMode label {
+ul li:nth-child(2n) {
+  margin: 5px;
+  background-color: burlywood;
+}
+
+ul li:nth-child(2n-1) {
+  margin: 5px;
+  background-color: #b18c5c;
+}
+
+ul li.edit-mode label {
   display: none;
 }
 
@@ -57,70 +72,105 @@ input[type=checkbox]:checked + label {
   text-decoration: line-through;
 }
 
-//.all-tasks-btn:active, .completed-tasks-btn:active, .uncompleted-tasks-btn:active,
-input[type=button]:active{
+.all-tasks-btn:focus, .completed-tasks-btn:focus, .uncompleted-tasks-btn:focus {
   background-color: bisque;
+  .all-tasks-btn {
+    background-color: bisque;
+  }
 }
-.editMode .edit{
-  color:transparent;
+
+.edit-mode .edit {
+  color: transparent;
   //position:relative //carefull
-
 }
-.editMode .edit:before{
-   content: "Confirm";
-   padding-right:5px;
-   display: inline-block;
-   color: black;
-   top: 1px;
-   left: 1px;
- }
+
+.edit-mode .edit:before {
+  content: "Confirm";
+  padding-left: 22px;
+  color: black;
+}
+
 .cancel {
-  display:none;
-}
-.editMode .cancel{
-  display:inline-block ;
+  display: none;
 }
 
-.editMode .delete {
-  display:none;
+.edit-mode .cancel {
+  padding:5px 28px;
+background-color: bisque;
+  display: inline-block;
+  float: right;
+  margin-right: 20px;
+}
+
+.edit-mode .delete {
+  display: none;
 }
 
 .completed-tasks li {
   display: none;
 }
+
 .completed-tasks .completed-task {
   display: block;
 }
-.editMode input[type=checkbox]{
-  display:none;
+
+.edit-mode input[type=checkbox] {
+  display: none;
 }
 
 .uncompleted-tasks li {
   display: block;
 }
+
 .uncompleted-tasks .completed-task {
   display: none;
 }
-.task-input{
-font-size: 15px;
+
+.task-input {
+  font-size: 15px;
+  padding: 4px;
 }
-.todo-manager  {
-  margin-bottom:7px;
+
+.todo-manager {
+  margin-bottom: 15px;
+  text-align: center;
 }
+
 .todo-manager form {
   text-align: center;
   margin-bottom: 20px;
 
 }
-.add-button{
+
+.add-button {
   font-size: 15px;
-  padding: 2px  22px;
+  padding: 5px 22px;
 
 }
-.todo-manager >input{
-  margin-left: 3px;
-  font-size: 14px;
+.add-button:active{
+  background-color: bisque;
 }
-.edit{
+.todo-manager > input {
+  padding: 8px;
+  margin: 0 5px;
+  font-size: 15px;
+  box-shadow: 2px 3px 3px rgba(0,0,0,0.5);
+}
+
+.edit {
+  margin-left: 20px;
+  padding: 5px;
   display: inline-block;
+  background-color: bisque;
+}
+
+.delete {
+  border-left: 1px solid #b18c5c;
+  padding: 5px 7px;
+  display: inline-block;
+  background-color: bisque;
+}
+
+li * {
+  font-size: 15px;
 }
