@@ -1825,6 +1825,10 @@ ul{
 	    padding:0;
 	    .service2-container{
 	    	margin-top:50px;
+
+	    	#accordion .container-accordion .accordion-block {
+				height: 80%;
+	    	}
 	    	.service2-image{
 	    		width:100%;
 	    	}    	
@@ -1835,7 +1839,7 @@ ul{
 			width:100%;
 			.container-accordion .accordion-block {
 				.accordion-title {
-					padding-top:10px;
+					padding: 5px;
 				}
 				.accordion-content{
 					width: 86%;

@@ -1919,251 +1919,255 @@ ul li {
   .service2 .service2-container {
     margin-top: 50px;
   }
-  /* line 1828, ../sass/main.scss */
+  /* line 1829, ../sass/main.scss */
+  .service2 .service2-container #accordion .container-accordion .accordion-block {
+    height: 80%;
+  }
+  /* line 1832, ../sass/main.scss */
   .service2 .service2-container .service2-image {
     width: 100%;
   }
 
-  /* line 1834, ../sass/main.scss */
+  /* line 1838, ../sass/main.scss */
   .service2 .service2-container #accordion {
     width: 100%;
   }
-  /* line 1837, ../sass/main.scss */
+  /* line 1841, ../sass/main.scss */
   .service2 .service2-container #accordion .container-accordion .accordion-block .accordion-title {
-    padding-top: 10px;
+    padding: 5px;
   }
-  /* line 1840, ../sass/main.scss */
+  /* line 1844, ../sass/main.scss */
   .service2 .service2-container #accordion .container-accordion .accordion-block .accordion-content {
     width: 86%;
   }
 
-  /* line 1849, ../sass/main.scss */
+  /* line 1853, ../sass/main.scss */
   .logos {
     padding: 30px 20px;
     height: 100%;
   }
-  /* line 1852, ../sass/main.scss */
+  /* line 1856, ../sass/main.scss */
   .logos img {
     padding: 5px;
   }
 
-  /* line 1859, ../sass/main.scss */
+  /* line 1863, ../sass/main.scss */
   .quote {
     margin-top: 20%;
     padding: 0;
     padding: 20px;
   }
-  /* line 1864, ../sass/main.scss */
+  /* line 1868, ../sass/main.scss */
   .quote .quote-container .quote-content .message-icon {
     padding: 16px;
     margin: 20px 0;
   }
-  /* line 1867, ../sass/main.scss */
+  /* line 1871, ../sass/main.scss */
   .quote .quote-container .quote-content .message-icon img {
     width: 30px;
   }
-  /* line 1871, ../sass/main.scss */
+  /* line 1875, ../sass/main.scss */
   .quote .quote-container .quote-content .quote-mes {
     padding-bottom: 30px;
     width: 80%;
   }
-  /* line 1874, ../sass/main.scss */
+  /* line 1878, ../sass/main.scss */
   .quote .quote-container .quote-content .quote-mes p {
     font-size: 15px;
   }
-  /* line 1877, ../sass/main.scss */
+  /* line 1881, ../sass/main.scss */
   .quote .quote-container .quote-content .quote-mes h4 {
     font-size: 20px;
   }
 
-  /* line 1884, ../sass/main.scss */
+  /* line 1888, ../sass/main.scss */
   .ourteam {
     padding: 0 20px;
   }
-  /* line 1886, ../sass/main.scss */
+  /* line 1890, ../sass/main.scss */
   .ourteam p.content {
     width: 100%;
     margin: 25px 0;
   }
-  /* line 1890, ../sass/main.scss */
+  /* line 1894, ../sass/main.scss */
   .ourteam .ourteam-photo .person {
     padding-bottom: 40px;
     width: 90%;
   }
-  /* line 1893, ../sass/main.scss */
+  /* line 1897, ../sass/main.scss */
   .ourteam .ourteam-photo .person h5 {
     padding-top: 10px;
   }
 
-  /* line 1899, ../sass/main.scss */
+  /* line 1903, ../sass/main.scss */
   .testimonial {
     padding: 40px 20px 0 20px;
   }
-  /* line 1901, ../sass/main.scss */
+  /* line 1905, ../sass/main.scss */
   .testimonial .testimonial-container .testimonial-content {
     margin: 0;
   }
-  /* line 1903, ../sass/main.scss */
+  /* line 1907, ../sass/main.scss */
   .testimonial .testimonial-container .testimonial-content .avatar {
     height: 115px;
     width: 115px;
   }
-  /* line 1908, ../sass/main.scss */
+  /* line 1912, ../sass/main.scss */
   .testimonial .testimonial-container .testimonial-content .testimonial-mes p {
     font-size: 15px;
   }
-  /* line 1911, ../sass/main.scss */
+  /* line 1915, ../sass/main.scss */
   .testimonial .testimonial-container .testimonial-content .testimonial-mes h4 {
     font-size: 17px;
     padding-bottom: 50px;
   }
 
-  /* line 1922, ../sass/main.scss */
+  /* line 1926, ../sass/main.scss */
   .whatpeople {
     padding: 30px 0;
   }
-  /* line 1924, ../sass/main.scss */
+  /* line 1928, ../sass/main.scss */
   .whatpeople .container {
     padding: 0px;
   }
-  /* line 1926, ../sass/main.scss */
+  /* line 1930, ../sass/main.scss */
   .whatpeople .container .row {
     margin: 30px 0;
     width: 100%;
   }
-  /* line 1929, ../sass/main.scss */
+  /* line 1933, ../sass/main.scss */
   .whatpeople .container .row .row-content {
     margin-left: 5%;
     width: 80%;
   }
-  /* line 1932, ../sass/main.scss */
+  /* line 1936, ../sass/main.scss */
   .whatpeople .container .row .row-content h5 {
     text-align: center;
   }
-  /* line 1935, ../sass/main.scss */
+  /* line 1939, ../sass/main.scss */
   .whatpeople .container .row .row-content p.position {
     text-align: center;
   }
-  /* line 1937, ../sass/main.scss */
+  /* line 1941, ../sass/main.scss */
   .whatpeople .container .row .row-content p.position:after {
     margin: 10px auto;
   }
 
-  /* line 1948, ../sass/main.scss */
+  /* line 1952, ../sass/main.scss */
   .work {
     padding: 0;
   }
-  /* line 1950, ../sass/main.scss */
+  /* line 1954, ../sass/main.scss */
   .work p {
     padding: 0 20px;
     width: 85%;
     padding-bottom: 20px;
   }
-  /* line 1956, ../sass/main.scss */
+  /* line 1960, ../sass/main.scss */
   .work .container .left-container {
     width: 100%;
   }
-  /* line 1958, ../sass/main.scss */
+  /* line 1962, ../sass/main.scss */
   .work .container .left-container .img {
     width: 100%;
   }
-  /* line 1962, ../sass/main.scss */
+  /* line 1966, ../sass/main.scss */
   .work .container .right-container {
     width: 100%;
   }
-  /* line 1964, ../sass/main.scss */
+  /* line 1968, ../sass/main.scss */
   .work .container .right-container .img {
     width: 100%;
   }
-  /* line 1968, ../sass/main.scss */
+  /* line 1972, ../sass/main.scss */
   .work .container .center-container {
     width: 100%;
   }
-  /* line 1973, ../sass/main.scss */
+  /* line 1977, ../sass/main.scss */
   .work .container .work-hover img {
     width: 10%;
     top: 35%;
     left: 46%;
   }
-  /* line 1979, ../sass/main.scss */
+  /* line 1983, ../sass/main.scss */
   .work .container .work-hover h5 {
     top: 52%;
     left: 29%;
   }
-  /* line 1984, ../sass/main.scss */
+  /* line 1988, ../sass/main.scss */
   .work .container .work-hover p {
     top: 55%;
     left: 10%;
     font-size: 15px;
   }
 
-  /* line 1996, ../sass/main.scss */
+  /* line 2000, ../sass/main.scss */
   .map .header-box {
     padding-top: 15%;
   }
 
-  /* line 2002, ../sass/main.scss */
+  /* line 2006, ../sass/main.scss */
   .blog {
     padding: 0 5%;
     padding-top: 30px;
   }
-  /* line 2005, ../sass/main.scss */
+  /* line 2009, ../sass/main.scss */
   .blog .articles article {
     width: 100%;
     padding-bottom: 0px;
   }
 
-  /* line 2011, ../sass/main.scss */
+  /* line 2015, ../sass/main.scss */
   .footer {
     padding: 2%;
     text-align: left;
   }
-  /* line 2014, ../sass/main.scss */
+  /* line 2018, ../sass/main.scss */
   .footer .container {
     width: 100%;
     display: flex;
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 0;
   }
-  /* line 2019, ../sass/main.scss */
+  /* line 2023, ../sass/main.scss */
   .footer .container .follow-us {
     width: 100%;
     padding-bottom: 40px;
   }
-  /* line 2022, ../sass/main.scss */
+  /* line 2026, ../sass/main.scss */
   .footer .container .follow-us p {
     text-align: center;
   }
-  /* line 2026, ../sass/main.scss */
+  /* line 2030, ../sass/main.scss */
   .footer .container .follow-us .subscribe a {
     position: relative;
     right: -27%;
   }
-  /* line 2030, ../sass/main.scss */
+  /* line 2034, ../sass/main.scss */
   .footer .container .follow-us .subscribe input {
     width: 90%;
   }
-  /* line 2035, ../sass/main.scss */
+  /* line 2039, ../sass/main.scss */
   .footer .container .instagram-block {
     padding: 8% 0;
   }
-  /* line 2037, ../sass/main.scss */
+  /* line 2041, ../sass/main.scss */
   .footer .container .instagram-block h5 {
     text-align: center;
   }
-  /* line 2041, ../sass/main.scss */
+  /* line 2045, ../sass/main.scss */
   .footer .container .blogs {
     padding-bottom: 9%;
   }
-  /* line 2043, ../sass/main.scss */
+  /* line 2047, ../sass/main.scss */
   .footer .container .blogs h5 {
     text-align: center;
   }
-  /* line 2047, ../sass/main.scss */
+  /* line 2051, ../sass/main.scss */
   .footer .container .blogs .article .article-title {
     width: 52%;
   }
-  /* line 2053, ../sass/main.scss */
+  /* line 2057, ../sass/main.scss */
   .footer input {
     margin-bottom: 20px;
     width: 80%;
