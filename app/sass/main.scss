@@ -546,15 +546,17 @@ ul{
 			    justify-content: space-between;
 				.accordion-block{
 					height: 61%;
+					margin-bottom:1.5%;
 					&:last-child{
 						margin-bottom:0;
 					}
+
 					border: 1px solid $hr-color;
 					text-align: left;
 					width: 100%;
 					position: relative;
 					font-size:0;
-					padding-bottom:10px;
+				
 					.accordion-title{
 						cursor: pointer;
 						background: url("../img/icons/icon-pointer-top.png") no-repeat 95%;
@@ -580,8 +582,8 @@ ul{
 					}	
 
 					.accordion-content{
-						height: 57%;
-						padding: 10px 20px;
+						height: 58%;
+						padding: 15px 20px;
 						display:none;
 						width: 92%;
 						border-top: 1px solid $hr-color;
@@ -1021,6 +1023,7 @@ ul{
 				display: inline-block;
     			width: 73%;
 				font-size: 24px;
+				padding-top: 30px;
 				p{
 					@extend .roboto-light;
    					line-height: 1.5;
@@ -1337,7 +1340,7 @@ ul{
 				padding-top: 40px;
 				input{
 					width:35%;
-					padding: 14px;
+					padding: 10px;
 					border: 1px solid $hr-color;
 					@extend .roboto-light;
 				}
@@ -1354,6 +1357,7 @@ ul{
 					padding: 10px 40px;
 					background:$blue;
 					color:white;
+					position: absolute;
 					font : {
 						family: 'Montserrat', sans-serif;
 						size: 0.875em;
