@@ -1,0 +1,173 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+.fonts{
+	font : {
+		family: 'Montserrat', sans-serif;
+		size: 1.875em;
+	}
+	color: white;
+}
+
+
+body {
+	background-color:#B3E5FC;
+}
+
+h4{
+	padding: 30px;
+	border-bottom: 1px solid #EF6C00;
+	color: white;
+}
+
+#container {
+	padding: 40px 0;
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
+
+
+	header {
+		background-color: #F57C00;
+		box-shadow: 0 0 10px rgba(0,10,0,0.8);
+		@extend .fonts;
+		padding: 40px;
+		position: relative;
+		margin-bottom: 10px;
+
+		h2{
+			padding-bottom: 20px;
+		}
+
+		input {
+			width: 50%;
+			height: 35px;
+			vertical-align: middle;
+			border: none;
+			padding: 0 40px;
+		}
+
+		.addButton{
+			border-radius: 50% ;
+			background-color: #311B92;
+			vertical-align: middle;
+			display: inline-block;
+			width:35px;
+			height:35px;
+			position: relative;
+			left:-5%;
+			&:hover{
+				cursor:pointer;
+				box-shadow: inset 0 0 1px rgba(0,10,0,0.8);
+				background-color: #673AB7;
+				transition: background 0.5s;
+			}
+			span{
+				position: relative;
+				top: -10%;
+				right:-3%;
+				font-size: 20px;
+			}
+		}
+
+		#clearList{
+			background-color:#607D8B;
+			width: 20%;
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 0.6em;
+			padding:5px 10px;
+			cursor: pointer;
+			&:hover{
+				background-color:#455A64;
+			}
+		}
+		#sort{
+			font-size: 10px;
+			display: flex;
+			justify-content: space-around;
+			width: 50%;
+			margin: 0px auto;
+			margin-top: 40px;
+
+			.sort-button{
+				padding: 5px 10px;;
+				background-color: #FFAB20;
+				vertical-align: middle;
+				cursor: pointer;
+				&:hover{
+					background-color:#FFC726;
+				}
+				&.active{
+					background-color: #057F00;
+					transition: background-color 0.6s;
+				}
+			}
+		}
+	}
+
+	ul {
+		width:100%;
+		@extend .fonts;
+		color:#263238;
+		font-size: 1em;
+
+		li.task{
+			position: relative;
+			text-align: left;
+			padding: 20px 0;
+			background-color: #CFD8DC;
+			transition: background-color 0.3s;
+
+			input{
+				margin: 0 20px ;
+				width: 20px;
+				height: 20px;
+				vertical-align: middle;
+			}
+
+			input.editInput{
+				width: 40%;
+			}
+			&:nth-child(odd) {
+				background-color: #ECEFF1;
+			}
+			&.checked{
+				text-decoration: line-through;
+				background-color: #607D8B;
+				transition: background-color 0.7s;
+			}
+
+
+		}
+
+
+
+		.button{
+			background-color: #607D8B;
+			position: absolute;
+			right: 6%;
+			font-size: 0.7em;
+			color: #BDBDBD;
+			padding: 5px;
+			border-radius: 10%;
+			cursor: pointer;
+
+		}
+
+		.edit {
+			right: 20%;
+			background-color: #455A64;
+			display: inline;
+		}
+		.confirm{
+			right: 20%;
+			background-color: #455A64;
+			display: inline;
+		}
+
+		list-style: none;
+	}
+}

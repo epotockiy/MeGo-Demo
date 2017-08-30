@@ -6,7 +6,7 @@ const concat = require('gulp-concat');
 gulp.task('sass', function() {
   return gulp.src('./app/sass/*.scss')
   .pipe(sass())
-  .pipe(gulp.dest('./app/css'));
+  .pipe(gulp.dest('./public/css'));
 });
 
 
@@ -19,7 +19,7 @@ gulp.task('js', function() {
         ]) 
         .pipe(concat('main.min.js')) // склеиваем все JS
         .pipe(uglify()) 
-        .pipe(gulp.dest('./app/js/')) // результат пишем по указанному адресу
+        .pipe(gulp.dest('./public/js/')) // результат пишем по указанному адресу
 });
 
 gulp.task('default' , ['sass' , 'js']);
