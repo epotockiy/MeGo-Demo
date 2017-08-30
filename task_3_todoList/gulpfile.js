@@ -10,7 +10,7 @@ var config = {
     jsConcatFiles: [
 
 
-        './app/js/todoList.js'
+        './app/js/todoListJquery.js'
 
 
     ], buildFilesFoldersRemove: [

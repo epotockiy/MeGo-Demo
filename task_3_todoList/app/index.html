@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="todo-plugin">
+        <!--manager component-->
+        <div class="todo-manager">
+            <form>
+                <input class="task-input" type="text" name="task" placeholder="New task"/>
+                <input class="add-button" data-action="addNewTodo" type="button" value="Add"/>
+            </form>
+            <input class="all-tasks-btn active-filter" type="button" data-action="showTodosList" value="All">
+            <input class="completed-tasks-btn" type="button" data-action="applyCompletedTaskFilter" value="completed tasks">
+            <input class="uncompleted-tasks-btn" type="button" data-action="applyUncompletedTaskFilter" value="uncompleted-tasks">
+        </div>
+        <!--allTodosList component-->
+        <ul class="todos-list">
+        </ul>
+    </div>
+    <div class="todo-plugin">
+        <!--manager component-->
+        <div class="todo-manager">
+            <form>
+                <input class="task-input" type="text" name="task" placeholder="New task"/>
+                <input class="add-button" data-action="addNewTodo" type="button" value="Add"/>
+            </form>
+            <input class="all-tasks-btn active-filter" type="button" data-action="showTodosList" value="All">
+            <input class="completed-tasks-btn" type="button" data-action="applyCompletedTaskFilter" value="completed tasks">
+            <input class="uncompleted-tasks-btn" type="button" data-action="applyUncompletedTaskFilter" value="uncompleted-tasks">
+        </div>
+        <!--allTodosList component-->
+        <ul class="todos-list">
+        </ul>
+    </div>
+
+</div>
+
+<!--jQuery Version-->
+
+<script src="./js/todoListJquery.js"></script>
+<script>$('.todo-plugin').TodoList()</script>
+
+<!--no Jquery version-->
+<!--<script src="./js/app.min.js"></script>-->
+    <!--<script src="./js/TodoList.js"></script>-->
+</body>
+</html>
