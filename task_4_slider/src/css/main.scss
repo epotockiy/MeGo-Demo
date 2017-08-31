@@ -32,16 +32,10 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 60%;
   height: 280px;
-  background-image:url('../img/img0.png');
-}
-
-.slider-image:before {
-  content: '';
-  display: block;
-  width: 100%;
-  padding-top: 70%;
+  width:100%;
+  position:absolute;
+  background-image: url('../img/img0.png');
 }
 
 .menu-item {
@@ -67,6 +61,8 @@
   position: relative;
 }
 
-.image-container {
-  width:60%;
+.image-container{
+  position: relative;
+  width: 60%;
+  overflow: hidden;
 }
