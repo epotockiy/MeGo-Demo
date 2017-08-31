@@ -10,9 +10,8 @@ window.onload = function(){
         var i;
         var sortType = 'all';
         var sortButtons = document.getElementsByClassName('sort-button'),
-            editInput = document.getElementsByClassName('editInput');
-
-
+            editInput = document.getElementsByClassName('editInput'),
+            liTask = document.getElementsByClassName('task');
 
         if(localStorage.getItem('todo') != undefined){
             toDoList = JSON.parse(localStorage.getItem('todo'));
@@ -21,7 +20,7 @@ window.onload = function(){
 
         function removeSortActive() {
             for(var i=0 ; i<sortButtons.length ; i++){
-                if(sortButtons[i].classList.contains('active')){
+                if(sortButtons[i].classList.contains('active')) {
                     sortButtons[i].classList.remove('active');
                 }
             }
@@ -36,7 +35,8 @@ window.onload = function(){
         document.getElementById('addNote').onclick = function () {
             var d = "";
             if(document.getElementById('newNote').value != ""){
-                d = document.getElementById('newNote').value;
+                d = document.getElementById('newNote').value.toString();
+                console.log(d);
                 var temp = {};
                 i = toDoList.length;
                 temp.todo = d;
@@ -56,50 +56,59 @@ window.onload = function(){
         document.getElementById('container').onclick = function(e) {
             var self = this;
             var target = e.target;
+            var child;
             var idNumber = target.parentNode.id;
 
             this.all = function() {
-                sortType = 'all';
+                sortItem('all');
                 removeSortActive();
                 target.classList.add('active');
-                render();
             };
             this.new = function() {
-                sortType = 'new';
+                sortItem('new');
                 removeSortActive();
                 target.classList.add('active');
-                render();
             };
-            this.complited = function() {
-                sortType = 'complited';
+            this.completed = function() {
+                sortItem('completed');
                 removeSortActive();
                 target.classList.add('active');
-                render();
             };
+
 
             this.setCheck = function () {
                 toDoList[idNumber].check = !(toDoList[idNumber].check);
+                console.log(toDoList[idNumber].check );
                 if (toDoList[idNumber].check) {
                     target.parentNode.classList.add('checked');
+                    target.checked = true ;
                 }
                 else {
                     target.parentNode.classList.remove('checked');
+                    target.checked = false;
             }};
+
             this.deleteTask = function () {
                 toDoList.splice(idNumber,1);
                 render();
             };
             this.editTask =function () {
-                renderRow( idNumber ,rowView( idNumber,true));
+                if(target.parentNode.classList.contains('checked') == false) {
+                    target.parentNode.classList.add('edit-mode');
+                }
             };
             this.cancelTask = function () {
-                renderRow( idNumber ,rowView(idNumber,false));
+                child = document.getElementById(idNumber).getElementsByTagName('input')[1];
+                child.value = toDoList[idNumber].todo;
+                target.parentNode.classList.remove('edit-mode');
             };
             this.confirmTask = function () {
-                var child = document.getElementById(idNumber).getElementsByTagName('input')[1];
+                child = document.getElementById(idNumber).getElementsByTagName('input')[1];
                 toDoList[idNumber].todo = child.value;
-                renderRow( idNumber ,rowView( idNumber,false) );
+                target.parentNode.classList.remove('edit-mode');
+                renderRow( idNumber , row(idNumber));
             };
+
 
             var sort = target.getAttribute('data-sort');
             var action = target.getAttribute('data-action');
@@ -112,38 +121,30 @@ window.onload = function(){
             localStorage.setItem( 'todo' , JSON.stringify(toDoList));
         };
 
-        function render () {
+        function render (target) {
             var out="";
+            var p = "";
             for( var key=0;  key < toDoList.length ; key++){
+                p = toDoList[key].todo.toString();
+
                 switch (sortType) {
                     case 'complited':
-                        if(toDoList[key].check == true){
-                            out += '<li id="'+ key +'"  class="task checked">' +
-                                '<input data-action="setCheck" class="checkInput" type="checkbox" checked>' + toDoList[key].todo +
-                                '<span data-action="deleteTask" class="delete button">delete</span>' +
-                                '<span data-action="editTask" class="edit button">edit</span></li>'  ;
+                        if(liTask.classList.contains('checked')) {
+                            target.parentNode.classList.add('hide');
                         }
                         break;
+
                     case 'new':
-                        if(toDoList[key].check == false){
-                            out += '<li id="'+ key +'"  class="task">' +
-                                '<input data-action="setCheck" class="checkInput" type="checkbox">' + toDoList[key].todo +
-                                '<span data-action="deleteTask" class="delete button">delete</span>' +
-                                '<span data-action="editTask" class="edit button">edit</span></li>'  ;
-                        }
+                        if(toDoList[key].check == false)
+                            out += '<li id="'+ key +'"  class="task">' + row(key);
                         break;
+
                     case 'all':
-                        if(toDoList[key].check == true){
-                            out += '<li id="'+ key+'"  class="task checked">' +
-                                '<input data-action="setCheck" class="checkInput" type="checkbox" checked>';
-                        }
-                        else{
-                            out += '<li id="'+ key +'"  class="task">' +
-                                '<input data-action="setCheck" class="checkInput" type="checkbox">';
-                        }
-                        out += toDoList[key].todo + '' +
-                            '<span data-action="deleteTask" class="delete button">delete</span>' +
-                            '<span data-action="editTask" class="edit button">edit</span></li>'  ;
+                        if(toDoList[key].check == true)
+                            out += '<li id="'+ key+'"  class="task checked ">';
+                        else
+                            out += '<li id="'+ key +'"  class="task ">';
+                        out += row(key);
                         break;
                     default:
                         alert('Problems with Render function');
@@ -159,29 +160,68 @@ window.onload = function(){
         }
 
 
-        function rowView(idNumber, editInput) {
-            var out = "";
-            if(toDoList[idNumber].check == true){
-                out += '<input data-action="setCheck" class="checkInput" type="checkbox" checked>';
-            }
-            else{
-                out += '<input data-action="setCheck" class="checkInput" type="checkbox">';
-            }
-            if(editInput){
-                out+= '<input class="editInput" type="text" value="' + toDoList[idNumber].todo + '"/>'+
-                    '<span data-action="confirmTask" class="confirm button">Confirm</span>' +
-                    '<span data-action="cancelTask" class="cancel button">Cancel</span>';
-            }
-            else{
-                out+= toDoList[idNumber].todo +
-                    '<span data-action="deleteTask" class="delete button">delete</span>' +
-                    '<span data-action="editTask" class="edit button">edit</span>';
-            }
-            return (out);
-        }
-
         function renderRow(idLiNumber , tag) {
             document.getElementById(idLiNumber).innerHTML = tag;
+        }
+
+
+        function row(idNumber) {
+            var isChecked = '';
+            console.log("" + toDoList[idNumber].todo);
+            if(toDoList[idNumber].check) {
+                isChecked = 'checked'
+            }
+            return(
+            '<input data-action="setCheck" class="checkInput" type="checkbox" '+ isChecked+ ' >' +
+            '<input class="editInput" type="text" value="' + toDoList[idNumber].todo + '"/>'+
+            '<span class="task-container"><xmp>'+ toDoList[idNumber].todo + '</xmp></span>' +
+            '<span data-action="deleteTask" class="delete button">delete</span>' +
+            '<span data-action="editTask" class="edit button">edit</span>' +
+            '<span data-action="confirmTask" class="confirm button  ">Confirm</span>' +
+            '<span data-action="cancelTask" class="cancel button">Cancel</span>');
+        }
+
+        function sortItem(type) {
+            console.log(liTask);
+            for( var i=0;  i < liTask.length ; i++) {
+                switch (type) {
+                    case 'completed':
+                        if (liTask[i].classList.contains('checked') == true) {
+                            if (liTask[i].classList.contains('hide')) {
+                                liTask[i].classList.remove('hide');
+                            }
+                        }
+                        else {
+                            if (liTask[i].classList.contains('hide') == false) {
+                                liTask[i].classList.add('hide');
+                            }
+                        }
+                        break;
+
+                    case 'new':
+                        console.log(liTask[i]);
+                        if (liTask[i].classList.contains('checked') == false){
+                            if (liTask[i].classList.contains('hide')) {
+                                liTask[i].classList.remove('hide');
+                            }
+                        }
+                        else{
+                            if(liTask[i].classList.contains('hide') == false) {
+                                liTask[i].classList.add('hide');
+                            }
+                        }
+                        break;
+
+                    case 'all':
+                        if (liTask[i].classList.contains('hide')) {
+                            liTask[i].classList.remove('hide');
+                        }
+                        break;
+                    default:
+                        alert('Problems with Render function');
+                        break;
+                }
+            }
         }
     }
 

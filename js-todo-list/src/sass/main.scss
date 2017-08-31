@@ -114,32 +114,78 @@ h4{
 		color:#263238;
 		font-size: 1em;
 
-		li.task{
+		li.task.edit-mode {
+			& > input.editInput {
+				display: inline;
+			}
+			& > span.cancel {
+				display: inline;
+			}
+			& > span.confirm {
+				display: inline;
+			}
+			& > span.delete {
+				display: none;
+			}
+			& > span.edit {
+				display: none;
+			}
+
+			& > span.task-container{
+				display: none;
+			}
+		}
+
+		xmp{
+			display: inline;
+			@extend .fonts;
+			color:#263238;
+			font-size: 1em;
+		}
+
+		li.hide{
+			display: none;
+		}
+		li.detete-task{
+			display:none;
+		}
+
+
+		li.task {
 			position: relative;
 			text-align: left;
 			padding: 20px 0;
 			background-color: #CFD8DC;
 			transition: background-color 0.3s;
 
-			input{
-				margin: 0 20px ;
+			input {
+				margin: 0 20px;
 				width: 20px;
 				height: 14px;
 				vertical-align: middle;
 			}
 
-			input.editInput{
+			input.editInput {
 				width: 40%;
 			}
 			&:nth-child(odd) {
 				background-color: #ECEFF1;
 			}
-			&.checked{
+			&.checked {
 				text-decoration: line-through;
 				background-color: #607D8B;
 				transition: background-color 0.7s;
 			}
 
+			input.editInput {
+				 display: none;
+			 }
+			span.cancel {
+				display: none;
+			}
+			span.confirm {
+				display: none;
+			}
 
 		}
 
@@ -169,7 +215,6 @@ h4{
 			background-color: #455A64;
 			display: inline;
 		}
-
 		list-style: none;
 	}
 }
