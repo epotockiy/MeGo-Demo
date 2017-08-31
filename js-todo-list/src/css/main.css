@@ -91,9 +91,9 @@ h4 {
 }
 /* line 87, ../sass/main.scss */
 #container header #sort {
-  font-size: 10px;
+  font-size: 14px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 50%;
   margin: 0px auto;
   margin-top: 40px;
@@ -133,7 +133,7 @@ h4 {
 #container ul li.task input {
   margin: 0 20px;
   width: 20px;
-  height: 20px;
+  height: 14px;
   vertical-align: middle;
 }
 /* line 131, ../sass/main.scss */
@@ -152,8 +152,10 @@ h4 {
 }
 /* line 148, ../sass/main.scss */
 #container ul .button {
+  min-width: 50px;
   background-color: #607D8B;
   position: absolute;
+  text-align: center;
   right: 6%;
   font-size: 0.7em;
   color: #BDBDBD;
@@ -161,13 +163,13 @@ h4 {
   border-radius: 10%;
   cursor: pointer;
 }
-/* line 160, ../sass/main.scss */
+/* line 162, ../sass/main.scss */
 #container ul .edit {
   right: 20%;
   background-color: #455A64;
   display: inline;
 }
-/* line 165, ../sass/main.scss */
+/* line 167, ../sass/main.scss */
 #container ul .confirm {
   right: 20%;
   background-color: #455A64;

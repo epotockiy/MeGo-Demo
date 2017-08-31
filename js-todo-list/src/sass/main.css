@@ -64,9 +64,9 @@ h4 {
       #container header #clearList:hover {
         background-color: #455A64; }
     #container header #sort {
-      font-size: 10px;
+      font-size: 14px;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       width: 50%;
       margin: 0px auto;
       margin-top: 40px; }
@@ -94,7 +94,7 @@ h4 {
       #container ul li.task input {
         margin: 0 20px;
         width: 20px;
-        height: 20px;
+        height: 14px;
         vertical-align: middle; }
       #container ul li.task input.editInput {
         width: 40%; }
@@ -105,8 +105,10 @@ h4 {
         background-color: #607D8B;
         transition: background-color 0.7s; }
     #container ul .button {
+      min-width: 50px;
       background-color: #607D8B;
       position: absolute;
+      text-align: center;
       right: 6%;
       font-size: 0.7em;
       color: #BDBDBD;
