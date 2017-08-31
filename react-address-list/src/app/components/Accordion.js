@@ -10,7 +10,7 @@ const Accordion = (props) => {
     <div className='container'>
       {props.addresses.map((address, index) => {
         return (
-          <div key={index} className='mt-3 mb-2'>
+          <div key={index} className='mt-3 mb-2 pl-4 pr-4 pb-2'>
             <Button block color="info" onClick={() => {
               props.setIsAddressOpen(props.currentAddress, false);
               props.setIsAddressOpen(index, !props.isAddressOpen[index]);

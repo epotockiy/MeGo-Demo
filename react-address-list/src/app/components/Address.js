@@ -23,7 +23,6 @@ class Address extends React.Component {
   }
 
   getCurrentFormState(props, isEditing = false) {
-    console.log(props.addresses[props.index].address);
     return {
       cityInput: props.addresses[props.index].address.city
       || props.addresses[props.index].address.suburb
@@ -34,10 +33,11 @@ class Address extends React.Component {
       || props.addresses[props.index].address.village
       || 'No city added',
       addressInput:
-        ((props.addresses[props.index].address.address29 ? (props.addresses[props.index].address.address29) : '')
-      + (props.addresses[props.index].address.road ? (props.addresses[props.index].address.road) : '')
-      + (props.addresses[props.index].address.house_number ? (', ' + props.addresses[props.index].address.house_number) : '')
-      + (props.addresses[props.index].address.neighbourhood ? (', ' + props.addresses[props.index].address.neighbourhood) : ''))
+        ((props.addresses[props.index].address.address29 ? (props.addresses[props.index].address.address29 + '; ') : '')
+      + (props.addresses[props.index].address.road ? (props.addresses[props.index].address.road + '; ') : '')
+      + (props.addresses[props.index].address.house_number ? ( props.addresses[props.index].address.house_number + '; ') : '')
+      + (props.addresses[props.index].address.public_building ? (props.addresses[props.index].address.public_building + '; ') : '')
+      + (props.addresses[props.index].address.neighbourhood ? (props.addresses[props.index].address.neighbourhood + '; ') : ''))
         || 'No address added',
       zipInput: props.addresses[props.index].address.postcode
       || 'No zip code added',
@@ -54,10 +54,7 @@ class Address extends React.Component {
   callSearch(event, field) {
     if (event.target.value.length > 2) {
       if (field === 'cityInput') {
-        this.props.getAddressesByName('city', event.target.value)
-          .then(() => {
-            console.log(this.props.possibleAddresses);
-          });
+        this.props.getAddressesByName('city', event.target.value);
       }
 
       if (field === 'addressInput') {
@@ -91,7 +88,7 @@ class Address extends React.Component {
       <Form className='mt-3'>
         <FormGroup className='d-flex justify-content-end'>
           <Button
-            color='info'
+            color='outline-info'
             onClick={() => {
               this.setState({
                 isEditing: !this.state.isEditing
@@ -188,7 +185,6 @@ class Address extends React.Component {
               overflow: 'hidden'
             }}
             menuStyle={{
-              zIndex: 401,
               position: 'absolute',
               width: '90%',
               minWidth: 'none',
