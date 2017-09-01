@@ -10,12 +10,25 @@ window.onload = function(){
         var i;
         var sortType = 'all';
         var sortButtons = document.getElementsByClassName('sort-button'),
-            editInput = document.getElementsByClassName('editInput'),
-            liTask = document.getElementsByClassName('task');
+            editInputClass = document.getElementsByClassName('editInput'),
+            liTaskClass = document.getElementsByClassName('task');
+
+        var checkInput = document.createElement('input'),
+            editInput =  document.createElement('input'),
+            editButton = document.createElement('span'),
+            deleteButton = document.createElement('span'),
+            confirmButton = document.createElement('span'),
+            taskContainer = document.createElement('span'),
+            cancelButton = document.createElement('span'),
+            liTask = document.createElement('li');
+
 
         if(localStorage.getItem('todo') != undefined){
             toDoList = JSON.parse(localStorage.getItem('todo'));
-            render();
+            for(var key in toDoList){
+                console.log(toDoList[key]);
+                renderRow(toDoList[key]);
+            }
         }
 
         function removeSortActive() {
@@ -26,32 +39,92 @@ window.onload = function(){
             }
         }
 
-        document.getElementById('clearList').onclick =function () {
+        document.getElementById('clearList').addEventListener( 'click' , function () {
             localStorage.clear();
             toDoList=[];
-            render();
-        };
+        });
 
-        document.getElementById('addNote').onclick = function () {
+
+
+
+
+        document.getElementById('addNote').addEventListener( 'click' , function () {
             var d = "";
             if(document.getElementById('newNote').value != ""){
                 d = document.getElementById('newNote').value.toString();
-                console.log(d);
                 var temp = {};
                 i = toDoList.length;
                 temp.todo = d;
                 temp.check = false;
                 temp.number = i;
                 toDoList[i] = temp;
-                render();
+                renderRow(temp);
+                console.log(toDoList);
                 document.getElementById('newNote').value = "";
-                console.log(toDoList.length);
                 localStorage.setItem( 'todo' , JSON.stringify(toDoList));
             }
             else{
                 alert("Field is empty!");
             }
-        };
+        });
+
+        function render() {
+            for( var key=0;  key < toDoList.length ; key++){
+                renderRow('toDoList', row(key));
+            }
+        }
+
+        function renderRow(temp) {
+            var list = document.getElementById('toDoList');
+            list.insertBefore( row(temp) , list.firstChild);
+        }
+
+        function row(temp) {
+            var isChecked = '';
+            if(temp.check) {
+                isChecked = 'checked';
+                editInput.checked = isChecked;
+                liTask.className = isChecked;
+            }
+            liTask.className = 'task';
+            checkInput.className = 'checkInput';
+            checkInput.type = "checkbox";
+            checkInput.dataset.action="setCheck";
+            editInput.className = 'editInput';
+            editInput.type = "text";
+            taskContainer.className = 'task-container';
+            taskContainer.innerText = temp.todo;
+            editButton.className = 'button edit';
+            editButton.innerHTML = "edit";
+            editButton.dataset.action="editTask";
+            confirmButton.className = 'button confirm';
+            confirmButton.innerHTML = "confirm";
+            confirmButton.dataset.action="confirmTask";
+            cancelButton.className = 'button cancel';
+            cancelButton.innerHTML = "cancel";
+            cancelButton.dataset.action="cancelTask";
+            deleteButton.className = 'button delete';
+            deleteButton.innerHTML = "delete";
+            deleteButton.dataset.action="deleteTask";
+
+            liTask.appendChild(checkInput);
+            liTask.appendChild(editInput);
+            liTask.appendChild(taskContainer);
+            liTask.appendChild(editButton);
+            liTask.appendChild(confirmButton);
+            liTask.appendChild(cancelButton);
+            liTask.appendChild(deleteButton);
+
+            return(liTask);
+            // '<input data-action="setCheck" class="checkInput" type="checkbox" '+ isChecked+ ' >' +
+            // '<input class="editInput" type="text" value="' + toDoList[idNumber].todo + '"/>'+
+            // '<span class="task-container"><xmp>'+ toDoList[idNumber].todo + '</xmp></span>' +
+            // '<span data-action="deleteTask" class="delete button">delete</span>' +
+            // '<span data-action="editTask" class="edit button">edit</span>' +
+            // '<span data-action="confirmTask" class="confirm button  ">Confirm</span>' +
+            // '<span data-action="cancelTask" class="cancel button">Cancel</span>');
+        }
+
 
         document.getElementById('container').onclick = function(e) {
             var self = this;
@@ -77,16 +150,17 @@ window.onload = function(){
 
 
             this.setCheck = function () {
-                toDoList[idNumber].check = !(toDoList[idNumber].check);
-                console.log(toDoList[idNumber].check );
-                if (toDoList[idNumber].check) {
+                target.parentNode.classList.add('checked');
+                var inputCheck = target.parentNode.getElementsByTagName('input')[0].checked;
+                if (inputCheck) {
                     target.parentNode.classList.add('checked');
-                    target.checked = true ;
+                    target.checked = true;
                 }
                 else {
                     target.parentNode.classList.remove('checked');
                     target.checked = false;
-            }};
+                }
+            };
 
             this.deleteTask = function () {
                 toDoList.splice(idNumber,1);
@@ -121,68 +195,11 @@ window.onload = function(){
             localStorage.setItem( 'todo' , JSON.stringify(toDoList));
         };
 
-        function render (target) {
-            var out="";
-            var p = "";
-            for( var key=0;  key < toDoList.length ; key++){
-                p = toDoList[key].todo.toString();
-
-                switch (sortType) {
-                    case 'complited':
-                        if(liTask.classList.contains('checked')) {
-                            target.parentNode.classList.add('hide');
-                        }
-                        break;
-
-                    case 'new':
-                        if(toDoList[key].check == false)
-                            out += '<li id="'+ key +'"  class="task">' + row(key);
-                        break;
-
-                    case 'all':
-                        if(toDoList[key].check == true)
-                            out += '<li id="'+ key+'"  class="task checked ">';
-                        else
-                            out += '<li id="'+ key +'"  class="task ">';
-                        out += row(key);
-                        break;
-                    default:
-                        alert('Problems with Render function');
-                        break;
-                }
-            }
-            if(out != "") {
-                document.getElementById('toDoList').innerHTML = out;
-            }
-            else{
-                document.getElementById('toDoList').innerHTML = '<h4>List empty</h4>';
-            }
-        }
 
 
-        function renderRow(idLiNumber , tag) {
-            document.getElementById(idLiNumber).innerHTML = tag;
-        }
 
-
-        function row(idNumber) {
-            var isChecked = '';
-            console.log("" + toDoList[idNumber].todo);
-            if(toDoList[idNumber].check) {
-                isChecked = 'checked'
-            }
-            return(
-            '<input data-action="setCheck" class="checkInput" type="checkbox" '+ isChecked+ ' >' +
-            '<input class="editInput" type="text" value="' + toDoList[idNumber].todo + '"/>'+
-            '<span class="task-container"><xmp>'+ toDoList[idNumber].todo + '</xmp></span>' +
-            '<span data-action="deleteTask" class="delete button">delete</span>' +
-            '<span data-action="editTask" class="edit button">edit</span>' +
-            '<span data-action="confirmTask" class="confirm button  ">Confirm</span>' +
-            '<span data-action="cancelTask" class="cancel button">Cancel</span>');
-        }
 
         function sortItem(type) {
-            console.log(liTask);
             for( var i=0;  i < liTask.length ; i++) {
                 switch (type) {
                     case 'completed':
