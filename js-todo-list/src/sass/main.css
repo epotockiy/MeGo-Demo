@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0; }
 
-.fonts, #container header, #container ul, #container ul xmp {
+.fonts, #container header, #container ul {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.875em;
   color: white; }
@@ -17,7 +17,7 @@ h4 {
 
 #container {
   padding: 40px 0;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   text-align: center; }
   #container header {
@@ -42,7 +42,7 @@ h4 {
       width: 35px;
       height: 35px;
       position: relative;
-      left: -5%; }
+      left: -4%; }
       #container header .addButton:hover {
         cursor: pointer;
         box-shadow: inset 0 0 1px rgba(0, 10, 0, 0.8);
@@ -97,19 +97,13 @@ h4 {
       display: none; }
     #container ul li.task.edit-mode > span.task-container {
       display: none; }
-    #container ul xmp {
-      display: inline;
-      color: #263238;
-      font-size: 1em; }
     #container ul li.hide {
-      display: none; }
-    #container ul li.detete-task {
       display: none; }
     #container ul li.task {
       position: relative;
       text-align: left;
       padding: 20px 0;
-      background-color: #CFD8DC;
+      background-color: #ECEFF1;
       transition: background-color 0.3s; }
       #container ul li.task input {
         margin: 0 20px;
@@ -118,8 +112,6 @@ h4 {
         vertical-align: middle; }
       #container ul li.task input.editInput {
         width: 40%; }
-      #container ul li.task:nth-child(odd) {
-        background-color: #ECEFF1; }
       #container ul li.task.checked {
         text-decoration: line-through;
         background-color: #607D8B;

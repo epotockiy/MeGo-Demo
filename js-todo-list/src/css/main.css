@@ -5,7 +5,7 @@
 }
 
 /* line 6, ../sass/main.scss */
-.fonts, #container header, #container ul, #container ul xmp {
+.fonts, #container header, #container ul {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.875em;
   color: white;
@@ -26,7 +26,7 @@ h4 {
 /* line 25, ../sass/main.scss */
 #container {
   padding: 40px 0;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
@@ -59,7 +59,7 @@ h4 {
   width: 35px;
   height: 35px;
   position: relative;
-  left: -5%;
+  left: -4%;
 }
 /* line 61, ../sass/main.scss */
 #container header .addButton:hover {
@@ -146,61 +146,47 @@ h4 {
   display: none;
 }
 /* line 139, ../sass/main.scss */
-#container ul xmp {
-  display: inline;
-  color: #263238;
-  font-size: 1em;
-}
-/* line 146, ../sass/main.scss */
 #container ul li.hide {
   display: none;
 }
-/* line 149, ../sass/main.scss */
-#container ul li.detete-task {
-  display: none;
-}
-/* line 154, ../sass/main.scss */
+/* line 143, ../sass/main.scss */
 #container ul li.task {
   position: relative;
   text-align: left;
   padding: 20px 0;
-  background-color: #CFD8DC;
+  background-color: #ECEFF1;
   transition: background-color 0.3s;
 }
-/* line 161, ../sass/main.scss */
+/* line 150, ../sass/main.scss */
 #container ul li.task input {
   margin: 0 20px;
   width: 20px;
   height: 14px;
   vertical-align: middle;
 }
-/* line 168, ../sass/main.scss */
+/* line 157, ../sass/main.scss */
 #container ul li.task input.editInput {
   width: 40%;
 }
-/* line 171, ../sass/main.scss */
-#container ul li.task:nth-child(odd) {
-  background-color: #ECEFF1;
-}
-/* line 174, ../sass/main.scss */
+/* line 161, ../sass/main.scss */
 #container ul li.task.checked {
   text-decoration: line-through;
   background-color: #607D8B;
   transition: background-color 0.7s;
 }
-/* line 180, ../sass/main.scss */
+/* line 167, ../sass/main.scss */
 #container ul li.task input.editInput {
   display: none;
 }
-/* line 183, ../sass/main.scss */
+/* line 170, ../sass/main.scss */
 #container ul li.task span.cancel {
   display: none;
 }
-/* line 186, ../sass/main.scss */
+/* line 173, ../sass/main.scss */
 #container ul li.task span.confirm {
   display: none;
 }
-/* line 194, ../sass/main.scss */
+/* line 181, ../sass/main.scss */
 #container ul .button {
   min-width: 50px;
   background-color: #607D8B;
@@ -213,13 +199,13 @@ h4 {
   border-radius: 10%;
   cursor: pointer;
 }
-/* line 208, ../sass/main.scss */
+/* line 195, ../sass/main.scss */
 #container ul .edit {
   right: 20%;
   background-color: #455A64;
   display: inline;
 }
-/* line 213, ../sass/main.scss */
+/* line 200, ../sass/main.scss */
 #container ul .confirm {
   right: 20%;
   background-color: #455A64;
