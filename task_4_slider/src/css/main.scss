@@ -87,9 +87,18 @@
   margin-bottom: 40px;
 
 }
+.slider-menu div:hover{
 
+  background-color: aquamarine;
+}
+.slider-submenu-container li:hover{
+  background-color: darkslateblue;
+}
 .versionSwitcher button {
   background-color: sandybrown;
   color: white;
   margin: 0 10px;
+}
+.active-button:hover{
+  background-color: cadetblue;
 }

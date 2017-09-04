@@ -17,7 +17,6 @@ var Slider = (function () {
     Slider.prototype.defaultSliderInitializer = function () {
         this.removeCssSubMenuClass();
         this.sliderInitializer();
-        console.log('js');
     };
 
     Slider.prototype.sliderInitializer = function () {
@@ -60,12 +59,15 @@ var Slider = (function () {
         })
     };
 
+
     Slider.prototype.switchSliderVersion = function () {
         var self = this;
+        console.log('kek');
         this.versionSwitcher.click(function (e) {
             var target = e.target;
             var versionOfSlider = target.getAttribute('data-sliderVersion');
             if (versionOfSlider === 'jsSlider') {
+                target.classList.add('active-button');
                 self.removeCssSubMenuClass();
                 self.removeCssImageClass();
                 self.isJSVersionOfSlider = true;
@@ -73,6 +75,7 @@ var Slider = (function () {
                 console.log('js');
             }
             else if (versionOfSlider === 'cssSlider') {
+                target.classList.add('active-button');
                 self.addCssSubMenuClass();
                 self.isJSVersionOfSlider = false;
                 self.sliderInitializer();
