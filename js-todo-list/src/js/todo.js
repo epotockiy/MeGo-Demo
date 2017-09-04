@@ -21,15 +21,13 @@ window.onload = function(){
             }
         }
         function render(){
-            console.log("render");
-            for(var key in toDoList){
-                console.log("Empty row" , toDoList[key]);
-                renderRow(toDoList[key]);
+           for(var key in toDoList){
+               renderRow(toDoList[key]);
             }
         }
         function renderRow(temp) {
             var ul = document.getElementById('toDoList');
-            sortItem(sortType);
+            sortItem();
             ul.insertBefore( row(temp) , ul.firstChild);
         }
         function row(temp) {
@@ -201,6 +199,7 @@ window.onload = function(){
             }
             if(target.classList.contains('delete')){
                 target.parentNode.remove();
+                toDoList.splice( findKey(target.parentNode.dataset.information) , 1);
             }
             if(target.classList.contains('confirm')){
                 number = findKey(target.parentNode.dataset.information);
@@ -214,7 +213,6 @@ window.onload = function(){
             }
             localStorage.setItem( 'todo' , JSON.stringify(toDoList));
         });
-
         if(localStorage.getItem('todo') != undefined){
             toDoList = JSON.parse(localStorage.getItem('todo'));
             render();
