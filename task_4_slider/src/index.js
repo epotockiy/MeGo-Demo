@@ -2,12 +2,11 @@ import 'jquery';
 import  './css/main.scss';
 import {Slider} from './js/Slider';
 ///needed for taking all images
-function requireAll(r) {
-    r.keys().forEach(r);
+function requireAll(image) {
+    image.keys().forEach(image);
 }
 requireAll(require.context('./img/', true, /\.png$/));
-
-///create Slider
+//create Slider
 $.fn.createNewSlider = function () {
     return this.each(function (i, baseElement) {
         new Slider(baseElement);
