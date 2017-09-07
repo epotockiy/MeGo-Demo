@@ -8,6 +8,7 @@ var Slider = (function () {
         this.sliderMenu = this.baseElement.find('.slider-menu');
         this.preventSecondaryAnimation = 0;
         this.isJSVersionOfSlider = true;
+        this.VIEWED_SUBMENU_SLIDES=3;
 
         // default initializer of slider
         this.defaultSliderInitializer();
@@ -15,7 +16,6 @@ var Slider = (function () {
     }
 
     Slider.prototype.defaultSliderInitializer = function () {
-        this.removeCssSubMenuClass();
         this.sliderInitializer();
     };
 
@@ -62,7 +62,6 @@ var Slider = (function () {
 
     Slider.prototype.switchSliderVersion = function () {
         var self = this;
-        console.log('kek');
         this.versionSwitcher.click(function (e) {
             var target = e.target;
             var versionOfSlider = target.getAttribute('data-sliderVersion');
@@ -72,14 +71,13 @@ var Slider = (function () {
                 self.removeCssImageClass();
                 self.isJSVersionOfSlider = true;
                 self.sliderInitializer();
-                console.log('js');
+                //console.log('js');
             }
             else if (versionOfSlider === 'cssSlider') {
                 target.classList.add('active-button');
                 self.addCssSubMenuClass();
                 self.isJSVersionOfSlider = false;
-                self.sliderInitializer();
-                console.log('css');
+                self.sliderInitializer();//console.log('css');
 
             }
         });
@@ -107,10 +105,13 @@ var Slider = (function () {
 
             newSliderImage
                 .css({'background-image': "url('img/img" + imageNumber + ".png')", 'right': '430px'})
+                .stop()
                 .animate({right: '0'}, 300);
+
             this.sliderImageContainer
                 .children()
                 .first()
+                .stop()
                 .animate({left: '430px'}, 300, function () {
                     $(this).remove();
                 })
@@ -118,14 +119,14 @@ var Slider = (function () {
     };
 
     Slider.prototype.slideToJS = function (dataIdOfMenuElement) {
-        this.subMenuContainer.animate({top: -dataIdOfMenuElement * 3 * 45 + 'px'}, "slow");//margin top transition
-        this.slideImageJS(dataIdOfMenuElement * 3);
+        this.subMenuContainer.animate({top: -dataIdOfMenuElement * this.VIEWED_SUBMENU_SLIDES * 45 + 'px'}, 300);//margin top transition
+        this.slideImageJS(dataIdOfMenuElement * this.VIEWED_SUBMENU_SLIDES);
     };
     ///////////////////////////////
     // CSS version
     Slider.prototype.slideToCSS = function (dataIdOfMenuElement) {
-        this.subMenuContainer.css({'top': -dataIdOfMenuElement * 3 * 45 + 'px'});//margin top transition
-        this.slideImageCSS(dataIdOfMenuElement * 3);
+        this.subMenuContainer.css({'top': -dataIdOfMenuElement * this.VIEWED_SUBMENU_SLIDES * 45 + 'px'});//margin top transition
+        this.slideImageCSS(dataIdOfMenuElement * this.VIEWED_SUBMENU_SLIDES);
     };
     Slider.prototype.slideImageCSS = function (imageNumber) {
         if (this.preventSecondaryAnimation !== imageNumber) {
