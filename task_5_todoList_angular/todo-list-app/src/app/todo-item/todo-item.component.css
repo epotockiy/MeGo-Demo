@@ -1,0 +1,121 @@
+input[type="text"] {
+  border: 1px solid #ddd;
+
+}
+input[type="checkbox"] {
+  display: inline-block;
+}
+
+/* Task list */
+li input[type='text'] {
+  font-size: 15px;
+}
+li > label {
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: bottom;
+  margin-bottom: 5px;
+  width: 247px;
+
+  overflow: auto;
+}
+li > input[type="text"] {
+  width: 99%;
+}
+li input[type=text] {
+  display: none;
+}
+
+ li:nth-child(2n) {
+  margin: 5px;
+  background-color: burlywood;
+}
+
+ li:nth-child(2n-1) {
+  margin: 5px;
+  background-color: #b18c5c;
+}
+
+
+
+input[type=checkbox] + label {
+  text-decoration: none;
+
+}
+
+input[type=checkbox]:checked + label {
+  color: #f00;
+  font-style: normal;
+  text-decoration: line-through;
+}
+.edit-mode .edit {
+  color: transparent;
+
+}
+
+.edit-mode .edit:before {
+  content: "Confirm";
+  padding-left: 22px;
+  color: black;
+}
+li.edit-mode input[type=text] {
+  display: block;
+
+}
+li.edit-mode label {
+  display: none;
+}
+.cancel {
+  display: none;
+}
+
+.edit-mode .cancel {
+  padding:5px 28px;
+  background-color: bisque;
+  display: inline-block;
+  float: right;
+  margin-right: 20px;
+}
+
+.edit-mode .delete {
+  display: none;
+}
+
+.completed-tasks li {
+  display: none;
+}
+
+.completed-tasks .completed-task {
+  display: block;
+}
+
+.edit-mode input[type=checkbox] {
+  display: none;
+}
+
+.uncompleted-tasks li {
+  display: block;
+}
+
+.uncompleted-tasks .completed-task {
+  display: none;
+}
+
+.edit {
+  margin-left: 20px;
+  padding: 5px;
+  display: inline-block;
+  background-color: bisque;
+}
+
+.delete {
+  border-left: 1px solid #b18c5c;
+  padding: 5px 7px;
+  display: inline-block;
+  background-color: bisque;
+}
+
+li * {
+  font-size: 15px;
+}
+
