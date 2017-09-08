@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   constructor(private localStorageService: LocalStorageService) {
    // this.todos=this.getTodos();
-    // console.log( this.getTodos());
+
   }
 
   getTodos() {
@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.todos = this.getTodos();
+    //console.log(document.getElementsByClassName('todos-list')[0]);
   }
 
 }

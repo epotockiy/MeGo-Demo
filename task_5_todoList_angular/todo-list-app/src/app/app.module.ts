@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 //import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import {LocalStorageService} from "./local-storage.service";
+import {FilterService} from "./filter-service.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,7 @@ import {LocalStorageService} from "./local-storage.service";
     BrowserModule,
     FormsModule
   ],
-  providers: [LocalStorageService],
+  providers: [LocalStorageService,FilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
