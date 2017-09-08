@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Todo} from "./todo";
 import {LocalStorageService} from "./local-storage.service";
+import {FilterService} from "./filter-service.service";
+gdf
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +14,7 @@ export class AppComponent implements OnInit {
 
   constructor(private localStorageService: LocalStorageService) {
    // this.todos=this.getTodos();
-
+    console.log(document.getElementsByClassName('todos-list')[0]);
   }
 
   getTodos() {
@@ -40,7 +42,6 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.todos = this.getTodos();
-    //console.log(document.getElementsByClassName('todos-list')[0]);
   }
 
 }

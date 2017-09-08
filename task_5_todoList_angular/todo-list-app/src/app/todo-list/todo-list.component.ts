@@ -13,7 +13,7 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filterService.insertData( document.getElementsByClassName('todos-list')[0]);// console.log(this.todos[1].text);
+    this.filterService.insertData(document.getElementsByClassName('todos-list')[0]);// console.log(this.todos[1].text);
    // console.log(this.filterService.alltodosHtmlElement);
   }
 
