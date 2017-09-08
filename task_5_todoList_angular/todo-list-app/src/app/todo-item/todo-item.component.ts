@@ -83,55 +83,7 @@ export class TodoItemComponent implements OnInit {
     listElement.classList.remove("edit-mode");
   }
 
-//   switchStatusTodo(htmlElement) {
-//     console.log(htmlElement);
-//     if (htmlElement.checked) {
-//       // htmlElement.nextSibling.style.textDecoration = 'line-through';//change this with css
-//       htmlElement.parentNode.classList.add('completed-task');
-//
-//       this.localStorageService.editStatusTodo(htmlElement.parentNode.id, true);
-//     }
-//     else {
-//       htmlElement.parentNode.classList.remove('completed-task');
-//       // htmlElement.nextSibling.style.textDecoration = 'none';
-//       this.localStorageService.editStatusTodo(htmlElement.parentNode.id, false);
-//     }
-//   }
-//   editTodo(editedHtmlElement){
-//     var listItem = editedHtmlElement.parentNode;
-//     var editInput = listItem.querySelector("input[type=text]");
-//     var checkbox = listItem.querySelector("input[type=checkbox]");
-//     var label = listItem.querySelector("label");
-//     var containsClass = listItem.classList.contains("edit-mode");
-//     var temp = '';
-//     if (checkbox.checked !== true) {
-//       temp = editInput.value;
-//       if (containsClass) {
-//         if (label.innerText !== temp) {
-//           if (validateTextInput(temp)) {
-//             label.innerText = temp;
-//             this.localStorageService.editTextTodo(temp, listItem.id);
-//           }
-//           else {
-//             return;
-//           }
-//         }
-//       }
-//       else {
-//         editInput.value = label.innerText;
-//       }
-//       listItem.classList.toggle("edit-mode");
-//     }
-//   }
-//   cancelEditing(htmlElement) {
-//   var listItem = htmlElement.parentNode;
-//   listItem.classList.remove("edit-mode");
-// };
-//   removeTodo(htmlElement) {
-//   var id = htmlElement.parentNode.getAttribute('id');
-//   this.localStorageService.removeById(id);
-//   htmlElement.parentNode.remove();
-// };
   ngOnInit() {
+
   }
 }

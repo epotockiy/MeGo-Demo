@@ -1,10 +1,9 @@
 <!--<section *ngIf="todos.length > 0">-->
+<div class="filters-buttons">
 <input class="all-tasks-btn active-filter" type="button" (click)="showTodosList($event)" value="All">
 <input class="completed-tasks-btn" type="button" (click)="applyCompletedTaskFilter($event)" value="completed tasks">
 <input class="uncompleted-tasks-btn" type="button" (click)="applyUncompletedTaskFilter($event)"  value="uncompleted-tasks">
-
-
-
+</div>
   <ul class="todos-list">
     <app-todo-item
       *ngFor="let todo of todos"

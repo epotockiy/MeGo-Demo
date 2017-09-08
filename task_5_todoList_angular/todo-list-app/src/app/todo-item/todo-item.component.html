@@ -1,4 +1,4 @@
-<li [id]="todo.id">
+<li [id]="todo.id" [class.completed-task]="todo.checked">
   <input type="checkbox" class="statusToggler" [checked]="todo.checked" (click)="switchStatusTodo(todo,$event)">
   <label>{{todo.text}}</label>
   <input type="text">

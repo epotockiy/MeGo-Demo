@@ -83,17 +83,17 @@ button{
   clear: both;
 }
 
-.uncompleted-tasks li {
+.uncompleted-tasks app-todo-item li {
   display: block;
 }
 
-.uncompleted-tasks .completed-task {
+.uncompleted-tasks app-todo-item .completed-task {
   display: none;
 }
-.completed-tasks li {
+.completed-tasks app-todo-item li {
   display: none;
 }
 
-.completed-tasks .completed-task {
+.completed-tasks app-todo-item  .completed-task {
   display: block;
 }

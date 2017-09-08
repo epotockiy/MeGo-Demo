@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   constructor(private localStorageService: LocalStorageService) {
    // this.todos=this.getTodos();
-    console.log(document.getElementsByClassName('todos-list')[0]);
+  //  console.log(document.getElementsByClassName('todos-list')[0]);
   }
 
   getTodos() {
@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   onSwitchStatusTodo(todo: Todo) {
-    console.log(todo.checked);
     this.localStorageService.editStatusTodo(todo.id, todo.checked);
   }
 

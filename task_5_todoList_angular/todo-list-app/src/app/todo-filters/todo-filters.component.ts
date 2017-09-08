@@ -64,9 +64,9 @@ export class TodoFiltersComponent implements OnInit {
    // this.allTodosHtmlElement = this.filterService.getAllTodosHtmlElement();
     this.completedTaskButton = document.getElementsByClassName('completed-tasks-btn')[0];
     this.unCompletedTaskButton = document.getElementsByClassName('uncompleted-tasks-btn')[0];
-    //this.allTodosHtmlElement = document.getElementsByClassName('todos-list')[0];
-    this.allTodosHtmlElement = FilterService.alltodosHtmlElement;
-    console.log( this.allTodosHtmlElement);
+    this.allTodosHtmlElement = document.getElementsByClassName('todos-list')[0];
+    //this.allTodosHtmlElement = FilterService.alltodosHtmlElement;
+    //console.log( this.allTodosHtmlElement);
   }
 
 }
