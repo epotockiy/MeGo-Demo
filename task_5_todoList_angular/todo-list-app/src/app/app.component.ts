@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Todo} from "./todo";
 import {LocalStorageService} from "./local-storage.service";
 import {FilterService} from "./filter-service.service";
-gdf
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
