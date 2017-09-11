@@ -1,0 +1,20 @@
+form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.task-input {
+  font-size: 15px;
+  padding: 4px;
+}
+.add-button {
+  font-size: 15px;
+  padding: 5px 22px;
+  background-color: bisque;
+
+}
+::-webkit-input-placeholder {
+  color: #000000;
+}
+input[type="text"] {
+   border: 1px solid #ddd;
+ }
