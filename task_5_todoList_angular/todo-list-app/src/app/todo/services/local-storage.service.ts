@@ -47,7 +47,6 @@ export class LocalStorageService {
   }
   editTextTodo(editedTodoText, id){
     this.allTodos = this.getTodos();
-   // console.log(editedTodoText);
     this.allTodos.forEach(function (obj) {
       if (obj['id'] === id) {
         obj['text'] = editedTodoText;
@@ -67,14 +66,14 @@ export class LocalStorageService {
     });
     this.writeDataToLocalStorage(this.allTodos);
   }
+
   isLocalStorageAvailable(){
     var test = 'test';
     try {
       localStorage.setItem(test, test);
       localStorage.removeItem(test);
-      return true;
     } catch (e) {
-      return false;
+     new Error('local storage is not availbale');
     }
   }
 }
