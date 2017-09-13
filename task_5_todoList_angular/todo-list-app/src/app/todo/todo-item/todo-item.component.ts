@@ -6,6 +6,7 @@ import {Todo} from '../models/todo';
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
+  editElement: any;
   @Input() todo: Todo;
   @Output()
   remove: EventEmitter<Todo> = new EventEmitter();
@@ -32,8 +33,8 @@ export class TodoItemComponent implements OnInit {
     this.toggleStatus.emit(todo);
   }
 
-  editTodo(todo: Todo, e) {
-    var listElement = e.target.parentNode;
+  editTodo(todo: Todo) {
+    var listElement = this.editElement.parentNode;
     var editInput = listElement.querySelector('input[type=text]');
     var label = listElement.querySelector('label');
     var temp = '';
@@ -52,14 +53,15 @@ export class TodoItemComponent implements OnInit {
       } else {
         editInput.value = label.innerText;
       }
-      this.editModeToggler(e, listElement);
+      this.editModeToggler( listElement);
     }
+
   }
 
-  editModeToggler(element, elementParent) {
+  editModeToggler( elementParent) {
     elementParent.classList.toggle('edit-mode');
-    element.target.classList.toggle('fa-pencil');
-    element.target.classList.toggle('fa-check');
+    this.editElement.classList.toggle('fa-pencil');
+    this.editElement.classList.toggle('fa-check');
   }
 
   validateTextInput(inputText) {
@@ -77,11 +79,13 @@ export class TodoItemComponent implements OnInit {
   }
 
   cancelEditing(e) {
+    this.editElement.classList.toggle('fa-pencil');
+    this.editElement.classList.toggle('fa-check');
     var listElement = e.target.parentNode;
     listElement.classList.remove('edit-mode');
   }
 
   ngOnInit() {
-
+    this.editElement = document.getElementsByClassName('edit')[0];
   }
 }
