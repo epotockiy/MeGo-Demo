@@ -12,11 +12,11 @@ import {Component, OnInit} from '@angular/core';
   }
 
   openModalWindow() {
-    this.modal.style.display = "block";
+    this.modal.style.display = 'block';
   }
 
   closeModal() {
-    this.modal.style.display = "none";
+    this.modal.style.display = 'none';
   }
 
   ngOnInit() {

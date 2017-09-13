@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {FilterService} from "../services/filter.service";
+import {FilterService} from '../services/filter.service';
 
 @Component({
   selector: 'app-todo-filters',
@@ -7,7 +7,7 @@ import {FilterService} from "../services/filter.service";
   styleUrls: ['./todo-filters.component.scss'],
 
 })
-export class TodoFiltersComponent implements OnInit,AfterViewInit {
+export class TodoFiltersComponent implements OnInit, AfterViewInit {
   allTaskButton: any;
   completedTaskButton: any;
   unCompletedTaskButton: any;
@@ -38,14 +38,14 @@ export class TodoFiltersComponent implements OnInit,AfterViewInit {
   switchActiveFilterClass(activeElement, notActiveElements) {
     activeElement.classList.add('active-filter');
     notActiveElements.forEach(function (element) {
-      element.classList.remove('active-filter')
+      element.classList.remove('active-filter');
     })
   }
 
   removeEditModeClass(allTodosChildNodes) {
     for (var i = 0; i < allTodosChildNodes.length; i++) {
       if (allTodosChildNodes[i].className === 'edit-mode') {
-        allTodosChildNodes[i].classList.remove('edit-mode')
+        allTodosChildNodes[i].classList.remove('edit-mode');
       }
     }
   }
@@ -57,9 +57,11 @@ export class TodoFiltersComponent implements OnInit,AfterViewInit {
     this.removeEditModeClass(this.allTodosHtmlElement.childNodes);
 
   };
-  ngAfterViewInit(){
+
+  ngAfterViewInit() {
     this.allTodosHtmlElement = FilterService.alltodosHtmlElement;
   }
+
   ngOnInit() {
     this.completedTaskButton = document.getElementsByClassName('completed-tasks-btn')[0];
     this.unCompletedTaskButton = document.getElementsByClassName('uncompleted-tasks-btn')[0];

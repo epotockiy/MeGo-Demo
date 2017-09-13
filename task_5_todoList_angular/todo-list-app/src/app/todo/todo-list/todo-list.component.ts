@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {Todo} from'../models/todo'
-import {FilterService} from "../services/filter.service";
-import {ModalWindowComponent} from "../modal-window/modal-window.component";
+import {Todo} from'../models/todo';
+import {FilterService} from '../services/filter.service';
+import {ModalWindowComponent} from '../modal-window/modal-window.component';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,17 +10,19 @@ import {ModalWindowComponent} from "../modal-window/modal-window.component";
 })
 export class TodoListComponent implements OnInit {
 
-  @Input() modal:ModalWindowComponent;
+  @Input() modal: ModalWindowComponent;
   @Input() todos: Todo[];
-  kek:any;
+  kek: any;
 
   constructor(private filterService: FilterService) {
 
   }
+
   ngOnInit() {
     this.filterService.insertData(document.getElementsByClassName('todos-list')[0]);
-    this.kek=document.getElementsByClassName('todos-list')[0]
+    this.kek = document.getElementsByClassName('todos-list')[0];
   }
+
   @Output()
   remove: EventEmitter<Todo> = new EventEmitter();
   @Output()
@@ -33,7 +35,8 @@ export class TodoListComponent implements OnInit {
 
     this.toggleStatus.emit(todo);
   }
-  onOpenModalWindow(){
+
+  onOpenModalWindow() {
     this.modal.openModalWindow();
   }
 

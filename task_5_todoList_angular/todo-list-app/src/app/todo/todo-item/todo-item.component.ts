@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {Todo} from '../models/todo'
+import {Todo} from '../models/todo';
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
@@ -33,23 +33,23 @@ export class TodoItemComponent implements OnInit {
   }
 
   editTodo(todo: Todo, e) {
-    let listElement = e.target.parentNode;
-    let editInput = listElement.querySelector('input[type=text]');
-    let label = listElement.querySelector("label");
-    let temp = '';
+    var listElement = e.target.parentNode;
+    var editInput = listElement.querySelector('input[type=text]');
+    var label = listElement.querySelector('label');
+    var temp = '';
     if (todo.checked !== true) {
       temp = editInput.value;
-      if (listElement.classList.contains("edit-mode")) {
-          if (this.validateTextInput(temp)&& label.innerText !== temp) {
+      if (listElement.classList.contains('edit-mode')) {
+        if (label.innerText !== temp) {
+          if (this.validateTextInput(temp)) {
             label.innerText = temp;
             todo.text = temp;
             this.edit.emit(todo);
-          }
-          else {
+          } else {
             return;
           }
-      }
-      else {
+        }
+      } else {
         editInput.value = label.innerText;
       }
       this.editModeToggler(e, listElement);
@@ -57,7 +57,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   editModeToggler(element, elementParent) {
-    elementParent.classList.toggle("edit-mode");
+    elementParent.classList.toggle('edit-mode');
     element.target.classList.toggle('fa-pencil');
     element.target.classList.toggle('fa-check');
   }
@@ -71,15 +71,16 @@ export class TodoItemComponent implements OnInit {
   }
 
   removeTodo(todo: Todo, e) {
-    let listElement = e.target.parentNode;
+    var listElement = e.target.parentNode;
     listElement.remove();
     this.remove.emit(todo);
   }
 
-  cancelEditing( e) {
-    let listElement = e.target.parentNode;
-    listElement.classList.remove("edit-mode");
+  cancelEditing(e) {
+    var listElement = e.target.parentNode;
+    listElement.classList.remove('edit-mode');
   }
+
   ngOnInit() {
 
   }

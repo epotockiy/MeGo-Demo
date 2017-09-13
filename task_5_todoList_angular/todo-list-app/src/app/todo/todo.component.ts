@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Todo} from "./models/todo";
-import {LocalStorageService} from "./services/local-storage.service";
+import {Todo} from './models/todo';
+import {LocalStorageService} from './services/local-storage.service';
 
 @Component({
   selector: 'app-todo',

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {Todo} from "../models/todo";
-import {ModalWindowComponent} from "../modal-window/modal-window.component";
+import {Todo} from '../models/todo';
+import {ModalWindowComponent} from '../modal-window/modal-window.component';
 
 @Component({
   selector: 'app-new-todo-input',
@@ -9,7 +9,7 @@ import {ModalWindowComponent} from "../modal-window/modal-window.component";
 })
 export class NewTodoInputComponent implements OnInit {
   newTodo: Todo;
-  @Input() modal:ModalWindowComponent;
+  @Input() modal: ModalWindowComponent;
   @Output()
   add: EventEmitter<Todo> = new EventEmitter();
 
