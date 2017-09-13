@@ -109,7 +109,6 @@
                 }
             })
         };
-
         TodoList.prototype.addNewTodo = function () {
             var todoText = this.taskInputHtmlElement.value;
             var newId = getNewId();

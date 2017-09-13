@@ -82,19 +82,16 @@ var Slider = (function () {
             }
         });
     };
-    //for image-slider
+
     Slider.prototype.removeCssImageClass = function () {
         this.baseElement.find('.slider-image').removeClass('slide-out-effect');
     };
-    //for submenu
+
     Slider.prototype.removeCssSubMenuClass = function () {
         this.subMenuContainer.removeClass('slide-effect');
 
     };
-    Slider.prototype.addCssSubMenuClass = function () {
-        this.subMenuContainer.addClass('slide-effect');
 
-    };
 
 
     ////JS version of slider
