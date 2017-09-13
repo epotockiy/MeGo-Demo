@@ -19,20 +19,6 @@ export class LocalStorageService {
      }
      return this.allTodos;
    }
-  //  getCompletedTodos():Todo[]{
-  //    this.allTodos = this.getTodos();
-  //    this.allTodos = this.allTodos.filter(function (element) {
-  //      return element['checked'] === true;
-  //    });
-  //    return this.allTodos;
-  //  }
-  // getUncompletedTodos():Todo[]{
-  //   this.allTodos = this.getTodos();
-  //   this.allTodos = this.allTodos.filter(function (element:object) {
-  //     return element['checked'] === false;
-  //   });
-  //   return this.allTodos;
-  // }
   addTodo(newTodo):void{
     this.allTodos = this.getTodos();
     this.allTodos.push(newTodo);

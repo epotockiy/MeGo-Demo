@@ -1,6 +1,5 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Todo} from '../models/todo'
-//import {LocalStorageService} from "../local-storage.service";
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
@@ -14,24 +13,25 @@ export class TodoItemComponent implements OnInit {
   toggleStatus: EventEmitter<Todo> = new EventEmitter();
   @Output()
   edit: EventEmitter<Todo> = new EventEmitter();
+  @Output() openModal = new EventEmitter();
+
   constructor() {
   }
+
   switchStatusTodo(todo: Todo, e) {
     let checkboxElement = e.target;
     if (checkboxElement.checked) {
       checkboxElement.parentNode.classList.add('completed-task');
       todo.checked = true;
-      this.toggleStatus.emit(todo);
-
     }
     else {
       checkboxElement.parentNode.classList.remove('completed-task');
       todo.checked = false;
-      this.toggleStatus.emit(todo);
+
     }
+    this.toggleStatus.emit(todo);
   }
 
-//e=== eventObject
   editTodo(todo: Todo, e) {
     let listElement = e.target.parentNode;
     let editInput = listElement.querySelector('input[type=text]');
@@ -40,8 +40,7 @@ export class TodoItemComponent implements OnInit {
     if (todo.checked !== true) {
       temp = editInput.value;
       if (listElement.classList.contains("edit-mode")) {
-        if (label.innerText !== temp) {
-          if (this.validateTextInput(temp)) {
+          if (this.validateTextInput(temp)&& label.innerText !== temp) {
             label.innerText = temp;
             todo.text = temp;
             this.edit.emit(todo);
@@ -49,18 +48,23 @@ export class TodoItemComponent implements OnInit {
           else {
             return;
           }
-        }
       }
       else {
         editInput.value = label.innerText;
       }
-      listElement.classList.toggle("edit-mode");
+      this.editModeToggler(e, listElement);
     }
+  }
+
+  editModeToggler(element, elementParent) {
+    elementParent.classList.toggle("edit-mode");
+    element.target.classList.toggle('fa-pencil');
+    element.target.classList.toggle('fa-check');
   }
 
   validateTextInput(inputText) {
     if (inputText === '') {
-      alert('enter some text');
+      this.openModal.emit();
       return false;
     }
     return true;
@@ -72,11 +76,10 @@ export class TodoItemComponent implements OnInit {
     this.remove.emit(todo);
   }
 
-  cancelEditing(todo: Todo, e) {
+  cancelEditing( e) {
     let listElement = e.target.parentNode;
     listElement.classList.remove("edit-mode");
   }
-
   ngOnInit() {
 
   }

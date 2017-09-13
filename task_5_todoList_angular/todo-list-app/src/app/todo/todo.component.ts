@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Todo} from "./models/todo";
 import {LocalStorageService} from "./services/local-storage.service";
 
-// import {FilterService} from "./services/filter.service";
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -36,7 +35,7 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.localStorageService.isLocalStorageAvailable();
     this.todos = this.getTodos();
 
   }

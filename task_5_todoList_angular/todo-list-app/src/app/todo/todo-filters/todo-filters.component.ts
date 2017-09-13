@@ -13,7 +13,7 @@ export class TodoFiltersComponent implements OnInit,AfterViewInit {
   unCompletedTaskButton: any;
   allTodosHtmlElement: any;
 
-  constructor(private filterService: FilterService) {
+  constructor() {
 
   }
 

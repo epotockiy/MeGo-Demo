@@ -1,20 +1,11 @@
 form {
-  text-align: center;
-  margin-bottom: 20px;
+  width: 70%;
+  margin: 20px auto;
 }
-.task-input {
-  font-size: 15px;
-  padding: 4px;
+button {
+  background-color: #007c91;
+  color:white;
 }
-.add-button {
-  font-size: 15px;
-  padding: 5px 22px;
-  background-color: bisque;
-
+button:hover {
+  background-color: #5ddef4;
 }
-::-webkit-input-placeholder {
-  color: #000000;
-}
-input[type="text"] {
-   border: 1px solid #ddd;
- }

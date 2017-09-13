@@ -8,6 +8,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import {LocalStorageService} from "./services/local-storage.service";
 import {FilterService} from "./services/filter.service";
 import { TodoComponent } from './todo.component';
+import { ModalWindowComponent } from './modal-window/modal-window.component';
+
 @NgModule({
   declarations: [
     TodoComponent,
@@ -15,6 +17,7 @@ import { TodoComponent } from './todo.component';
     TodoFiltersComponent,
     TodoListComponent,
     TodoItemComponent,
+    ModalWindowComponent
   ],
   exports:[
     TodoComponent

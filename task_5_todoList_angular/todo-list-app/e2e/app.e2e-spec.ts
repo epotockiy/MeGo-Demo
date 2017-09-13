@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('todo-list-app App', () => {
+describe('todo-list App', () => {
   let page: AppPage;
 
   beforeEach(() => {

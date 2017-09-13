@@ -1,8 +1,8 @@
 <li [id]="todo.id" [class.completed-task]="todo.checked">
-  <input type="checkbox" class="statusToggler" [checked]="todo.checked" (click)="switchStatusTodo(todo,$event)">
-  <label>{{todo.text}}</label>
+  <input type="checkbox" class="statusToggler" [checked]="todo.checked" (click)="switchStatusTodo(todo,$event)" >
+  <label >{{todo.text}}</label>
   <input type="text">
-  <button class="edit" (click)="editTodo(todo,$event)">Edit</button>
-  <button class="cancel" (click)="cancelEditing(todo,$event)" >Cancel</button>
-  <button class="delete" (click)="removeTodo(todo,$event)">Delete</button>
+  <span class="edit fa fa-pencil" (click)="editTodo(todo,$event)"></span>
+  <span class="cancel btn fa fa-undo" (click)="cancelEditing($event)"></span>
+  <span class="delete fa fa-trash-o" (click)="removeTodo(todo,$event)"></span>
 </li>

@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Todo} from'../models/todo'
 import {FilterService} from "../services/filter.service";
+import {ModalWindowComponent} from "../modal-window/modal-window.component";
 
 @Component({
   selector: 'app-todo-list',
@@ -8,6 +9,8 @@ import {FilterService} from "../services/filter.service";
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
+
+  @Input() modal:ModalWindowComponent;
   @Input() todos: Todo[];
   kek:any;
 
@@ -16,9 +19,6 @@ export class TodoListComponent implements OnInit {
   }
   ngOnInit() {
     this.filterService.insertData(document.getElementsByClassName('todos-list')[0]);
-    // console.log(this.todos[1].text);
-    // console.log(this.filterService.alltodosHtmlElement);
-    ///////
     this.kek=document.getElementsByClassName('todos-list')[0]
   }
   @Output()
@@ -28,9 +28,13 @@ export class TodoListComponent implements OnInit {
   @Output()
   edit: EventEmitter<Todo> = new EventEmitter();
 
+
   onSwitchStatusTodo(todo: Todo) {
 
     this.toggleStatus.emit(todo);
+  }
+  onOpenModalWindow(){
+    this.modal.openModalWindow();
   }
 
   onRemoveTodo(todo: Todo) {
@@ -41,5 +45,6 @@ export class TodoListComponent implements OnInit {
     this.edit.emit(todo);
 
   }
+
 
 }
