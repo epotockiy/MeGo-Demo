@@ -33,8 +33,8 @@ export class TodoItemComponent implements OnInit {
     this.toggleStatus.emit(todo);
   }
 
-  editTodo(todo: Todo) {
-    var listElement = this.editElement.parentNode;
+  editTodo(todo: Todo, e) {
+    var listElement = e.target.parentNode;
     var editInput = listElement.querySelector('input[type=text]');
     var label = listElement.querySelector('label');
     var temp = '';
@@ -53,15 +53,15 @@ export class TodoItemComponent implements OnInit {
       } else {
         editInput.value = label.innerText;
       }
-      this.editModeToggler( listElement);
+      this.editModeToggler(e, listElement);
     }
 
   }
 
-  editModeToggler( elementParent) {
+  editModeToggler(element, elementParent) {
     elementParent.classList.toggle('edit-mode');
-    this.editElement.classList.toggle('fa-pencil');
-    this.editElement.classList.toggle('fa-check');
+    element.target.classList.toggle('fa-pencil');
+    element.target.classList.toggle('fa-check');
   }
 
   validateTextInput(inputText) {
@@ -79,8 +79,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   cancelEditing(e) {
-    this.editElement.classList.toggle('fa-pencil');
-    this.editElement.classList.toggle('fa-check');
+    e.toElement.previousElementSibling.className = e.toElement.previousElementSibling.className.replace('fa-check', 'fa-pencil');
     var listElement = e.target.parentNode;
     listElement.classList.remove('edit-mode');
   }
