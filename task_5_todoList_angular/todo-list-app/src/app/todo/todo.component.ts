@@ -37,7 +37,6 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
     this.localStorageService.isLocalStorageAvailable();
     this.todos = this.getTodos();
-
   }
 
 }

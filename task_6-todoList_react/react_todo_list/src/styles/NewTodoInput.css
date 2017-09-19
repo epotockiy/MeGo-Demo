@@ -1,0 +1,11 @@
+form {
+    width: 70%;
+    margin: 20px auto;
+}
+button {
+    background-color: #007c91;
+    color:white;
+}
+button:hover {
+    background-color: #5ddef4;
+}
