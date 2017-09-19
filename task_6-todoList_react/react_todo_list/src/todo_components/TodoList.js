@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import '../styles/TodoList.css';
 import TodoItem from "./TodoItem"
 // class TodoList extends Component {
@@ -26,9 +26,18 @@ export default function TodoList(props) {
     const onSwitchStatusTodo=(todo)=>{
         props.toggleStatus(todo)
     };
+    const onEditTodo=(todo)=>{
+        props.editTodo(todo)
+    };
 
     const todosElemnts = todosArray.map((todo) =>
-        <TodoItem key={todo.id} todo={todo} removeTodo={onDeleteeTodo} toggleStatus={onSwitchStatusTodo}/>
+        <TodoItem
+            key={todo.id}
+            todo={todo}
+            removeTodo={onDeleteeTodo}
+            toggleStatus={onSwitchStatusTodo}
+            editTodo={onEditTodo}
+        />
     );
 
     return (

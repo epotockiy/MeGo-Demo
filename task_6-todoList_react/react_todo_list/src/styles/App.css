@@ -13,3 +13,18 @@
     font-size: 15px;
     box-shadow: 2px 3px 3px rgba(0,0,0,0.5);
 }
+.uncompleted-tasks  li {
+    display: block;
+}
+
+.uncompleted-tasks  .completed-task {
+    display: none;
+}
+.completed-tasks li {
+    display: none;
+}
+
+.completed-tasks   .completed-task {
+    display: block;
+}
+

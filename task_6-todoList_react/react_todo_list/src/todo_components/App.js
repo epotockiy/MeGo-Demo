@@ -17,6 +17,7 @@ class App extends Component {
         this.getTodos = this.getTodos.bind(this);
         this.addNewTodo = this.addNewTodo.bind(this);
         this.deleteTodo = this.deleteTodo.bind(this);
+        this.editTodoText = this.editTodoText.bind(this);
         this.onSwitchStatusTodo=this.onSwitchStatusTodo.bind(this);
     }
 
@@ -45,6 +46,9 @@ class App extends Component {
         this.localStorageService.isLocalStorageAvailable();
         this.setState({todosArray: this.localStorageService.getTodos()})
     }
+    editTodoText(todo){
+        this.localStorageService.editTextTodo(todo.text, todo.id);
+    }
 
 
     render() {
@@ -59,6 +63,7 @@ class App extends Component {
                     todosArray={todos}
                     toggleStatus={this.onSwitchStatusTodo}
                     removeTodo={this.deleteTodo}
+                    editTodo={this.editTodoText}
                     />
 
             </div>

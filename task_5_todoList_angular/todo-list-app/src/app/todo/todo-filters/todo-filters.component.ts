@@ -39,7 +39,7 @@ export class TodoFiltersComponent implements OnInit, AfterViewInit {
     activeElement.classList.add('active-filter');
     notActiveElements.forEach(function (element) {
       element.classList.remove('active-filter');
-    })
+    });
   }
 
   removeEditModeClass(allTodosChildNodes) {
