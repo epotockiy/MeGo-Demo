@@ -10,9 +10,10 @@ class TodoFilters extends Component {
         this.completedTaskButton = null;
         this.unCompletedTaskButton = null;
         this.allTodosHtmlElement = null;
+
     }
 
-    applyUncompletedTaskFilter(e) {
+    applyUncompletedTaskFilter() {
         this.switchActiveFilterClass(this.unCompletedTaskButton, [this.completedTaskButton, this.allTaskButton]);
         this.removeEditModeClass(this.allTodosHtmlElement.childNodes);
         this.hideCompletedTodos();
@@ -22,11 +23,13 @@ class TodoFilters extends Component {
         this.switchActiveFilterClass(this.completedTaskButton, [this.unCompletedTaskButton, this.allTaskButton]);
         this.allTodosHtmlElement.classList.remove('uncompleted-tasks');
         this.allTodosHtmlElement.classList.add('completed-tasks');
+
     };
 
     hideCompletedTodos() {
         this.allTodosHtmlElement.classList.remove('completed-tasks');
         this.allTodosHtmlElement.classList.add('uncompleted-tasks');
+
 
     };
 
@@ -51,15 +54,14 @@ class TodoFilters extends Component {
         this.allTodosHtmlElement.classList.remove('completed-tasks');
         this.removeEditModeClass(this.allTodosHtmlElement.childNodes);
 
+
     };
 
     componentDidMount() {
-
         this.completedTaskButton = document.getElementsByClassName('completed-tasks-btn')[0];
         this.unCompletedTaskButton = document.getElementsByClassName('uncompleted-tasks-btn')[0];
         this.allTaskButton = document.getElementsByClassName('all-tasks-btn')[0];
         this.allTodosHtmlElement = document.getElementsByClassName('todos-list')[0];
-        console.log(this.allTodosHtmlElement);
     }
 
     render() {

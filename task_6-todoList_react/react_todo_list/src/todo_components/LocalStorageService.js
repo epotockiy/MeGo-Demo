@@ -54,7 +54,6 @@ class LocalStorageService {
                 return;
             }
         });
-        console.log(123);
         this.writeDataToLocalStorage(this.allTodos);
     }
 

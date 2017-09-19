@@ -1,22 +1,6 @@
 import React from 'react'
 import '../styles/TodoList.css';
 import TodoItem from "./TodoItem"
-// class TodoList extends Component {
-//     constructor(props) {
-//         super(props);
-//
-//     }
-//
-//     render() {
-//         return (
-//             <ul className="todos-list">
-//
-//             </ul>
-//
-//         )
-//     }
-// }
-// export default TodoList;
 
 export default function TodoList(props) {
     const todosArray = props.todosArray;
@@ -37,12 +21,14 @@ export default function TodoList(props) {
             removeTodo={onDeleteeTodo}
             toggleStatus={onSwitchStatusTodo}
             editTodo={onEditTodo}
+
         />
     );
 
     return (
         <ul className="todos-list">
             {todosElemnts}
+
         </ul>
     )
 }

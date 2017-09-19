@@ -14,11 +14,13 @@ class App extends Component {
         this.state = {
             todosArray: []
         };
+
         this.getTodos = this.getTodos.bind(this);
         this.addNewTodo = this.addNewTodo.bind(this);
         this.deleteTodo = this.deleteTodo.bind(this);
         this.editTodoText = this.editTodoText.bind(this);
-        this.onSwitchStatusTodo=this.onSwitchStatusTodo.bind(this);
+        this.onSwitchStatusTodo = this.onSwitchStatusTodo.bind(this);
+
     }
 
     getTodos() {
@@ -28,43 +30,48 @@ class App extends Component {
     addNewTodo(newTodo) {
         this.localStorageService.addTodo(newTodo);
         this.state.todosArray.push(newTodo);
-        this.setState({todosArray:this.state.todosArray});
+        this.setState({todosArray: this.state.todosArray});
 
     }
+
     deleteTodo(id) {
-        console.log(this.localStorageService);
+
         this.localStorageService.deleteTodo(id);
 
-       // console.log(id);
     }
+
     onSwitchStatusTodo(todo) {
 
         this.localStorageService.editStatusOfTodo(todo.id, todo.checked);
 
     }
+
     componentDidMount() {
+
         this.localStorageService.isLocalStorageAvailable();
         this.setState({todosArray: this.localStorageService.getTodos()})
     }
-    editTodoText(todo){
+
+    editTodoText(todo) {
         this.localStorageService.editTextTodo(todo.text, todo.id);
     }
 
 
     render() {
-        const todos=this.state.todosArray;
+        const todos = this.state.todosArray;
         return (
             <div className="todo-plugin">
                 <div className="todo-manager">
                     <NewTodoInput onAddNewTodo={this.addNewTodo}/>
-                    <TodoFilters />
+                    <TodoFilters/>
                 </div>
                 <TodoList
                     todosArray={todos}
                     toggleStatus={this.onSwitchStatusTodo}
                     removeTodo={this.deleteTodo}
                     editTodo={this.editTodoText}
-                    />
+
+                />
 
             </div>
         );
