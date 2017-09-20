@@ -41,9 +41,11 @@ class TodoFilters extends Component {
     }
 
     removeEditModeClass(allTodosChildNodes) {
+
         for (let i = 0; i < allTodosChildNodes.length; i++) {
             if (allTodosChildNodes[i].className === 'edit-mode') {
                 allTodosChildNodes[i].classList.remove('edit-mode');
+               allTodosChildNodes[i].childNodes[3].className=allTodosChildNodes[i].childNodes[3].className.replace('fa-check', 'fa-pencil');
             }
         }
     }

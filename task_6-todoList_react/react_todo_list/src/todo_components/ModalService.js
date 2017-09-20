@@ -7,7 +7,7 @@ export class ModalService {
     }
 
     openModalWindow() {
-        console.log(this.modal);
+
         this.modal.style.display = 'block';
     }
     closeModal() {

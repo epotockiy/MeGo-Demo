@@ -9,7 +9,7 @@ class NewTodoInput extends Component {
         this.newTodo = new TodoModel();
         this.handleChange = this.handleChange.bind(this);
         this.addTodo = this.addTodo.bind(this);
-        //console.log(this.state.inputText==='');
+
     }
 
     handleChange(event) {
