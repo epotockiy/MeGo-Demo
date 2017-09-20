@@ -3,6 +3,8 @@ import '../styles/App.css';
 import NewTodoInput from "./NewTodoInput";
 import TodoFilters from "./TodoFilters";
 import TodoList from "./TodoList";
+import Modal from "./Modal"
+import ModalService from './ModalService'
 
 import LocalStorageService from "./LocalStorageService"
 class App extends Component {
@@ -19,7 +21,9 @@ class App extends Component {
         this.addNewTodo = this.addNewTodo.bind(this);
         this.deleteTodo = this.deleteTodo.bind(this);
         this.editTodoText = this.editTodoText.bind(this);
+        this.showModel = this.showModel.bind(this);
         this.onSwitchStatusTodo = this.onSwitchStatusTodo.bind(this);
+
 
     }
 
@@ -47,7 +51,8 @@ class App extends Component {
     }
 
     componentDidMount() {
-
+        this.modal = document.getElementsByClassName('modal')[0];
+        this.modalService = new ModalService(this.modal);
         this.localStorageService.isLocalStorageAvailable();
         this.setState({todosArray: this.localStorageService.getTodos()})
     }
@@ -56,13 +61,18 @@ class App extends Component {
         this.localStorageService.editTextTodo(todo.text, todo.id);
     }
 
+    showModel() {
+        this.child.openModal();
+    }
 
     render() {
         const todos = this.state.todosArray;
         return (
             <div className="todo-plugin">
                 <div className="todo-manager">
-                    <NewTodoInput onAddNewTodo={this.addNewTodo}/>
+                    <NewTodoInput
+                        onAddNewTodo={this.addNewTodo}
+                    />
                     <TodoFilters/>
                 </div>
                 <TodoList
@@ -70,9 +80,10 @@ class App extends Component {
                     toggleStatus={this.onSwitchStatusTodo}
                     removeTodo={this.deleteTodo}
                     editTodo={this.editTodoText}
+                    modalService={this.modalService}
 
                 />
-
+                <Modal/>
             </div>
         );
     }

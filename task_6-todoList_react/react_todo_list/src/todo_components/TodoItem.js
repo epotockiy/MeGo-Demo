@@ -1,19 +1,19 @@
 import React, {Component} from 'react'
 import '../styles/TodoItem.css';
-
 class TodoItem extends Component {
     constructor(props) {
         super(props);
         this.todo = props.todo;
-
         this.state = {
             checked: this.todo.checked,
             className: ''
         };
+
         this.deleteTodo = this.deleteTodo.bind(this);
         this.switchStatusTodo = this.switchStatusTodo.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.editTodo = this.editTodo.bind(this);
+
     }
 
     deleteTodo(e) {
@@ -22,6 +22,7 @@ class TodoItem extends Component {
     };
 
     switchStatusTodo(e) {
+
         let checkboxElement = e.target;
         if (checkboxElement.checked) {
            this.todo.checked = true;
@@ -70,6 +71,8 @@ class TodoItem extends Component {
 
     validateTextInput(inputText) {
         if (inputText === '') {
+            this.props.modalService.openModalWindow();
+
             return false;
         }
         return true;

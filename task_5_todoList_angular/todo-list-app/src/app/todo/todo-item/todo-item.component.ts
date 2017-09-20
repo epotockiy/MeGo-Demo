@@ -14,7 +14,8 @@ export class TodoItemComponent implements OnInit {
   toggleStatus: EventEmitter<Todo> = new EventEmitter();
   @Output()
   edit: EventEmitter<Todo> = new EventEmitter();
-  @Output() openModal = new EventEmitter();
+  @Output()
+  openModal = new EventEmitter();
 
   constructor() {
   }
